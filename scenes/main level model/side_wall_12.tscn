@@ -1,0 +1,52 @@
+[gd_scene load_steps=6 format=4 uid="uid://cr0vja3lwfnt0"]
+
+[ext_resource type="Texture2D" uid="uid://cbxum8bdksvdi" path="res://assets/main level/side wall 1_worn_corrugated_iron_diff_4k.jpg" id="1_5u6fw"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p70su"]
+resource_name = "Material.004"
+cull_mode = 2
+shading_mode = 0
+albedo_texture = ExtResource("1_5u6fw")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_7vldy"]
+_surfaces = [{
+"aabb": AABB(-1, -1, -0.14, 2, 22, 1.06),
+"format": 34896613377,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAwACAAEAAAAEAAEAAwAFAAIABQAAAAIABgAEAAAABQAGAAAABwABAAQABwADAAEABgAHAAQABQADAAcABQAHAAYA"),
+"name": "Material.004",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("/////wAAAAAAAP7///8AAAAA//8AAAAAAAAAAP//AAD///7///8AAAAAAAAAAAAA//8AAAAAAAD//wAA//8AAA==")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_7caoh"]
+resource_name = "side wall 1_Cube_001"
+_surfaces = [{
+"aabb": AABB(-1, -1, -0.14, 2, 22, 1.06),
+"attribute_data": PackedByteArray("tm4TsLZuE7BCzAdYQswHWELME7BCzBOwtm4HWLZuB1gLhxVpC4cVadFsxYHRbMWB0Wy0idFstIliZMWBYmTFgTPRGTsz0Rk7AAD//wAA//8AABk7AAAZOzPR//8z0f//SjlDsko5Q7ILhxVpC4cVaQuHQ7ILh0OySjkVaUo5FWkLh0OyC4dDstFstInRbLSJ0WykkdFspJELhxVpC4cVaTPR//8z0f//0WykkdFspJEAAP//AAD//wuHQ7ILh0Oy"),
+"format": 34896613431,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUA"),
+"material": SubResource("StandardMaterial3D_p70su"),
+"name": "Material.004",
+"primitive": 3,
+"uv_scale": Vector4(7.58952, 8.06384, 7.58952, 8.06384),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("/////wAA//8AAP7//////wAA//8AAP/////+/////////wAA//8SvwAA/v///35P///+////kU4AAAAA////PwAAAAD//1TVAAD//wAAVNUAAP7///9U1QAAAAAAAFTVAAAAAAAA/7///wAA////v///AAAAAP+/AAAAAP///7///wAAAAADK////v///xcm/////wAA7SX//wAA//8rKwAAAAAAAP///////wAA//8AAP//AAAAAP//AAAAAP///3//v/9//7//f/+//3//v///////f/9//3//f/////9VVamqVVWpqlVVqapVVamqAAD/fwAA/38AAP9/AAD/f3Oq6FRGrY5aXa27WluquFTGvjfBxr43wf8//7/GvjfB")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_7vldy")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5u6fw"]
+albedo_texture = ExtResource("1_5u6fw")
+
+[node name="side wall 12" type="Node3D"]
+
+[node name="side wall 1" type="MeshInstance3D" parent="."]
+transform = Transform3D(230, 0, 0, 0, 5.96046e-08, 150, 0, -1, 8.9407e-06, 0, 22, -151)
+mesh = SubResource("ArrayMesh_7caoh")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_5u6fw")

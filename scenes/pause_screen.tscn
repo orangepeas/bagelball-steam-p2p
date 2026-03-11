@@ -1,0 +1,71 @@
+[gd_scene load_steps=4 format=3 uid="uid://c3vd2a2tijwwk"]
+
+[ext_resource type="Script" uid="uid://dl5evqrp7e6q7" path="res://scripts/pause_screen.gd" id="1_bjmtf"]
+[ext_resource type="PackedScene" uid="uid://dowgrihqaof13" path="res://scenes/settings.tscn" id="2_djij7"]
+[ext_resource type="PackedScene" uid="uid://ct3hcs3r3q4ec" path="res://scenes/controls.tscn" id="3_sp601"]
+
+[node name="Pause Screen" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 2
+script = ExtResource("1_bjmtf")
+
+[node name="Initial" type="Control" parent="." groups=["PauseMenuOption"]]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Initial"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Initial/HBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Resume Game" type="Button" parent="Initial/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Resume Game"
+
+[node name="Controls" type="Button" parent="Initial/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Controls"
+
+[node name="Settings" type="Button" parent="Initial/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Settings"
+
+[node name="Leave Lobby" type="Button" parent="Initial/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Leave Lobby"
+
+[node name="Quit Game" type="Button" parent="Initial/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Quit game"
+
+[node name="Settings" parent="." groups=["PauseMenuOption"] instance=ExtResource("2_djij7")]
+visible = false
+layout_mode = 1
+
+[node name="Controls" parent="." groups=["PauseMenuOption"] instance=ExtResource("3_sp601")]
+visible = false
+layout_mode = 1
+
+[connection signal="pressed" from="Initial/HBoxContainer/VBoxContainer/Resume Game" to="." method="_on_resume_game_pressed"]
+[connection signal="pressed" from="Initial/HBoxContainer/VBoxContainer/Controls" to="." method="_on_controls_pressed"]
+[connection signal="pressed" from="Initial/HBoxContainer/VBoxContainer/Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="Initial/HBoxContainer/VBoxContainer/Leave Lobby" to="." method="_on_leave_lobby_pressed"]
+[connection signal="pressed" from="Initial/HBoxContainer/VBoxContainer/Quit Game" to="." method="_on_quit_game_pressed"]

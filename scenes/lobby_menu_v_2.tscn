@@ -1,0 +1,172 @@
+[gd_scene load_steps=4 format=3 uid="uid://cxinpjqgq5gga"]
+
+[ext_resource type="Script" uid="uid://b6ii6krvi1kdt" path="res://scripts/lobby_menu_v_2.gd" id="1_m5y3u"]
+[ext_resource type="PackedScene" uid="uid://chf0w76oxufnj" path="res://scenes/map options dropdown.tscn" id="2_pnjqe"]
+[ext_resource type="PackedScene" uid="uid://pjfvk3hdof6i" path="res://scenes/custom_lobby_variables.tscn" id="3_3tro4"]
+
+[node name="Lobby Menu V2" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_m5y3u")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+alignment = 1
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_right = 10
+
+[node name="Lobby Name" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Lobby Name"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="LobbyID Output" type="LineEdit" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+placeholder_text = "ThisString is 32 characters"
+max_length = 32
+editable = false
+expand_to_text_length = true
+
+[node name="Copy To Clipboard" type="Button" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Copy Lobby ID 
+to clipboard"
+
+[node name="Custom Lobby Variables" type="Button" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "Custom Lobby
+Variables"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Host Options" type="HBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MapsLabel" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer3/Host Options"]
+layout_mode = 2
+text = "Map:"
+horizontal_alignment = 1
+
+[node name="MapsOptions" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer3/Host Options" instance=ExtResource("2_pnjqe")]
+layout_mode = 2
+
+[node name="Quantum Bagels" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer3/Host Options"]
+layout_mode = 2
+text = "Quantum Bagels: "
+horizontal_alignment = 1
+
+[node name="QuantumBagelsOptions" type="OptionButton" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer3/Host Options"]
+layout_mode = 2
+selected = 0
+item_count = 2
+popup/item_0/text = "No"
+popup/item_0/id = 0
+popup/item_1/text = "Yes"
+popup/item_1/id = 1
+
+[node name="Stop Hosting" type="Button" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer3/Host Options"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Stop Hosting"
+
+[node name="Leave Lobby" type="Button" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer3/Host Options"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Leave Lobby"
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Lobby Player Count" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+text = "Players Connected: 0"
+
+[node name="Switch Teams" type="Button" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+text = "Switch Teams"
+
+[node name="Switch Spectator" type="Button" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+text = "Switch To/From Spectator"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 140)
+layout_mode = 2
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer"]
+layout_mode = 2
+
+[node name="Lobby Player Names" type="ItemList" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/HBoxContainer5"]
+custom_minimum_size = Vector2(900, 140)
+layout_mode = 2
+size_flags_horizontal = 3
+max_text_lines = 3
+auto_height = true
+
+[node name="Start Game" type="Button" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Start Game"
+
+[node name="Custom Lobby Variables" parent="." instance=ExtResource("3_3tro4")]
+visible = false
+layout_mode = 1
+
+[connection signal="canStartGame" from="." to="Custom Lobby Variables" method="_on_lobby_menu_v_2_can_start_game"]
+[connection signal="disableCLVButtons" from="." to="Custom Lobby Variables" method="disable_clv_buttons"]
+[connection signal="enableCLVButtons" from="." to="Custom Lobby Variables" method="enable_clv_buttons"]
+[connection signal="pressed" from="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2/Copy To Clipboard" to="." method="_on_copy_to_clipboard_pressed"]
+[connection signal="pressed" from="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2/Custom Lobby Variables" to="." method="_on_custom_lobby_variables_pressed"]
+[connection signal="item_selected" from="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer3/Host Options/MapsOptions" to="." method="_on_maps_options_item_selected"]
+[connection signal="item_selected" from="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer3/Host Options/QuantumBagelsOptions" to="." method="_on_quantum_bagels_options_item_selected"]
+[connection signal="pressed" from="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer3/Host Options/Stop Hosting" to="." method="_on_stop_hosting_pressed"]
+[connection signal="pressed" from="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer3/Host Options/Leave Lobby" to="." method="_on_leave_lobby_pressed"]
+[connection signal="pressed" from="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer4/Switch Teams" to="." method="_on_switch_teams_pressed"]
+[connection signal="pressed" from="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer4/Switch Spectator" to="." method="_on_switch_spectator_pressed"]
+[connection signal="pressed" from="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/Start Game" to="." method="_on_start_game_pressed"]

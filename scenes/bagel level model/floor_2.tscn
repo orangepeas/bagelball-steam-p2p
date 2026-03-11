@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://ldaiegjhr5ml"]
+
+[ext_resource type="PackedScene" uid="uid://bt730ssk40vns" path="res://assets/bagel level/floor.glb" id="1_2shph"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vj143"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gegve"]
+next_pass = SubResource("ShaderMaterial_vj143")
+albedo_color = Color(0.223529, 0.223529, 0.223529, 1)
+
+[node name="floor2" instance=ExtResource("1_2shph")]
+
+[node name="floor" parent="." index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_gegve")

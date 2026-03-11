@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://ljd0vfa33irl"]
+
+[ext_resource type="Script" uid="uid://bxtjh4xxua00s" path="res://scripts/scene_manager.gd" id="1_qfmcr"]
+[ext_resource type="PackedScene" uid="uid://8hl52kbu026b" path="res://scenes/ball.tscn" id="2_5er01"]
+
+[node name="main level" type="Node3D" groups=["mainLevel"]]
+script = ExtResource("1_qfmcr")
+
+[node name="ball" parent="." instance=ExtResource("2_5er01")]

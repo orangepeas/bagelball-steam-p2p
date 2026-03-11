@@ -1,0 +1,51 @@
+[gd_scene load_steps=6 format=4 uid="uid://nns82uw8knry"]
+
+[ext_resource type="Texture2D" uid="uid://dwhicidgtgjgw" path="res://assets/main level/ceiling_corrugated-rusted-iron-800-mm-architextures.jpg" id="1_fvm2d"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dglns"]
+resource_name = "Material.002"
+shading_mode = 0
+albedo_texture = ExtResource("1_fvm2d")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_wfdsg"]
+_surfaces = [{
+"aabb": AABB(-1, -21, -1, 2, 42, 2),
+"format": 34359742465,
+"index_count": 60,
+"index_data": PackedByteArray("AAABAAIAAwABAAIAAwAEAAEABQADAAIABQACAAAABgAEAAMABgADAAUABAAHAAEABAAGAAcAAAAHAAEABgAIAAcACQAFAAAACgAGAAUACgAFAAkABgAKAAgACQAAAAsACwAHAAAACgAJAAsACwAIAAcACgALAAgA"),
+"name": "Material.002",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 12,
+"vertex_data": PackedByteArray("AACAPwAAqEEAAACAAACAvwAAgD8AAIA/AACAPwAAgD8AAIA/AACAPwAAqMEAAIA/AACAvwAAqMEAAIA/AACAPwAAgL8AAACAAACAvwAAgL8AAACAAACAvwAAqEEAAACAAACAvwAAgD8AAIC/AACAPwAAqMEAAIC/AACAvwAAqMEAAIC/AACAPwAAgD8AAIC/")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_t4x68"]
+resource_name = "ceiling_Cube_006"
+_surfaces = [{
+"aabb": AABB(-1, -21, -1, 2, 42, 2),
+"attribute_data": PackedByteArray("Hd56QD5AdT+JSzDAfPWbvx3eekB89Zu/iUswwD5AdT8d3npAfPWbv4lLMMB89Zu/Hd56QHz1m7+JSzDAfPWbv4lLMMA+QHU/iUswwN6aSECJSzDAPkB1P4lLMMDemkhAiUswwHz1m7+JSzDAPkB1P4lLMMB89Zu/iUswwD5AdT8d3npAfPWbvx3eekA+QHU/iUswwHz1m78d3npAPkB1Px3eekB89Zu/Hd56QD5AdT8d3npAfPWbvx3eekDemkhAHd56QD5AdT8d3npA3ppIQIlLMMDemkhAHd56QN6aSECJSzDA3ppIQB3eekDemkhAiUswwN6aSEAd3npAPkB1Px3eekDemkhAiUswwD5AdT8d3npA3ppIQIlLMMA+QHU/Hd56QD5AdT+JSzDA3ppIQA=="),
+"format": 34359742487,
+"index_count": 60,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAAIAA0ADAANAA4ADwAQABEADwASABAAEwAUABUAEwAWABQAFwATABgAFwAYABkAGgAbABwAGgAdABsAHgAfACAAHgAhAB8AIgAjACQAIgAlACMA"),
+"material": SubResource("StandardMaterial3D_dglns"),
+"name": "Material.002",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 38,
+"vertex_data": PackedByteArray("AACAPwAAqEEAAACAAACAvwAAgD8AAIA/AACAPwAAgD8AAIA/AACAvwAAqEEAAACAAACAPwAAqMEAAIA/AACAvwAAgD8AAIA/AACAPwAAgD8AAIA/AACAvwAAqMEAAIA/AACAvwAAgL8AAACAAACAvwAAgD8AAIC/AACAvwAAqEEAAACAAACAvwAAqMEAAIC/AACAvwAAqMEAAIA/AACAvwAAqEEAAACAAACAvwAAgD8AAIA/AACAvwAAgL8AAACAAACAPwAAqMEAAIA/AACAPwAAgL8AAACAAACAvwAAqMEAAIA/AACAPwAAgL8AAACAAACAPwAAgD8AAIA/AACAPwAAqEEAAACAAACAPwAAqMEAAIA/AACAPwAAqMEAAIC/AACAPwAAqEEAAACAAACAPwAAgD8AAIC/AACAvwAAqMEAAIC/AACAPwAAgD8AAIC/AACAvwAAgD8AAIC/AACAPwAAqMEAAIC/AACAvwAAqMEAAIC/AACAPwAAgL8AAACAAACAPwAAqMEAAIC/AACAvwAAgL8AAACAAACAPwAAgD8AAIC/AACAvwAAqEEAAACAAACAPwAAqEEAAACAAACAvwAAgD8AAIC//38AAP///7/m+QAA////v+b5AAD///+//38AAP///7//f/9/////PwCAF4b///8//38Xhv///z//f/9/////PwAA/3////+/5vn//////78AgP//////vwAA/3////+/AAD/f////7//f/3/////P/9/F4b///8/5vkAAP///7/m+QAA////v+b5AAD///+/5vkAAP///7////9/////v/9/F4b///8//3/9/////z////9/////v////3////+//n///////78YBv//////v/////////+/GAb+/////7/m+f7/////v/////////+//3/nef///7//f+d5////v/9/53n///+//3/nef///7//f+d5////v/9/AAD///+//38AAP///7//f+d5////vw==")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_wfdsg")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fvm2d"]
+albedo_texture = ExtResource("1_fvm2d")
+
+[node name="ceiling2" type="Node3D"]
+
+[node name="ceiling" type="MeshInstance3D" parent="."]
+transform = Transform3D(230, 0, 0, 0, 1, 0, 0, 0, 150, 0, 181.006, 0)
+mesh = SubResource("ArrayMesh_t4x68")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_fvm2d")

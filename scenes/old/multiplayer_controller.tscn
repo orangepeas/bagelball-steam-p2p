@@ -1,0 +1,126 @@
+[gd_scene load_steps=2 format=3 uid="uid://c3auq41ovxjw"]
+
+[ext_resource type="Script" uid="uid://c3ilaf4f7dati" path="res://scripts/old/multiplayer_controller.gd" id="1_33xkb"]
+
+[node name="Multiplayer Controller" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_33xkb")
+
+[node name="Name" type="LineEdit" parent="."]
+custom_minimum_size = Vector2(800, 0)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -450.0
+offset_top = 82.0
+offset_right = 450.0
+offset_bottom = 132.0
+grow_horizontal = 2
+placeholder_text = "Enter your name"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -435.0
+offset_top = -95.0
+offset_right = 435.0
+offset_bottom = 213.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Host" type="Button" parent="VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 2
+text = "Host"
+
+[node name="Join" type="Button" parent="VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+text = "Join"
+
+[node name="Start Game" type="Button" parent="VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+text = "Start Game"
+
+[node name="IP Address Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -450.0
+offset_right = 209.0
+offset_bottom = 84.0
+grow_horizontal = 2
+text = "Host Ip Address: "
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="IP" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -46.0
+offset_right = 250.0
+offset_bottom = 84.0
+grow_horizontal = 2
+vertical_alignment = 1
+
+[node name="Copy To Clipboard" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -216.0
+offset_top = 18.0
+offset_right = -117.0
+offset_bottom = 72.0
+grow_horizontal = 0
+text = "Copy IP to clipboard"
+autowrap_mode = 2
+
+[node name="Host IP (to connect to)" type="TextEdit" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -304.0
+offset_top = -100.0
+offset_right = 318.0
+offset_bottom = -40.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Enter Host IP address" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -100.0
+offset_right = 170.0
+offset_bottom = -40.0
+grow_vertical = 0
+text = "Enter Host IP address:"
+vertical_alignment = 1
+
+[connection signal="button_down" from="VBoxContainer/HBoxContainer/Host" to="." method="_on_host_button_down"]
+[connection signal="button_down" from="VBoxContainer/HBoxContainer/Join" to="." method="_on_join_button_down"]
+[connection signal="button_down" from="VBoxContainer/HBoxContainer/Start Game" to="." method="_on_start_game_button_down"]
+[connection signal="pressed" from="Copy To Clipboard" to="." method="_on_copy_to_clipboard_pressed"]

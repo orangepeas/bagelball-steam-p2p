@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://c8wcdedno3l11"
+path="res://.godot/imported/absolute mollusc.wav-cb254ce216e617169bf0959aa7dc82d0.sample"
+
+[deps]
+
+source_file="res://audio/sfx/insults/absolute mollusc.wav"
+dest_files=["res://.godot/imported/absolute mollusc.wav-cb254ce216e617169bf0959aa7dc82d0.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

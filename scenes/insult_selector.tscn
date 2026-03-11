@@ -1,0 +1,75 @@
+[gd_scene load_steps=4 format=3 uid="uid://dikjdnjlbdwg8"]
+
+[ext_resource type="FontFile" uid="uid://bgodc4gs8nlyi" path="res://styling/fonts/Roboto/Roboto-VariableFont_wdth,wght.ttf" id="1_bow01"]
+[ext_resource type="Script" uid="uid://xuc2gg17bvwd" path="res://scripts/insult_selector.gd" id="1_n264w"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_n264w"]
+font = ExtResource("1_bow01")
+
+[node name="Insult Selector" type="Control"]
+layout_mode = 3
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_n264w")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 19.0
+offset_top = -75.0
+offset_right = 168.0
+offset_bottom = 75.0
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="1 You Salmon" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "1. You Salmon"
+label_settings = SubResource("LabelSettings_n264w")
+
+[node name="2 You Mackerel" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "2. You Mackerel"
+label_settings = SubResource("LabelSettings_n264w")
+
+[node name="3 Absolute Mollusc" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "3. Absolute Mollusc"
+label_settings = SubResource("LabelSettings_n264w")
+
+[node name="4 Bloody Trout" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "4. Bloody Trout"
+label_settings = SubResource("LabelSettings_n264w")
+
+[node name="5 Slimy Worm" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "5. Slimy Worm"
+label_settings = SubResource("LabelSettings_n264w")
+
+[node name="6 Soggy Bagel" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "6. Soggy Bagel"
+label_settings = SubResource("LabelSettings_n264w")
+
+[node name="c cancel" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "C. Cancel"
+label_settings = SubResource("LabelSettings_n264w")

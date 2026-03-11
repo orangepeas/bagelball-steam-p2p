@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://b8d6brx45if3v"
+path="res://.godot/imported/goal concede.ogg-29817c90415669f76669ee014c0c1b3a.oggvorbisstr"
+
+[deps]
+
+source_file="res://audio/sfx/goal concede.ogg"
+dest_files=["res://.godot/imported/goal concede.ogg-29817c90415669f76669ee014c0c1b3a.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,483 @@
+[gd_scene load_steps=33 format=3 uid="uid://cq46kme3ox046"]
+
+[ext_resource type="Script" uid="uid://dl1jynaq1f24t" path="res://scripts/main_menu.gd" id="1_662th"]
+[ext_resource type="PackedScene" uid="uid://pjfvk3hdof6i" path="res://scenes/custom_lobby_variables.tscn" id="2_e37nt"]
+[ext_resource type="Texture2D" uid="uid://cqvx5q21sjehw" path="res://assets/new thumbnails/bagelball thumbnail 1.png" id="2_ne25l"]
+[ext_resource type="Texture2D" uid="uid://dgnlt1s8qmgyx" path="res://assets/new thumbnails/bagelball thumbnail 2.png" id="3_vx1d6"]
+[ext_resource type="Texture2D" uid="uid://bnreijpcdrd68" path="res://assets/new thumbnails/bagelball thumbnail 3.png" id="4_fa0md"]
+[ext_resource type="PackedScene" uid="uid://ct3hcs3r3q4ec" path="res://scenes/controls.tscn" id="5_ltxck"]
+[ext_resource type="Texture2D" uid="uid://dp61i0ycdq5p7" path="res://assets/new thumbnails/bagelball thumbnail 4.png" id="5_s27ta"]
+[ext_resource type="PackedScene" uid="uid://dowgrihqaof13" path="res://scenes/settings.tscn" id="6_hs5gu"]
+[ext_resource type="Texture2D" uid="uid://cw78rm36r3ly3" path="res://assets/new thumbnails/bagelball thumbnail 5.png" id="6_iit4t"]
+[ext_resource type="Texture2D" uid="uid://bfu3wrju5v1lx" path="res://assets/new thumbnails/bagelball thumbnail 6.png" id="7_fkmdl"]
+[ext_resource type="Texture2D" uid="uid://bw8wh7d62uafe" path="res://assets/new thumbnails/bagelball thumbnail 7.png" id="8_6tkix"]
+[ext_resource type="PackedScene" uid="uid://ch212efxw33ur" path="res://scenes/lobby browser.tscn" id="8_gfiur"]
+[ext_resource type="Texture2D" uid="uid://crol5vh68c7sq" path="res://assets/new thumbnails/bagelball thumbnail 8.png" id="9_tgr17"]
+[ext_resource type="Texture2D" uid="uid://byhwckptdof4o" path="res://assets/new thumbnails/bagelball thumbnail 9.png" id="10_vl2tp"]
+[ext_resource type="Texture2D" uid="uid://d01y0m671g5rh" path="res://assets/new thumbnails/bagelball thumbnail 10.png" id="11_qt35h"]
+[ext_resource type="Texture2D" uid="uid://b5xmxf5ye4cyu" path="res://assets/new thumbnails/bagelball thumbnail 11.png" id="12_fl5ih"]
+[ext_resource type="Texture2D" uid="uid://fqv7mya205v4" path="res://assets/new thumbnails/bagelball thumbnail 12.png" id="13_6xhwb"]
+[ext_resource type="Texture2D" uid="uid://rxd3xx7l1gop" path="res://assets/new thumbnails/bagelball thumbnail 13.png" id="14_22rax"]
+[ext_resource type="Texture2D" uid="uid://bwylbkigpaqts" path="res://assets/new thumbnails/bagelball thumbnail 14.png" id="15_eurpp"]
+[ext_resource type="Texture2D" uid="uid://cx846sxryuehn" path="res://assets/new thumbnails/bagelball thumbnail 15.png" id="16_8s3t8"]
+[ext_resource type="Texture2D" uid="uid://c6el1n3pncafi" path="res://assets/new thumbnails/bagelball thumbnail 16.png" id="17_dqp0d"]
+[ext_resource type="Texture2D" uid="uid://g0dic1qmo1jy" path="res://assets/new thumbnails/bagelball thumbnail 17.png" id="18_37xn7"]
+[ext_resource type="Texture2D" uid="uid://cjc7cq1c1fs3c" path="res://assets/new thumbnails/space station 1.png" id="19_1xahd"]
+[ext_resource type="Texture2D" uid="uid://bthgbpre4atsm" path="res://assets/new thumbnails/space station 2.png" id="20_8s3t8"]
+[ext_resource type="Texture2D" uid="uid://cbc6toqk8bfnh" path="res://assets/discord logo full white.png" id="20_hi11g"]
+[ext_resource type="PackedScene" uid="uid://chf0w76oxufnj" path="res://scenes/map options dropdown.tscn" id="21_8s3t8"]
+[ext_resource type="Texture2D" uid="uid://bhtuyujgh73np" path="res://assets/discord logo full white hover.png" id="21_csewp"]
+[ext_resource type="FontFile" uid="uid://bgodc4gs8nlyi" path="res://styling/fonts/Roboto/Roboto-VariableFont_wdth,wght.ttf" id="21_i07pi"]
+[ext_resource type="AudioStream" uid="uid://bd2hx7sxb6p55" path="res://audio/music/duck - bagelball main menu_2.ogg" id="25_8s3t8"]
+[ext_resource type="AudioStream" uid="uid://bxixpoqbxc8bw" path="res://audio/music/bagel atmosphere.ogg" id="26_wetyc"]
+[ext_resource type="FontFile" uid="uid://dxa08pinf6py4" path="res://styling/fonts/Roboto/static/Roboto-Black.ttf" id="31_dwdy1"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_g8w3l"]
+font = ExtResource("31_dwdy1")
+font_size = 60
+
+[node name="Main Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_662th")
+
+[node name="Thumbnails" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect1" type="TextureRect" parent="Thumbnails" groups=["thumbnail"]]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_ne25l")
+expand_mode = 2
+
+[node name="TextureRect2" type="TextureRect" parent="Thumbnails" groups=["thumbnail"]]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_vx1d6")
+expand_mode = 2
+
+[node name="TextureRect3" type="TextureRect" parent="Thumbnails" groups=["thumbnail"]]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_fa0md")
+expand_mode = 2
+
+[node name="TextureRect4" type="TextureRect" parent="Thumbnails" groups=["thumbnail"]]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_s27ta")
+expand_mode = 2
+
+[node name="TextureRect5" type="TextureRect" parent="Thumbnails" groups=["thumbnail"]]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_iit4t")
+expand_mode = 2
+
+[node name="TextureRect6" type="TextureRect" parent="Thumbnails" groups=["thumbnail"]]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("7_fkmdl")
+expand_mode = 2
+
+[node name="TextureRect7" type="TextureRect" parent="Thumbnails" groups=["thumbnail"]]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("8_6tkix")
+expand_mode = 2
+
+[node name="TextureRect8" type="TextureRect" parent="Thumbnails" groups=["thumbnail"]]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("9_tgr17")
+expand_mode = 2
+
+[node name="TextureRect9" type="TextureRect" parent="Thumbnails" groups=["thumbnail"]]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("10_vl2tp")
+expand_mode = 2
+
+[node name="TextureRect10" type="TextureRect" parent="Thumbnails" groups=["thumbnail"]]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("11_qt35h")
+expand_mode = 2
+
+[node name="TextureRect11" type="TextureRect" parent="Thumbnails" groups=["thumbnail"]]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("12_fl5ih")
+expand_mode = 2
+
+[node name="TextureRect12" type="TextureRect" parent="Thumbnails" groups=["thumbnail"]]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("13_6xhwb")
+expand_mode = 2
+
+[node name="TextureRect13" type="TextureRect" parent="Thumbnails" groups=["thumbnail"]]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("14_22rax")
+expand_mode = 2
+
+[node name="TextureRect14" type="TextureRect" parent="Thumbnails" groups=["thumbnail"]]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("15_eurpp")
+expand_mode = 2
+
+[node name="TextureRect15" type="TextureRect" parent="Thumbnails" groups=["thumbnail"]]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("16_8s3t8")
+expand_mode = 2
+
+[node name="TextureRect16" type="TextureRect" parent="Thumbnails" groups=["thumbnail"]]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("17_dqp0d")
+expand_mode = 2
+
+[node name="TextureRect17" type="TextureRect" parent="Thumbnails" groups=["thumbnail"]]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("18_37xn7")
+expand_mode = 2
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 309.0
+offset_top = 54.0
+offset_right = 785.0
+offset_bottom = 125.0
+text = "STEAM EDITION"
+label_settings = SubResource("LabelSettings_g8w3l")
+
+[node name="Initial" type="Control" parent="." groups=["MainMenuOption"]]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Initial"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Initial/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+alignment = 1
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="Initial/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Lobby Browser" type="Button" parent="Initial/MarginContainer/VBoxContainer/HBoxContainer5"]
+layout_mode = 2
+text = "Lobby Browser"
+
+[node name="HBoxContainer7" type="HBoxContainer" parent="Initial/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Practice_singleplayer" type="Button" parent="Initial/MarginContainer/VBoxContainer/HBoxContainer7"]
+layout_mode = 2
+text = "Practice Mode"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Initial/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Settings" type="Button" parent="Initial/MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "Settings"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="Initial/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Controls" type="Button" parent="Initial/MarginContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+text = "Controls"
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="Initial/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Quit Game" type="Button" parent="Initial/MarginContainer/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+text = "Quit Game"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Initial/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+
+[node name="SingleplayerMapSelectorModal" type="PanelContainer" parent="Initial"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -124.0
+offset_top = -98.5
+offset_right = 124.0
+offset_bottom = 98.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Initial/SingleplayerMapSelectorModal"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Initial/SingleplayerMapSelectorModal/MarginContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Custom Lobby Variables" type="Button" parent="Initial/SingleplayerMapSelectorModal/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Custom Variables"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Initial/SingleplayerMapSelectorModal/MarginContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="Initial/SingleplayerMapSelectorModal/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 10
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Initial/SingleplayerMapSelectorModal/MarginContainer/VBoxContainer/HBoxContainer/MarginContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Map Label" type="Label" parent="Initial/SingleplayerMapSelectorModal/MarginContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(0, 35)
+layout_mode = 2
+text = "Map "
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Initial/SingleplayerMapSelectorModal/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="MapsOptions" parent="Initial/SingleplayerMapSelectorModal/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" instance=ExtResource("21_8s3t8")]
+layout_mode = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Initial/SingleplayerMapSelectorModal/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Select Map Button" type="Button" parent="Initial/SingleplayerMapSelectorModal/MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Bagelball"
+
+[node name="Back" type="Button" parent="Initial/SingleplayerMapSelectorModal/MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Back"
+
+[node name="TextureRect" type="TextureRect" parent="Initial"]
+visible = false
+layout_mode = 0
+offset_left = -10.0
+offset_top = 462.0
+offset_right = 830.0
+offset_bottom = 1321.0
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("20_hi11g")
+
+[node name="JoinTheDiscord" type="LinkButton" parent="Initial"]
+visible = false
+layout_mode = 2
+offset_left = 861.0
+offset_top = 512.0
+offset_right = 914.0
+offset_bottom = 535.0
+size_flags_horizontal = 0
+size_flags_vertical = 8
+theme_override_fonts/font = ExtResource("21_i07pi")
+theme_override_font_sizes/font_size = 16
+text = "discord"
+underline = 1
+uri = "http://discord.gg/WZUTqWG3XN"
+
+[node name="TextureButton" type="TextureButton" parent="Initial"]
+layout_mode = 0
+offset_left = 903.0
+offset_top = 480.0
+offset_right = 1743.0
+offset_bottom = 1339.0
+scale = Vector2(0.075, 0.075)
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("20_hi11g")
+texture_hover = ExtResource("21_csewp")
+
+[node name="Controls" parent="." groups=["MainMenuOption"] instance=ExtResource("5_ltxck")]
+visible = false
+layout_mode = 1
+
+[node name="testingtesting" type="VBoxContainer" parent="."]
+layout_mode = 2
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 201.0
+offset_bottom = 131.0
+
+[node name="test" type="Label" parent="testingtesting"]
+layout_mode = 2
+text = "test"
+
+[node name="start server" type="Button" parent="testingtesting"]
+layout_mode = 2
+text = "start server"
+
+[node name="start client" type="Button" parent="testingtesting"]
+layout_mode = 2
+text = "start client"
+
+[node name="Settings" parent="." groups=["MainMenuOption"] instance=ExtResource("6_hs5gu")]
+visible = false
+layout_mode = 1
+
+[node name="Lobby Browser" parent="." groups=["MainMenuOption"] instance=ExtResource("8_gfiur")]
+visible = false
+layout_mode = 1
+
+[node name="space station2" type="TextureRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("20_8s3t8")
+expand_mode = 2
+
+[node name="space station" type="TextureRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("19_1xahd")
+expand_mode = 2
+
+[node name="Custom Lobby Variables" parent="." instance=ExtResource("2_e37nt")]
+visible = false
+layout_mode = 1
+practiceMode = true
+
+[node name="Main Menu Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("25_8s3t8")
+volume_db = -20.0
+bus = &"Music"
+parameters/looping = true
+
+[node name="Bagel Atmosphere" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("26_wetyc")
+
+[connection signal="pressed" from="Initial/MarginContainer/VBoxContainer/HBoxContainer5/Lobby Browser" to="." method="_on_lobby_browser_pressed"]
+[connection signal="pressed" from="Initial/MarginContainer/VBoxContainer/HBoxContainer7/Practice_singleplayer" to="." method="_on_practice_singleplayer_pressed"]
+[connection signal="pressed" from="Initial/MarginContainer/VBoxContainer/HBoxContainer2/Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="Initial/MarginContainer/VBoxContainer/HBoxContainer3/Controls" to="." method="_on_controls_pressed"]
+[connection signal="pressed" from="Initial/MarginContainer/VBoxContainer/HBoxContainer4/Quit Game" to="." method="_on_quit_game_pressed"]
+[connection signal="pressed" from="Initial/SingleplayerMapSelectorModal/MarginContainer/VBoxContainer/Custom Lobby Variables" to="." method="_on_custom_lobby_variables_pressed"]
+[connection signal="pressed" from="Initial/SingleplayerMapSelectorModal/MarginContainer/VBoxContainer/HBoxContainer2/Select Map Button" to="." method="_on_select_map_button_pressed"]
+[connection signal="pressed" from="Initial/SingleplayerMapSelectorModal/MarginContainer/VBoxContainer/HBoxContainer2/Back" to="." method="_on_sp_map_back_pressed"]
+[connection signal="pressed" from="Initial/JoinTheDiscord" to="." method="_on_join_the_discord_pressed"]
+[connection signal="pressed" from="Initial/TextureButton" to="." method="_on_texture_button_pressed"]
+[connection signal="pressed" from="testingtesting/start server" to="Lobby Browser" method="_on_start_server_pressed"]
+[connection signal="pressed" from="testingtesting/start client" to="Lobby Browser" method="_on_start_client_pressed"]

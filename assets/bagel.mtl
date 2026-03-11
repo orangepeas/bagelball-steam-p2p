@@ -1,0 +1,12 @@
+# Blender MTL File: 'bagel.blend'
+# Material Count: 1
+
+newmtl Material.001
+Ns 40.543096
+Ka 0.530612 0.530612 0.530612
+Kd 0.326375 0.200213 0.160887
+Ks 0.724490 0.724490 0.724490
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 1.000000
+illum 3

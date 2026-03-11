@@ -1,0 +1,105 @@
+[gd_scene load_steps=9 format=3 uid="uid://cdgrr0noeaup2"]
+
+[ext_resource type="Script" uid="uid://b16fgiqroapnb" path="res://scripts/old/spawn.gd" id="1_bl4ae"]
+[ext_resource type="PackedScene" uid="uid://ctgdvac287p53" path="res://assets/cylinder trigoal/ceiling.glb" id="2_nqcv6"]
+[ext_resource type="PackedScene" uid="uid://3rxkkudfxha3" path="res://assets/cylinder trigoal/floor.glb" id="3_bjl0w"]
+[ext_resource type="PackedScene" uid="uid://dr1h6jd2jh4kh" path="res://assets/cylinder trigoal/walls.glb" id="4_mm8on"]
+[ext_resource type="Texture2D" uid="uid://cg6jt78vn0yko" path="res://assets/cylinder level/onelab_1720000507955.jpg" id="5_nqcv6"]
+
+[sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_bjl0w"]
+rayleigh_coefficient = 3.59
+rayleigh_color = Color(0.8184, 0.85746, 0.93, 1)
+mie_eccentricity = 0.6
+turbidity = 88.74
+sun_disk_scale = 29.35
+ground_color = Color(0.683422, 0.900672, 0.980625, 1)
+energy_multiplier = 3.53
+night_sky = ExtResource("5_nqcv6")
+
+[sub_resource type="Sky" id="Sky_6888j"]
+sky_material = SubResource("PhysicalSkyMaterial_bjl0w")
+
+[sub_resource type="Environment" id="Environment_mm8on"]
+background_mode = 2
+background_energy_multiplier = 0.5
+sky = SubResource("Sky_6888j")
+
+[node name="cylinder trigoal" type="Node3D"]
+
+[node name="1v1v1 QB spawn locations" type="Node3D" parent="."]
+transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 0, 0, 0)
+
+[node name="1" type="Node3D" parent="1v1v1 QB spawn locations" groups=["playerSpawnPoint1v1v1"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -106, 116, -64)
+script = ExtResource("1_bl4ae")
+redSpawn = true
+
+[node name="2" type="Node3D" parent="1v1v1 QB spawn locations" groups=["playerSpawnPoint1v1v1"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 107, 114, -60)
+script = ExtResource("1_bl4ae")
+
+[node name="3" type="Node3D" parent="1v1v1 QB spawn locations" groups=["playerSpawnPoint1v1v1"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 114, 127)
+script = ExtResource("1_bl4ae")
+
+[node name="1v1v1 spawn locations" type="Node3D" parent="."]
+
+[node name="1" type="Node3D" parent="1v1v1 spawn locations" groups=["playerSpawnPoint1v1v1"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -106, 116, -64)
+script = ExtResource("1_bl4ae")
+redSpawn = true
+
+[node name="2" type="Node3D" parent="1v1v1 spawn locations" groups=["playerSpawnPoint1v1v1"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 107, 114, -60)
+script = ExtResource("1_bl4ae")
+
+[node name="3" type="Node3D" parent="1v1v1 spawn locations" groups=["playerSpawnPoint1v1v1"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 114, 127)
+script = ExtResource("1_bl4ae")
+
+[node name="ceiling2" parent="." instance=ExtResource("2_nqcv6")]
+visible = false
+
+[node name="floor2" parent="." instance=ExtResource("3_bjl0w")]
+
+[node name="walls" parent="." instance=ExtResource("4_mm8on")]
+
+[node name="BallRespawnPoint" type="Node3D" parent="." groups=["BallRespawnPoint"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 179.9, 0)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_mm8on")
+
+[node name="red" type="SpotLight3D" parent="."]
+transform = Transform3D(-0.19618, 0.427764, 0.882344, -0.970836, -0.211195, -0.113466, 0.13781, -0.878871, 0.456721, 3.49998, 157.5, -4.1)
+light_color = Color(1, 0, 0, 1)
+light_specular = 0.0
+spot_range = 501.251
+spot_attenuation = -0.01
+spot_angle = 91.3
+spot_angle_attenuation = 1.68179
+
+[node name="blue" type="SpotLight3D" parent="."]
+transform = Transform3D(-2.22529e-07, 0.251242, -0.967924, 1, 4.37114e-08, -2.18557e-07, -1.26012e-08, -0.967924, -0.251242, 3.49998, 157.5, -4.1)
+light_color = Color(0.254508, 0.50338, 1, 1)
+light_energy = 2.612
+light_specular = 0.0
+spot_range = 501.251
+spot_attenuation = -0.01
+spot_angle = 100.36
+spot_angle_attenuation = 1.68179
+
+[node name="green" type="SpotLight3D" parent="."]
+transform = Transform3D(-1.85452e-07, 0.707107, -0.707107, 1, 4.37114e-08, -2.18557e-07, -1.23634e-07, -0.707107, -0.707107, 3.49998, 157.5, -4.1)
+light_color = Color(7.46027e-07, 0.647324, 0.187371, 1)
+light_energy = 4.339
+light_specular = 0.0
+spot_range = 501.251
+spot_attenuation = -0.01
+spot_angle = 97.77
+spot_angle_attenuation = 1.68179
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, -1.74846e-07, -3.82134e-15, 1.14641e-14, 4.37114e-08, 1, -1.74846e-07, -1, 4.37114e-08, 3.5, 157.5, 88.9)
+light_color = Color(0.802938, 0.754536, 0.874779, 1)
+light_energy = 2.266

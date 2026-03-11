@@ -1,0 +1,42 @@
+[gd_scene load_steps=5 format=3 uid="uid://d3g653oqn04l"]
+
+[ext_resource type="Script" uid="uid://bxtjh4xxua00s" path="res://scripts/scene_manager.gd" id="1_tj5ft"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_rtpux"]
+sky_top_color = Color(0.720387, 0.19861, 0.581688, 1)
+sky_horizon_color = Color(0.310987, 0.710561, 0.854434, 1)
+sky_energy_multiplier = 1.77
+ground_bottom_color = Color(0.253873, 0.134718, 0.151015, 1)
+
+[sub_resource type="Sky" id="Sky_dsp7e"]
+sky_material = SubResource("ProceduralSkyMaterial_rtpux")
+
+[sub_resource type="Environment" id="Environment_va8ym"]
+background_mode = 2
+background_color = Color(0.691357, 0.691357, 0.691357, 1)
+sky = SubResource("Sky_dsp7e")
+glow_enabled = true
+glow_normalized = true
+glow_intensity = 1.06
+glow_strength = 0.59
+glow_hdr_luminance_cap = 15.76
+
+[node name="main level" type="Node3D"]
+script = ExtResource("1_tj5ft")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 135, 152, 0)
+light_color = Color(0.737255, 0.913725, 0.909804, 1)
+light_energy = 2.0
+omni_range = 300.0
+omni_attenuation = 0.245
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -114, 152, 0)
+light_color = Color(0.996078, 0.866667, 0.866667, 1)
+light_energy = 2.0
+omni_range = 300.0
+omni_attenuation = 0.245
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_va8ym")

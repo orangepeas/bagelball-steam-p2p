@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://bkrkhr36rqhen"
+path="res://.godot/imported/orangepeas - supah cosmik.ogg-4f4ff3fc7ac84db46010fbd1a548ef5d.oggvorbisstr"
+
+[deps]
+
+source_file="res://audio/music/orangepeas - supah cosmik.ogg"
+dest_files=["res://.godot/imported/orangepeas - supah cosmik.ogg-4f4ff3fc7ac84db46010fbd1a548ef5d.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

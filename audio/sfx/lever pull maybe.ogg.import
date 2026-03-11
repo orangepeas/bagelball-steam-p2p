@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://ctkhbjefyea5s"
+path="res://.godot/imported/lever pull maybe.ogg-30a7b892fa586b9bcb1fe6e2e8c8cd33.oggvorbisstr"
+
+[deps]
+
+source_file="res://audio/sfx/lever pull maybe.ogg"
+dest_files=["res://.godot/imported/lever pull maybe.ogg-30a7b892fa586b9bcb1fe6e2e8c8cd33.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

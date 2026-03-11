@@ -1,0 +1,370 @@
+[gd_scene load_steps=9 format=3 uid="uid://do42odf0mirnx"]
+
+[ext_resource type="Script" uid="uid://dt5afqqkpnhrn" path="res://scripts/old/lobby_menu.gd" id="1_cjfqg"]
+[ext_resource type="Script" uid="uid://5quggd00ygyu" path="res://scripts/client.gd" id="1_drvj1"]
+[ext_resource type="Script" uid="uid://d18bp3gchj2ep" path="res://scripts/server.gd" id="2_a6a6m"]
+[ext_resource type="StyleBox" uid="uid://m804573hacgj" path="res://styling/panel style.tres" id="2_fxwvr"]
+[ext_resource type="AudioStream" uid="uid://bnd3spqjp1oq8" path="res://audio/sfx/user connected.ogg" id="4_j2pv4"]
+[ext_resource type="AudioStream" uid="uid://bwbjgpvuop3kr" path="res://audio/sfx/user disconnected.ogg" id="5_1lceb"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_dnhmq"]
+font_color = Color(0.811765, 0.811765, 0.811765, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xlqjx"]
+bg_color = Color(0, 0, 0, 0.788235)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.301961, 0.301961, 0.301961, 0.352941)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[node name="Lobby Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_cjfqg")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="Panel" type="Panel" parent="MarginContainer"]
+layout_mode = 2
+theme_override_styles/panel = ExtResource("2_fxwvr")
+
+[node name="CheckBox" type="CheckBox" parent="."]
+layout_mode = 0
+offset_left = 866.0
+offset_top = 163.0
+offset_right = 890.0
+offset_bottom = 187.0
+
+[node name="local server" type="Label" parent="CheckBox"]
+layout_mode = 0
+offset_left = -65.0
+offset_top = -24.0
+offset_right = 95.0
+offset_bottom = -1.0
+text = "local server (debug)"
+
+[node name="Start Server" type="Button" parent="."]
+layout_mode = 0
+offset_left = 738.0
+offset_top = 401.0
+offset_right = 838.0
+offset_bottom = 432.0
+text = "Start Server"
+
+[node name="Send Test Packet Server" type="Button" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 56.0
+offset_top = 96.0
+offset_right = 249.0
+offset_bottom = 127.0
+text = "Send Test Packet Server"
+
+[node name="Start Client" type="Button" parent="."]
+layout_mode = 0
+offset_left = 742.0
+offset_top = 337.0
+offset_right = 837.0
+offset_bottom = 368.0
+text = "Start Client"
+
+[node name="Client" type="Node" parent="."]
+script = ExtResource("1_drvj1")
+
+[node name="Server" type="Node" parent="."]
+script = ExtResource("2_a6a6m")
+
+[node name="LobbyID Input" type="LineEdit" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 284.0
+offset_top = -61.0
+offset_right = 591.0
+offset_bottom = -30.0
+grow_vertical = 2
+placeholder_text = "lobby id"
+
+[node name="Start Game" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 24.0
+offset_top = -77.0
+offset_right = -19.0
+offset_bottom = -36.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Start Game"
+
+[node name="Join Game (it\'s already started)" type="Button" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 24.0
+offset_top = -77.0
+offset_right = -19.0
+offset_bottom = -36.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Join Game (it's already started)"
+
+[node name="Join Lobby" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 72.0
+offset_top = -62.0
+offset_right = 260.0
+offset_bottom = -31.0
+grow_vertical = 2
+text = "Join Lobby
+"
+
+[node name="Leave Lobby" type="Button" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 72.0
+offset_top = -62.0
+offset_right = 260.0
+offset_bottom = -31.0
+grow_vertical = 2
+text = "Leave Lobby"
+
+[node name="Host Lobby" type="Button" parent="."]
+layout_mode = 1
+offset_left = 72.0
+offset_top = 116.0
+offset_right = 260.0
+offset_bottom = 147.0
+text = "Host Lobby"
+
+[node name="Stop Hosting" type="Button" parent="."]
+visible = false
+layout_mode = 1
+offset_left = 72.0
+offset_top = 116.0
+offset_right = 260.0
+offset_bottom = 147.0
+text = "Stop Hosting"
+
+[node name="Name" type="LineEdit" parent="."]
+custom_minimum_size = Vector2(800, 0)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -414.0
+offset_top = 24.0
+offset_right = 386.0
+offset_bottom = 74.0
+grow_horizontal = 2
+placeholder_text = "Enter your name"
+
+[node name="Copy To Clipboard" type="Button" parent="."]
+layout_mode = 1
+offset_left = 609.0
+offset_top = 98.0
+offset_right = 724.0
+offset_bottom = 175.0
+text = "Copy Lobby ID to clipboard"
+autowrap_mode = 2
+
+[node name="LobbyID Output" type="Label" parent="."]
+layout_mode = 0
+offset_left = 269.0
+offset_top = 105.0
+offset_right = 512.0
+offset_bottom = 163.0
+text = "
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LobbyID Output Placeholder" type="Label" parent="."]
+layout_mode = 1
+offset_left = 269.0
+offset_top = 105.0
+offset_right = 512.0
+offset_bottom = 163.0
+text = "Lobby ID will appear here..."
+label_settings = SubResource("LabelSettings_dnhmq")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="User Connected" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_j2pv4")
+bus = &"SFX"
+
+[node name="User Disconnected" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_1lceb")
+bus = &"SFX"
+
+[node name="Lobby Player Count" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 72.0
+offset_top = 2.0
+offset_right = 233.0
+offset_bottom = 25.0
+grow_vertical = 2
+text = "Players Connected: 0"
+
+[node name="Lobby Player Names" type="ItemList" parent="Lobby Player Count"]
+layout_mode = 0
+offset_left = -8.0
+offset_top = 50.0
+offset_right = 599.0
+offset_bottom = 181.0
+max_text_lines = 3
+auto_height = true
+
+[node name="Back" type="Button" parent="."]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -77.0
+offset_top = -15.0
+offset_right = -32.0
+offset_bottom = 16.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_xlqjx")
+text = "
+
+Back
+
+
+"
+
+[node name="game already started" type="Label" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 24.0
+offset_top = -77.0
+offset_right = -19.0
+offset_bottom = -36.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Game already started sorry cant join its too hard to program"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Gamemode" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -420.0
+offset_top = -29.0
+offset_right = -147.0
+offset_bottom = 29.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="GamemodeLabel" type="Label" parent="Gamemode"]
+layout_mode = 2
+text = "Gamemode (only change if hosting)"
+horizontal_alignment = 1
+
+[node name="GamemodeOptions" type="OptionButton" parent="Gamemode"]
+layout_mode = 2
+selected = 0
+item_count = 2
+popup/item_0/text = "1v1"
+popup/item_1/text = "2v2"
+popup/item_1/id = 1
+
+[node name="Host Options" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -109.5
+offset_top = -29.0
+offset_right = 109.5
+offset_bottom = 29.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Maps" type="VBoxContainer" parent="Host Options"]
+layout_mode = 2
+alignment = 1
+
+[node name="MapsLabel" type="Label" parent="Host Options/Maps"]
+layout_mode = 2
+text = "Map"
+horizontal_alignment = 1
+
+[node name="MapsOptions" type="OptionButton" parent="Host Options/Maps"]
+layout_mode = 2
+selected = 0
+item_count = 2
+popup/item_0/text = "Warehouse"
+popup/item_1/text = "Church (broken)"
+popup/item_1/id = 1
+
+[connection signal="toggled" from="CheckBox" to="Client" method="_on_check_box_toggled"]
+[connection signal="button_down" from="Start Server" to="Server" method="_on_start_server_button_down"]
+[connection signal="button_down" from="Send Test Packet Server" to="Server" method="_on_send_test_packet_server_button_down"]
+[connection signal="button_down" from="Start Client" to="Client" method="_on_start_client_button_down"]
+[connection signal="canStartGame" from="Client" to="." method="can_start_game"]
+[connection signal="gameAlreadyStarted" from="Client" to="." method="_on_client_game_already_started"]
+[connection signal="hasJoined" from="Client" to="." method="joined_game"]
+[connection signal="isHosting" from="Client" to="." method="started_hosting"]
+[connection signal="isNotHosting" from="Client" to="." method="stopped_hosting"]
+[connection signal="noCanStartGame" from="Client" to="." method="no_can_start_game"]
+[connection signal="noHasJoined" from="Client" to="." method="no_joined_game"]
+[connection signal="button_down" from="Start Game" to="Client" method="_on_start_game_button_down"]
+[connection signal="pressed" from="Join Game (it\'s already started)" to="Client" method="_on_join_game_its_already_started_pressed"]
+[connection signal="button_down" from="Join Lobby" to="Client" method="_on_join_lobby_button_down"]
+[connection signal="pressed" from="Leave Lobby" to="Client" method="_on_leave_lobby_pressed"]
+[connection signal="button_down" from="Host Lobby" to="Client" method="_on_host_lobby_button_down"]
+[connection signal="pressed" from="Stop Hosting" to="Client" method="_on_stop_hosting_pressed"]
+[connection signal="pressed" from="Copy To Clipboard" to="Client" method="_on_copy_to_clipboard_pressed"]
+[connection signal="pressed" from="Back" to="." method="_on_back_pressed"]
+[connection signal="item_selected" from="Gamemode/GamemodeOptions" to="." method="_on_gamemode_options_item_selected"]
+[connection signal="item_selected" from="Host Options/Maps/MapsOptions" to="." method="_on_maps_options_item_selected"]

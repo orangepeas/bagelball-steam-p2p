@@ -1,0 +1,52 @@
+[gd_scene load_steps=6 format=4 uid="uid://c17gxyb7slqsd"]
+
+[ext_resource type="Texture2D" uid="uid://bx1d52h3blqs0" path="res://assets/main level/side wall 2_worn_corrugated_iron_diff_4k.jpg" id="1_nsfay"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_862vd"]
+resource_name = "Material.004"
+cull_mode = 2
+shading_mode = 0
+albedo_texture = ExtResource("1_nsfay")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_g15ws"]
+_surfaces = [{
+"aabb": AABB(-1, -21, -0.14, 2, 22, 1.06),
+"format": 34896613377,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAwACAAEAAAAEAAEAAwAFAAIABQAAAAIABgAEAAAABQAGAAAABwABAAQABwADAAEABgAHAAQABQADAAcABQAHAAYA"),
+"name": "Material.004",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray("/////wAAAAAAAP7///8AAAAA//8AAAAAAAAAAP//AAD///7///8AAAAAAAAAAAAA//8AAAAAAAD//wAA//8AAA==")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_k56nq"]
+resource_name = "side wall 2_Cube_002"
+_surfaces = [{
+"aabb": AABB(-1, -21, -0.14, 2, 22, 1.06),
+"attribute_data": PackedByteArray("5LTci///y1H//9yL5LTLUcppy1HktLoX5LTLUcppuhfKaf//5LTtxeS0///Kae3FsB7ci8ppy1HKadyLsB7LUcpp3IvktMtR5LTci8ppy1HKae3F5LTci+S07cXKadyL"),
+"format": 34896613399,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAAADAAEABAAFAAYABAAHAAUACAAJAAoACAALAAkADAANAA4ADAAPAA0AEAARABIAEAATABEAFAAVABYAFAAXABUA"),
+"material": SubResource("StandardMaterial3D_862vd"),
+"name": "Material.004",
+"primitive": 3,
+"uv_scale": Vector4(8.34195, 10.7893, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray("/////wAA//8AAP7//////wAA//8AAP/////+/////////wAA////vwAA/v////+////+/////78AAAAA////vwAAAAD//1TVAAD//wAAVNUAAP7///9U1QAAAAAAAFTVAAAAAAAA/7///wAA////v///AAAAAP+/AAAAAP///7///wAAAABU1f///v///1TV/////wAAVNX//wAA//9U1QAAAAAAAP///////wAA//8AAP//AAD/////AAAAAP///3//v/9//7//f/+//3//v/////////////////////9U1VTVVNVU1VTVVNVU1VTVAAD/fwAA/38AAP9/AAD/f6oqqiqqKqoqqiqqKqoqqir/v/+//7//v/+//7//v/+/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_g15ws")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nsfay"]
+albedo_texture = ExtResource("1_nsfay")
+
+[node name="side wall 22" type="Node3D"]
+
+[node name="side wall 2" type="MeshInstance3D" parent="."]
+transform = Transform3D(230, 0, 0, 0, 5.96046e-08, 150, 0, -1, 8.9407e-06, 0, 22, 151)
+mesh = SubResource("ArrayMesh_k56nq")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_nsfay")

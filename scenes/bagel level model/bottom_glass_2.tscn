@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://bdm6djyucjbvs"]
+
+[ext_resource type="PackedScene" uid="uid://do033huqvoha7" path="res://assets/bagel level/bottom glass.glb" id="1_rbp76"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0if7t"]
+cull_mode = 2
+albedo_color = Color(0.223103, 0.223103, 0.223103, 1)
+
+[node name="bottom glass2" instance=ExtResource("1_rbp76")]
+
+[node name="bottom glass" parent="." index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_0if7t")

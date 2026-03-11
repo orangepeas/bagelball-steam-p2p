@@ -1,0 +1,271 @@
+[gd_scene load_steps=5 format=3 uid="uid://dowgrihqaof13"]
+
+[ext_resource type="Script" uid="uid://dal8i21mwskhi" path="res://scripts/settings.gd" id="1_adc5n"]
+[ext_resource type="Script" uid="uid://cc75vo18eofv7" path="res://scripts/audio_settings.gd" id="2_1cpti"]
+[ext_resource type="Script" uid="uid://b83guufub46ly" path="res://scripts/video_settings.gd" id="2_6b3c1"]
+[ext_resource type="StyleBox" uid="uid://m804573hacgj" path="res://styling/panel style.tres" id="3_kug72"]
+
+[node name="Settings" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_adc5n")
+
+[node name="Video Settings" type="Control" parent="." groups=["SettingsMenuOption"]]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_6b3c1")
+
+[node name="Panel" type="Panel" parent="Video Settings"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 315.0
+offset_top = 179.0
+offset_right = -315.0
+offset_bottom = -179.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = ExtResource("3_kug72")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Video Settings"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Video Settings/HBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="fullscreen" type="HBoxContainer" parent="Video Settings/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="fullscreen toggle label" type="Label" parent="Video Settings/HBoxContainer/VBoxContainer/fullscreen"]
+layout_mode = 2
+text = "Toggle Fullscreen"
+horizontal_alignment = 1
+
+[node name="CheckBox" type="CheckBox" parent="Video Settings/HBoxContainer/VBoxContainer/fullscreen"]
+layout_mode = 2
+
+[node name="resolution" type="HBoxContainer" parent="Video Settings/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="Video Settings/HBoxContainer/VBoxContainer/resolution"]
+layout_mode = 2
+text = "Resolution"
+
+[node name="Resolutions" type="OptionButton" parent="Video Settings/HBoxContainer/VBoxContainer/resolution"]
+layout_mode = 2
+selected = 3
+item_count = 4
+popup/item_0/text = "1920x1080"
+popup/item_0/id = 0
+popup/item_1/text = "1600x900"
+popup/item_1/id = 1
+popup/item_2/text = "1280x720"
+popup/item_2/id = 2
+popup/item_3/text = "960x540"
+popup/item_3/id = 3
+
+[node name="fov" type="HBoxContainer" parent="Video Settings/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="fovlabel" type="Label" parent="Video Settings/HBoxContainer/VBoxContainer/fov"]
+layout_mode = 2
+text = "FOV: 90"
+
+[node name="MarginContainer" type="MarginContainer" parent="Video Settings/HBoxContainer/VBoxContainer/fov"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_top = 3
+
+[node name="HSlider" type="HSlider" parent="Video Settings/HBoxContainer/VBoxContainer/fov/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+min_value = 60.0
+max_value = 120.0
+value = 75.0
+
+[node name="Back" type="Button" parent="Video Settings/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Back"
+
+[node name="Audio Settings" type="Control" parent="." groups=["SettingsMenuOption"]]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_1cpti")
+
+[node name="Panel" type="Panel" parent="Audio Settings"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 390.0
+offset_top = 179.0
+offset_right = -390.0
+offset_bottom = -146.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = ExtResource("3_kug72")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Audio Settings"]
+layout_mode = 0
+offset_right = 960.0
+offset_bottom = 576.0
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Audio Settings/HBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="MV label" type="Label" parent="Audio Settings/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Master Volume"
+horizontal_alignment = 1
+
+[node name="Master Volume" type="HSlider" parent="Audio Settings/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+max_value = 1.0
+step = 0.001
+
+[node name="Music label" type="Label" parent="Audio Settings/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Music Volume"
+horizontal_alignment = 1
+
+[node name="Music Volume" type="HSlider" parent="Audio Settings/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+max_value = 1.0
+step = 0.001
+
+[node name="SFX LABEL" type="Label" parent="Audio Settings/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "SFX Volume"
+horizontal_alignment = 1
+
+[node name="SFX Volume" type="HSlider" parent="Audio Settings/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+max_value = 1.0
+step = 0.001
+
+[node name="Back" type="Button" parent="Audio Settings/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Back"
+
+[node name="Initial" type="Control" parent="." groups=["SettingsMenuOption"]]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="Initial"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -92.0
+offset_top = -78.0
+offset_right = 92.0
+offset_bottom = -27.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Initial"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Initial/HBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="Initial/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Mouse Sensitivity" type="Label" parent="Initial/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Mouse Sensitivity"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Initial/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Initial/HBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = -4
+
+[node name="SensDisplay" type="Label" parent="Initial/HBoxContainer/VBoxContainer/HBoxContainer/MarginContainer"]
+layout_mode = 2
+text = "3.0"
+
+[node name="MarginContainer2" type="MarginContainer" parent="Initial/HBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 4
+
+[node name="SensSlider" type="HSlider" parent="Initial/HBoxContainer/VBoxContainer/HBoxContainer/MarginContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+min_value = 0.01
+max_value = 0.05
+step = 0.001
+value = 0.03
+
+[node name="Video Settings" type="Button" parent="Initial/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "        Video Settings        "
+
+[node name="Audio Settings" type="Button" parent="Initial/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Audio Settings"
+
+[node name="Full Back" type="Button" parent="Initial/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Back"
+
+[connection signal="toggled" from="Video Settings/HBoxContainer/VBoxContainer/fullscreen/CheckBox" to="Video Settings" method="_on_check_box_toggled"]
+[connection signal="item_selected" from="Video Settings/HBoxContainer/VBoxContainer/resolution/Resolutions" to="Video Settings" method="_on_resolutions_item_selected"]
+[connection signal="drag_ended" from="Video Settings/HBoxContainer/VBoxContainer/fov/MarginContainer/HSlider" to="Video Settings" method="_on_h_slider_drag_ended"]
+[connection signal="value_changed" from="Video Settings/HBoxContainer/VBoxContainer/fov/MarginContainer/HSlider" to="Video Settings" method="_on_h_slider_value_changed"]
+[connection signal="pressed" from="Video Settings/HBoxContainer/VBoxContainer/Back" to="." method="_on_back_pressed"]
+[connection signal="drag_ended" from="Audio Settings/HBoxContainer/VBoxContainer/Master Volume" to="Audio Settings" method="_on_master_volume_drag_ended"]
+[connection signal="drag_ended" from="Audio Settings/HBoxContainer/VBoxContainer/Music Volume" to="Audio Settings" method="_on_music_volume_drag_ended"]
+[connection signal="drag_ended" from="Audio Settings/HBoxContainer/VBoxContainer/SFX Volume" to="Audio Settings" method="_on_sfx_volume_drag_ended"]
+[connection signal="pressed" from="Audio Settings/HBoxContainer/VBoxContainer/Back" to="." method="_on_back_pressed"]
+[connection signal="drag_ended" from="Initial/HBoxContainer/VBoxContainer/HBoxContainer/MarginContainer2/SensSlider" to="." method="_on_sens_slider_drag_ended"]
+[connection signal="value_changed" from="Initial/HBoxContainer/VBoxContainer/HBoxContainer/MarginContainer2/SensSlider" to="." method="_on_sens_slider_value_changed"]
+[connection signal="pressed" from="Initial/HBoxContainer/VBoxContainer/Video Settings" to="." method="_on_video_settings_pressed"]
+[connection signal="pressed" from="Initial/HBoxContainer/VBoxContainer/Audio Settings" to="." method="_on_audio_settings_pressed"]
+[connection signal="pressed" from="Initial/HBoxContainer/VBoxContainer/Full Back" to="." method="_on_full_back_pressed"]

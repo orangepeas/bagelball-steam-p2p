@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://bwbjgpvuop3kr"
+path="res://.godot/imported/user disconnected.ogg-05aeb41c2836bf49b4ab6341745d578e.oggvorbisstr"
+
+[deps]
+
+source_file="res://audio/sfx/user disconnected.ogg"
+dest_files=["res://.godot/imported/user disconnected.ogg-05aeb41c2836bf49b4ab6341745d578e.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

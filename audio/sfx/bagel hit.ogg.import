@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://v58sjrg2fhv7"
+path="res://.godot/imported/bagel hit.ogg-5982b92e33a42985abd1b8096f3b9a2d.oggvorbisstr"
+
+[deps]
+
+source_file="res://audio/sfx/bagel hit.ogg"
+dest_files=["res://.godot/imported/bagel hit.ogg-5982b92e33a42985abd1b8096f3b9a2d.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,124 @@
+[gd_scene load_steps=12 format=3 uid="uid://cl12etots0gog"]
+
+[ext_resource type="Script" uid="uid://cr6muy3s542fx" path="res://scripts/player.gd" id="1_w2vs2"]
+[ext_resource type="PackedScene" uid="uid://7yt5qojut4c5" path="res://scenes/Player UI.tscn" id="2_p8h58"]
+[ext_resource type="PackedScene" uid="uid://cg0tnoa41fqja" path="res://scenes/noise maker.tscn" id="3_6s8t6"]
+[ext_resource type="FontFile" uid="uid://bgodc4gs8nlyi" path="res://styling/fonts/Roboto/Roboto-VariableFont_wdth,wght.ttf" id="3_dqkch"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_lex6o"]
+
+[sub_resource type="TorusMesh" id="TorusMesh_fxcem"]
+inner_radius = 0.05
+outer_radius = 0.5
+
+[sub_resource type="BoxMesh" id="BoxMesh_p0hnl"]
+size = Vector3(0.1, 0.1, 0.1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ddeso"]
+size = Vector3(1, 1, 12.5)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_5drwn"]
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_f3lbo"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+properties/1/path = NodePath("display name:text")
+properties/1/spawn = true
+properties/1/replication_mode = 1
+properties/2/path = NodePath(".:rotation")
+properties/2/spawn = true
+properties/2/replication_mode = 1
+properties/3/path = NodePath("Camera3D/bagel distance:position")
+properties/3/spawn = true
+properties/3/replication_mode = 1
+properties/4/path = NodePath("Camera3D/bagel distance:rotation")
+properties/4/spawn = true
+properties/4/replication_mode = 1
+properties/5/path = NodePath("Camera3D:rotation")
+properties/5/spawn = true
+properties/5/replication_mode = 1
+
+[sub_resource type="TextMesh" id="TextMesh_yebjr"]
+text = "test"
+
+[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("mpSync") groups=["player"]]
+transform = Transform3D(7, 0, 0, 0, 7, 0, 0, 0, 7, 0, 0, 0)
+collision_layer = 129
+collision_mask = 129
+wall_min_slide_angle = 0.785398
+script = ExtResource("1_w2vs2")
+normalSpeed = 60
+sprintSpeed = 90
+jumpVelocity = 45.0
+bagelSpeedModifier = 23
+gravityModifier = 3.0
+airAcceleration = 10.0
+floorDecelaration = 5.0
+terminalSpeed = 150.0
+wallJumpVelocity = 120
+noOfJumps = 2
+mpSync = NodePath("MultiplayerSynchronizer")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_lex6o")
+skeleton = NodePath("../CollisionShape3D")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="MeshInstance3D"]
+transform = Transform3D(-1, 4.37114e-08, -4.37114e-08, -4.37114e-08, -4.37114e-08, 1, 4.37114e-08, 1, 4.37114e-08, 0.285714, 0.571429, -0.428571)
+visible = false
+mesh = SubResource("TorusMesh_fxcem")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="MeshInstance3D"]
+transform = Transform3D(-1, 4.37114e-08, -4.37114e-08, -4.37114e-08, -4.37114e-08, 1, 4.37114e-08, 1, 4.37114e-08, -0.285714, 0.571429, -0.428571)
+visible = false
+mesh = SubResource("TorusMesh_fxcem")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="MeshInstance3D"]
+transform = Transform3D(0.085417, 0.996345, 4.35516e-08, 0, -4.37114e-08, 1, 0.996345, -0.085417, -3.73369e-09, 0, 0.428571, -0.119621)
+mesh = SubResource("TorusMesh_fxcem")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.428572, -0.527579)
+visible = false
+mesh = SubResource("BoxMesh_p0hnl")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+
+[node name="bagel distance" type="CollisionShape3D" parent="Camera3D"]
+transform = Transform3D(7, 0, 0, 0, 7, 0, 0, 0, 7, 0, 0, -40)
+shape = SubResource("BoxShape3D_ddeso")
+disabled = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_5drwn")
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_f3lbo")
+visibility_update_mode = 1
+
+[node name="Player UI" parent="." instance=ExtResource("2_p8h58")]
+
+[node name="failed display name attempt" type="MeshInstance3D" parent="."]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 1.42857, 0)
+visible = false
+mesh = SubResource("TextMesh_yebjr")
+
+[node name="display name" type="Label3D" parent="."]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 1.42857, 0)
+text = "test"
+font = ExtResource("3_dqkch")
+font_size = 130
+outline_size = 10
+
+[node name="Noise Maker" parent="." instance=ExtResource("3_6s8t6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+
+[connection signal="absoluteMollusc" from="Player UI" to="Noise Maker" method="_on_player_ui_absolute_mollusc"]
+[connection signal="bloodyTrout" from="Player UI" to="Noise Maker" method="_on_player_ui_bloody_trout"]
+[connection signal="blueWinNoises" from="Player UI" to="Noise Maker" method="_on_player_ui_blue_win_noises"]
+[connection signal="redWinNoises" from="Player UI" to="Noise Maker" method="_on_player_ui_red_win_noises"]
+[connection signal="slimyWorm" from="Player UI" to="Noise Maker" method="_on_player_ui_slimy_worm"]
+[connection signal="youMackerel" from="Player UI" to="Noise Maker" method="_on_player_ui_you_mackerel"]
+[connection signal="youSalmon" from="Player UI" to="Noise Maker" method="_on_player_ui_you_salmon"]

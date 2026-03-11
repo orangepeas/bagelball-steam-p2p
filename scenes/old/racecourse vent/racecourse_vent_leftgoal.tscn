@@ -1,0 +1,53 @@
+[gd_scene load_steps=6 format=4 uid="uid://wbe6n0qfxqkv"]
+
+[ext_resource type="Texture2D" uid="uid://meo2enbeoocx" path="res://assets/racecourse vent/racecourse vent leftgoal_blue_metal_plate_diff_4k.jpg" id="1_0ojbr"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_51x0c"]
+resource_name = "Material.001"
+cull_mode = 2
+albedo_texture = ExtResource("1_0ojbr")
+roughness = 0.5
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_xjmtu"]
+_surfaces = [{
+"aabb": AABB(-6.2234, 12.9547, 20.9788, 3.17462, 2.96265, 5.06195),
+"format": 34359742465,
+"index_count": 48,
+"index_data": PackedByteArray("AAABAAIAAgABAAMAAgADAAQAAAAFAAEABgAFAAAAAQAHAAMAAQAIAAcABQAIAAEAAwAHAAkABQAKAAgABAADAAsAAwAJAAsABAALAAYACwAJAAoABgALAAUACwAKAAUA"),
+"name": "Material.001",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 12,
+"vertex_data": PackedByteArray("HCbHwGpGT0F6U9BBRMmJwGpGT0Gc1KdBHCbHwGpGT0Gc1KdBRMmJwHKtfkGc1KdBHCbHwHKtfkGc1KdBRMmJwGpGT0F6U9BBHCbHwHKtfkF6U9BBTh9DwElRT0Gc1KdBTh9DwGpGT0Gc1KdBTh9DwElRT0F6U9BBTh9DwGpGT0F6U9BBRMmJwHKtfkF6U9BB")
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_525da"]
+resource_name = "racecourse vent leftgoal_Cube_002"
+_surfaces = [{
+"aabb": AABB(-6.2234, 12.9547, 20.9788, 3.17462, 2.96265, 5.06195),
+"attribute_data": PackedByteArray("//8fPwAAgDMAACA/AAAAAAAAID8AAAAAAAAgPwAAAAAAACA/AAAAAAAAID8AAAAAAAAgPwAAAAAAACA/AAAAAP//Hz8AAIAzAAAgPwAAAAAAACA/AAAAAAAAID8AAAAAAAAgPwAAAAAAACA/AAAAAP//Hz8AAIAzAAAgPwAAAAAAACA/AAAAAAAAID8AAAAAAABgPwAAgD4AAGA/AACAPgAAYD8AAIA+AABgPwAAgD4AAGA/AACAPgAAYD8AAIA+AABgPwAAgD4AAGA/AACAPg=="),
+"format": 34359742487,
+"index_count": 48,
+"index_data": PackedByteArray("AAABAAIAAAADAAEAAwAEAAEAAwAFAAQABgAHAAgABgAJAAcACQAKAAcACQALAAoADAANAA4ADAAPAA0ADwAQAA0ADwARABAAEgATABQAEgAVABMAFgAXABgAFgAZABcA"),
+"material": SubResource("StandardMaterial3D_51x0c"),
+"name": "Material.001",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 26,
+"vertex_data": PackedByteArray("HCbHwGpGT0F6U9BBRMmJwGpGT0Gc1KdBHCbHwGpGT0Gc1KdBRMmJwGpGT0F6U9BBTh9DwGpGT0Gc1KdBTh9DwGpGT0F6U9BBHCbHwHKtfkF6U9BBRMmJwGpGT0F6U9BBHCbHwGpGT0F6U9BBRMmJwHKtfkF6U9BBTh9DwGpGT0F6U9BBTh9DwElRT0F6U9BBHCbHwGpGT0Gc1KdBRMmJwHKtfkGc1KdBHCbHwHKtfkGc1KdBRMmJwGpGT0Gc1KdBTh9DwElRT0Gc1KdBTh9DwGpGT0Gc1KdBHCbHwHKtfkGc1KdBRMmJwHKtfkF6U9BBHCbHwHKtfkF6U9BBRMmJwHKtfkGc1KdBRMmJwHKtfkGc1KdBTh9DwElRT0F6U9BBRMmJwHKtfkF6U9BBTh9DwElRT0Gc1KdB/38AAP///7//fwAA////v/9/AAD///+//38AAP///7//fwAA////v/9/AAD///+//3//f////z//f/9/////P/9//3////8//3//f////z//f/9/////P/9//3////8//////////7//////////v/////////+//////////7//////////v/////////+//3///////7//f///////v/9///////+//3///////7/X2Sam////v9fZJqb///+/19kmpv///7/X2Sam////vw==")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_xjmtu")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0ojbr"]
+cull_mode = 1
+albedo_color = Color(1, 0, 0, 1)
+
+[node name="racecourse vent leftgoal" type="Node3D"]
+
+[node name="Cube_001" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("ArrayMesh_525da")
+skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_0ojbr")

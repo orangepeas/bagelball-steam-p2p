@@ -1,0 +1,279 @@
+[gd_scene load_steps=21 format=3 uid="uid://cjveoye6dq4ke"]
+
+[ext_resource type="Script" uid="uid://de55j2xmbhesp" path="res://scripts/goal_score.gd" id="1_pgjx0"]
+[ext_resource type="Script" uid="uid://bhbrqpavbfgf8" path="res://scripts/spawn_box.gd" id="2_5ovnb"]
+[ext_resource type="Material" uid="uid://cdbk8as6aau6j" path="res://styling/torus goalred.tres" id="3_2ubej"]
+[ext_resource type="Material" uid="uid://cj72q2b6ctshr" path="res://styling/torus goalblue.tres" id="4_vro88"]
+[ext_resource type="PackedScene" uid="uid://b0g03ke030y0c" path="res://scenes/bagel.tscn" id="5_ut754"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qa4eg"]
+size = Vector3(5, 5, 50)
+
+[sub_resource type="PrismMesh" id="PrismMesh_uvx6f"]
+left_to_right = 1.0
+size = Vector3(6000, 3000, 200)
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_uvx6f"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_pgjx0"]
+data = PackedVector3Array(3643.35, 3000, -500, 3643.35, 3000, 500, 3000, 3000, -500, 3643.35, 3000, 500, 3643.35, 2959, 500, 3000, 2959, 500, 3000, 3000, 500, 3643.35, 3000, 500, 3000, 2959, 500, 3000, 3000, 100, 3643.35, 3000, 500, 3000, 3000, 500, 3000, 2959, 100, 3000, 3000, 500, 3000, 2959, 500, 3643.35, 2959, 500, 3643.35, 3000, 500, 3643.35, 2959, -500, 3000, 2959, 500, 3643.35, 2959, 500, 3643.35, 2959, -500, 3000, 2959, 100, 3000, 3000, 100, 3000, 3000, 500, 3643.35, 3000, 500, 3000, 3000, 100, 3000, 3000, -100, 3643.35, 2959, -500, 3000, 2959, 100, 3000, 2959, 500, 3643.35, 3000, 500, 3000, 3000, -100, 3000, 3000, -500, 3643.35, 3000, 500, 3643.35, 3000, -500, 3643.35, 2959, -500, 3643.35, 2959, -500, 3000, 2959, -100, 3000, 2959, 100, 3000, 2959, -100, 3000, 3000, -500, 3000, 3000, -100, 3000, 2959, -100, 3643.35, 2959, -500, 3000, 2959, -500, 3000, 2959, -500, 3000, 3000, -500, 3000, 2959, -100, 3643.35, 2959, -500, 3643.35, 3000, -500, 3000, 3000, -500, 3643.35, 2959, -500, 3000, 3000, -500, 3000, 2959, -500, -3000, 0, -100, -3000, 0, 100, 3000, 0, 100, 3000, 2959, 100, -3000, 0, 100, 3000, 3000, 100, 3000, 2959, 100, 3000, 2959, -100, 3000, 0, 100, 3000, 3000, -100, 3000, 3000, 100, -3000, 0, -100, 3000, 2959, -100, 3000, 3000, -100, -3000, 0, -100, -3000, 0, 100, 3000, 2959, 100, 3000, 0, 100, 3000, 2959, -100, 3000, 0, -100, 3000, 0, 100, 3000, 2959, -100, -3000, 0, -100, 3000, 0, -100, 3000, 0, 100, 3000, 0, -100, -3000, 0, -100, 3000, 3000, 100, -3000, 0, 100, -3000, 0, -100)
+backface_collision = true
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_uvx6f"]
+sky_top_color = Color(0.128788, 0.512553, 0.483969, 1)
+sky_horizon_color = Color(0.437726, 0.711678, 0.707613, 1)
+ground_bottom_color = Color(0.0596724, 0.181695, 0.292878, 1)
+ground_horizon_color = Color(0.451764, 0.691266, 0.816203, 1)
+ground_curve = 0.0546416
+
+[sub_resource type="Sky" id="Sky_whale"]
+sky_material = SubResource("ProceduralSkyMaterial_uvx6f")
+
+[sub_resource type="Environment" id="Environment_sagsy"]
+background_mode = 2
+background_energy_multiplier = 1.68
+sky = SubResource("Sky_whale")
+fog_mode = 1
+fog_light_color = Color(0.3712, 0.528096, 0.661802, 1)
+fog_density = 1.0
+fog_depth_begin = 2113.7
+fog_depth_end = 4000.0
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.0152
+volumetric_fog_albedo = Color(0.89, 0.89, 0.89, 1)
+volumetric_fog_length = 32.0
+volumetric_fog_detail_spread = 6.0
+volumetric_fog_sky_affect = 0.289
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_whale"]
+data = PackedVector3Array(-15, -15, 2.5, -15, -15, -2.5, -15, 15, -2.5, 15, -15, -2.5, -15, -15, -2.5, -15, -15, 2.5, -15, 15, -2.5, -15, -15, -2.5, 15, -15, -2.5, -15, 15, -2.5, -15, 15, 2.5, -15, -15, 2.5, -15, -15, 2.5, -15, 15, 2.5, 15, 15, 2.5, 15, 15, 2.5, -15, 15, 2.5, -15, 15, -2.5, -15, -15, 2.5, 15, -15, 2.5, 15, -15, -2.5, 15, 15, 2.5, 15, -15, 2.5, -15, -15, 2.5, 15, -15, -2.5, 15, -15, 2.5, 15, 15, 2.5, 15, -15, -2.5, 15, 15, -2.5, -15, 15, -2.5, -15, 15, -2.5, 15, 15, -2.5, 15, 15, 2.5, 15, 15, 2.5, 15, 15, -2.5, 15, -15, -2.5)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_lpuiv"]
+data = PackedVector3Array(-15, -15, 2.5, -15, -15, -2.5, -15, 15, -2.5, 15, -15, -2.5, -15, -15, -2.5, -15, -15, 2.5, -15, 15, -2.5, -15, -15, -2.5, 15, -15, -2.5, -15, 15, -2.5, -15, 15, 2.5, -15, -15, 2.5, -15, -15, 2.5, -15, 15, 2.5, 15, 15, 2.5, 15, 15, 2.5, -15, 15, 2.5, -15, 15, -2.5, -15, -15, 2.5, 15, -15, 2.5, 15, -15, -2.5, 15, 15, 2.5, 15, -15, 2.5, -15, -15, 2.5, 15, -15, -2.5, 15, -15, 2.5, 15, 15, 2.5, 15, -15, -2.5, 15, 15, -2.5, -15, 15, -2.5, -15, 15, -2.5, 15, 15, -2.5, 15, 15, 2.5, 15, 15, 2.5, 15, 15, -2.5, 15, -15, -2.5)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_3n6fv"]
+data = PackedVector3Array(-15, -42.5, 2.5, -15, -42.5, -2.5, -15, 42.5, -2.5, 15, -42.5, -2.5, -15, -42.5, -2.5, -15, -42.5, 2.5, -15, 42.5, -2.5, -15, -42.5, -2.5, 15, -42.5, -2.5, -15, 42.5, -2.5, -15, 42.5, 2.5, -15, -42.5, 2.5, -15, -42.5, 2.5, -15, 42.5, 2.5, 15, 42.5, 2.5, 15, 42.5, 2.5, -15, 42.5, 2.5, -15, 42.5, -2.5, -15, -42.5, 2.5, 15, -42.5, 2.5, 15, -42.5, -2.5, 15, 42.5, 2.5, 15, -42.5, 2.5, -15, -42.5, 2.5, 15, -42.5, -2.5, 15, -42.5, 2.5, 15, 42.5, 2.5, 15, -42.5, -2.5, 15, 42.5, -2.5, -15, 42.5, -2.5, -15, 42.5, -2.5, 15, 42.5, -2.5, 15, 42.5, 2.5, 15, 42.5, 2.5, 15, 42.5, -2.5, 15, -42.5, -2.5)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_m6an7"]
+data = PackedVector3Array(-15, -15, 2.5, -15, -15, -2.5, -15, 15, -2.5, 15, -15, -2.5, -15, -15, -2.5, -15, -15, 2.5, -15, 15, -2.5, -15, -15, -2.5, 15, -15, -2.5, -15, 15, -2.5, -15, 15, 2.5, -15, -15, 2.5, -15, -15, 2.5, -15, 15, 2.5, 15, 15, 2.5, 15, 15, 2.5, -15, 15, 2.5, -15, 15, -2.5, -15, -15, 2.5, 15, -15, 2.5, 15, -15, -2.5, 15, 15, 2.5, 15, -15, 2.5, -15, -15, 2.5, 15, -15, -2.5, 15, -15, 2.5, 15, 15, 2.5, 15, -15, -2.5, 15, 15, -2.5, -15, 15, -2.5, -15, 15, -2.5, 15, 15, -2.5, 15, 15, 2.5, 15, 15, 2.5, 15, 15, -2.5, 15, -15, -2.5)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_jf04d"]
+data = PackedVector3Array(-15, -15, 2.5, -15, -15, -2.5, -15, 15, -2.5, 15, -15, -2.5, -15, -15, -2.5, -15, -15, 2.5, -15, 15, -2.5, -15, -15, -2.5, 15, -15, -2.5, -15, 15, -2.5, -15, 15, 2.5, -15, -15, 2.5, -15, -15, 2.5, -15, 15, 2.5, 15, 15, 2.5, 15, 15, 2.5, -15, 15, 2.5, -15, 15, -2.5, -15, -15, 2.5, 15, -15, 2.5, 15, -15, -2.5, 15, 15, 2.5, 15, -15, 2.5, -15, -15, 2.5, 15, -15, -2.5, 15, -15, 2.5, 15, 15, 2.5, 15, -15, -2.5, 15, 15, -2.5, -15, 15, -2.5, -15, 15, -2.5, 15, 15, -2.5, 15, 15, 2.5, 15, 15, 2.5, 15, 15, -2.5, 15, -15, -2.5)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_hgc08"]
+data = PackedVector3Array(-15, -42.5, 2.5, -15, -42.5, -2.5, -15, 42.5, -2.5, 15, -42.5, -2.5, -15, -42.5, -2.5, -15, -42.5, 2.5, -15, 42.5, -2.5, -15, -42.5, -2.5, 15, -42.5, -2.5, -15, 42.5, -2.5, -15, 42.5, 2.5, -15, -42.5, 2.5, -15, -42.5, 2.5, -15, 42.5, 2.5, 15, 42.5, 2.5, 15, 42.5, 2.5, -15, 42.5, 2.5, -15, 42.5, -2.5, -15, -42.5, 2.5, 15, -42.5, 2.5, 15, -42.5, -2.5, 15, 42.5, 2.5, 15, -42.5, 2.5, -15, -42.5, 2.5, 15, -42.5, -2.5, 15, -42.5, 2.5, 15, 42.5, 2.5, 15, -42.5, -2.5, 15, 42.5, -2.5, -15, 42.5, -2.5, -15, 42.5, -2.5, 15, 42.5, -2.5, 15, 42.5, 2.5, 15, 42.5, 2.5, 15, 42.5, -2.5, 15, -42.5, -2.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_pgjx0"]
+size = Vector3(6727.83, 91.1166, 200)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_v1dus"]
+size = Vector3(82, 147, 339)
+
+[node name="sisyphus level model 2" type="Node3D"]
+script = ExtResource("1_pgjx0")
+
+[node name="DirectionalLight3D3" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 1577, 0)
+visible = false
+shadow_enabled = true
+directional_shadow_max_distance = 3000.0
+
+[node name="BallRespawnPoint" type="Node3D" parent="." groups=["BallRespawnPoint"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3096, 20, 0)
+
+[node name="RedSpawnBox" type="CollisionShape3D" parent="." groups=["spawnbox"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3492, 10, 25)
+shape = SubResource("BoxShape3D_qa4eg")
+script = ExtResource("2_5ovnb")
+
+[node name="BlueSpawnBox" type="CollisionShape3D" parent="." groups=["spawnbox"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3492, 10, -25)
+shape = SubResource("BoxShape3D_qa4eg")
+script = ExtResource("2_5ovnb")
+team = 1
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3321.68, 2979.5, 0)
+use_collision = true
+size = Vector3(643.354, 41, 1000)
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1500, 0)
+use_collision = true
+mesh = SubResource("PrismMesh_uvx6f")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("WorldBoundaryShape3D_uvx6f")
+
+[node name="CSGBakedCollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_pgjx0")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_sagsy")
+
+[node name="red goal" type="Node3D" parent="."]
+transform = Transform3D(-5, 0, 7.54979e-07, 0, 5, 0, -7.54979e-07, 0, -5, 3509, 3020, -212.5)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="red goal"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 11, 40)
+use_collision = true
+size = Vector3(30, 30, 5)
+material = ExtResource("3_2ubej")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="red goal"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 11, -40)
+use_collision = true
+size = Vector3(30, 30, 5)
+material = ExtResource("3_2ubej")
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="red goal"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 15, 28.5, 0)
+use_collision = true
+size = Vector3(30, 85, 5)
+material = ExtResource("3_2ubej")
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="red goal"]
+transform = Transform3D(-4.37114e-08, 1.94707e-07, 1, 1, -1.50996e-07, 4.37114e-08, 1.50996e-07, 1, -1.94707e-07, -2.5, 13.5, 0)
+use_collision = true
+size = Vector3(35, 85, 5)
+material = ExtResource("3_2ubej")
+
+[node name="blue goal" type="Node3D" parent="."]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 3509, 3020, 212.5)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="blue goal"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 11, 40)
+use_collision = true
+size = Vector3(30, 30, 5)
+material = ExtResource("4_vro88")
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="blue goal"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 11, -40)
+use_collision = true
+size = Vector3(30, 30, 5)
+material = ExtResource("4_vro88")
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="blue goal"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -15, 28.5, 0)
+use_collision = true
+size = Vector3(30, 85, 5)
+material = ExtResource("4_vro88")
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="blue goal"]
+transform = Transform3D(4.37114e-08, -4.37114e-08, -1, 1, -1.50996e-07, 4.37114e-08, -1.50996e-07, -1, 4.37114e-08, 2.5, 13.5, 0)
+use_collision = true
+size = Vector3(35, 85, 5)
+material = ExtResource("4_vro88")
+
+[node name="walljump detection" type="Area3D" parent="." groups=["walljump"]]
+transform = Transform3D(1.01, 0, 0, 0, 1.01, 0, 0, 0, 1.01, 0, 0, 0)
+visible = false
+
+[node name="red goal" type="CollisionShape3D" parent="walljump detection"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 11, 40)
+shape = SubResource("ConcavePolygonShape3D_whale")
+
+[node name="red goal2" type="CollisionShape3D" parent="walljump detection"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 11, -40)
+shape = SubResource("ConcavePolygonShape3D_lpuiv")
+
+[node name="red goal3" type="CollisionShape3D" parent="walljump detection"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 15, 28.5, 0)
+shape = SubResource("ConcavePolygonShape3D_3n6fv")
+
+[node name="blue goal" type="CollisionShape3D" parent="walljump detection"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 11, 40)
+shape = SubResource("ConcavePolygonShape3D_m6an7")
+
+[node name="blue goal2" type="CollisionShape3D" parent="walljump detection"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 11, -40)
+shape = SubResource("ConcavePolygonShape3D_jf04d")
+
+[node name="blue goal3" type="CollisionShape3D" parent="walljump detection"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -15, 28.5, 0)
+shape = SubResource("ConcavePolygonShape3D_hgc08")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="walljump detection"]
+shape = SubResource("WorldBoundaryShape3D_uvx6f")
+
+[node name="CSGBakedCollisionShape3D" type="CollisionShape3D" parent="walljump detection"]
+shape = SubResource("ConcavePolygonShape3D_pgjx0")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="walljump detection"]
+transform = Transform3D(0.894934, -0.446198, 0, 0.446198, 0.894934, 0, 0, 0, 1, 9.726, 1458, 0)
+shape = SubResource("BoxShape3D_pgjx0")
+
+[node name="blue goal2" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3509, 3020, 212.5)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="blue goal2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -58, 54, 4.5)
+shape = SubResource("BoxShape3D_v1dus")
+
+[node name="red goal2" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3509, 3020, -212.5)
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="red goal2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -42.5, 56.5, 0.5)
+shape = SubResource("BoxShape3D_v1dus")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.939693, 0.34202, 0, -0.34202, 0.939693, 0, 1036, 0)
+light_color = Color(1, 0.61, 0.61, 1)
+light_indirect_energy = 3.072
+shadow_enabled = true
+directional_shadow_max_distance = 2400.0
+
+[node name="DirectionalLight3D2" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-1, 1.51808e-08, -8.60946e-08, 0, 0.984808, 0.173648, 8.74228e-08, 0.173648, -0.984808, 0, 1036, 0)
+light_color = Color(0.252779, 0.537047, 0.988918, 1)
+light_indirect_energy = 3.302
+shadow_enabled = true
+directional_shadow_max_distance = 2400.0
+
+[node name="Initial Bagels" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2166, 0, 0)
+
+[node name="RigidBody3D6" parent="Initial Bagels" instance=ExtResource("5_ut754")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1184, 42, -25)
+
+[node name="RigidBody3D7" parent="Initial Bagels" instance=ExtResource("5_ut754")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1184, 86, -25)
+
+[node name="RigidBody3D8" parent="Initial Bagels" instance=ExtResource("5_ut754")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1184, 183, -25)
+
+[node name="RigidBody3D9" parent="Initial Bagels" instance=ExtResource("5_ut754")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1184, 325, -25)
+
+[node name="RigidBody3D10" parent="Initial Bagels" instance=ExtResource("5_ut754")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1184, 484, -25)
+
+[node name="RigidBody3D11" parent="Initial Bagels" instance=ExtResource("5_ut754")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1184, 42, 25)
+
+[node name="RigidBody3D12" parent="Initial Bagels" instance=ExtResource("5_ut754")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1184, 86, 25)
+
+[node name="RigidBody3D13" parent="Initial Bagels" instance=ExtResource("5_ut754")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1184, 183, 25)
+
+[node name="RigidBody3D14" parent="Initial Bagels" instance=ExtResource("5_ut754")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1184, 325, 25)
+
+[node name="RigidBody3D15" parent="Initial Bagels" instance=ExtResource("5_ut754")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1184, 484, 25)
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+transform = Transform3D(0.894934, -0.446198, 0, 0.446198, 0.894934, 0, 0, 0, 1, 9.726, 1458, 0)
+visible = false
+shape = SubResource("BoxShape3D_pgjx0")
+
+[connection signal="body_entered" from="walljump detection" to="." method="_on_walljump_detection_body_entered"]
+[connection signal="body_exited" from="walljump detection" to="." method="_on_walljump_detection_body_exited"]
+[connection signal="body_entered" from="blue goal2" to="." method="_on_blue_goal_body_entered"]
+[connection signal="body_entered" from="red goal2" to="." method="_on_red_goal_body_entered"]

@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://bxixpoqbxc8bw"
+path="res://.godot/imported/bagel atmosphere.ogg-e8010e941606133ba65e57dc64ffd43f.oggvorbisstr"
+
+[deps]
+
+source_file="res://audio/music/bagel atmosphere.ogg"
+dest_files=["res://.godot/imported/bagel atmosphere.ogg-e8010e941606133ba65e57dc64ffd43f.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

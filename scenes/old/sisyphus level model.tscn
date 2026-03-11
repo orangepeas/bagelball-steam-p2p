@@ -1,0 +1,285 @@
+[gd_scene load_steps=20 format=3 uid="uid://c2xxdes3cjme8"]
+
+[ext_resource type="Script" uid="uid://de55j2xmbhesp" path="res://scripts/goal_score.gd" id="1_qa4eg"]
+[ext_resource type="Script" uid="uid://bhbrqpavbfgf8" path="res://scripts/spawn_box.gd" id="1_sagsy"]
+[ext_resource type="Material" uid="uid://cdbk8as6aau6j" path="res://styling/torus goalred.tres" id="3_v1dus"]
+[ext_resource type="Material" uid="uid://cj72q2b6ctshr" path="res://styling/torus goalblue.tres" id="4_7hiyq"]
+[ext_resource type="PackedScene" uid="uid://b0g03ke030y0c" path="res://scenes/bagel.tscn" id="5_7hiyq"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qa4eg"]
+size = Vector3(5, 5, 50)
+
+[sub_resource type="PrismMesh" id="PrismMesh_uvx6f"]
+left_to_right = 0.8
+size = Vector3(2000, 600, 200)
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_uvx6f"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_7hiyq"]
+data = PackedVector3Array(600, 600, -100, 962, 3560.5, -100, 962, 439.5, -100, 1000, 0, -140, 1000, 0, -100, 1000, 439.5, -100, -1000, 4000, -140, 1000, 480, -140, 1000, 4000, -140, 1000, 0, -140, 1000, 440, -100, 1000, 440, -140, 1000, 0, -140, 1000, 439.5, -100, 1000, 440, -100, 1000, 0, -100, 962, 439.5, -100, 1000, 439.5, -100, 1000, 4000, -100, 962, 3560.5, -100, 600, 600, -100, 1000, 4000, -140, 1000, 4000, -100, -1000, 4000, -140, 1000, 3560.5, -100, 1000, 4000, -100, 1000, 480, -140, 1000, 440, -140, 1000, 480, -140, -1000, 4000, -140, 1000, 440, -140, -1000, 4000, -140, 1000, 0, -140, 600, 600, -100, 962, 439.5, -100, 1000, 0, -100, 1000, 4000, -140, 1000, 480, -140, 1000, 4000, -100, 1000, 4000, -100, 1000, 3560.5, -100, 962, 3560.5, -100, -1000, 0, -100, 1000, 0, -100, 1000, 0, -140, -1000, 0, -100, 1000, 0, -140, -1000, 0, -140, -1000, 0, -100, -1000, 0, -140, -1000, 4000, -140, -1000, 4000, -140, 1000, 4000, -100, -1000, 4000, -100, -1000, 4000, -100, 1000, 4000, -100, -1000, 0, -100, -1000, 4000, -140, -1000, 4000, -100, -1000, 0, -100, 1000, 0, -140, -1000, 4000, -140, -1000, 0, -140, 600, 600, -100, -1000, 0, -100, 1000, 4000, -100, 1000, 3560.5, -100, 1000, 480, -140, 1000, 480, -100, 1000, 439.5, -100, 1002, 439.5, -100, 1002, 440, -100, 962, 439.5, 100, 1002, 439.5, -100, 1000, 439.5, -100, 1000, 439.5, -100, 1002, 440, -100, 1000, 440, -100, 1002, 439.5, 100, 1000, 440, 100, 1002, 440, 100, 1000, 439.5, 100, 1000, 440, 100, 1002, 439.5, 100, 1002, 3560.5, 100, 1002, 480, -100, 1002, 480, 100, 1000, 3560.5, 100, 1002, 480, 100, 1000, 480, 100, 1002, 439.5, -100, 1002, 439.5, 100, 1002, 440, 100, 1000, 439.5, 100, 1002, 439.5, 100, 1002, 439.5, -100, 962, 439.5, 100, 1000, 439.5, 100, 1002, 439.5, -100, 962, 439.5, 100, 1000, 439.5, -100, 962, 439.5, -100, 962, 3560.5, -100, 962, 3560.5, 100, 962, 439.5, 100, 1002, 439.5, -100, 1002, 440, 100, 1002, 440, -100, 1002, 3560.5, 100, 1000, 3560.5, 100, 962, 3560.5, -100, 962, 3560.5, -100, 1000, 3560.5, 100, 962, 3560.5, 100, 1000, 3560.5, -100, 1000, 480, -100, 1002, 3560.5, -100, 1002, 3560.5, -100, 1000, 480, -100, 1002, 480, -100, 962, 3560.5, -100, 962, 439.5, 100, 962, 439.5, -100, 1000, 3560.5, 100, 1002, 3560.5, 100, 1002, 480, 100, 1002, 3560.5, -100, 1002, 480, -100, 1002, 3560.5, 100, 1000, 3560.5, -100, 1002, 3560.5, 100, 962, 3560.5, -100, 1002, 3560.5, -100, 1002, 3560.5, 100, 1000, 3560.5, -100, 1000, 0, -500, 1590, 0, 500, 1000, 0, -140, 1000, 0, 140, 1000, -40, 500, 1000, 0, 100, 1590, 0, -500, 1590, 0, 500, 1000, 0, -500, 1000, 0, -500, 1000, 0, -140, 1000, -40, 500, 1000, -40, 500, 1590, -40, -500, 1000, -40, -500, 1000, 0, -500, 1000, -40, 500, 1000, -40, -500, 1590, 0, 500, 1000, 0, -100, 1000, 0, -140, 1000, 0, 100, 1000, -40, 500, 1000, 0, -100, 1000, 0, -100, 1000, -40, 500, 1000, 0, -140, 1590, 0, 500, 1000, 0, 100, 1000, 0, -100, 1590, 0, 500, 1000, 0, 140, 1000, 0, 100, 1000, -40, 500, 1590, -40, 500, 1590, -40, -500, 1590, 0, 500, 1000, 0, 500, 1000, 0, 140, 1000, -40, 500, 1000, 0, 140, 1000, 0, 500, 1630, 480, -545, 1590, 480, 500, 1590, 480, -500, 1590, 480, 545, 1630, -40, 545, 1590, -40, 545, 1590, -40, 545, 1630, -40, 545, 1590, -40, 500, 1630, 480, 545, 1590, 480, 545, 1630, 480, -545, 1630, 480, -545, 1590, 480, 545, 1590, 480, 500, 1630, -40, 545, 1630, 480, 545, 1630, 480, -545, 1590, 0, 500, 1590, 440, -500, 1590, 440, 500, 1590, -40, 500, 1630, -40, 545, 1590, -40, -500, 1630, 480, 545, 1630, -40, 545, 1590, 480, 545, 1590, 0, -500, 1590, 440, -500, 1590, 0, 500, 1630, -40, 545, 1630, 480, -545, 1630, -40, -545, 1590, -40, -500, 1630, -40, 545, 1590, -40, -545, 1590, -40, -545, 1630, -40, 545, 1630, -40, -545, 1590, -40, -545, 1630, -40, -545, 1630, 480, -545, 1630, 480, -545, 1590, 480, -545, 1590, -40, -545, 1630, 480, -545, 1590, 480, -500, 1590, 480, -545, 1000, 440, 140, 1002, 440, 100, 1000, 440, 100, 1590, 480, 500, 1002, 480, -100, 1000, 480, -140, 1590, 440, -500, 1000, 440, 140, 1000, 440, 500, 1000, 440, -140, 1590, 440, -500, 1000, 440, -500, 1000, 440, 140, 1000, 480, 140, 1000, 440, 500, 1000, 440, -500, 1000, 480, -500, 1000, 440, -140, 1000, 480, -500, 1590, 480, -500, 1590, 480, 500, 1002, 480, 100, 1002, 480, -100, 1590, 480, 500, 1002, 480, 100, 1590, 480, 500, 1000, 480, 100, 1000, 480, 100, 1590, 480, 500, 1000, 480, 140, 1590, 440, 500, 1590, 440, -500, 1000, 440, 500, 1000, 480, 140, 1000, 480, 500, 1000, 440, 500, 1000, 480, 140, 1590, 480, 500, 1000, 480, 500, 1000, 440, -100, 1590, 440, -500, 1000, 440, -140, 1000, 480, -140, 1000, 440, -140, 1000, 480, -500, 1590, 480, 500, 1000, 480, -140, 1000, 480, -500, 1002, 440, -100, 1590, 440, -500, 1000, 440, -100, 1002, 440, -100, 1002, 440, 100, 1590, 440, -500, 1590, 440, -500, 1002, 440, 100, 1000, 440, 140, 1000, 480, -140, 1002, 480, -100, 1000, 480, -100, 1000, 0, 500, 1000, 480, 545, 1000, -40, 500, 1000, 480, 545, 1000, -40, 545, 1000, -40, 500, 1000, 0, 500, 1000, 440, 500, 1000, 480, 545, 1000, -40, 545, 1590, -40, 545, 1000, -40, 500, 1000, 480, 545, 1590, -40, 545, 1000, -40, 545, 1000, 440, 500, 1000, 0, 500, 1590, 440, 500, 1000, 480, 545, 1000, 440, 500, 1000, 480, 500, 1590, 480, 500, 1000, 480, 545, 1000, 480, 500, 1590, -40, 545, 1590, -40, 500, 1000, -40, 500, 1000, 0, 500, 1590, 0, 500, 1590, 440, 500, 1000, 480, 545, 1590, 480, 545, 1590, -40, 545, 1590, 480, 545, 1000, 480, 545, 1590, 480, 500, 1590, -40, -500, 1590, -40, -545, 1000, -40, -545, 1000, -40, -545, 1000, 0, -500, 1000, -40, -500, 1000, 440, -500, 1000, 0, -500, 1000, -40, -545, 1000, -40, -545, 1000, 480, -545, 1000, 480, -500, 1000, -40, -545, 1000, 480, -500, 1000, 440, -500, 1000, -40, -500, 1590, -40, -500, 1000, -40, -545, 1000, 0, -500, 1000, 440, -500, 1590, 0, -500, 1000, -40, -545, 1590, 480, -545, 1000, 480, -545, 1590, 480, -545, 1590, 480, -500, 1000, 480, -500, 1590, 440, -500, 1590, 0, -500, 1000, 440, -500, 1590, 480, -545, 1000, 480, -500, 1000, 480, -545, 1590, -40, -545, 1590, 480, -545, 1000, -40, -545, 1000, 4000, 140, 1000, 480, 100, 1000, 480, 140, 1000, 4000, 140, 1000, 4000, 100, 1000, 3560.5, 100, 1000, 3560.5, 100, 1000, 4000, 100, 962, 3560.5, 100, 1000, 3560.5, 100, 1000, 480, 100, 1000, 4000, 140, 1000, 4000, 100, 1000, 4000, 140, -1000, 4000, 100, 962, 3560.5, 100, 1000, 4000, 100, -1000, 4000, 100, -1000, 0, 140, 1000, 0, 140, 1000, 0, 100, 600, 600, 100, -1000, 4000, 100, -1000, 0, 100, -1000, 0, 140, 1000, 0, 100, -1000, 0, 100, 600, 600, 100, 1000, 0, 100, -1000, 4000, 100, -1000, 4000, 100, -1000, 4000, 140, -1000, 0, 140, -1000, 4000, 140, 1000, 4000, 140, -1000, 0, 140, -1000, 4000, 100, 962, 439.5, 100, 962, 3560.5, 100, -1000, 4000, 100, 1000, 4000, 140, -1000, 4000, 140, -1000, 0, 140, -1000, 0, 100, -1000, 4000, 100, -1000, 0, 140, 1000, 440, 140, 1000, 0, 140, 1000, 480, 140, 1000, 440, 140, -1000, 0, 140, 1000, 439.5, 100, 1000, 440, 140, 1000, 440, 100, 1000, 0, 100, 962, 439.5, 100, -1000, 4000, 100, 1000, 480, 140, -1000, 0, 140, 1000, 4000, 140, 1000, 0, 100, 1000, 0, 140, 1000, 440, 140, 1000, 0, 100, 1000, 439.5, 100, 962, 439.5, 100, 1000, 0, 100, 1000, 440, 140, 1000, 439.5, 100, -1000, 0, -100, 600, 600, -100, 600, 600, 100, 600, 600, 100, -1000, 0, 100, -1000, 0, -100, -1000, 0, 100, 1000, 0, 100, -1000, 0, -100, 1000, 0, 100, 1000, 0, -100, -1000, 0, -100, 600, 600, -100, 1000, 0, -100, 1000, 0, 100, 1000, 0, 100, 600, 600, 100, 600, 600, -100)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_whale"]
+data = PackedVector3Array(-15, -15, 2.5, -15, -15, -2.5, -15, 15, -2.5, 15, -15, -2.5, -15, -15, -2.5, -15, -15, 2.5, -15, 15, -2.5, -15, -15, -2.5, 15, -15, -2.5, -15, 15, -2.5, -15, 15, 2.5, -15, -15, 2.5, -15, -15, 2.5, -15, 15, 2.5, 15, 15, 2.5, 15, 15, 2.5, -15, 15, 2.5, -15, 15, -2.5, -15, -15, 2.5, 15, -15, 2.5, 15, -15, -2.5, 15, 15, 2.5, 15, -15, 2.5, -15, -15, 2.5, 15, -15, -2.5, 15, -15, 2.5, 15, 15, 2.5, 15, -15, -2.5, 15, 15, -2.5, -15, 15, -2.5, -15, 15, -2.5, 15, 15, -2.5, 15, 15, 2.5, 15, 15, 2.5, 15, 15, -2.5, 15, -15, -2.5)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_lpuiv"]
+data = PackedVector3Array(-15, -15, 2.5, -15, -15, -2.5, -15, 15, -2.5, 15, -15, -2.5, -15, -15, -2.5, -15, -15, 2.5, -15, 15, -2.5, -15, -15, -2.5, 15, -15, -2.5, -15, 15, -2.5, -15, 15, 2.5, -15, -15, 2.5, -15, -15, 2.5, -15, 15, 2.5, 15, 15, 2.5, 15, 15, 2.5, -15, 15, 2.5, -15, 15, -2.5, -15, -15, 2.5, 15, -15, 2.5, 15, -15, -2.5, 15, 15, 2.5, 15, -15, 2.5, -15, -15, 2.5, 15, -15, -2.5, 15, -15, 2.5, 15, 15, 2.5, 15, -15, -2.5, 15, 15, -2.5, -15, 15, -2.5, -15, 15, -2.5, 15, 15, -2.5, 15, 15, 2.5, 15, 15, 2.5, 15, 15, -2.5, 15, -15, -2.5)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_3n6fv"]
+data = PackedVector3Array(-15, -42.5, 2.5, -15, -42.5, -2.5, -15, 42.5, -2.5, 15, -42.5, -2.5, -15, -42.5, -2.5, -15, -42.5, 2.5, -15, 42.5, -2.5, -15, -42.5, -2.5, 15, -42.5, -2.5, -15, 42.5, -2.5, -15, 42.5, 2.5, -15, -42.5, 2.5, -15, -42.5, 2.5, -15, 42.5, 2.5, 15, 42.5, 2.5, 15, 42.5, 2.5, -15, 42.5, 2.5, -15, 42.5, -2.5, -15, -42.5, 2.5, 15, -42.5, 2.5, 15, -42.5, -2.5, 15, 42.5, 2.5, 15, -42.5, 2.5, -15, -42.5, 2.5, 15, -42.5, -2.5, 15, -42.5, 2.5, 15, 42.5, 2.5, 15, -42.5, -2.5, 15, 42.5, -2.5, -15, 42.5, -2.5, -15, 42.5, -2.5, 15, 42.5, -2.5, 15, 42.5, 2.5, 15, 42.5, 2.5, 15, 42.5, -2.5, 15, -42.5, -2.5)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_m6an7"]
+data = PackedVector3Array(-15, -15, 2.5, -15, -15, -2.5, -15, 15, -2.5, 15, -15, -2.5, -15, -15, -2.5, -15, -15, 2.5, -15, 15, -2.5, -15, -15, -2.5, 15, -15, -2.5, -15, 15, -2.5, -15, 15, 2.5, -15, -15, 2.5, -15, -15, 2.5, -15, 15, 2.5, 15, 15, 2.5, 15, 15, 2.5, -15, 15, 2.5, -15, 15, -2.5, -15, -15, 2.5, 15, -15, 2.5, 15, -15, -2.5, 15, 15, 2.5, 15, -15, 2.5, -15, -15, 2.5, 15, -15, -2.5, 15, -15, 2.5, 15, 15, 2.5, 15, -15, -2.5, 15, 15, -2.5, -15, 15, -2.5, -15, 15, -2.5, 15, 15, -2.5, 15, 15, 2.5, 15, 15, 2.5, 15, 15, -2.5, 15, -15, -2.5)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_jf04d"]
+data = PackedVector3Array(-15, -15, 2.5, -15, -15, -2.5, -15, 15, -2.5, 15, -15, -2.5, -15, -15, -2.5, -15, -15, 2.5, -15, 15, -2.5, -15, -15, -2.5, 15, -15, -2.5, -15, 15, -2.5, -15, 15, 2.5, -15, -15, 2.5, -15, -15, 2.5, -15, 15, 2.5, 15, 15, 2.5, 15, 15, 2.5, -15, 15, 2.5, -15, 15, -2.5, -15, -15, 2.5, 15, -15, 2.5, 15, -15, -2.5, 15, 15, 2.5, 15, -15, 2.5, -15, -15, 2.5, 15, -15, -2.5, 15, -15, 2.5, 15, 15, 2.5, 15, -15, -2.5, 15, 15, -2.5, -15, 15, -2.5, -15, 15, -2.5, 15, 15, -2.5, 15, 15, 2.5, 15, 15, 2.5, 15, 15, -2.5, 15, -15, -2.5)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_hgc08"]
+data = PackedVector3Array(-15, -42.5, 2.5, -15, -42.5, -2.5, -15, 42.5, -2.5, 15, -42.5, -2.5, -15, -42.5, -2.5, -15, -42.5, 2.5, -15, 42.5, -2.5, -15, -42.5, -2.5, 15, -42.5, -2.5, -15, 42.5, -2.5, -15, 42.5, 2.5, -15, -42.5, 2.5, -15, -42.5, 2.5, -15, 42.5, 2.5, 15, 42.5, 2.5, 15, 42.5, 2.5, -15, 42.5, 2.5, -15, 42.5, -2.5, -15, -42.5, 2.5, 15, -42.5, 2.5, 15, -42.5, -2.5, 15, 42.5, 2.5, 15, -42.5, 2.5, -15, -42.5, 2.5, 15, -42.5, -2.5, 15, -42.5, 2.5, 15, 42.5, 2.5, 15, -42.5, -2.5, 15, 42.5, -2.5, -15, 42.5, -2.5, -15, 42.5, -2.5, 15, 42.5, -2.5, 15, 42.5, 2.5, 15, 42.5, 2.5, 15, 42.5, -2.5, 15, -42.5, -2.5)
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_uvx6f"]
+sky_top_color = Color(0.128788, 0.512553, 0.483969, 1)
+sky_horizon_color = Color(0.437726, 0.711678, 0.707613, 1)
+ground_bottom_color = Color(0.0596724, 0.181695, 0.292878, 1)
+ground_horizon_color = Color(0.451764, 0.691266, 0.816203, 1)
+ground_curve = 0.0546416
+
+[sub_resource type="Sky" id="Sky_whale"]
+sky_material = SubResource("ProceduralSkyMaterial_uvx6f")
+
+[sub_resource type="Environment" id="Environment_sagsy"]
+background_mode = 2
+background_energy_multiplier = 1.68
+sky = SubResource("Sky_whale")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_v1dus"]
+size = Vector3(161, 100, 339)
+
+[node name="sisyphus" type="Node3D"]
+script = ExtResource("1_qa4eg")
+
+[node name="BallRespawnPoint" type="Node3D" parent="." groups=["BallRespawnPoint"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1067, 20, 0)
+
+[node name="RedSpawnBox" type="CollisionShape3D" parent="." groups=["spawnbox"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1184, 500, 25)
+shape = SubResource("BoxShape3D_qa4eg")
+script = ExtResource("1_sagsy")
+
+[node name="BlueSpawnBox" type="CollisionShape3D" parent="." groups=["spawnbox"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1184, 500, -25)
+shape = SubResource("BoxShape3D_qa4eg")
+script = ExtResource("1_sagsy")
+team = 1
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2000, -120)
+use_collision = true
+size = Vector3(2000, 4000, 40)
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 982, 2000, 0)
+use_collision = true
+size = Vector3(40, 3121, 200)
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1295, -20, 0)
+use_collision = true
+size = Vector3(590, 40, 1000)
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 1610, 220, 0)
+use_collision = true
+size = Vector3(520, 40, 1090)
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1295, 460, 0)
+use_collision = true
+size = Vector3(590, 40, 1000)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 1295, 220, 522.5)
+use_collision = true
+size = Vector3(590, 45, 520)
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 1295, 220, -522.5)
+use_collision = true
+size = Vector3(590, 45, 520)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2000, 120)
+use_collision = true
+size = Vector3(2000, 4000, 40)
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="CSGCombiner3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 300, 0)
+use_collision = true
+mesh = SubResource("PrismMesh_uvx6f")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("WorldBoundaryShape3D_uvx6f")
+
+[node name="CSGBakedCollisionShape3D2" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_7hiyq")
+
+[node name="red goal" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 11, 40)
+shape = SubResource("ConcavePolygonShape3D_whale")
+
+[node name="red goal2" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 11, -40)
+shape = SubResource("ConcavePolygonShape3D_lpuiv")
+
+[node name="red goal3" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 15, 28.5, 0)
+shape = SubResource("ConcavePolygonShape3D_3n6fv")
+
+[node name="blue goal" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 11, 40)
+shape = SubResource("ConcavePolygonShape3D_m6an7")
+
+[node name="blue goal2" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 11, -40)
+shape = SubResource("ConcavePolygonShape3D_jf04d")
+
+[node name="blue goal3" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -15, 28.5, 0)
+shape = SubResource("ConcavePolygonShape3D_hgc08")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_sagsy")
+
+[node name="red goal" type="Node3D" parent="."]
+transform = Transform3D(-5, 0, 7.54979e-07, 0, 5, 0, -7.54979e-07, 0, -5, 1509, 0, -212.5)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="red goal"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 11, 40)
+use_collision = true
+size = Vector3(30, 30, 5)
+material = ExtResource("3_v1dus")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="red goal"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 11, -40)
+use_collision = true
+size = Vector3(30, 30, 5)
+material = ExtResource("3_v1dus")
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="red goal"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 15, 28.5, 0)
+use_collision = true
+size = Vector3(30, 85, 5)
+material = ExtResource("3_v1dus")
+
+[node name="blue goal" type="Node3D" parent="."]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 1509, 0, 212.5)
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="blue goal"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 11, 40)
+use_collision = true
+size = Vector3(30, 30, 5)
+material = ExtResource("4_7hiyq")
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="blue goal"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 11, -40)
+use_collision = true
+size = Vector3(30, 30, 5)
+material = ExtResource("4_7hiyq")
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="blue goal"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -15, 28.5, 0)
+use_collision = true
+size = Vector3(30, 85, 5)
+material = ExtResource("4_7hiyq")
+
+[node name="walljump detection" type="Area3D" parent="." groups=["walljump"]]
+transform = Transform3D(0.99, 0, 0, 0, 0.99, 0, 0, 0, 0.99, 0, 0, 0)
+
+[node name="CSGBakedCollisionShape3D2" type="CollisionShape3D" parent="walljump detection"]
+shape = SubResource("ConcavePolygonShape3D_7hiyq")
+
+[node name="red goal" type="CollisionShape3D" parent="walljump detection"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 11, 40)
+shape = SubResource("ConcavePolygonShape3D_whale")
+
+[node name="red goal2" type="CollisionShape3D" parent="walljump detection"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15, 11, -40)
+shape = SubResource("ConcavePolygonShape3D_lpuiv")
+
+[node name="red goal3" type="CollisionShape3D" parent="walljump detection"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 15, 28.5, 0)
+shape = SubResource("ConcavePolygonShape3D_3n6fv")
+
+[node name="blue goal" type="CollisionShape3D" parent="walljump detection"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 11, 40)
+shape = SubResource("ConcavePolygonShape3D_m6an7")
+
+[node name="blue goal2" type="CollisionShape3D" parent="walljump detection"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 11, -40)
+shape = SubResource("ConcavePolygonShape3D_jf04d")
+
+[node name="blue goal3" type="CollisionShape3D" parent="walljump detection"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -15, 28.5, 0)
+shape = SubResource("ConcavePolygonShape3D_hgc08")
+
+[node name="blue goal2" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1525, 0, 212.5)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="blue goal2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.5, 67, 4.5)
+shape = SubResource("BoxShape3D_v1dus")
+
+[node name="red goal2" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1525, 0, -212.5)
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="red goal2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -30.5, 67, 0.5)
+shape = SubResource("BoxShape3D_v1dus")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.939693, 0.34202, 0, -0.34202, 0.939693, 0, 1036, 0)
+light_color = Color(1, 0.61, 0.61, 1)
+light_indirect_energy = 3.072
+
+[node name="DirectionalLight3D2" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-1, 1.51808e-08, -8.60946e-08, 0, 0.984808, 0.173648, 8.74228e-08, 0.173648, -0.984808, 0, 1036, 0)
+light_color = Color(0.252779, 0.537047, 0.988918, 1)
+light_indirect_energy = 3.302
+
+[node name="Initial Bagels" type="Node3D" parent="."]
+
+[node name="RigidBody3D6" parent="Initial Bagels" instance=ExtResource("5_7hiyq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1184, 42, -25)
+
+[node name="RigidBody3D7" parent="Initial Bagels" instance=ExtResource("5_7hiyq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1184, 86, -25)
+
+[node name="RigidBody3D8" parent="Initial Bagels" instance=ExtResource("5_7hiyq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1184, 183, -25)
+
+[node name="RigidBody3D9" parent="Initial Bagels" instance=ExtResource("5_7hiyq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1184, 325, -25)
+
+[node name="RigidBody3D10" parent="Initial Bagels" instance=ExtResource("5_7hiyq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1184, 484, -25)
+
+[node name="RigidBody3D11" parent="Initial Bagels" instance=ExtResource("5_7hiyq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1184, 42, 25)
+
+[node name="RigidBody3D12" parent="Initial Bagels" instance=ExtResource("5_7hiyq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1184, 86, 25)
+
+[node name="RigidBody3D13" parent="Initial Bagels" instance=ExtResource("5_7hiyq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1184, 183, 25)
+
+[node name="RigidBody3D14" parent="Initial Bagels" instance=ExtResource("5_7hiyq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1184, 325, 25)
+
+[node name="RigidBody3D15" parent="Initial Bagels" instance=ExtResource("5_7hiyq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1184, 484, 25)
+
+[connection signal="body_entered" from="walljump detection" to="." method="_on_walljump_detection_body_entered"]
+[connection signal="body_exited" from="walljump detection" to="." method="_on_walljump_detection_body_exited"]

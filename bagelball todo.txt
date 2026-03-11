@@ -1,0 +1,1043 @@
+important:
+make scroll throwing opt in
+juggernaught gamemode
+link bagelball gameplay trailer or spiked vs XLP to baus with watch youtube video channel points
+follow blender character modelling tutorial
+character model
+music
+rewrite netcode to use steam, and then on release ping (dogobeast97, iamhonk, carl asuz)
+trial the bagel modelled by president_man
+
+small:
+add m/s ball went into goal at
+make cylinder map have you go to white room if u stare at the white sun long enough, maybe if u look at it for 5 seconds while
+	high up enough that it envelops ur screen. antichamber style.
+make a ball view as spectator so youre the ball
+singleplayer reset map button
+hold bagel option i.e. instead of click to pick up, hold to pick up, release to drop
+add scoreboard and insult selector rebindability to controls
+add ui noises when u click a button
+add dither to all of the game
+add more debris to bagel map's vast expanse
+add gigantic miner model to bagel map's vast expanse that puts his hands up when everyone presses space
+	(when all players hold space his hands go slowly up and then when they reach the top his eyes emit an unbelievable light)
+add goal to outside of bagel map
+fuck about with shaders?
+fix high velocity collisions with thin boundaries on ceilings (not necessary but for futureproofing)
+show spectator names for other spectators
+add windows to warehouse map
+add lights to warehouse map
+add holes in roof to warehouse map
+make steal bagel out of other peoples hands mechanics opt in
+ding when you fire off bagel at max speed
+
+
+big:
+follow 2d to 3d blender tutorial with the characters youve drawn
+trickshot tournament
+save and load lobby settings
+rewrite netcode to use steam
+bagel skins/cosmetics/goal animation store where it all costs 3p
+make game detect player's steam name and auto-populate username field with it. but let them change it still.
+something the spectator can do to interact with the game
+map where there is a hole in the center which acts as a big portal, connects to ceiling, so the ball falls infinitely
+ability to join midgame as spectator
+map where you can leave its boundaries e.g. go out a window and start jumping around outside. ball can go outside as well maybe lol
+character model
+make greek church map (like santorini, dome on top)
+add music (i like the idea of radios, choosing what genre/artist, ukg radio, beats radio, dnb radio, djeb radio, SOULMINUS radio, etc.)
+	maybe ratz instagib now playing radio style.
+try 2nd person mode where you can only control other player
+elo
+global leaderboards and things (steamworks)
+solve the bagelball conundrum, perhaps with machine learning, or maybe fuck around with the engine
+map editor
+hats
+bagel skins
+
+
+done:
+--0.8.7.3--
+turned off scroll throwing by default, made it opt in in custom lobby variables
+gave 2 true bagelball champions their steam achievements
+fixed toggle sprint again
+added ultrawide support
+--0.8.7.2--
+discord link on main menu
+added sprint options
+player custom lobby variables
+added secondary inputs back into the game
+--0.8.7.1--
+cylinder map ceiling fix
+---0.8.7---
+added shadows to all maps
+added ability to bhop to retain speed
+added super jump
+added ability to retain speed with super jump
+changed fastfall to an instant switch of velocity
+made wall jump more consistent, should work when maps are scaled now
+--0.8.6.2--
+follow steamworks tutorial
+make main menu music loop
+---0.8.6---
+golden goal noises
+removed vents
+SPECTATOR BUG
+make sisyuphus map first to 1
+add ball hit collision to sfx bus
+add soggy bagel to insult selector
+sisyphus racecourse map
+make bagels respawn to in front of the player when the player respawns instead of having them ping back
+make sumo2 and sumo1 1.5x size
+add texture to sumo killbox walls
+fix insult selector
+singleplayer custom lobby variables
+make sumo gamemode
+---0.8.5---
+changed netcode to hopefully provide more reliable bagel movement for client (person not hosting)
+added new racecourse map vent
+added switch to/from spectator button for custom lobbies
+increase goal size on warehouse
+add big small ball/bagel to custom lobby variables
+---0.8.3---
+added slight buffer (0.1s) to quantum bagel switch after letting go of quantum bagel
+new spawning mechanism that is scalable
+add quantum bagels to practice tool
+ability to switch teams to red/blue
+custom 32 max player gamemode
+add a goal score noise to spectator
+make golden goal reset spectators as well
+make quantum bagel switch only when you dont hold the bagel? to balance?
+--0.8.2.2--
+added secondary stun server to try and fix 3:34am 16/04/2025 bug on discord, it let them start game without anyone
+---0.8.2---
+custom lobby variables (ball weight, bagel weight, ball bounciness, max player speed, match length, gravity, first to mode
+Engine.timescale changes the game engine timescale which is great)
+warmup that is infinite until all players are spawned in and then it does a ten/five second countdown, fixes timesync
+	this would need to check if player == maxplayers and if all clients have this then we can go.
+--0.8.1.2--
+only host can start game
+---0.8.1---
+make quantum bagels only available in lobby customising options
+----0.8----
+add sensitivity slider
+add a jump noise
+add a floor touch noise
+add wall slide noise/noise to indicate you are touching wall
+bagel steal removal/add bagel steal detection
+get goal scoring to work
+add goal scoring logic for scoreboard
+new screenshots for main menu
+get rid of quantum bagels on all normal maps
+make simple cylinder map
+remove church from game
+scoreboard
+---->0.8----
+add categories to practice map selector
+make winning/losing noise applause and booing again
+upload to steam with steampipegui
+re-export windows builds without hidden player UI lol
+add text overflow to lobby names
+make goals on dome map wall jumpable
+add ceiling to bagel map
+lobby name input sanitisation (if character not in character set then get rid of that character for loop)
+bagelball trailer
+fix the server crashing bug
+fix get lobbies error
+make the maps backface culled for spectators
+re-export with one dome map and no coloured names
+have a little celebration when you do
+do your project management coursework
+add some sort of secret to bagel map's vast expanse, charlie has said yes to his spinning giant character from flight sim
+remove ceiling boundary on bagel map
+make dome map same size 2v2 and 1v1
+ball can pass through ceiling while in dome territory
+made the dome map and its cool as heck
+true bagel map (simi idea) (became dome map)
+made the thunderdome transparent to get rid of silly bug where u go somewhere near the ceiling and everything changes colour
+make torus level transparent so u can see the stupid thunderdome
+make an acceleration mode where u get the slingshot bagel 
+add quantum bagel
+remove e from control list
+ask leon if he wants to make a bagelball map
+make central cylinder smaller
+add particle effect when ball/bagel is above certain speed
+add one way floor to top of cylinder
+scale maps by x2/custom amount when 2v2 is selected
+try and cleanup file size (delete panorama imports? research why its so big)
+shrink bagel map
+move the goal zones back a bit on bagel map
+make bagel throw a bindable thing
+save player's settings
+make mouse1 rebindable to appease mackie
+make church and bagel actually correspond to church & bagel
+ability to change maps for practice mode
+make bagel level goal a mesh collision generated shape
+make collision shape of warehouse/church roof the same as mesh shapes
+fixed high velocity collisions going through walls on thin boundaries
+increased ball bounciness
+unbackface cull the goals in bagel map
+make church map
+make it slightly easier to bagel surf (reverted)
+added bagel map
+remove funny mode cos its not actually that funny
+stupid capsule model has a face
+allow lobbies to enter their own name
+make it so spectators cant start the game lol
+make spectators despawn
+funny mode
+update title screen images
+use signals to await clients receiving things
+private lobby functionality
+make it so u cant join already started games in lobby browser
+make everything operate under lobby browser!
+fix practice mode
+make refresh lobby list button work
+see if ball works if  u just set the authority to host and ignore bma
+watch the blender texture baking video
+add back button to lobby browser
+if u join an invalid lobby it still moves u to lobby menu screen
+make stop hosting button work
+make spectators spawn not in ball
+allow to enter name for lobby browser
+lobby ui redesign
+learn how to bake textures in blender (they dont work lol)
+finish watching the brackeys video
+make stop hosting not go back to main menu
+make air movement work properly
+implement UI resizing
+pause/settings menu
+2v2 mode!
+change icon
+make 2v2 spawn locations
+only host can start map
+spectating!
+add game end visuals/mechanics (what constitutes a game ending... straftat end? tf2 end? me shouting a voiceline end? not sure...)
+add singleplayer practice tool!
+make the resolution dropdown do something
+texture original map (warehouse/factory?)
+make it so that u cant restart an already started game
+make stop hosting button work
+make leave lobby button work
+update itch.io screenshots
+title screen music (jungle)
+get enable stop hosting and leave lobby in lobby menu
+main menu on start
+create main menu
+settings to main menu
+lobby controls to main menu
+display all controls in menu
+make controls editable
+have volume controlled by button/slider
+make the game lose sfx 8 secs
+golden goal if draw
+make game stop on esc
+make bagels all spawn in corner instead of in a cross formation
+red & blue icons in lobby
+make sure rtc peer is connected before allowing either player to hit start game
+cant start game unless at least 2 players connected
+lobby displays users connected
+make bagel hitbox bigger
+make the ball a bit heavier
+ball hit sound
+make the ball not vanta black
+add game end noises
+WEBRTC MULTIPLAYER BOOOOM
+make game end when timer runs out
+win condition
+add timer to UI
+bagel throw
+make players and balls respawn on goal
+make cursor actually in the center
+double jump
+increase grav
+sprint button
+close and far bagel
+names displayed above head
+fast fall
+ground + air decelaration/acceleration
+make bagel follow y position for cursor
+wall jumping
+
+
+bugs:
+3v3 there were 'ghost' players 2 out of 6 were seen moving and then the others were floating, but in actuality all 6 were affecting
+the ball and moving around, other player could see their movements as well, just for this 1 person they couldnt
+if you change singleplayer lobby variables and then load into multiplayer they arent passed over to the client or the UI but when u
+	load into game it creates assymetrical lobby variables
+ivo mega friction on floor bug sumo mode
+player spawns in late with connection and the clocks desync, not fixed. i think the client who connects late doesn't spawn in late
+	on their screen therefore it sends the signal that its ready. i'd need to see it tho
+some people at 16/04/2025 3:30am couldnt play together, only the host spawned into the game.
+when someone dcs holding a bagel it just stays there floating
+bug when me & james played where the bagels desynced, only host could affect the ball
+if internet goes down during match then the lobby is stuck in purgatory, tho it did despawn after a while. idk why.
+double respawn sometimes? i think the client goes through the goal_entered logic and then the host sends it as well, but only +1 
+	score.
+when one player disconnects on 2v2 it plays 3 dc noises
+need to make the cd detection walls thicker
+on game end with leon it added 2 goals to his score and it said he won when it was 4-4
+when u steal a bagel and the other person clicks you drop the bagel you stole off them.
+raycast doesnt work unless the other player has moved their mouse (like 80% of the time, its inconsistent)
+ico file doesnt work for medium sized icons
+if the server dies noone can play until i restart the server
+clock goes 4:60 instead of 5:00
+
+
+fixed:
+---0.8.6---
+GLVs dont send to client properly since singleplayer changes
+bagel clickbox is desyncing when they're larger than usual, but it inconsistent
+---0.8.5---
+client bagel movement is jittery and inconsistent since ball vertical affection change
+---0.8.3---
+added countdown noises to be controlled by sfx slider
+you can now no longer pick up two bagels when you quantum bagel switch
+if the game is minimised on start game, you get left in the lobby
+spawn points dont work if i start switching teams
+--0.8.2.1--
+practice mode only let you pick up bagels once and then you were locked out
+you could click on someone elses bagel to make them drop it
+---0.8.2---
+player spawns in late with connection and the clocks desync, fixed with warmup and countdown
+everyone that isnt the host cant move the ball vertically properly
+closed goals doesnt work
+---0.8.1---
+cylinder map 2v2 blue team doesnt spawn in properly
+quantum bagels dont mpsync when you auto spawn them in
+--0.8.0.1--
+texturerect was pointing to a bagelball thumbnail that didnt exist anymore and it crashes exported game on start up
+----0.8----
+when you leave the lobby before its started you cant rejoin
+sky settings were only working in editor
+blue icon turned green
+username of just m's breaks the scoreboard cos too long
+scoreboard goal counter counts twice and counts all goals towards red player
+no max char username lenght, meaning you can break the game by making it huge
+---->0.8----
+server sometimes dies on its own
+random crashes. something to do with !inside_tree() as well as multipalyer sync desync. only on goal score. really weird.
+sometimes i get a megajump
+disconnected players not dissappearing on bagel map
+closing the game with the x button or alt+f4 while hosting a lobby crashes the server
+you can also normally put ur head in goal on warehouse and church
+you can escape the map with quantum bagel on warehouse and church
+cant wall jump on inside of dome map
+fov for player is set to slider value on spawn
+fov slider does not work for spectator
+ivo got some pause menu mashing bug 2 modals overlapped
+can go through ceiling on dome map
+torus map doesnt ball tp doesnt work properly
+spectator just spawns you as a camera in the red player, spectator player is spawned in but camera is wrong
+once you go practice mode lobby browser stops working
+continuous CD makes the ball hitting annoying. i will fix by turning it on only when near walls. done on ball as well.
+players were rotated by 2 degrees on spawn
+for some reason charlies score didnt reset and carried over between games. idk why but can fix on start_game in scene_manager
+crash after score desync
+colors of mesh parts dont update properly from scene manager
+players model doesnt rotate
+resume game doesnt work
+cursor dissappears after pausing, only appears in the pause screen 
+if you were sent to main menu without pausing (host leaves) then cursor didnt appear.
+theres a short window when a spectator joins when it hasnt fully rtc connected where u can start the game and they get left in the
+lobby and can start the game again and break shit
+whoever opens the pause menu first cant use it for the rest of the game???
+raycast doesnt work unless the other player has clicked (kind of)
+spectator cant open pause menu
+1 player leaving causes everyone elses screens to go gray
+the host quitting the game doesnt destroy the lobby
+player model doesnt despawn on game leave
+on game quit the server was passed the player id as the destroyed lobby id for some reason jsut now
+map selector straight up doesnt work
+make it so clicking stop hosting kicks people back to lobby browser
+pausing makes the main menu buttons show up (fixed itself idk)
+leaving lobby in pause screen is now broken
+lobby list isnt updating automatically as it should
+practice mode is broken
+server not receiving getLobbyList message. it doesnt even detect a packet.
+bagels are really hard to pick up again
+ball desynced between players sometimes
+ivos infinite jump bug at an angle
+player name dissappeared halfway through the match
+player name flips when anyone scores a goal
+fix 2v2 its fucked
+host score display doesnt update when a goal is scored
+practice mode mouse inputs dont happen
+cant access settings from main menu after you leave lobby (this juwst fixed itself idk)
+if u leave while the game is paused then the game is paused when u rejoin but the screen isnt there its a bit confusing
+after you play one game the first person to scores a goal wins (golden goal?)
+after someone wins golden goal it doesnt reset properly
+bagel hitbox is misaligned with raycast again, its slighltly up
+the server isnt receiving the destroylobby message for some reason. not sure why. maybe my local server code is broken.
+settings menu is fucked up dude
+score desynced sometimes
+game over noises played all at once
+noises play twice
+fix golden goal its so fuckin buggy
+cant wall jump off goal walls
+wall jump is just buggy
+can see through red and blue goal wall
+funny terminal speed interactions that i dont understand
+multiplayer client is kinda laggy movement. rollback required or something.
+if i try to type in the address to connect it doesnt work
+webrtc multiplayer dont work when testing with ivo
+the client raycast doesnt pick up bagels
+client bagel physics doesnt affect ball properly
+throw doesnt work in front of cursor
+bagels just go through walls if u chuck with enough velocity
+
+bugs in detail:
+****************************************************************************************************************************************
+if you change singleplayer lobby variables and then load into multiplayer they arent passed over to the client or the UI but when u
+	load into game it creates assymetrical lobby variables:
+not sure how to fix this. 
+
+turns out i hadnt fixed 
+****************************************************************************************************************************************
+GLVs dont send to client properly since singleplayer changes:
+when you reset the server it doesnt send to client. dunno. also if u go over max it doesnt send to client.
+
+for some reason it does send to client, the numbers just dont update properly or something
+
+it seems to loop over each CLV twice for some reason, once with the real values and once with the default values. its like there
+are 8 CLV generals that it passes over, instead of 4, and i have no idea why.
+
+there are 8 of them and i have NO idea why or where they come from. when printing all in get group clv_general i get:
+[Gravity:<HBoxContainer#66303559580>, Match Length (s):<HBoxContainer#69860329504>, 
+Engine Timescale:<HBoxContainer#73417099429>, Map Scale:<HBoxContainer#76973869354>, 
+Gravity:<HBoxContainer#141381604070>, Match Length (s):<HBoxContainer#144938373994>, 
+Engine Timescale:<HBoxContainer#148495143919>, Map Scale:<HBoxContainer#152051913844>]
+
+the duplicate CLV generals are different from each other as well. 
+
+OH SHIT. its cos i have an instance of the CLV variables within the singleplayer menu available, so it counts those ones as well. 
+ok ok ok i know the issue now bosh
+
+fixed it by changing the logic to loop through the children of the custom lobby variables menu rather than every node in the group
+in the tree. yipee.
+****************************************************************************************************************************************
+client bagel movement is jittery and inconsistent since ball vertical affection change:
+its really noticable on the vent racecourse map. i think bandaid fix is to make ball verticality scuffed for just the racecourse maps
+ok this seems quite hard to do since i fixed it by mpsyncing a bunch of stuff. gonna research netcode a bit.
+
+researched netcode and ive just realised all my netcode is handled by mpsync so not much point lol.
+i've changed the code back to set the bagel authority to whoever has picked it up and it seems to just work??? even with all the
+extra mpsynced stuff
+****************************************************************************************************************************************
+if the game is minimised on start game, you get left in the lobby:
+amazing bug. my one idea is to force the window to be opened whenever start_game is called
+
+i did that and it worked. wow.
+****************************************************************************************************************************************
+spawn points dont work if i start switching teams:
+its cos they're dependent on the teams being in the order of the players, so it inevitable ends up with players with no spawn points
+in order to make custom amounts of players i need to rework the spawn point system. my current idea is to designate an area3d in
+which the players can spawn, and then do some maths to properly angle out where the players spawn.
+
+then there should be some check to see if there's a minimum space between spawn points of the character model's diameters
+
+havent bothered with the diameters
+****************************************************************************************************************************************
+some people at 16/04/2025 3:30am couldnt play together, only the host spawned into the game:
+made my own STUN server on digitalocean using stuntman, and now have 2 STUN servers the code can use, cos u can set more than one
+
+however if i set the stun server to some nonsense ("poo"), the connection still works.
+
+this is due to how WebRTC works, which only uses STUN and TURN servers to set up a connection if you can't form a normal connection.
+pretty sure if i exported my poo STUN server build and asked charlie to play or whatever it wouldnt work at all.
+
+STUN is a server which when a client pings it or whatever it returns a public ip address that they can access that client can
+be connected to with. TURN is a server which directly transmits data through it in order to have clients communicate, so its not
+really peer to peer at all. this is why i dont use TURN.
+****************************************************************************************************************************************
+closed goals doesnt work:
+it only didnt work on golden goal, since it was closing goals on game end but not on initiating golden goal
+made a new global signal to fix it
+****************************************************************************************************************************************
+everyone that isnt the host cant move the ball vertically properly:
+this is a bug that has been in the game since at least 0.8, where i removed bagel steal. im guessing its to do with it not being
+the multiplayer authority on the ball or something, and i changed that on bagel steal code.
+
+its not in the game in 0.4
+
+theres also a hitbox above the ball when you hold the bagel, so i think the actual hitbox is desynced with where it looks
+like it is somehow, so it seems like its a ball problem. the host and client see the same ball position though.
+
+changing the ball's multiplayer authority everytime you hit it to the bagels multiplayer authority fixes it. however i changed
+this to fix a bug and i cant remember which.
+
+its ball sometimes desyncs between players bug. this still occurs when i do this method so cant use this method. hmmm.
+
+if every bagel's authority is the host then it interacts with the ball correctly but the player cant move it properly
+
+ive made it move properly by mpsyncing the camera's rotation, as well as bagel distance's position and rotation. last step
+is to enable dropping the bagel cos currently it doesnt work
+
+my 1 scare with making everything host favoured is if the host to client is big ping then your inputs are delayed by that ping x2.
+we'll see.
+
+we can now drop bagels cos i removed a check that asks if the bagel's multiplayer authority is the same as your own, which it isnt
+anymore.
+****************************************************************************************************************************************
+when someone dcs holding a bagel it just stays there floating:
+while it is there if you click on it then rightclick when its a quantum bagel, it just moves laterally across the z axis for a 
+bit. resets on every respawn for some reason
+****************************************************************************************************************************************
+cylinder map 2v2 blue team doesnt spawn in properly:
+the spawn position for the blue team is null for some reason. so it isnt being set. hurray. also something else interesting
+is you can spawn one by one by putting a breakpoint in scene_manager and hitting continue on each one
+
+it was because redspawn bool wasnt true for half of the spawn points ive set
+****************************************************************************************************************************************
+quantum bagels dont mpsync when you auto spawn them in:
+players do but for some reason these arent. find out the difference. it prints the usual errors in the log. if not a bandaid fix
+would just to be duplicating map scenes make one with quantum bagels one without
+
+okay when i hit no to quantum bagels it spawns them in and they sync and when i hit yes to quantum bagels it spawns them in
+and they dont sync
+
+i fixed it by adding the quantum bagels as a child of the spawn points? i think it was the naming was bungled when it was
+putting them in the same place or something idk.
+
+i had to change this with the new spawning method so another fix ive tried is just renaming the quantum bagels before adding
+to scene, and it seems to have worked.
+****************************************************************************************************************************************
+when you leave the lobby before its started you cant rejoin:
+when you leave it now sets global.currentlobby = "" cos i have it in my code if global.currentlobby = lobbyindividual.lobbyid
+then it disables the button.
+****************************************************************************************************************************************
+sky settings were only working in editor:
+NEED TO ADD DIRECTIONAL LIGHT. cos ofc the editor has one built in  but the game world does not. silly
+****************************************************************************************************************************************
+blue icon turned green:
+i needed to reimport it with high quality on. for some reason the compression turned the blue square green lol
+****************************************************************************************************************************************
+scoreboard goal counter counts twice and counts all goals towards red player:
+the counting all towards red player was cos i dont change the bagels multiplayer authority, but i change its mpsync 
+multiplayer authority. instead i just have a separate variable i store it in and access.
+
+figured out that the reason its double counted is cos there's 1 scoreboard for each player. so when the global signal
+goes,  each player's scoreboard does +1 to the player who scored. need to move the player who scored function to goal_score.gd
+
+ended up using same logic as the team score logic. cant remember why it works but it works so hey ho 
+****************************************************************************************************************************************
+ivo got some pause menu mashing bug 2 modals overlapped:
+this happens when u press escape, open settings, audio/video settings, and then close with escape, escape again to open pause
+menu, and then click settings and both settings chooser and the audio/video settings are visible.
+
+fixed it by hiding all others on settings/initial when pressings settings, previously it just showed it
+****************************************************************************************************************************************
+closing the game with the x button or alt+f4 while hosting a lobby crashes the server:
+this only happens in the lobby menu, and only happens if there is more than 1 person connected to the lobby.
+
+it also only occurs if the person not hosting has left the lobby first
+
+looking at linux console it says "segmentation fault (core dumped) which some website tells me is where a process
+tries to access unallocated memory that does not belong to it.
+
+ive also started getting some mpsynchroniser node not found error's when closing the game sometimes. i think its linked.
+sometimes if i close the game while in game it works i havent tried to find its consistency tho.
+
+running the script on local server and ofc its the fucking godot 4.4 ints are now floats that causes it. its trying to send to a user id with a .0 on the
+end. ffs. immediately tried with local server and fixed it btw it took about 5 minutes after and a breakpoint appears lol.
+
+while i did fix the .0 being on the end that isnt the thing that is actually causing the bug. it seems to be an error in the code
+when destroying the lobby that the user you try to send destroy lobby to doesnt exist anymore. seem to have fixed the crash but im
+still getting some errors on the server script when closing the host client. would like to fix that.
+
+whats happening is that its sending the destroy lobby message to the client that is hosting, but the client that is hosting
+has already closed the game. its only the host because only the host can destroy the lobby. the error is throughout much of my code,
+it tries to disconnect itself from itself and cant and just throws an error. it doesnt actually crash the game though this time,
+so im going to leave it.
+
+theres still a bunch of errors when you leave a game to do with mpsync's not being found but ill be honest i dont care. godot can
+throw its little hissy fit.
+
+there was also an error when the host quit the game, host would destroy the lobby, then when client would try and leave lobby
+the lobby wouldnt exist and the server would be upset. i added an if statement to check if the lobby exists before player gets
+removed and thats fixed it. yipee.
+
+what a fuckin joy.
+
+turns out i hadnt statically typed id to int and i think this actually solves all my problems. fak. its all my fault or well
+finepointcgis fault no not mine no not at all
+****************************************************************************************************************************************
+player spawns in late with connection and the clocks desync (sync the clocks to the host's clock):
+i mpsynced the clock to hosts clock and it didnt work
+
+ive now tried to implement code that restarts the game when everyone is connected. idk if it works though cant test
+cos if i add a delay to loading in then godot shits itself and stops mpsyncing the player movement
+****************************************************************************************************************************************
+spectator just spawns you as a camera in the red player, spectator player is spawned in but camera is wrong:
+another to do with integer float thing in godot 4.4. it was naming the spectator player with a _0 on the end which is a float. to fix
+i simply changed 
+name = str(multiplayer.id) 
+to
+name = str(int(muiltiplayer.id))
+****************************************************************************************************************************************
+torus map doesnt ball tp doesnt work properly:
+i dont really understand how i could get it to work. need to ask simi tbh.
+could try and make it so instead of teleporting via some maths, instead space just is shaped such that it comes out the other side?
+I could have an invisible dome shape outside the map such that it goes through the wall, gets accelerated really fast so that it travels
+over the dome rly quick, and then the game resets its linear velocity. i like this solution cos spectators have something funny to look
+at as well. its more tnagible.
+
+trying the dome idea. for some reason the dome is basically one way, like in bagel map. i think it must be to do with which direction
+the faces are in in blender??? thats my only conclusion
+
+i was correct, but also under ConcavePolygon there is a backface collision checkbox that wouldve solved it withoutn re-exporting from
+blender.
+
+my current issue is that i need the ball keeps entering the speed zone when its leaving the speed zone and its just going bloody mental
+
+the dome approach simply doesnt work lol no matter what i try it always ends up going sideways and circling the dome at a million miles
+an hour. just had an idea to only affect y velocity. might fix it. then can change geometry so instead of dome its 4 45 degree cubes
+or whatever so it just ping ping ping ping and at the other side
+
+this actually seems to work pretty well apart from sometimes its colliding with nothing and it goes across the ceiling very slowly.
+my idea is to disable the ceiling for ball when ball is in dome.
+
+this has made it work PERFECTLY. i love it.
+
+okay nvm it hasnt. its because the dome is not smooth (corners on it) and sometimes (quite often) it perfectly collides with a corner
+or edge or something such that it just does a really small bounce and gets 0 velocity. we need more vertices
+****************************************************************************************************************************************
+need to make the cd detection walls thicker for bagel map:
+yeah i do i tested it and could sometimes get the bagels to go through the walls. need another bloody wall layer with thicker cd
+detection. tho it isnt the worst bug tbh its far from a priority.
+****************************************************************************************************************************************
+random crashes. something to do with !inside_tree() as well as multipalyer sync desync. only on goal score. really weird:
+charlie's log is in our DMs from 02/03/2025 at 20:34pm
+
+i finally got this in debug. the behaviour was that someone scored the player on the team who scored the goal was fine, 
+but the other player's game crashed and some buffering. in the console, the player who crashed had a bunch of "get_node: node not found:
+ball/multiplayersynchronizer,
+bagel1/multiplayersync
+bagel2/mpsync 
+etc...
+the error log is in game-dev channel in bodhi tree (under this bug's title)
+each one of these mpsync not found error messages has after it a get_cached_object, failed to get cached node from peer 35795335 with
+cache id 2,
+... cache id 3,
+... cache id 4
+etc.
+
+here's the source errors:
+E 0:00:11:685   get_node: Node not found: "main level/ball/MultiplayerSynchronizer" (relative to "/root").
+  <C++ Error>   Method/function failed. Returning: nullptr
+  <C++ Source>  scene/main/node.cpp:1877 @ get_node()
+E 0:00:11:685   get_cached_object: Failed to get cached node from peer 35795335 with cache ID 2.
+  <C++ Error>   Parameter "node" is null.
+  <C++ Source>  modules/multiplayer/scene_cache_interface.cpp:293 @ get_cached_object()
+E 0:00:11:685   get_node: Node not found: "main level/Main Level Model/Initial Bagels/RigidBody3D/MultiplayerSynchronizer" (relative to "/root").
+  <C++ Error>   Method/function failed. Returning: nullptr
+  <C++ Source>  scene/main/node.cpp:1877 @ get_node()
+E 0:00:11:685   get_cached_object: Failed to get cached node from peer 35795335 with cache ID 3.
+  <C++ Error>   Parameter "node" is null.
+  <C++ Source>  modules/multiplayer/scene_cache_interface.cpp:293 @ get_cached_object()
+....
+E 0:00:11:687   get_node: Node not found: "main level/35795335/MultiplayerSynchronizer" (relative to "/root").
+  <C++ Error>   Method/function failed. Returning: nullptr
+  <C++ Source>  scene/main/node.cpp:1877 @ get_node()
+E 0:00:11:687   get_cached_object: Failed to get cached node from peer 35795335 with cache ID 13.
+  <C++ Error>   Parameter "node" is null.
+  <C++ Source>  modules/multiplayer/scene_cache_interface.cpp:293 @ get_cached_object()
+player, ball and bagel are all listed and then it loops 3 times and then it crashes, in the middle being the LogCallback error
+
+it goes through the whole level's objects that have mpsyncs attached to them and theneventually crashes with a 
+E 0:00:11:690   client.gd:111 @ _process(): Condition "!peer_map.has(p_peer_id)" is true.
+  <C++ Source>  modules/webrtc/webrtc_multiplayer_peer.cpp:333 @ remove_peer()
+  <Stack Trace> client.gd:111 @ _process()
+
+theres a peculiar warning in the middle of all this, after the first lot of failed to get mpsync's:
+W 0:00:11:687   LogCallback: rtc::impl::SctpTransport::sendReset@740: SCTP reset stream 3 failed, errno=2
+  <C++ Source>  src/WebRTCLibPeerConnection.cpp:54 @ LogCallback()
+after googling and looking in https://learn.microsoft.com/en-us/cpp/c-runtime-library/errno-constants?view=msvc-170,
+errno = 2 means "No such file or directory. The specified file or directory doesn't exist or can't be found. 
+This message can occur whenever a specified file doesn't exist or a component of a path doesn't specify an existing directory."
+
+ive tried googling sctp reset stream 3 failed and i got no bloody clue what it means. something about resetting the numbering
+sequence back to 0. i dont know why the file cant be found though... really odd.
+
+the error occurs in https://github.com/paullouisageneau/libdatachannel/blob/master/src/impl/sctptransport.cpp#L717 at line 740
+
+
+and then on the other session it says
+E 0:00:40:719   goal_score.gd:79 @ _on_red_goal_body_entered(): Condition "!is_inside_tree()" is true. Returning: ERR_UNCONFIGURED
+  <C++ Source>  scene/main/node.cpp:833 @ rpcp()
+  <Stack Trace> goal_score.gd:79 @ _on_red_goal_body_entered()
+
+Im guessing this is cos it cant rpc it cos the other bloke has crashed so its no longer in the tree even though it thinks it is or
+something
+this error only occurs if the node hasnt been added to the scene yet, or the node has been removed from the scene.
+
+
+it looks like occassionally on goal score, something is queue freed or removed and then it fucks the game. but every single mpSync
+item gets put as cannot find mpSync. this infernal error...
+
+perhaps i am setting somethings global position/direction/rotation before it has spawned in again? I dont think im respawning anything
+on goal score except for changing position. its only when the game tries to move everything back to its original position that it occurs
+
+theres also another chance that its because i am setting the position of the things in code on all clients, instead of just the authority
+of the mpsync setting the position of the ball or whatever. i will see try this. i still dont know the full condition for the bug though.
+
+it really does read like i am getting a bug like i am queue_freeing a multiplayer object. but its all of them at once for some reason.
+
+another theory that has popped into my head is that i am not actually seeing the error in the debug log, instead i am seeing the 
+aftermath of the error. that would make sense as to why the whole player's mpSyncs are not being recognised.
+
+you dont need to rpc ball and player respawns since they are mpsynced, so i will remove this and pray this is the error. lol.
+in the log whenever you play the game, after every goal there is always 3 errors, it goes:
+redteam = false blue score noise
+redteam = true red concede noise
+ERROR: Condition "!is_inside_tree()" is true. Returning: ERR_UNCONFIGURED
+   at: rpcp (scene/main/node.cpp:833)
+ERROR: Condition "!is_inside_tree()" is true. Returning: ERR_UNCONFIGURED
+   at: rpcp (scene/main/node.cpp:833)
+ERROR: Condition "!is_inside_tree()" is true. Returning: ERR_UNCONFIGURED
+   at: rpcp (scene/main/node.cpp:833)
+
+now that ive re-exported with the rpc changes these errors no longer occur. hopefully this is a step in the right direction.
+
+the rpc changes also still mean every client is setting the position on goal score, but not every client is telling every other client
+as well as itself to set the position on goal score
+****************************************************************************************************************************************
+players were rotated by 2 degrees on spawn:
+self.look_at changes x and z rotation sometimes. fixed by self.rotation.x and .z = 0 on ready and on respawn
+****************************************************************************************************************************************
+crash after score desync:
+playing with charlie apaprently after 1 goal the scores desync and then the next goal crashes someones game. really weird. i dont think
+it was happening on my lan tests???
+
+i fixed this by not using the authority rpc to disallow rpc calls but by doing a multiplayer.get_unique_id() == global.lobbyHostID check
+so that godot didnt print errors and for some reason that fixed it. idk why authority rpc exists if it just crashes when you use it
+from not an authority. i guess its more for debugging reasons
+****************************************************************************************************************************************
+colors of mesh parts dont update properly from scene manager:
+cos of the amount of emission light the fuckin colours are white if all 3 values are more than 0. thier intensity is enormous.
+also in the remote debugging view it tells you that the colour values are like 65525. i think the worldenvironment is multiplying
+every colour at runtime by something
+****************************************************************************************************************************************
+players model doesnt rotate:
+i have no idea why. im doing it the exact same way as in miner game, oh im not syncing player rotation.
+
+sorted.
+****************************************************************************************************************************************
+theres a short window when a spectator joins when it hasnt fully rtc connected where u can start the game and they get left in the
+lobby and can start the game again and break shit:
+i made it so whenever a peer is created noCanStartGame gets emitted. it seems to be the first stage of the RTC connection
+and all of the clients receive it pretty much instantly so its pretty good. u could easily write a script that spams join and
+leave on all lobbies to make it so noone can play so pretty vulnerable to script kiddies in the far future
+****************************************************************************************************************************************
+spectator cant open pause menu:
+i hadnt connected the open and close pause menu signals to the player UI from the spectator player script
+****************************************************************************************************************************************
+the host quitting the game doesnt destroy the lobby:
+it was cos i wasnt calling that a player has left the lobby whenever i quit the game. fixed now.
+****************************************************************************************************************************************
+on game quit the server was passed the player id as the destroyed lobby id for some reason jsut now:
+peer_disconnected(id) was passing in the user id to destroy_lobby as the lobby id so that makes sense
+it was also only if the host leaves
+****************************************************************************************************************************************
+map selector straight up doesnt work:
+ive had this bug for ages i cant figure out how to rpc a variable across. dont know why its so bloody difficult. ive tried copying
+the goal score and it dont work for some reason. gonna look at the code now and figure out whats going on
+
+idk why it was difficult i found it pretty easy to fix lol. i think i was trying to use the index of map selected as the enum and 
+it didnt work.
+
+i just rpc call_local whenever the map is selected to select that map in the dropdown, and then set global.map to the corresponding
+map with a match statement. i previously had no match statement. this does technically the host has its map option set twice to the
+same thing but who cares really its necessary for the match statement. i also included global.map to be the map option in _ready()
+since i spawned in the void for the first test lol.
+****************************************************************************************************************************************
+player model doesnt despawn on game leave:    1 player leaving causes everyone elses screens to go gray:
+i had some cooked nonsense code before that didnt make any sense and was exploding every player.
+
+replaced it with making the player invisible and to the top of the map since godots multiplayersynchroniser shits the bed if we 
+queue_free anything with it as a child and the entire game breaks. nice little workaround.
+
+this works brilliantly when a player leaves the lobby but if they quit game or alt+f4 it does not work. unclear why.
+
+it was cos when i was calling it from quit_game it wasnt passing in the id of the player to destroy
+****************************************************************************************************************************************
+server not receiving getLobbyList message. it doesnt even detect a packet.:
+its because im using the local server and im not clicking start client before clicking lobby browser. ffs.
+
+****************************************************************************************************************************************
+ivos infinite jump bug at an angle:
+when you look down at an angle for some reaosn you can sometimes infinitely jump, when youre looking like 20-30 degrees
+holding w and a/d, it seems like the game things its a wall jump? its so unclear why it would happen
+
+ive discovered the cause and its that when one player touches the wall it allows all players to wall jump. ffs.
+
+fixed it by only emitting the signal if the player's multiplayerauthority is the same is the multiplayer.get_unique_id().
+so all players in the clients scene still hear the signal, but only in that clients scene. so if someone else touches the wall
+the signal is not emitted on our client
+****************************************************************************************************************************************
+player name dissappeared halfway through the match:
+this fixed itself idk
+player name flips when anyone scores a goal:
+just rotated the player name to face in the direction of the players camera. it was facing the wrong way previously.
+****************************************************************************************************************************************
+host score display doesnt update when a goal is scored:
+this is when the authority is set to the host, and it is call_remote. when it is call_local, this allows both the authority to call
+it as well as the client itself, or the host calls it and then runs it on the current client as well as the host client, meaning it
++2 for everyone except the host where its +1
+when its call_remote the host calls it on all except itself. perhaps i can rpc_id the host to update it
+
+fixed it by creating another function that is a call_local rpc that i rpc_id whenever a goal is scored, as well as the previous
+goal score rpc function
+
+so there is a goal_score() that updates everyone except the host and a goal_score_host_update that updates the hosts score
+****************************************************************************************************************************************
+practice mode mouse inputs dont happen:
+it was cos of the multiplayer_authority is self.multiplayer_authority check, so i just added or singeleplayer == true
+to those checks and that has fixed it. also i changed the rpc calls for picking up bagels to only rpc if singleplayer != true
+since apparently if u rpc and your on your own it actually does nothing. i did the same thing with the goal_score.rpc() code
+****************************************************************************************************************************************
+bagels are really hard to pick up again:
+this isnt much of a bug as much as a feature of my current method, basically when theyre far away the hitbox is still small.
+its useful when theyre close/medium range, but bagels are borderline impossible to pick up when far away. one fix i can think
+of would be clientside to scale each bagels hitbox with how far away it is from the player. the hitboxes would be different for each
+player.
+
+this would require the bagels to know which player is the "active" player for that client. we could go through each player in the
+group player and see if the multiplayer_authority is the nbame of the player or whatever the physics_process script checks
+
+they arent that bad tbh. gonna move this to fixed.
+****************************************************************************************************************************************
+if u leave while the game is paused then the game is paused when u rejoin but the screen isnt there its a bit confusing:
+added global.ispaused = false to _ready() of player.gd
+****************************************************************************************************************************************
+after you play one game the first person to scores a goal wins (golden goal?):
+after someone wins golden goal it doesnt reset properly:
+it was one line of code where on game_restart golden goal was set to true instead of false. forgot to change it. whoops.
+****************************************************************************************************************************************
+bagel hitbox is misaligned with raycast again, its slighltly up:
+cursor wasnt in the center of the screen. 
+when i changed the window size to be 16:9 i didnt resize the cursor to be in the center of the screen again.
+****************************************************************************************************************************************
+the server isnt receiving the destroylobby message for some reason. not sure why. maybe my local server code is broken.:
+it was for some reason. instead of doing all this smart checkbox i just hard coded the ip and it started working idk why idc why.
+****************************************************************************************************************************************
+ball desynced between players sometimes:
+try rpc calls instead of multiplayer synchroniser
+
+instead of that ive tried making it so the multiplayer_authority changes the same way as the goal score does. after a decent amount
+of debugging, and realising that you can instantiate your own nodes in the scene editor, for some reason the multiplayer_authority
+of the ball doesnt change upon someone hitting it, but it still works???? like it just stays as the host the entire time, but for
+some reason it doesnt care anymore. i really dont understand. it also only calls once whenever someone hits it, which makes sense now
+that i think about it cos theres only one ball, instead of 4 players calling the function. actually no both instances have a ball
+so both instances should print their value but they dont. but also it works really consistently now. i have no idea.
+
+ok so it turns out i dont think you need to assign the multiplayer authority to anything but the host and then it works.
+cos as long as the bagel's and players position is consistent between host and clients then the ball will be affected the same
+by all clients
+
+but then why the hell do i need to set the bagel's multiplayer authority to the player who holds it. this shit really makes no sense
+hopefully it works lol when i test now.
+****************************************************************************************************************************************
+whoever opens the pause menu first cant use it for the rest of the game???:
+one person always cant use the pause menu, the behaviour is as if the buttons ignore the mouse. most of the time i find
+its the player who opened the pause menu first but sometimes it isnt.
+
+the difference im finding from the remote debugging view is that when i press esc the canvaslayer visible toggles for the one that
+works, and it doesnt for the one that doesnt work. for some reason it isnt showing. but it is still visible on the screen.
+so idk what this is about.
+
+printing whether it is visible in the console returns true. which is really weird.
+
+ive tried printing it every 2s and it prints 2 for each client, which makes sense since each client would have knowledge of the
+other players pause screen.
+
+my only guess is that there is a multiplayer_authority for the pause screen which is not set to each client. 
+
+ive set the multiplayer_authority to the player that owns it and that hasnt fixed it. also the remote debugging view was lying
+and now the one that works isnt having its visibility toggled. remote debugging view is not to be trusted seemingly.
+
+going to try rpcing the pause signal, maybe that will make it function
+
+ok this is fucking weird. i RPC call_local and it makes it forcibly open the pause screen for the other player lol. strange bit is
+that when u do it from one client it works for both clients, when u do it from the other client, it doesnt work for both clients.
+so its consistent for some reason or another.
+
+my idea of how to fix this is whenever escape is pressed then you fire the signal from the client that works, but have it only run
+(if multiplayer_authority == multiplayer_authoritythatfiredthesignal). this is a mega bandaid fix. id have to figure out what causes
+it to fire the signal
+
+
+
+im piecing together why it isnt working. i think all players UIs are drawn onto the screen of each client, and its something to do
+with that. it also might be something to do with the pause screen only being shown on one client's player but not the other
+
+HOLY SHIT i fixed it. i made it so that the player UI only shows if you are the multiplayer authority of the player. still not
+sure why it didnt work at all but hey ho.
+****************************************************************************************************************************************
+noises play twice:
+extension of game over noises played all at once && audio is playing twice:
+
+just figured out its because each client has 2 players in its scene, so there are 2 instances of the player_ui script, meaning
+it will always play both win and lose noise at the same time, or two of the same noise
+
+I think its also because its an audiostreamplayer rather than an audiostreamplayer2D/3D. maybe that wil fix it dunno how they behave
+goal_score.ogg is broken again. dunno why. time to reimport.
+
+ive created a new noise maker scene and script, and all the audioPlayer3D's in it have very high attenuation so u wont hear it
+unles your the player. this is my solution and it works!!!
+****************************************************************************************************************************************
+blue and red icon dont export:
+used a workaround from https://github.com/godotengine/godot/issues/24222#issuecomment-522846285
+
+it basically puts the texture/image into a sprite 2d and uses the sprite.texture instead. weird fix but it works
+****************************************************************************************************************************************
+score desynced sometimes:
+fuck the multiplayer synchroniser it dont work. just use rpc calls instead.
+
+rpc calls seem to trigger twice with call_local and not at all for the host with call_remote
+also with call_local the host is always one behind e.g. blue scores a goal and then its 0-1 and 0-2, then next goal its 0-4 and 0-3
+etc.
+
+trying with call_remote and it does work, it doesnt register the display for the client who scores the first goal. otherwise its fine.
+it was something to do with the score not updating in time in the code by the time the display updated
+
+fixed by creatubg a 1.08s timer when scoring a goal before everything resets and it updates. i added a zunpet sfx that lasts 1.08s.
+technically the opposite team could score in that 1.08s and thatd fuck shit up i think, but id be surprised. im gonna add a closed
+goals bool actually just to be sure
+****************************************************************************************************************************************
+players switch sides  sometimes (maybe when you score an own goal?) (not consistent):
+i fixed it by using my brain to iterate
+****************************************************************************************************************************************
+player name flips when anyone scores a goal:
+dunno. weird.
+****************************************************************************************************************************************
+if the server dies you cant play until you restart the game:
+need to add some sort of signal the server emits when it goes online, that restarts the clients whove already launched the game
+****************************************************************************************************************************************
+server sometimes dies on its own:
+this is the error
+
+{ "id": 1855928795, "lobbyValue": "n9GtCBTuslM8LS17cVYqs3uPuFNtfBHC", "message": 4, "name": "" }
+ERROR: Condition "!peers_map.has(p_id)" is true. Returning: Ref<WebSocketPeer>()
+   at: get_peer (modules/websocket/websocket_multiplayer_peer.cpp:418)
+[1]+  Terminated              ./'bagelball remake.x86_64' --headless --server
+
+cant really think of what it could be, a peer with this number already exists??.. hmm
+might be to do with my broken lobby terminating code.
+
+this seems to have stopped so it was probably this
+
+****************************************************************************************************************************************
+cant wall jump off goal walls/wall jump is just buggy:
+changed the scale of the area3d thats a copy of the map from 0.98 to 0.99, i think it wasnt registering the wall dismount sometimes
+****************************************************************************************************************************************
+can see through red and blue goal wall:
+dont know how i fixed this one but doesnt seem to be anymore
+****************************************************************************************************************************************
+funny terminal speed interactions that i dont understand:
+by checking abs(velocity.x) + abs(velocity.z) against speed*2 then we have consistency
+****************************************************************************************************************************************
+webrtc multiplayer dont work when testing with ivo:
+for some reason the Message.offer Message.candidate and Message.answer arent being received by my machine from ivo's machine. they must not be broadcast or 
+something. im thinking its to do with the line: 
+
+		if id < rtcPeer.get_unique_id():
+			peer.create_offer()
+
+another hypothesis is this line:
+		peer.initialize({
+			"iceServers": [{ "urls": ["stun:stun.l.google.com:19302"] }] ##free stun server to test with from google cheers google
+		})
+
+isnt working
+
+i dont think its to do with the code, instead something to do with how godot-webrtc exports or installs? ivo's logs say something
+
+ivo is stupid and didnt unzip it
+
+****************************************************************************************************************************************
+clock goes 4:60 instead of 5:00:
+self explanatory really. it does it for every time the minute changes
+****************************************************************************************************************************************
+multiplayer client is kinda laggy movement. rollback required or something:
+watch this https://youtu.be/eQt7TwCr6ao. 
+
+webrtc seems to have fixed this
+****************************************************************************************************************************************
+if i try to type in the address it doesnt work:
+no idea why. i think the debugger/code is obfuscating something, the client cant connect if i try to use the typed address, instead 
+of the one that magically appears. peer.create_client(address, port) does not return an error, and it says it is a multiplayer peer
+but the console then prints that i am not connected. super confusing.
+
+as long as there is nothing in the address text box it connects. really strange. i dont know why or how it knows. will have to test
+with another player.
+
+maybe its because upnp isnt actually working, and if i try to connect using upnp it fails.
+
+it isnt. the UPNP things all return happy. it specifically to do with what address i use in the join command. really weird.
+
+replaced upnp with webrtc
+****************************************************************************************************************************************
+throw doesnt work in front of cursor:
+i just iterated through variations of the code until it worked i couldnt figure it out last time and i couldnt this time lol
+it works though! thats what matters
+****************************************************************************************************************************************
+bagels just go through walls if u chuck with enough velocity:
+the auto generated meshes just let shit through them apparently. replacing them with cubes of my own seems to fix it.
+****************************************************************************************************************************************
+raycast doesnt work unless the other player has clicked (kind of):
+dont really know how this works. sometimes the player just needs to click a bunch and then it works. maybe could bandaid fix
+by just forcing each player to click at start of match in _ready()
+
+forcing the click is too hard. instead i have made it so it awaits a process frame everytime u raycast and that for some reason fixes
+it. if the process frame adds too big a delay can always make it only for the first click.
+
+this bug has reared its ugly head again. now it doesnt work unless the other player has moved their mouse. tbh im just going to leave
+this bug for now since it really doesnt seem like it would ever affect gameplay
+****************************************************************************************************************************************
+client bagel physics doesnt affect ball properly:
+just needed to set multiplayer authority to whoever hits the ball. simple fix.
+
+this can sometimes cause a desync. may need to rpc the bagels position instead since the multiplayer synchroniser is kinda buggy
+****************************************************************************************************************************************
+the client raycast doesnt pick up bagels:
+also the raycast may not work unless u print something
+also if u breakpoint the raycast then it breaks one of the instances
+
+player 2 raycast doesnt work unless player 1 (host) has clicked. weird.
+
+the linear_velocity of the bagel is increasing and decreasing  based on where the player is, which makes me think it isn't moving
+because the multiplayer synchroniser from the host is overwriting the bagel position
+
+my ideas to fix:
+add linear velocity to multiplayer sync for bagel
+or
+make the bagel follow the player in the bagel script, rather than in the player script#
+
+adding linear velocity to multiplayer sync has made bagel velocity be 0 unless the host moves it. i was right. not sure how to fix.
+i think making the bagel follow the player that gets passed in would make sense. rpc_id and the such
+
+making it only sync linear velocity makes p2 able to pick it up but p1 cant see its changes.
+if i set the multiplayer authority to the player who picks up the bagel it means client can pick up bagel, but host
+doesn't see it's changes for some reason.
+
+i think setting the multiplayer authority only when its picked up properly bungulates the source code. it doesnt really make sense
+anyway. we will try tomorrow
+
+integrate_forces instead of physics_process may be the key
+
+integrate_forces script is only running if the host clicks start game. nevermind not anymore. so confusing.
+
+i think im going to have to look at the multiplayersynchronizer source code, since its so abstracted away it cant understand
+why anything is going wrong
+
+okay i think now the issue is that i am setting the multiplayer authority to one thing on the client, and another thing on the server,
+so they are mismatched. interesting.
+
+THAT WAS IT. to fix it i have made a variable in the bagel code called multiplayerauthority and then i sync that using the 
+multiplayersynchronizer, which is a bit roundabout but somehow it works. im trying to think about how it works and i cant quite work
+it out. 
+
+i think i got it:
+the pick up bagel function is called on the rpc_id of the player that clicked, and then that calls another rpc function that affects
+all instances

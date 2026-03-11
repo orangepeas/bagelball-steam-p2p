@@ -1,0 +1,338 @@
+[gd_scene load_steps=11 format=3 uid="uid://pjfvk3hdof6i"]
+
+[ext_resource type="Script" uid="uid://80hsi7od4opl" path="res://scripts/custom_lobby_variables.gd" id="1_exmei"]
+[ext_resource type="FontFile" uid="uid://bgodc4gs8nlyi" path="res://styling/fonts/Roboto/Roboto-VariableFont_wdth,wght.ttf" id="1_wtyqo"]
+[ext_resource type="PackedScene" uid="uid://bdggsclcynyo" path="res://scenes/clv individual general.tscn" id="3_2dp8b"]
+[ext_resource type="PackedScene" uid="uid://qlonbbngq1ku" path="res://scenes/clv individual general checkbox.tscn" id="4_2a7pi"]
+[ext_resource type="PackedScene" uid="uid://davgkjxn35vaj" path="res://scenes/clv individual ball.tscn" id="4_ivv7e"]
+[ext_resource type="PackedScene" uid="uid://b48a573muvd" path="res://scenes/clv individual bagel.tscn" id="5_8f45x"]
+[ext_resource type="PackedScene" uid="uid://d115axnm617eq" path="res://scenes/clv individual player.tscn" id="6_ry6ak"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2a7pi"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0si1f"]
+bg_color = Color(0, 0, 0, 0.607843)
+
+[sub_resource type="LabelSettings" id="LabelSettings_exmei"]
+font = ExtResource("1_wtyqo")
+font_size = 26
+
+[node name="Custom Lobby Variables" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_exmei")
+
+[node name="VariablesModal" type="PanelContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -480.0
+offset_top = -270.0
+offset_right = 480.0
+offset_bottom = 270.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 874.0
+offset_top = 53.0
+offset_right = 890.0
+offset_bottom = 69.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_2a7pi")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_0si1f")
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="General" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="GeneralLabel" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/General"]
+layout_mode = 2
+text = "General"
+label_settings = SubResource("LabelSettings_exmei")
+
+[node name="hbox" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/General"]
+layout_mode = 2
+
+[node name="Gravity" parent="PanelContainer/MarginContainer/VBoxContainer/General/hbox" instance=ExtResource("3_2dp8b")]
+layout_mode = 2
+exportValue = 40.0
+minValue = -10000.0
+maxValue = 10000.0
+step = 0.1
+
+[node name="Match Length (s)" parent="PanelContainer/MarginContainer/VBoxContainer/General/hbox" instance=ExtResource("3_2dp8b")]
+layout_mode = 2
+exportOption = 1
+exportValue = 300.0
+minValue = 1.0
+maxValue = 1800.0
+step = 1.0
+
+[node name="Engine Timescale" parent="PanelContainer/MarginContainer/VBoxContainer/General/hbox" instance=ExtResource("3_2dp8b")]
+layout_mode = 2
+exportOption = 2
+exportValue = 1.0
+minValue = -1.0
+maxValue = 100.0
+step = 0.01
+
+[node name="Map Scale" parent="PanelContainer/MarginContainer/VBoxContainer/General/hbox" instance=ExtResource("3_2dp8b")]
+layout_mode = 2
+exportOption = 3
+exportValue = 1.0
+minValue = -10000.0
+maxValue = 10000.0
+step = 0.01
+
+[node name="Scroll Throw" parent="PanelContainer/MarginContainer/VBoxContainer/General/hbox" instance=ExtResource("4_2a7pi")]
+layout_mode = 2
+exportOption = 4
+
+[node name="Ball" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="BallLabel" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/Ball"]
+layout_mode = 2
+text = "Ball"
+label_settings = SubResource("LabelSettings_exmei")
+
+[node name="hbox" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/Ball"]
+layout_mode = 2
+
+[node name="Size Scale" parent="PanelContainer/MarginContainer/VBoxContainer/Ball/hbox" instance=ExtResource("4_ivv7e")]
+layout_mode = 2
+exportValue = 1.0
+minValue = -100.0
+maxValue = 100.0
+step = 0.01
+
+[node name="Bounciness" parent="PanelContainer/MarginContainer/VBoxContainer/Ball/hbox" instance=ExtResource("4_ivv7e")]
+layout_mode = 2
+exportOption = 1
+exportValue = 0.3
+maxValue = 1.0
+step = 0.01
+
+[node name="Weight" parent="PanelContainer/MarginContainer/VBoxContainer/Ball/hbox" instance=ExtResource("4_ivv7e")]
+layout_mode = 2
+exportOption = 2
+exportValue = 4.2
+maxValue = 10000.0
+step = 0.01
+
+[node name="Friction" parent="PanelContainer/MarginContainer/VBoxContainer/Ball/hbox" instance=ExtResource("4_ivv7e")]
+layout_mode = 2
+exportOption = 3
+exportValue = 1.0
+maxValue = 1.0
+step = 0.01
+
+[node name="Bagel" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="BagelLabel" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/Bagel"]
+layout_mode = 2
+text = "Bagel"
+label_settings = SubResource("LabelSettings_exmei")
+
+[node name="hbox2" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/Bagel"]
+layout_mode = 2
+
+[node name="Size Scale" parent="PanelContainer/MarginContainer/VBoxContainer/Bagel/hbox2" instance=ExtResource("5_8f45x")]
+layout_mode = 2
+exportValue = 1.0
+minValue = -100.0
+maxValue = 100.0
+step = 0.01
+
+[node name="Bounciness" parent="PanelContainer/MarginContainer/VBoxContainer/Bagel/hbox2" instance=ExtResource("5_8f45x")]
+layout_mode = 2
+exportOption = 1
+exportValue = 0.2
+maxValue = 1.0
+step = 0.01
+
+[node name="NotHeldWeight" parent="PanelContainer/MarginContainer/VBoxContainer/Bagel/hbox2" instance=ExtResource("5_8f45x")]
+layout_mode = 2
+exportOption = 3
+exportValue = 15.0
+maxValue = 10000.0
+step = 0.01
+
+[node name="HeldWeight" parent="PanelContainer/MarginContainer/VBoxContainer/Bagel/hbox2" instance=ExtResource("5_8f45x")]
+layout_mode = 2
+exportOption = 2
+exportValue = 0.8
+maxValue = 10000.0
+step = 0.01
+
+[node name="hbox3" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/Bagel"]
+layout_mode = 2
+
+[node name="Friction" parent="PanelContainer/MarginContainer/VBoxContainer/Bagel/hbox3" instance=ExtResource("5_8f45x")]
+layout_mode = 2
+exportOption = 4
+exportValue = 1.0
+maxValue = 1.0
+step = 0.01
+
+[node name="Player" type="VBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="PlayerLabel" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer/Player"]
+layout_mode = 2
+text = "Player"
+label_settings = SubResource("LabelSettings_exmei")
+
+[node name="hbox3" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/Player"]
+layout_mode = 2
+
+[node name="Normal Speed" parent="PanelContainer/MarginContainer/VBoxContainer/Player/hbox3" instance=ExtResource("6_ry6ak")]
+layout_mode = 2
+exportValue = 60.0
+minValue = -10000.0
+maxValue = 10000.0
+step = 0.1
+
+[node name="Sprint Speed" parent="PanelContainer/MarginContainer/VBoxContainer/Player/hbox3" instance=ExtResource("6_ry6ak")]
+layout_mode = 2
+exportOption = 1
+exportValue = 90.0
+minValue = -10000.0
+maxValue = 10000.0
+step = 0.1
+
+[node name="Max Speed" parent="PanelContainer/MarginContainer/VBoxContainer/Player/hbox3" instance=ExtResource("6_ry6ak")]
+layout_mode = 2
+exportOption = 2
+exportValue = 150.0
+minValue = -10000.0
+maxValue = 10000.0
+step = 0.1
+
+[node name="Jump Velocity" parent="PanelContainer/MarginContainer/VBoxContainer/Player/hbox3" instance=ExtResource("6_ry6ak")]
+layout_mode = 2
+exportOption = 3
+exportValue = 45.0
+minValue = -10000.0
+maxValue = 10000.0
+step = 0.1
+
+[node name="hbox4" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/Player"]
+layout_mode = 2
+
+[node name="Wall Jump Velocity" parent="PanelContainer/MarginContainer/VBoxContainer/Player/hbox4" instance=ExtResource("6_ry6ak")]
+layout_mode = 2
+exportOption = 4
+exportValue = 120.0
+minValue = -10000.0
+maxValue = 10000.0
+step = 0.1
+
+[node name="Jumps" parent="PanelContainer/MarginContainer/VBoxContainer/Player/hbox4" instance=ExtResource("6_ry6ak")]
+layout_mode = 2
+exportOption = 8
+exportValue = 2.0
+maxValue = 1000.0
+step = 1.0
+
+[node name="Air Acceleration" parent="PanelContainer/MarginContainer/VBoxContainer/Player/hbox4" instance=ExtResource("6_ry6ak")]
+layout_mode = 2
+exportOption = 5
+exportValue = 10.0
+minValue = -10000.0
+maxValue = 10000.0
+step = 0.01
+
+[node name="Floor Deceleration" parent="PanelContainer/MarginContainer/VBoxContainer/Player/hbox4" instance=ExtResource("6_ry6ak")]
+layout_mode = 2
+exportOption = 6
+exportValue = 5.0
+minValue = -10000.0
+maxValue = 10000.0
+step = 0.01
+
+[node name="hbox5" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer/Player"]
+layout_mode = 2
+
+[node name="Size Scale" parent="PanelContainer/MarginContainer/VBoxContainer/Player/hbox5" instance=ExtResource("6_ry6ak")]
+layout_mode = 2
+exportOption = 7
+exportValue = 1.0
+minValue = -10000.0
+maxValue = 10000.0
+step = 0.01
+
+[node name="save load & reset" type="VBoxContainer" parent="PanelContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+
+[node name="Save" type="Button" parent="PanelContainer/MarginContainer/save load & reset"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+theme_override_fonts/font = ExtResource("1_wtyqo")
+theme_override_font_sizes/font_size = 24
+text = "Save Lobby Settings"
+
+[node name="Load" type="Button" parent="PanelContainer/MarginContainer/save load & reset"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+theme_override_fonts/font = ExtResource("1_wtyqo")
+theme_override_font_sizes/font_size = 24
+text = "Load Lobby Settings"
+
+[node name="Reset to Default" type="Button" parent="PanelContainer/MarginContainer/save load & reset"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+theme_override_fonts/font = ExtResource("1_wtyqo")
+theme_override_font_sizes/font_size = 24
+text = "Reset to Default"
+
+[node name="Back" type="Button" parent="PanelContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+theme_override_fonts/font = ExtResource("1_wtyqo")
+theme_override_font_sizes/font_size = 24
+text = "Back"
+
+[connection signal="pressed" from="PanelContainer/MarginContainer/save load & reset/Reset to Default" to="." method="_on_reset_to_default_pressed"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/Back" to="." method="_on_back_pressed"]

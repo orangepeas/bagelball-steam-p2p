@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://kvuafm23cx2k"]
+
+[ext_resource type="PackedScene" uid="uid://bpxhy17mdreq8" path="res://assets/bagel level/outside glass.glb" id="1_aj6qt"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0nwyb"]
+cull_mode = 2
+albedo_color = Color(0.62166, 0.78, 0.6162, 1)
+distance_fade_min_distance = 4096.0
+distance_fade_max_distance = 4042.49
+
+[node name="outside glass2" instance=ExtResource("1_aj6qt")]
+
+[node name="outside glass" parent="." index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_0nwyb")

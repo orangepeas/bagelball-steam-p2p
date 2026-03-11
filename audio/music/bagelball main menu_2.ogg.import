@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://brx1u7jf5igbn"
+path="res://.godot/imported/bagelball main menu_2.ogg-2f341d17a742ff262a3602dff47ea7da.oggvorbisstr"
+
+[deps]
+
+source_file="res://audio/music/bagelball main menu_2.ogg"
+dest_files=["res://.godot/imported/bagelball main menu_2.ogg-2f341d17a742ff262a3602dff47ea7da.oggvorbisstr"]
+
+[params]
+
+loop=true
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

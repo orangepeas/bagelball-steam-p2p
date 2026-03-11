@@ -1,0 +1,113 @@
+[gd_scene load_steps=19 format=3 uid="uid://cg0tnoa41fqja"]
+
+[ext_resource type="Script" uid="uid://cqtf28gb5b0hb" path="res://scripts/noise_maker.gd" id="1_yiqc7"]
+[ext_resource type="AudioStream" uid="uid://ds4d63jw36dft" path="res://audio/sfx/goal score.ogg" id="2_21bec"]
+[ext_resource type="AudioStream" uid="uid://b8d6brx45if3v" path="res://audio/sfx/goal concede.ogg" id="3_jxgde"]
+[ext_resource type="AudioStream" uid="uid://cjkssce3l64q5" path="res://audio/sfx/applause.ogg" id="4_c2cva"]
+[ext_resource type="AudioStream" uid="uid://bxx64qmks1hdu" path="res://audio/sfx/lose.ogg" id="5_okbsh"]
+[ext_resource type="AudioStream" uid="uid://bqjgl3d77yrbj" path="res://audio/sfx/wall touch.ogg" id="6_kjmjj"]
+[ext_resource type="AudioStream" uid="uid://cxm8nrr4nao7d" path="res://audio/sfx/floor touch.ogg" id="7_l28p6"]
+[ext_resource type="AudioStream" uid="uid://ga13u2xmb24n" path="res://audio/sfx/jmup3.ogg" id="8_0xa2a"]
+[ext_resource type="AudioStream" uid="uid://n8e35bevp8q4" path="res://audio/sfx/three.ogg" id="9_21v5c"]
+[ext_resource type="AudioStream" uid="uid://bvp74n6t7od36" path="res://audio/sfx/two.ogg" id="10_n8yg1"]
+[ext_resource type="AudioStream" uid="uid://de3smamlix7jx" path="res://audio/sfx/one.ogg" id="11_wour4"]
+[ext_resource type="AudioStream" uid="uid://cn3iqq88ald53" path="res://audio/sfx/bagelball.ogg" id="12_sc8gd"]
+[ext_resource type="AudioStream" uid="uid://v5yvq7ym0pf6" path="res://audio/sfx/insults/you salmon.wav" id="13_8l5ws"]
+[ext_resource type="AudioStream" uid="uid://c3gqf052jyg0k" path="res://audio/sfx/insults/you mackerel.wav" id="14_k2biw"]
+[ext_resource type="AudioStream" uid="uid://cmf4ljkthbtax" path="res://audio/sfx/insults/bloody trout.wav" id="15_0ebps"]
+[ext_resource type="AudioStream" uid="uid://cg5fo5jmxohm" path="res://audio/sfx/insults/slimy worm.wav" id="16_eyq2f"]
+[ext_resource type="AudioStream" uid="uid://c8wcdedno3l11" path="res://audio/sfx/insults/absolute mollusc.wav" id="17_8l5ws"]
+[ext_resource type="AudioStream" uid="uid://dlbka3vwc348n" path="res://audio/sfx/insults/soggy bagel.wav" id="18_k2biw"]
+
+[node name="Noise Maker" type="Node3D"]
+script = ExtResource("1_yiqc7")
+
+[node name="Goal Score Noise" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("2_21bec")
+volume_db = 28.679
+unit_size = 2.46
+max_distance = 10.0
+bus = &"SFX"
+
+[node name="Goal Concede Noise" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("3_jxgde")
+volume_db = 28.679
+unit_size = 2.46
+max_distance = 10.0
+bus = &"SFX"
+
+[node name="Win Noise" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("4_c2cva")
+unit_size = 2.46
+max_db = 0.0
+max_distance = 10.0
+bus = &"SFX"
+
+[node name="Lose Noise" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("5_okbsh")
+unit_size = 2.46
+max_db = -6.0
+max_distance = 10.0
+bus = &"SFX"
+
+[node name="Wall Touch Noise" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("6_kjmjj")
+volume_db = -10.0
+unit_size = 2.46
+max_db = -6.0
+max_distance = 10.0
+bus = &"SFX"
+
+[node name="Floor Touch Noise" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("7_l28p6")
+volume_db = -10.0
+unit_size = 2.46
+max_db = -6.0
+max_distance = 10.0
+bus = &"SFX"
+
+[node name="Jump Noise" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("8_0xa2a")
+volume_db = -17.0
+
+[node name="Three" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("9_21v5c")
+bus = &"SFX"
+
+[node name="Two" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("10_n8yg1")
+bus = &"SFX"
+
+[node name="One" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("11_wour4")
+bus = &"SFX"
+
+[node name="Bagelball" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("12_sc8gd")
+bus = &"SFX"
+
+[node name="You Salmon" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("13_8l5ws")
+bus = &"SFX"
+
+[node name="You Mackerel" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("14_k2biw")
+bus = &"SFX"
+
+[node name="Bloody Trout" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("15_0ebps")
+bus = &"SFX"
+
+[node name="Slimy Worm" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("16_eyq2f")
+bus = &"SFX"
+
+[node name="Absolute Mollusc" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("17_8l5ws")
+pitch_scale = 1.24
+bus = &"SFX"
+
+[node name="Soggy Bagel" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("18_k2biw")
+pitch_scale = 1.24
+bus = &"SFX"

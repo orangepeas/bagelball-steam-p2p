@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://qlonbbngq1ku"]
+
+[ext_resource type="Script" uid="uid://dofhhps6t5j4" path="res://scripts/clv_individual_general_checkbox.gd" id="1_ser5i"]
+[ext_resource type="FontFile" uid="uid://bgodc4gs8nlyi" path="res://styling/fonts/Roboto/Roboto-VariableFont_wdth,wght.ttf" id="2_va1ft"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_cbsmn"]
+font = ExtResource("2_va1ft")
+font_size = 17
+
+[node name="Custom Lobby Variable checkbox" type="HBoxContainer" groups=["CLV", "CLVGeneral"]]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_ser5i")
+
+[node name="VariableLabel" type="Label" parent="."]
+layout_mode = 2
+text = "blahblahblahblah"
+label_settings = SubResource("LabelSettings_cbsmn")
+
+[node name="VariableCheckbox" type="CheckBox" parent="."]
+layout_mode = 2
+
+[connection signal="toggled" from="VariableCheckbox" to="." method="_on_variable_checkbox_toggled"]

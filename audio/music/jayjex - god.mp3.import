@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://f3uqdj5eu2yo"
+path="res://.godot/imported/jayjex - god.mp3-6f5363e8f0cd35a1c034b009bc509706.mp3str"
+
+[deps]
+
+source_file="res://audio/music/jayjex - god.mp3"
+dest_files=["res://.godot/imported/jayjex - god.mp3-6f5363e8f0cd35a1c034b009bc509706.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

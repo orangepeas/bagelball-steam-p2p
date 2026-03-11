@@ -1,0 +1,208 @@
+[gd_scene load_steps=22 format=3 uid="uid://8hl52kbu026b"]
+
+[ext_resource type="Script" uid="uid://d2erscpgws7vi" path="res://scripts/ball.gd" id="1_178xg"]
+[ext_resource type="ArrayMesh" uid="uid://cqt3dlagy8f41" path="res://assets/ball.obj" id="1_a8eej"]
+[ext_resource type="Texture2D" uid="uid://dwhicidgtgjgw" path="res://assets/main level/ceiling_corrugated-rusted-iron-800-mm-architextures.jpg" id="3_2hlb3"]
+[ext_resource type="Shader" uid="uid://b7mxc7e32uhdg" path="res://scripts/shaders/ball outline.gdshader" id="3_x8yng"]
+[ext_resource type="AudioStream" uid="uid://qyn1cuhfd0b7" path="res://audio/sfx/ball hit.ogg" id="4_nkxho"]
+[ext_resource type="AudioStream" uid="uid://dey2tvdkr73f4" path="res://audio/sfx/torus thwoom.ogg" id="6_jj7gd"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_g1yu7"]
+bounce = 0.3
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_utovf"]
+properties/0/path = NodePath(".:linear_velocity")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+properties/1/path = NodePath(".:angular_velocity")
+properties/1/spawn = true
+properties/1/replication_mode = 1
+properties/2/path = NodePath(".:position")
+properties/2/spawn = true
+properties/2/replication_mode = 1
+properties/3/path = NodePath(".:rotation")
+properties/3/spawn = true
+properties/3/replication_mode = 1
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_rwihn"]
+radius = 2.05
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_2qfkg"]
+radius = 1.99
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_c7las"]
+render_priority = 0
+shader = ExtResource("3_x8yng")
+shader_parameter/color = Color(0, 0, 0, 1)
+shader_parameter/size = 1.015
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sgfej"]
+next_pass = SubResource("ShaderMaterial_c7las")
+albedo_color = Color(0.329158, 0.329158, 0.329158, 1)
+heightmap_scale = 16.0
+heightmap_texture = ExtResource("3_2hlb3")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_eew57"]
+lifetime_randomness = 1.0
+angle_min = -25.5
+angle_max = -25.5
+spread = 4.122
+flatness = 0.076
+initial_velocity_min = 30.0
+initial_velocity_max = 40.0
+linear_accel_min = -2.23517e-06
+linear_accel_max = 10.33
+turbulence_noise_scale = 1.847
+sub_emitter_mode = 2
+sub_emitter_amount_at_end = 1
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jj7gd"]
+transparency = 1
+cull_mode = 2
+albedo_color = Color(1, 0.333333, 0, 1)
+metallic = 1.0
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_energy_multiplier = 1.24
+emission_operator = 1
+rim_enabled = true
+
+[sub_resource type="BoxMesh" id="BoxMesh_fwo8l"]
+material = SubResource("StandardMaterial3D_jj7gd")
+size = Vector3(0.5, 0.5, 0.5)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_v8l5b"]
+lifetime_randomness = 1.0
+angle_min = -25.5
+angle_max = -25.5
+spread = 4.122
+flatness = 0.076
+initial_velocity_min = 50.0
+initial_velocity_max = 70.0
+linear_accel_min = -2.23517e-06
+linear_accel_max = 10.33
+turbulence_noise_scale = 1.847
+sub_emitter_mode = 2
+sub_emitter_amount_at_end = 1
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iijjg"]
+transparency = 1
+cull_mode = 2
+albedo_color = Color(1, 0.561333, 0.06, 0.662745)
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_energy_multiplier = 1.24
+emission_operator = 1
+rim_enabled = true
+rim = 0.32
+
+[sub_resource type="BoxMesh" id="BoxMesh_f7kxq"]
+material = SubResource("StandardMaterial3D_iijjg")
+size = Vector3(0.3, 0.3, 0.3)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_e8gir"]
+lifetime_randomness = 1.0
+angle_min = -25.5
+angle_max = -25.5
+spread = 4.122
+flatness = 0.076
+initial_velocity_min = 80.0
+initial_velocity_max = 130.0
+linear_accel_min = -2.23517e-06
+linear_accel_max = 10.33
+turbulence_noise_scale = 1.847
+sub_emitter_mode = 2
+sub_emitter_amount_at_end = 1
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4m2kh"]
+transparency = 1
+cull_mode = 2
+albedo_color = Color(1, 0.989833, 0.39, 0.823529)
+metallic = 1.0
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_energy_multiplier = 1.24
+emission_operator = 1
+
+[sub_resource type="BoxMesh" id="BoxMesh_8pdq7"]
+material = SubResource("StandardMaterial3D_4m2kh")
+size = Vector3(0.1, 0.1, 0.1)
+
+[node name="ball" type="RigidBody3D" groups=["ball"]]
+collision_layer = 3
+collision_mask = 3
+mass = 4.2
+physics_material_override = SubResource("PhysicsMaterial_g1yu7")
+gravity_scale = 0.5
+inertia = Vector3(500, 500, 500)
+can_sleep = false
+contact_monitor = true
+max_contacts_reported = 64
+angular_damp = 0.2
+script = ExtResource("1_178xg")
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_utovf")
+visibility_update_mode = 1
+
+[node name="Area3D" type="Area3D" parent="."]
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(9, 0, 0, 0, 9, 0, 0, 0, 9, 0, 0, 0)
+shape = SubResource("SphereShape3D_rwihn")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(9, 0, 0, 0, 9, 0, 0, 0, 9, 0, 0, 0)
+shape = SubResource("SphereShape3D_2qfkg")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(9, 0, 0, 0, 9, 0, 0, 0, 9, 0, 0, 0)
+mesh = ExtResource("1_a8eej")
+surface_material_override/0 = SubResource("StandardMaterial3D_sgfej")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("4_nkxho")
+volume_db = 16.603
+bus = &"SFX"
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+light_energy = 16.0
+omni_range = 26.99
+omni_attenuation = 1.352
+
+[node name="big" type="GPUParticles3D" parent="."]
+amount = 2
+lifetime = 3.84
+explosiveness = 0.18
+randomness = 0.14
+trail_lifetime = 1.12
+process_material = SubResource("ParticleProcessMaterial_eew57")
+draw_passes = 2
+draw_pass_1 = SubResource("BoxMesh_fwo8l")
+draw_pass_2 = null
+
+[node name="medium" type="GPUParticles3D" parent="."]
+lifetime = 2.11
+trail_lifetime = 1.12
+process_material = SubResource("ParticleProcessMaterial_v8l5b")
+draw_passes = 2
+draw_pass_1 = SubResource("BoxMesh_f7kxq")
+draw_pass_2 = null
+
+[node name="smol" type="GPUParticles3D" parent="."]
+lifetime = 2.11
+process_material = SubResource("ParticleProcessMaterial_e8gir")
+draw_passes = 2
+draw_pass_1 = SubResource("BoxMesh_8pdq7")
+draw_pass_2 = null
+
+[node name="torus thwoom" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("6_jj7gd")
+volume_db = 13.0
+bus = &"SFX"
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]

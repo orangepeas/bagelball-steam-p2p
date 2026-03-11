@@ -1,0 +1,151 @@
+[gd_scene load_steps=7 format=3 uid="uid://ct3hcs3r3q4ec"]
+
+[ext_resource type="Script" uid="uid://8dlnqld87843" path="res://scripts/controls.gd" id="1_yd8xc"]
+[ext_resource type="StyleBox" uid="uid://m804573hacgj" path="res://styling/panel style.tres" id="2_2ncja"]
+[ext_resource type="PackedScene" uid="uid://b3rv68na5ktv3" path="res://scenes/input_button.tscn" id="2_bnwmf"]
+[ext_resource type="FontFile" uid="uid://bgodc4gs8nlyi" path="res://styling/fonts/Roboto/Roboto-VariableFont_wdth,wght.ttf" id="3_vlw3c"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b4hi6"]
+bg_color = Color(0, 0, 0, 0.262745)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w7jtk"]
+bg_color = Color(1, 1, 1, 0.372549)
+
+[node name="Controls" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_yd8xc")
+
+[node name="InputMap" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -380.0
+offset_top = -256.0
+offset_right = 382.0
+offset_bottom = 245.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = ExtResource("2_2ncja")
+
+[node name="MarginContainer" type="MarginContainer" parent="InputMap"]
+layout_mode = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="VBoxContainer" type="VBoxContainer" parent="InputMap/MarginContainer"]
+layout_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="InputMap/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ActionList" type="VBoxContainer" parent="InputMap/MarginContainer/VBoxContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="InputButton" parent="InputMap/MarginContainer/VBoxContainer/ScrollContainer/ActionList" instance=ExtResource("2_bnwmf")]
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxFlat_b4hi6")
+theme_override_styles/hover = SubResource("StyleBoxFlat_w7jtk")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_w7jtk")
+theme_override_styles/normal = SubResource("StyleBoxFlat_b4hi6")
+
+[node name="ResetButton" type="Button" parent="InputMap/MarginContainer/VBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+theme_override_fonts/font = ExtResource("3_vlw3c")
+text = "Reset To Defaults"
+
+[node name="InputMapBack" type="Button" parent="InputMap/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_vlw3c")
+text = "Back"
+
+[node name="Initial" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="Initial"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 315.0
+offset_top = 179.0
+offset_right = -315.0
+offset_bottom = -179.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = ExtResource("2_2ncja")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Initial"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -91.0
+offset_top = -43.0
+offset_right = 91.0
+offset_bottom = 43.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Initial/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Sprint Setting" type="Label" parent="Initial/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Sprint Setting"
+
+[node name="HoldOrToggle" type="OptionButton" parent="Initial/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+selected = 0
+item_count = 2
+popup/item_0/text = "Hold"
+popup/item_0/id = 0
+popup/item_1/text = "Toggle"
+popup/item_1/id = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Initial/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Auto Sprint" type="Label" parent="Initial/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "Auto Sprint"
+
+[node name="AutoSprintCheckbox" type="CheckBox" parent="Initial/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+
+[node name="InputMapButton" type="Button" parent="Initial/VBoxContainer"]
+layout_mode = 2
+text = "Input Map"
+
+[node name="Back" type="Button" parent="Initial/VBoxContainer"]
+layout_mode = 2
+text = "Back"
+
+[connection signal="pressed" from="InputMap/MarginContainer/VBoxContainer/ResetButton" to="." method="_on_reset_button_pressed"]
+[connection signal="pressed" from="InputMap/MarginContainer/VBoxContainer/InputMapBack" to="." method="_on_input_map_back_pressed"]
+[connection signal="item_selected" from="Initial/VBoxContainer/HBoxContainer/HoldOrToggle" to="." method="_on_hold_or_toggle_item_selected"]
+[connection signal="toggled" from="Initial/VBoxContainer/HBoxContainer2/AutoSprintCheckbox" to="." method="_on_auto_sprint_checkbox_toggled"]
+[connection signal="pressed" from="Initial/VBoxContainer/InputMapButton" to="." method="_on_input_map_button_pressed"]
+[connection signal="pressed" from="Initial/VBoxContainer/Back" to="." method="_on_back_pressed"]

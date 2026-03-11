@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://c3gqf052jyg0k"
+path="res://.godot/imported/you mackerel.wav-001fc08084bb33d0a1fbd2a9c1d77201.sample"
+
+[deps]
+
+source_file="res://audio/sfx/insults/you mackerel.wav"
+dest_files=["res://.godot/imported/you mackerel.wav-001fc08084bb33d0a1fbd2a9c1d77201.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

@@ -1,0 +1,227 @@
+[gd_scene load_steps=13 format=3 uid="uid://7yt5qojut4c5"]
+
+[ext_resource type="Script" uid="uid://dvvmurmlws6e2" path="res://scripts/player_ui.gd" id="1_kw5cl"]
+[ext_resource type="Script" uid="uid://dn7glqllado6i" path="res://scripts/score_display.gd" id="1_tv3g2"]
+[ext_resource type="PackedScene" uid="uid://c3vd2a2tijwwk" path="res://scenes/pause_screen.tscn" id="3_umk6t"]
+[ext_resource type="PackedScene" uid="uid://dp8l70opk22ei" path="res://scenes/scoreboard.tscn" id="4_uewkd"]
+[ext_resource type="PackedScene" uid="uid://dikjdnjlbdwg8" path="res://scenes/insult_selector.tscn" id="5_a0fxt"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_gksah"]
+font_size = 32
+font_color = Color(1, 0.261813, 0.381551, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_nop4u"]
+font_size = 32
+font_color = Color(0.395096, 0.645569, 1, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_wi3fl"]
+font_size = 32
+
+[sub_resource type="LabelSettings" id="LabelSettings_85xat"]
+font_size = 30
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_xnjyt"]
+properties/0/path = NodePath("Game Timer:wait_time")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+
+[sub_resource type="SystemFont" id="SystemFont_xvnwn"]
+font_names = PackedStringArray("Bookman Old Style")
+subpixel_positioning = 0
+
+[sub_resource type="LabelSettings" id="LabelSettings_33fr1"]
+font = SubResource("SystemFont_xvnwn")
+font_size = 72
+font_color = Color(0, 0.588235, 1, 1)
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 5
+shadow_color = Color(0.641934, 0.641934, 0.641934, 0)
+
+[node name="Player UI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+script = ExtResource("1_kw5cl")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -3.0
+offset_top = -3.0
+offset_right = 3.0
+offset_bottom = 3.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -2.0
+offset_top = -2.0
+offset_right = 2.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Game Timer" type="Timer" parent="."]
+wait_time = 300.0
+one_shot = true
+
+[node name="score display" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+script = ExtResource("1_tv3g2")
+
+[node name="MarginContainer" type="MarginContainer" parent="score display"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 45.0
+grow_horizontal = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_right = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="score display/MarginContainer"]
+layout_mode = 2
+
+[node name="red score" type="Label" parent="score display/MarginContainer/HBoxContainer"]
+layout_mode = 2
+text = "0"
+label_settings = SubResource("LabelSettings_gksah")
+
+[node name="Control" type="Control" parent="score display/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+
+[node name="blue score" type="Label" parent="score display/MarginContainer/HBoxContainer"]
+layout_mode = 2
+text = "0"
+label_settings = SubResource("LabelSettings_nop4u")
+
+[node name="Timer Display" type="Label" parent="score display"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 45.0
+grow_horizontal = 2
+mouse_filter = 1
+label_settings = SubResource("LabelSettings_wi3fl")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_bottom = 20
+
+[node name="Cursor" type="Label" parent="MarginContainer"]
+layout_mode = 2
+text = "."
+label_settings = SubResource("LabelSettings_85xat")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Panel" type="Panel" parent="."]
+visible = false
+custom_minimum_size = Vector2(2, 2)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1.0
+offset_top = -1.0
+offset_right = 1.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="TimeSync" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_xnjyt")
+
+[node name="win message" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -480.0
+offset_top = -288.0
+offset_right = 480.0
+offset_bottom = 288.0
+grow_horizontal = 2
+grow_vertical = 2
+label_settings = SubResource("LabelSettings_33fr1")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Pause Screen" parent="." instance=ExtResource("3_umk6t")]
+visible = false
+layout_mode = 1
+
+[node name="debug timer" type="Timer" parent="."]
+wait_time = 6.0
+autostart = true
+
+[node name="PlayerID" type="Label" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 20.0
+offset_top = 405.0
+offset_right = 374.0
+offset_bottom = 519.0
+
+[node name="ScreenCenter" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Scoreboard" parent="." instance=ExtResource("4_uewkd")]
+visible = false
+layout_mode = 1
+
+[node name="Insult Selector" parent="." instance=ExtResource("5_a0fxt")]
+layout_mode = 1
+
+[connection signal="timeout" from="Game Timer" to="." method="game_end"]
+[connection signal="timeout" from="Game Timer" to="score display" method="_on_game_timer_timeout"]
+[connection signal="initiateGoldenGoal" from="score display" to="." method="_on_score_display_initiate_golden_goal"]
+[connection signal="timeout" from="debug timer" to="Pause Screen" method="_on_debug_timer_timeout"]

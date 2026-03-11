@@ -1,0 +1,115 @@
+[gd_scene load_steps=16 format=3 uid="uid://dbu3a8gxaieht"]
+
+[ext_resource type="Script" uid="uid://d4nfjbo1au4c6" path="res://scripts/quantum_bagel.gd" id="1_kbpun"]
+[ext_resource type="ArrayMesh" uid="uid://b3cyhnfce28te" path="res://assets/bagel.obj" id="2_o2hlo"]
+[ext_resource type="AudioStream" uid="uid://v58sjrg2fhv7" path="res://audio/sfx/bagel hit.ogg" id="3_q31wm"]
+[ext_resource type="AudioStream" uid="uid://qyn1cuhfd0b7" path="res://audio/sfx/ball hit.ogg" id="4_0pxdq"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_0523e"]
+bounce = 0.2
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_vmemg"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+properties/1/path = NodePath(".:linear_velocity")
+properties/1/spawn = true
+properties/1/replication_mode = 1
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nyeg8"]
+shading_mode = 2
+diffuse_mode = 3
+specular_mode = 1
+albedo_color = Color(0.803927, 0, 0.451706, 1)
+emission = Color(0.0663379, 0.010149, 0.00767864, 1)
+emission_energy_multiplier = 7.98
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_ey4yn"]
+height = 1.5
+radius = 4.0
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_smjdo"]
+height = 1.7
+radius = 4.2
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_68jr6"]
+height = 14.0
+radius = 13.0
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_awijm"]
+lifetime_randomness = 0.47
+inherit_velocity_ratio = 0.176
+spread = 0.3
+flatness = 0.145
+initial_velocity_min = 28.4
+initial_velocity_max = 54.72
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_awijm"]
+albedo_color = Color(1, 0.373715, 0.385739, 0.211765)
+rim_enabled = true
+
+[sub_resource type="TorusMesh" id="TorusMesh_a11e5"]
+material = SubResource("StandardMaterial3D_awijm")
+inner_radius = 0.021
+outer_radius = 0.023
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a11e5"]
+transparency = 1
+cull_mode = 2
+albedo_color = Color(1, 1, 1, 0.152941)
+
+[sub_resource type="BoxMesh" id="BoxMesh_sse53"]
+material = SubResource("StandardMaterial3D_a11e5")
+size = Vector3(0.2, 0.2, 0.2)
+
+[node name="RigidBody3D" type="RigidBody3D" groups=["QuantumBagel", "bagel"]]
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+mass = 0.8
+physics_material_override = SubResource("PhysicsMaterial_0523e")
+can_sleep = false
+script = ExtResource("1_kbpun")
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_vmemg")
+
+[node name="Bagel" type="MeshInstance3D" parent="."]
+transform = Transform3D(2.5, 0, 0, 0, 2.5, 0, 0, 0, 2.5, 0, 0, 0)
+mesh = ExtResource("2_o2hlo")
+surface_material_override/0 = SubResource("StandardMaterial3D_nyeg8")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0418063, 0)
+shape = SubResource("CylinderShape3D_ey4yn")
+
+[node name="Bagel Hit Noise" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("3_q31wm")
+volume_db = -7.0
+bus = &"SFX"
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0418063, 0)
+shape = SubResource("CylinderShape3D_smjdo")
+
+[node name="Bagel Pickup Zone" type="Area3D" parent="." groups=["QuantumBagel", "bagel"]]
+collision_layer = 64
+collision_mask = 64
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Bagel Pickup Zone"]
+shape = SubResource("CylinderShape3D_68jr6")
+
+[node name="Ball Hit Noise" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("4_0pxdq")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+amount = 2
+process_material = SubResource("ParticleProcessMaterial_awijm")
+draw_passes = 2
+draw_pass_1 = SubResource("TorusMesh_a11e5")
+draw_pass_2 = SubResource("BoxMesh_sse53")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_entered" from="Bagel Pickup Zone" to="." method="_on_area_3d_body_entered"]

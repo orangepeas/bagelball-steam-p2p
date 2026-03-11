@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cmf4ljkthbtax"
+path="res://.godot/imported/bloody trout.wav-19183576c90bb21803e8e2ca60f3507e.sample"
+
+[deps]
+
+source_file="res://audio/sfx/insults/bloody trout.wav"
+dest_files=["res://.godot/imported/bloody trout.wav-19183576c90bb21803e8e2ca60f3507e.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

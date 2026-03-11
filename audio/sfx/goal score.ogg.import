@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://ds4d63jw36dft"
+path="res://.godot/imported/goal score.ogg-a02cf92332abd92b06524c6b32dc958a.oggvorbisstr"
+
+[deps]
+
+source_file="res://audio/sfx/goal score.ogg"
+dest_files=["res://.godot/imported/goal score.ogg-a02cf92332abd92b06524c6b32dc958a.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://byunouyvpnnl6"
+path="res://.godot/imported/orangepeas - breeze loop.ogg-fad6c3d3dac7020f698fa1af8eeca607.oggvorbisstr"
+
+[deps]
+
+source_file="res://audio/music/orangepeas - breeze loop.ogg"
+dest_files=["res://.godot/imported/orangepeas - breeze loop.ogg-fad6c3d3dac7020f698fa1af8eeca607.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

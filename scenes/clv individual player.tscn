@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://d115axnm617eq"]
+
+[ext_resource type="Script" uid="uid://ca17nuqfxs2u" path="res://scripts/clv_individual_player.gd" id="1_im2ga"]
+[ext_resource type="FontFile" uid="uid://bgodc4gs8nlyi" path="res://styling/fonts/Roboto/Roboto-VariableFont_wdth,wght.ttf" id="2_308kt"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_cbsmn"]
+font = ExtResource("2_308kt")
+font_size = 17
+
+[node name="Custom Lobby Variable" type="HBoxContainer" groups=["CLV", "CLVPlayer"]]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_im2ga")
+
+[node name="VariableLabel" type="Label" parent="."]
+layout_mode = 2
+text = "player blahblahblah"
+label_settings = SubResource("LabelSettings_cbsmn")
+
+[node name="VariableNum" type="SpinBox" parent="."]
+layout_mode = 2
+min_value = -1000.0
+max_value = 1000.0
+step = 0.1
+value = 420.0
+
+[connection signal="value_changed" from="VariableNum" to="." method="_on_variable_num_value_changed"]

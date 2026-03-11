@@ -1,0 +1,70 @@
+[gd_scene load_steps=6 format=3 uid="uid://botcdy8sqvb2v"]
+
+[ext_resource type="Script" uid="uid://c87wo40i2j142" path="res://scripts/lobby_individual.gd" id="1_i5thl"]
+[ext_resource type="FontFile" uid="uid://bgodc4gs8nlyi" path="res://styling/fonts/Roboto/Roboto-VariableFont_wdth,wght.ttf" id="2_hl4ks"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b4hi6"]
+bg_color = Color(0, 0, 0, 0.262745)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w7jtk"]
+bg_color = Color(1, 1, 1, 0.372549)
+
+[sub_resource type="LabelSettings" id="LabelSettings_1ynpo"]
+font_size = 20
+
+[node name="Lobby Individual" type="Button"]
+custom_minimum_size = Vector2(0, 40)
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+focus_mode = 0
+theme_override_styles/focus = SubResource("StyleBoxFlat_b4hi6")
+theme_override_styles/hover = SubResource("StyleBoxFlat_w7jtk")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_w7jtk")
+theme_override_styles/normal = SubResource("StyleBoxFlat_b4hi6")
+disabled = true
+script = ExtResource("1_i5thl")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="LabelLobbyName" type="Label" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("2_hl4ks")
+theme_override_font_sizes/font_size = 28
+text = "lobby name"
+label_settings = SubResource("LabelSettings_1ynpo")
+vertical_alignment = 1
+text_overrun_behavior = 3
+
+[node name="JoinLobbyButton" type="Button" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("2_hl4ks")
+theme_override_font_sizes/font_size = 23
+text = "Join"
+
+[node name="CurrentPlayerDisplay" type="Button" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("2_hl4ks")
+theme_override_font_sizes/font_size = 23
+disabled = true
+text = "1/2 players"
+
+[connection signal="pressed" from="MarginContainer/HBoxContainer/JoinLobbyButton" to="." method="_on_join_lobby_button_pressed"]

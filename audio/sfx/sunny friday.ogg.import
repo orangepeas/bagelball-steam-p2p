@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cp82ayvu831w8"
+path="res://.godot/imported/sunny friday.ogg-3137b0900af6d36290df240bab90c8eb.oggvorbisstr"
+
+[deps]
+
+source_file="res://audio/sfx/sunny friday.ogg"
+dest_files=["res://.godot/imported/sunny friday.ogg-3137b0900af6d36290df240bab90c8eb.oggvorbisstr"]
+
+[params]
+
+loop=true
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cbs4gbcg1xxtk"
+path="res://.godot/imported/jayjex - glee.ogg-1264aa28f7a0cb727f1dd1a71678da15.oggvorbisstr"
+
+[deps]
+
+source_file="res://audio/music/jayjex - glee.ogg"
+dest_files=["res://.godot/imported/jayjex - glee.ogg-1264aa28f7a0cb727f1dd1a71678da15.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
