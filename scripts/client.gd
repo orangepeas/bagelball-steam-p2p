@@ -163,7 +163,7 @@ func _on_lobby_join_requested(this_lobby_id: int, friend_id: int) -> void:
 
 func join_lobby(this_lobby_id: int) -> void:
 	print("Attempting to join lobby %s" % this_lobby_id)
-	global.players.clear()
+	#global.players.clear()
 	Steam.joinLobby(this_lobby_id)
 
 @rpc("any_peer","call_local")
@@ -257,7 +257,7 @@ func _on_create_lobby_button_pressed() -> void:
 	isHosting.emit()
 	isHostingBool = true
 	global.lobbyHostID = Steam.getSteamID()
-	#add_player(Steam.getSteamID(), createLobbyUsername.text)
+	add_player_steam(Steam.getSteamID())
 
 #func on_lobby_created(connect, id):
 	#if connect:
