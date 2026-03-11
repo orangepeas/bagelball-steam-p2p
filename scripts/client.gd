@@ -66,8 +66,9 @@ func connected_to_server():
 
 @rpc("any_peer","call_local")
 func add_player_steam(steam_id):
+	print(steam_id)
 	var sender_id = multiplayer.get_remote_sender_id()
-	global.players[id] = {
+	global.players[sender_id] = {
 		"steam_id":steam_id,
 		"steam_name":Steam.getFriendPersonaName(steam_id),
 		"multiplayer_id":sender_id,
@@ -163,7 +164,7 @@ func _on_lobby_join_requested(this_lobby_id: int, friend_id: int) -> void:
 
 func join_lobby(this_lobby_id: int) -> void:
 	print("Attempting to join lobby %s" % this_lobby_id)
-	#global.players.clear()
+	global.players.clear()
 	Steam.joinLobby(this_lobby_id)
 
 @rpc("any_peer","call_local")
