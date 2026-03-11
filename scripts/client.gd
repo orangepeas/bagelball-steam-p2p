@@ -85,10 +85,10 @@ func add_player_steam(steam_id):
 	send_updated_players.rpc(global.players)
 
 @rpc("any_peer","call_remote")
-func send_updated_players(players : Array):
+func send_updated_players(players : Dictionary):
 	global.players = players
 	for player in global.players:
-		player.steam_name = Steam.getFriendPersonaName(player.steam_id)##so the friend nicknames dont get shared around
+		global.players[player].steam_name = Steam.getFriendPersonaName(global.players[player].steam_id)##so the friend nicknames dont get shared around
 		#if player.steam_id == Steam.getLobbyOwner(global.lobby_id):
 			#global.lobby_host_id = player.multiplayer_id
 	updateLobbyBoard()
