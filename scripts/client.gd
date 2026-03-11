@@ -1,6 +1,7 @@
 extends Message
 
 var id : int = 0
+var send_channel = 1
 var hostId : int
 var lobbyValue = ""
 var maxPlayersTemp = 2 ##default is 1v1
@@ -31,7 +32,6 @@ signal receivedLobbyList
 signal canSwitchTeams
 signal noCanSwitchTeams
 
-var lobby_id = 0
 var peer = SteamMultiplayerPeer.new()
 
 #signal canJoinGamePartway ##too difficult and pointless to implement
@@ -42,29 +42,127 @@ func _ready() -> void:
 	blueIcon.texture = load("res://assets/blue icon.png")
 	redIcon.texture = load("res://assets/red icon.png")
 	global.pauseScreenLeaveLobby.connect(_on_pause_screen_leave_lobby_pressed)
-	Steam.lobby_created.connect(on_lobby_created)
-	Steam.lobby_joined.connect(_on_lobby_joined)
+	Steam.addRequestLobbyListDistanceFilter(Steam.LOBBY_DISTANCE_FILTER_WORLDWIDE)
+	
 	Steam.lobby_match_list.connect(_on_lobby_match_list)
+	Steam.join_requested.connect(_on_lobby_join_requested)
+	Steam.lobby_chat_update.connect(_on_lobby_chat_update)
+	Steam.lobby_created.connect(_on_lobby_created)
+	Steam.lobby_joined.connect(_on_lobby_joined)
+	check_command_line()
+	
+	multiplayer.peer_connected.connect(peer_connected)
+	multiplayer.peer_disconnected.connect(peer_disconnected)
 	multiplayer.connected_to_server.connect(connected_to_server)
-	multiplayer.server_disconnected.connect(disconnected_from_server)
-	Steam.lobby_chat_update.connect(peer_connected_disconnected)
+	multiplayer.connection_failed.connect(connection_failed)
+	
 	await get_tree().create_timer(0.5).timeout #need to wait for steam to intialise
 	joinPrivateLobbyUsername.text = Steam.getPersonaName()
 	createLobbyUsername.text = Steam.getPersonaName()
 
 func connected_to_server():
-	add_player.rpc_id(int(Steam.getLobbyData(global.currentLobby, "host")))
+	add_player_steam.rpc_id(int(Steam.getLobbyData(global.currentLobby, "host")), Steam.getSteamID())
 
-func disconnected_from_server():
-	pass ##erase player
+@rpc("any_peer","call_local")
+func add_player_steam(steam_id):
+	var sender_id = multiplayer.get_remote_sender_id()
+	global.players[id] = {
+		"steam_id":steam_id,
+		"steam_name":Steam.getFriendPersonaName(steam_id),
+		"multiplayer_id":sender_id,
+		"lobby_host":false,
+		"index": global.players.size() + 1,
+		"displayName": name,
+		"goals": 0,
+		"spectator": false,
+		"redTeam": false
+		}
+	#for player in global.players:
+		#if player.multiplayer_id == multiplayer.get_unique_id():
+			#player.lobby_host = true
+	updateLobbyBoard()
+	send_updated_players.rpc(global.players)
 
-func _on_lobby_joined(this_lobby_id: int, _permissions: int, _locked: bool, response: int):
-	if response == Steam.CHAT_ROOM_ENTER_RESPONSE_SUCCESS:
-		global.currentLobby = this_lobby_id
-		peer.connect_lobby(this_lobby_id)
-		multiplayer.multiplayer_peer = peer
-		add_player(Steam.getSteamID(), joinPrivateLobbyUsername.text)
-		hasJoined.emit()
+@rpc("any_peer","call_remote")
+func send_updated_players(players : Array):
+	global.players = players
+	for player in global.players:
+		player.steam_name = Steam.getFriendPersonaName(player.steam_id)##so the friend nicknames dont get shared around
+		#if player.steam_id == Steam.getLobbyOwner(global.lobby_id):
+			#global.lobby_host_id = player.multiplayer_id
+	updateLobbyBoard()
+
+
+func peer_connected(id):
+	print("peer connected ", id)
+
+func peer_disconnected(id):
+	print("peer disconnected ", id)
+
+func connection_failed():
+	print("couldnt connect")
+
+func _process(_delta: float) -> void:
+	if global.currentLobby != 0:
+		read_messages()
+
+func check_command_line() -> void:
+	##this is if someone hasn't got the game launched but clicks on an invite
+	var these_arguments: Array = OS.get_cmdline_args()
+	if these_arguments.size() > 0:
+		if these_arguments[0] == "+connect_lobby":
+			if int(these_arguments[1]) > 0:
+				# At this point, you'll probably want to change scenes
+				# Something like a loading into lobby screen
+				print("Command line lobby ID: %s" % these_arguments[1])
+				join_lobby(int(these_arguments[1]))
+#func _on_lobby_joined(this_lobby_id: int, _permissions: int, _locked: bool, response: int):
+	#if response == Steam.CHAT_ROOM_ENTER_RESPONSE_SUCCESS:
+		#global.currentLobby = this_lobby_id
+		#peer.connect_lobby(this_lobby_id)
+		#multiplayer.multiplayer_peer = peer
+		#add_player(Steam.getSteamID(), joinPrivateLobbyUsername.text)
+		#hasJoined.emit()
+
+func _on_lobby_joined(this_lobby_id: int, _permissions: int, _locked: bool, response: int) -> void:
+	print("lobby joined signal received")
+	var id = Steam.getLobbyOwner(this_lobby_id)
+	if id != Steam.getSteamID():
+		peer = SteamMultiplayerPeer.new()
+		peer.create_client(id, 0)
+		multiplayer.set_multiplayer_peer(peer)
+		print("lobby joined but not created")
+		if response == Steam.CHAT_ROOM_ENTER_RESPONSE_SUCCESS:
+			$LobbyList.hide()
+			$LobbyMenu.show()
+			global.lobby_id = this_lobby_id
+		else:
+			var fail_reason: String
+			match response:
+				Steam.CHAT_ROOM_ENTER_RESPONSE_DOESNT_EXIST: fail_reason = "This lobby no longer exists."
+				Steam.CHAT_ROOM_ENTER_RESPONSE_NOT_ALLOWED: fail_reason = "You don't have permission to join this lobby."
+				Steam.CHAT_ROOM_ENTER_RESPONSE_FULL: fail_reason = "The lobby is now full."
+				Steam.CHAT_ROOM_ENTER_RESPONSE_ERROR: fail_reason = "Uh... something unexpected happened!"
+				Steam.CHAT_ROOM_ENTER_RESPONSE_BANNED: fail_reason = "You are banned from this lobby."
+				Steam.CHAT_ROOM_ENTER_RESPONSE_LIMITED: fail_reason = "You cannot join due to having a limited account."
+				Steam.CHAT_ROOM_ENTER_RESPONSE_CLAN_DISABLED: fail_reason = "This lobby is locked or disabled."
+				Steam.CHAT_ROOM_ENTER_RESPONSE_COMMUNITY_BAN: fail_reason = "This lobby is community locked."
+				Steam.CHAT_ROOM_ENTER_RESPONSE_MEMBER_BLOCKED_YOU: fail_reason = "A user in the lobby has blocked you from joining."
+				Steam.CHAT_ROOM_ENTER_RESPONSE_YOU_BLOCKED_MEMBER: fail_reason = "A user you have blocked is in the lobby."
+			print("Failed to join this chat room: %s" % fail_reason)
+			Steam.requestLobbyList()
+
+func _on_lobby_join_requested(this_lobby_id: int, friend_id: int) -> void:
+	##this is for if they join off your friends list or an invite
+	var owner_name: String = Steam.getFriendPersonaName(friend_id)
+	print("Joining %s's lobby..." % owner_name)
+	# Attempt to join the lobby
+	join_lobby(this_lobby_id)
+
+func join_lobby(this_lobby_id: int) -> void:
+	print("Attempting to join lobby %s" % this_lobby_id)
+	global.players.clear()
+	Steam.joinLobby(this_lobby_id)
 
 @rpc("any_peer","call_local")
 func sync_global_players(players):
@@ -73,85 +171,124 @@ func sync_global_players(players):
 func _on_lobby_match_list(lobbies):
 	lobbyBrowser.create_lobby_list(lobbies)
 
-func peer_connected_disconnected(lobby_id:int, changed_id:int, making_change_id:int, chat_state:int):
-	print("received player dc or connect")
-	if chat_state == Steam.ChatMemberStateChange.CHAT_MEMBER_STATE_CHANGE_ENTERED:
-		print("peer connected: " + str(changed_id))
-		add_player(changed_id, Steam.getFriendPersonaName(changed_id))
-		if global.players.size() >= global.maxPlayers or global.maxPlayers == 32:
-			canSwitchTeams.emit()
-			canStartGame.emit()
-			print("can start game")
+func _on_lobby_chat_update(_this_lobby_id: int, change_id: int, _making_change_id: int, chat_state: int) -> void:
+	var changer_name: String = Steam.getFriendPersonaName(change_id)
+	if chat_state == Steam.CHAT_MEMBER_STATE_CHANGE_ENTERED:
+		print("%s has joined the lobby." % changer_name)
+	elif chat_state == Steam.CHAT_MEMBER_STATE_CHANGE_LEFT:
+		print("%s has left the lobby." % changer_name)
+	elif chat_state == Steam.CHAT_MEMBER_STATE_CHANGE_KICKED:
+		print("%s has been kicked from the lobby." % changer_name)
+	elif chat_state == Steam.CHAT_MEMBER_STATE_CHANGE_BANNED:
+		print("%s has been banned from the lobby." % changer_name)
 	else:
-		print("peer disconnected: " + str(changed_id))
-		global.players.erase(changed_id)
-		if global.players.size() <= 1:
-			noCanStartGame.emit()
-			print("no can start game")
-	updateLobbyBoard()
-#func updateLobbyBoard():
-	#print("updating lobby board")
-	#$"../Lobby Menu V2".playerNames.clear()
-	#$"../Lobby Menu V2".playerCount.text = "Players Connected: " + str(global.players.size())
-	#for i in global.players:
-		#var displayName = global.players[i].displayName
-		#if global.maxPlayers != 32:
-			#if global.players[i].index - 1 < global.maxPlayers:
-				#if global.players[i].redTeam == true:
-					#if displayName != "":
-						#$"../Lobby Menu V2".playerNames.add_item(global.players[i].displayName, redIcon.texture)
-					#else:
-						#$"../Lobby Menu V2".playerNames.add_item("this idiot didnt enter a name (Soldat)", redIcon.texture)
-				#if global.players[i].redTeam == false:
-					#if displayName != "":
-						#$"../Lobby Menu V2".playerNames.add_item(global.players[i].displayName, blueIcon.texture)
-					#else:
-						#$"../Lobby Menu V2".playerNames.add_item("this idiot didnt enter a name (Soldat)", blueIcon.texture)
-			#else:
-					#$"../Lobby Menu V2".playerNames.add_item("Spectator: " + global.players[i].displayName)
-					#global.players[i].spectator = true
-		#else:
-			#if global.players[i].spectator == true:
-				#$"../Lobby Menu V2".playerNames.add_item("Spectator: " + global.players[i].displayName)
-			#elif global.players[i].spectator == false:
-				#if global.players[i].redTeam == true:
-						#if displayName != "":
-							#$"../Lobby Menu V2".playerNames.add_item(global.players[i].displayName, redIcon.texture)
-						#else:
-							#$"../Lobby Menu V2".playerNames.add_item("this idiot didnt enter a name (Soldat)", redIcon.texture)
-				#if global.players[i].redTeam == false:
-					#if displayName != "":
-						#$"../Lobby Menu V2".playerNames.add_item(global.players[i].displayName, blueIcon.texture)
-					#else:
-						#$"../Lobby Menu V2".playerNames.add_item("this idiot didnt enter a name (Soldat)", blueIcon.texture)
+		print("%s did... something." % changer_name)
+
+#func peer_connected_disconnected(lobby_id:int, changed_id:int, making_change_id:int, chat_state:int):
+	#print("received player dc or connect")
+	#if chat_state == Steam.ChatMemberStateChange.CHAT_MEMBER_STATE_CHANGE_ENTERED:
+		#print("peer connected: " + str(changed_id))
+		#add_player(changed_id, Steam.getFriendPersonaName(changed_id))
+		#if global.players.size() >= global.maxPlayers or global.maxPlayers == 32:
+			#canSwitchTeams.emit()
+			#canStartGame.emit()
+			#print("can start game")
+	#else:
+		#print("peer disconnected: " + str(changed_id))
+		#global.players.erase(changed_id)
+		#if global.players.size() <= 1:
+			#noCanStartGame.emit()
+			#print("no can start game")
+	#updateLobbyBoard()
+func updateLobbyBoard():
+	print("updating lobby board")
+	$"../Lobby Menu V2".playerNames.clear()
+	$"../Lobby Menu V2".playerCount.text = "Players Connected: " + str(global.players.size())
+	for i in global.players:
+		var displayName = global.players[i].displayName
+		if global.maxPlayers != 32:
+			if global.players[i].index - 1 < global.maxPlayers:
+				if global.players[i].redTeam == true:
+					if displayName != "":
+						$"../Lobby Menu V2".playerNames.add_item(global.players[i].displayName, redIcon.texture)
+					else:
+						$"../Lobby Menu V2".playerNames.add_item("this idiot didnt enter a name (Soldat)", redIcon.texture)
+				if global.players[i].redTeam == false:
+					if displayName != "":
+						$"../Lobby Menu V2".playerNames.add_item(global.players[i].displayName, blueIcon.texture)
+					else:
+						$"../Lobby Menu V2".playerNames.add_item("this idiot didnt enter a name (Soldat)", blueIcon.texture)
+			else:
+					$"../Lobby Menu V2".playerNames.add_item("Spectator: " + global.players[i].displayName)
+					global.players[i].spectator = true
+		else:
+			if global.players[i].spectator == true:
+				$"../Lobby Menu V2".playerNames.add_item("Spectator: " + global.players[i].displayName)
+			elif global.players[i].spectator == false:
+				if global.players[i].redTeam == true:
+						if displayName != "":
+							$"../Lobby Menu V2".playerNames.add_item(global.players[i].displayName, redIcon.texture)
+						else:
+							$"../Lobby Menu V2".playerNames.add_item("this idiot didnt enter a name (Soldat)", redIcon.texture)
+				if global.players[i].redTeam == false:
+					if displayName != "":
+						$"../Lobby Menu V2".playerNames.add_item(global.players[i].displayName, blueIcon.texture)
+					else:
+						$"../Lobby Menu V2".playerNames.add_item("this idiot didnt enter a name (Soldat)", blueIcon.texture)
 
 func _on_pause_screen_leave_lobby_pressed() -> void:
 	Steam.leaveLobby(global.currentLobby)
+	peer.close()
 
 func _on_leave_lobby_pressed() -> void:
 	Steam.leaveLobby(global.currentLobby)
 	if global.lobbyHostID == Steam.getSteamID():
 		isNotHosting.emit()
 
-#func _on_create_lobby_button_pressed() -> void:
-	#global.maxPlayers = maxPlayersTemp
-	#Steam.createLobby(Steam.LOBBY_TYPE_PUBLIC,)
+func _on_create_lobby_button_pressed() -> void:
+	global.maxPlayers = maxPlayersTemp
+	Steam.createLobby(Steam.LOBBY_TYPE_PUBLIC, global.maxPlayers)
 	#multiplayer.multiplayer_peer = peer
-	#$"../Create Lobby".hide()
-	#$"../PanelContainer".hide()
-	#$"../Lobby Menu V2".show()
-	#isHosting.emit()
-	#isHostingBool = true
-	#global.lobbyHostID = Steam.getSteamID()
+	$"../Create Lobby".hide()
+	$"../PanelContainer".hide()
+	$"../Lobby Menu V2".show()
+	isHosting.emit()
+	isHostingBool = true
+	global.lobbyHostID = Steam.getSteamID()
 	#add_player(Steam.getSteamID(), createLobbyUsername.text)
 
-func on_lobby_created(connect, id):
-	if connect:
-		lobby_id = id
-		Steam.setLobbyData(lobby_id,"name",lobbyName.text)
-		Steam.setLobbyJoinable(lobby_id,true)
-		global.currentLobby = lobby_id
-		$"../Lobby Menu V2".lobbyIdOutput.text = str(lobby_id)
+#func on_lobby_created(connect, id):
+	#if connect:
+		#lobby_id = id
+		#Steam.setLobbyData(lobby_id,"name",lobbyName.text)
+		#Steam.setLobbyJoinable(lobby_id,true)
+		#global.currentLobby = lobby_id
+		#$"../Lobby Menu V2".lobbyIdOutput.text = str(lobby_id)
+
+func _on_lobby_created(connect: int, this_lobby_id: int) -> void:
+	print("lobby created signal received")
+	if connect == 1:
+		peer = SteamMultiplayerPeer.new()
+		peer.create_host(0)
+		multiplayer.set_multiplayer_peer(peer)
+		global.players[id] = {
+			"steam_id":Steam.getSteamID(), 
+			"steam_name":Steam.getFriendPersonaName(Steam.getSteamID()), 
+			"multiplayer_id":multiplayer.get_unique_id(),
+			"lobby_host":true,
+			"index": global.players.size() + 1,
+			"displayName": name,
+			"goals": 0,
+			"spectator": false,
+			"redTeam": false
+			}
+		global.currentLobby = this_lobby_id
+		updateLobbyBoard()
+		print("Created a lobby: %s" % global.currentLobby)
+		Steam.setLobbyJoinable(global.currentLobby, true)
+		Steam.setLobbyData(global.currentLobby, "name", str(Steam.getPersonaName()) + "'s Lobby")
+		print("did set lobby host work: ", Steam.setLobbyData(global.currentLobby, "host", str(int(multiplayer.get_unique_id()))))
+
 
 func _on_join_lobby_button_down(lobbyId : int) -> void:
 	$"../Join Private Lobby".show()
@@ -176,6 +313,19 @@ func _on_private_lobby_button_toggled(toggled_on: bool) -> void:
 	else:
 		privateLobby = 0
 
+func read_messages() -> void:
+	# The maximum number of messages you want to read per call
+	var max_messages: int = 10
+	var messages : Array = Steam.receiveMessagesOnChannel(send_channel, max_messages)
+	for message in messages:
+		if message.is_empty() or message == null:
+			print("WARNING: read an empty message with non-zero size!")
+		else:
+			message.payload = bytes_to_var(message.payload).decompress_dynamic(-1, FileAccess.COMPRESSION_GZIP)
+			# Get the remote user's ID
+			#var message_sender: int = message.identity
+			print("Message Payload: %s" % message.payload)
+
 #func _on_gamemode_options_item_selected(index: int) -> void:
 	#match index:
 		#0:  #1v1
@@ -185,18 +335,18 @@ func _on_private_lobby_button_toggled(toggled_on: bool) -> void:
 		#2:  #custom
 			#maxPlayersTemp = 32
 	#print("maxPlayersTemp = ",  maxPlayersTemp)
-
-@rpc("any_peer","call_local")
-func add_player(id, name):
-	global.players[id] = {
-		"name": name,
-		"id": id,
-		"index": global.players.size() + 1,
-		"displayName": name,
-		"goals": 0,
-		"spectator": false,
-		"redTeam": false
-	}
+#
+#@rpc("any_peer","call_local")
+#func add_player(id, name):
+	#global.players[id] = {
+		#"name": name,
+		#"id": id,
+		#"index": global.players.size() + 1,
+		#"displayName": name,
+		#"goals": 0,
+		#"spectator": false,
+		#"redTeam": false
+	#}
 
 #func peer_connected(id):
 	#print("peer connected: " + str(id))

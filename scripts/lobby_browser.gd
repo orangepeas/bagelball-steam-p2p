@@ -10,11 +10,11 @@ signal hasJoined
 signal playersUpdated
 
 func _ready():
-	Steam.lobby_match_list.connect(create_lobby_list)
-	Steam.join_requested.connect(_on_lobby_join_requested)
-	Steam.lobby_chat_update.connect(_on_lobby_chat_update)
-	Steam.lobby_created.connect(_on_lobby_created)
-	Steam.lobby_joined.connect(_on_lobby_joined)
+	#Steam.lobby_match_list.connect(create_lobby_list)
+	#Steam.join_requested.connect(_on_lobby_join_requested)
+	#Steam.lobby_chat_update.connect(_on_lobby_chat_update)
+	#Steam.lobby_created.connect(_on_lobby_created)
+	#Steam.lobby_joined.connect(_on_lobby_joined)
 	multiplayer.peer_connected.connect(peer_connected)
 	multiplayer.peer_disconnected.connect(peer_disconnected)
 	multiplayer.connected_to_server.connect(connected_to_server)
@@ -96,18 +96,18 @@ func _on_gamemode_options_item_selected(index: int) -> void:
 		2:  #custom
 			global.maxPlayers = 32
 
-func _on_create_lobby_button_pressed() -> void:
-	if global.lobby_id == 0:
-		Steam.createLobby(Steam.LOBBY_TYPE_PUBLIC, global.maxPlayers)
-		$LobbyList.hide()
-		$LobbyMenu.show()
-	multiplayer.multiplayer_peer = peer
-	$"../Create Lobby".hide()
-	$"../PanelContainer".hide()
-	$"../Lobby Menu V2".show()
-	isHosting.emit()
-	#isHostingBool = true
-	global.lobbyHostID = Steam.getSteamID()
+#func _on_create_lobby_button_pressed() -> void:
+	#if global.currentLobby == 0:
+		#Steam.createLobby(Steam.LOBBY_TYPE_PUBLIC, global.maxPlayers)
+		#$LobbyList.hide()
+		#$LobbyMenu.show()
+	#multiplayer.multiplayer_peer = peer
+	#$"../Create Lobby".hide()
+	#$"../PanelContainer".hide()
+	#$"../Lobby Menu V2".show()
+	#isHosting.emit()
+	##isHostingBool = true
+	#global.lobbyHostID = Steam.getSteamID()
 
 func _on_lobby_created(connect: int, this_lobby_id: int) -> void:
 	print("lobby created signal received")
@@ -115,20 +115,20 @@ func _on_lobby_created(connect: int, this_lobby_id: int) -> void:
 		peer = SteamMultiplayerPeer.new()
 		peer.create_host(0)
 		multiplayer.set_multiplayer_peer(peer)
-		global.lobby_id = this_lobby_id
+		global.currentLobby = this_lobby_id
 		global.players.append({
 			"steam_id":Steam.getSteamID(), 
 			"steam_name":Steam.getFriendPersonaName(Steam.getSteamID()), 
 			"multiplayer_id":multiplayer.get_unique_id(),
 			"lobby_host":true
 			})
-		global.lobby_id = this_lobby_id
+		global.currentLobby = this_lobby_id
 		#global.lobby_host_id = multiplayer.get_unique_id()
 		playersUpdated.emit()
-		print("Created a lobby: %s" % global.lobby_id)
-		Steam.setLobbyJoinable(global.lobby_id, true)
-		Steam.setLobbyData(global.lobby_id, "name", str(Steam.getPersonaName()) + "'s Lobby")
-		print("did set lobby host work: ", Steam.setLobbyData(global.lobby_id, "host", str(int(multiplayer.get_unique_id()))))
+		print("Created a lobby: %s" % global.currentLobby)
+		Steam.setLobbyJoinable(global.currentLobby, true)
+		Steam.setLobbyData(global.currentLobby, "name", str(Steam.getPersonaName()) + "'s Lobby")
+		print("did set lobby host work: ", Steam.setLobbyData(global.currentLobby, "host", str(int(multiplayer.get_unique_id()))))
 
 func check_command_line() -> void:
 	##this is if someone hasn't got the game launched but clicks on an invite
