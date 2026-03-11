@@ -72,7 +72,6 @@ func add_player_steam(steam_id):
 		sender_id = 1
 	else:
 		sender_id = multiplayer.get_remote_sender_id()
-		
 	global.players[sender_id] = {
 		"steam_id":steam_id,
 		"steam_name":Steam.getFriendPersonaName(steam_id),
