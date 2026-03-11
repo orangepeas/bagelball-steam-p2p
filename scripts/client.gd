@@ -11,13 +11,14 @@ var privateLobby = 0
 #@onready var redIcon = ImageTexture.create_from_image(Image.load_from_file("res://assets/red icon.png"))
 @onready var redIcon = Sprite2D.new()
 @onready var blueIcon = Sprite2D.new()
-@onready var lobbyMenu = $".."
+@onready var lobbyMenu = $"../Lobby Menu V2"
 @export var localServer : bool
 @onready var lobbyName = $"../Create Lobby/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Lobby Name Input"
 @onready var joinPrivateLobbyUsername = $"../Join Private Lobby/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Username Input"
 @onready var createLobbyUsername = $"../Create Lobby/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Username Input"
 @onready var joinPrivateLobbyID = $"../Join Private Lobby/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Lobby ID Input"
 @onready var lobbyBrowser = $".."
+@onready var lobbyList = $"../PanelContainer"
 
 var isHostingBool : bool = false
 var hasJoinedBool : bool = false
@@ -133,9 +134,10 @@ func _on_lobby_joined(this_lobby_id: int, _permissions: int, _locked: bool, resp
 		multiplayer.set_multiplayer_peer(peer)
 		print("lobby joined but not created")
 		if response == Steam.CHAT_ROOM_ENTER_RESPONSE_SUCCESS:
-			$LobbyList.hide()
-			$LobbyMenu.show()
-			global.lobby_id = this_lobby_id
+			lobbyList.hide()
+			lobbyMenu.show()
+			$"../Join Private Lobby".hide()
+			global.currentLobby = this_lobby_id
 		else:
 			var fail_reason: String
 			match response:
@@ -287,6 +289,7 @@ func _on_lobby_created(connect: int, this_lobby_id: int) -> void:
 		print("Created a lobby: %s" % global.currentLobby)
 		Steam.setLobbyJoinable(global.currentLobby, true)
 		Steam.setLobbyData(global.currentLobby, "name", str(Steam.getPersonaName()) + "'s Lobby")
+		Steam.setLobbyData(global.currentLobby, "gameHasStarted", "false")
 		print("did set lobby host work: ", Steam.setLobbyData(global.currentLobby, "host", str(int(multiplayer.get_unique_id()))))
 
 

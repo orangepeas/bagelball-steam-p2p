@@ -101,6 +101,7 @@ func start_game():
 	PhysicsServer3D.area_set_param(get_viewport().find_world_3d().space, PhysicsServer3D.AREA_PARAM_GRAVITY, GLV.gravity.value)
 	broadcast_all_options()
 	stop_main_menu_behaviour()
+	Steam.setLobbyData(global.currentLobby,"gameHasStarted","true")
 	self.get_parent().hide() ##hides main menu
 	var scene = load("res://scenes/main level.tscn").instantiate()
 	get_tree().root.add_child(scene)
