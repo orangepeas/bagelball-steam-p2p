@@ -175,7 +175,7 @@ func switch_teams(id : int):
 	#prints("redteam of postswitch",global.players[str(id)].redTeam)
 
 func _on_switch_teams_pressed() -> void:
-	switch_teams.rpc(Steam.getSteamID())
+	switch_teams.rpc(multiplayer.get_unique_id())
 
 func _on_client_can_switch_teams() -> void:
 	print("can switch teams")

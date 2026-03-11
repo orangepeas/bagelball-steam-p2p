@@ -1,2 +1,5 @@
 usernames
 need to destroy lobby on dc
+
+cant use steam ids in globasl.player cos they are too long and it cant
+tell the differenc so it just fuckin overwrote them fuck you
