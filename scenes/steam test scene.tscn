@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://c7gd7ouj2suv8"]
 
-[ext_resource type="Script" uid="uid://bg3dbpyn6pwmb" path="res://scripts/steam_controller.gd" id="1_5p4n2"]
+[ext_resource type="Script" uid="uid://bg3dbpyn6pwmb" path="res://scripts/steam_test_controller.gd" id="1_5p4n2"]
 [ext_resource type="Texture2D" uid="uid://csotobosprytj" path="res://assets/sumo level/onelab_1746694426705.jpg" id="2_q3qbc"]
 [ext_resource type="PackedScene" uid="uid://08gv3kdd0bfp" path="res://scenes/leaderboard_user_score.tscn" id="3_ethpd"]
 
