@@ -1,5 +1,9 @@
 usernames
 need to destroy lobby on dc
+scale bagel distance with player size
+make ball only score when the cnter crosses the goal line to fix ball size issues
 
 cant use steam ids in globasl.player cos they are too long and it cant
 tell the differenc so it just fuckin overwrote them fuck you
+
+reset to default doesnt wokr on scroll throw
