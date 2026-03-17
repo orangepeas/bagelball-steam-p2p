@@ -10,4 +10,5 @@ reset to default doesnt work on scroll throw in CLV menu
 
 removed name inputs temporarily for steam names
 
-steam id's may be too big for godot's ints so converting to string might be necessary if some heinous bug occurs
+
+i broke the join code somehow and idk how. for some reason connected_to_server is no longer being called
