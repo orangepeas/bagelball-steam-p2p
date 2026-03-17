@@ -7,3 +7,5 @@ cant use steam ids in global.player cos they are too long and it cant
 tell the differenc so it just fuckin overwrote them fuck you
 
 reset to default doesnt work on scroll throw in CLV menu
+
+removed name inputs temporarily for steam names
