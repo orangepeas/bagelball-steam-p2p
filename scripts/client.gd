@@ -124,13 +124,6 @@ func check_command_line() -> void:
 				# Something like a loading into lobby screen
 				print("Command line lobby ID: %s" % these_arguments[1])
 				join_lobby(int(these_arguments[1]))
-#func _on_lobby_joined(this_lobby_id: int, _permissions: int, _locked: bool, response: int):
-	#if response == Steam.CHAT_ROOM_ENTER_RESPONSE_SUCCESS:
-		#global.currentLobby = this_lobby_id
-		#peer.connect_lobby(this_lobby_id)
-		#multiplayer.multiplayer_peer = peer
-		#add_player(Steam.getSteamID(), joinPrivateLobbyUsername.text)
-		#hasJoined.emit()
 
 func _on_lobby_joined(this_lobby_id: int, _permissions: int, _locked: bool, response: int) -> void:
 	print("lobby joined signal received")
@@ -145,6 +138,7 @@ func _on_lobby_joined(this_lobby_id: int, _permissions: int, _locked: bool, resp
 			lobbyMenu.show()
 			$"../Join Private Lobby".hide()
 			global.currentLobby = this_lobby_id
+			hasJoined.emit()
 		else:
 			var fail_reason: String
 			match response:
