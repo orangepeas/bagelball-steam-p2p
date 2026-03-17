@@ -102,12 +102,11 @@ func send_updated_players(players : Dictionary):
 			#global.lobby_host_id = player.multiplayer_id
 	updateLobbyBoard()
 
+func peer_connected(multiplayer_id):
+	print("peer connected ", multiplayer_id)
 
-func peer_connected(id):
-	print("peer connected ", id)
-
-func peer_disconnected(id):
-	print("peer disconnected ", id)
+func peer_disconnected(multiplayer_id):
+	print("peer disconnected ", multiplayer_id)
 
 func connection_failed():
 	print("couldnt connect")
