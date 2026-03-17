@@ -64,28 +64,30 @@ func _ready() -> void:
 func connected_to_server():
 	add_player_steam.rpc_id(int(Steam.getLobbyData(global.currentLobby, "host")), Steam.getSteamID())
 
-@rpc("any_peer","call_local")
-func add_player_steam(steam_id):
-	print(steam_id)
-	var sender_id
-	if multiplayer.get_remote_sender_id() == 0:
-		sender_id = 1
-	else:
-		sender_id = multiplayer.get_remote_sender_id()
+func add_player(steam_id, sender_id):
+	var isLobbyHost = false
+	if sender_id == 1:
+		isLobbyHost = true
 	global.players[sender_id] = {
 		"steam_id":steam_id,
 		"steam_name":Steam.getFriendPersonaName(steam_id),
 		"multiplayer_id":sender_id,
-		"lobby_host":false,
+		"lobby_host":isLobbyHost,
 		"index": global.players.size() + 1,
 		"displayName": Steam.getFriendPersonaName(steam_id),
 		"goals": 0,
 		"spectator": false,
 		"redTeam": false
-		}
+	}
+	if global.players.size() % 2 == 0:
+		global.players[sender_id].redTeam = true
+
+@rpc("any_peer","call_local")
+func add_player_steam(steam_id):
 	#for player in global.players:
 		#if player.multiplayer_id == multiplayer.get_unique_id():
 			#player.lobby_host = true
+	add_player(steam_id, multiplayer.get_remote_sender_id())
 	updateLobbyBoard()
 	send_updated_players.rpc(global.players)
 
@@ -132,8 +134,8 @@ func check_command_line() -> void:
 
 func _on_lobby_joined(this_lobby_id: int, _permissions: int, _locked: bool, response: int) -> void:
 	print("lobby joined signal received")
-	var id = Steam.getLobbyOwner(this_lobby_id)
-	if id != Steam.getSteamID():
+	var lobbyOwnerId = Steam.getLobbyOwner(this_lobby_id)
+	if lobbyOwnerId != Steam.getSteamID():
 		peer = SteamMultiplayerPeer.new()
 		peer.create_client(id, 0)
 		multiplayer.set_multiplayer_peer(peer)
@@ -278,17 +280,7 @@ func _on_lobby_created(connect: int, this_lobby_id: int) -> void:
 		peer = SteamMultiplayerPeer.new()
 		peer.create_host(0)
 		multiplayer.set_multiplayer_peer(peer)
-		global.players[id] = {
-			"steam_id":Steam.getSteamID(), 
-			"steam_name":Steam.getFriendPersonaName(Steam.getSteamID()), 
-			"multiplayer_id":multiplayer.get_unique_id(),
-			"lobby_host":true,
-			"index": global.players.size() + 1,
-			"displayName": Steam.getFriendPersonaName(Steam.getSteamID()),
-			"goals": 0,
-			"spectator": false,
-			"redTeam": false
-			}
+		add_player(Steam.getSteamID(), 1)
 		global.currentLobby = this_lobby_id
 		updateLobbyBoard()
 		print("Created a lobby: %s" % global.currentLobby)
