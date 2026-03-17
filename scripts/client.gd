@@ -60,7 +60,6 @@ func _ready() -> void:
 	await get_tree().create_timer(0.5).timeout #need to wait for steam to intialise
 	joinPrivateLobbyUsername.text = Steam.getPersonaName()
 	createLobbyUsername.text = Steam.getPersonaName()
-	
 	id = Steam.getSteamID()
 
 func connected_to_server():
@@ -131,7 +130,7 @@ func _on_lobby_joined(this_lobby_id: int, _permissions: int, _locked: bool, resp
 	var lobbyOwnerId = Steam.getLobbyOwner(this_lobby_id)
 	if lobbyOwnerId != Steam.getSteamID():
 		peer = SteamMultiplayerPeer.new()
-		peer.create_client(id, 0)
+		peer.create_client(id)
 		multiplayer.set_multiplayer_peer(peer)
 		print("lobby joined")
 		if response == Steam.CHAT_ROOM_ENTER_RESPONSE_SUCCESS:
@@ -160,7 +159,7 @@ func _on_lobby_created(connect: int, this_lobby_id: int) -> void:
 	print("lobby created signal received")
 	if connect == 1:
 		peer = SteamMultiplayerPeer.new()
-		peer.create_host(0)
+		peer.create_host()
 		multiplayer.set_multiplayer_peer(peer)
 		add_player(Steam.getSteamID(), 1)
 		global.currentLobby = this_lobby_id
