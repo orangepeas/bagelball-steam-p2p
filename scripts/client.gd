@@ -78,7 +78,7 @@ func add_player_steam(steam_id):
 		"multiplayer_id":sender_id,
 		"lobby_host":false,
 		"index": global.players.size() + 1,
-		"displayName": name,
+		"displayName": Steam.getFriendPersonaName(steam_id),
 		"goals": 0,
 		"spectator": false,
 		"redTeam": false
@@ -262,7 +262,7 @@ func _on_create_lobby_button_pressed() -> void:
 	isHosting.emit()
 	isHostingBool = true
 	global.lobbyHostID = Steam.getSteamID()
-	add_player_steam(Steam.getSteamID())
+	#add_player_steam(Steam.getSteamID())
 
 #func on_lobby_created(connect, id):
 	#if connect:
@@ -284,7 +284,7 @@ func _on_lobby_created(connect: int, this_lobby_id: int) -> void:
 			"multiplayer_id":multiplayer.get_unique_id(),
 			"lobby_host":true,
 			"index": global.players.size() + 1,
-			"displayName": name,
+			"displayName": Steam.getFriendPersonaName(Steam.getSteamID()),
 			"goals": 0,
 			"spectator": false,
 			"redTeam": false
