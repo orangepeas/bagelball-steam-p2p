@@ -40,8 +40,8 @@ var peer = SteamMultiplayerPeer.new()
 #signal getCurrentGameScene
 
 func _ready() -> void:
-	blueIcon.texture = load("res://assets/blue icon.png")
-	redIcon.texture = load("res://assets/red icon.png")
+	blueIcon.texture = load("res://assets/images/blue icon.png")
+	redIcon.texture = load("res://assets/images/red icon.png")
 	global.pauseScreenLeaveLobby.connect(_on_pause_screen_leave_lobby_pressed)
 	Steam.addRequestLobbyListDistanceFilter(Steam.LOBBY_DISTANCE_FILTER_WORLDWIDE)
 	
