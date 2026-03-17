@@ -137,9 +137,10 @@ func _on_lobby_joined(this_lobby_id: int, _permissions: int, _locked: bool, resp
 	var lobbyOwnerId = Steam.getLobbyOwner(this_lobby_id)
 	if lobbyOwnerId != Steam.getSteamID():
 		peer = SteamMultiplayerPeer.new()
-		peer.create_client(id, 0)
+		var error = peer.create_client(id, 0)
+		printerr(error)
 		multiplayer.set_multiplayer_peer(peer)
-		print("lobby joined but not created")
+		print("lobby joined")
 		if response == Steam.CHAT_ROOM_ENTER_RESPONSE_SUCCESS:
 			lobbyList.hide()
 			lobbyMenu.show()
