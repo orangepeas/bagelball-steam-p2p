@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://kvuafm23cx2k"]
 
-[ext_resource type="PackedScene" uid="uid://bpxhy17mdreq8" path="res://assets/bagel level/outside glass.glb" id="1_aj6qt"]
+[ext_resource type="PackedScene" uid="uid://bpxhy17mdreq8" path="res://assets/models/bagel level/outside glass.glb" id="1_aj6qt"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0nwyb"]
 cull_mode = 2

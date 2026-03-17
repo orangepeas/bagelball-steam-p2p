@@ -1,7 +1,7 @@
 [gd_scene load_steps=16 format=3 uid="uid://b0g03ke030y0c"]
 
 [ext_resource type="Script" uid="uid://b1qko4bnwky8f" path="res://scripts/bagel.gd" id="1_4tx6n"]
-[ext_resource type="ArrayMesh" uid="uid://b3cyhnfce28te" path="res://assets/bagel.obj" id="1_7ao4m"]
+[ext_resource type="ArrayMesh" uid="uid://b3cyhnfce28te" path="res://assets/models/bagel.obj" id="1_7ao4m"]
 [ext_resource type="AudioStream" uid="uid://v58sjrg2fhv7" path="res://audio/sfx/bagel hit.ogg" id="3_ui636"]
 [ext_resource type="AudioStream" uid="uid://qyn1cuhfd0b7" path="res://audio/sfx/ball hit.ogg" id="4_72d8r"]
 

@@ -13,8 +13,8 @@ config_version=5
 config/name="bagelball steamp2p"
 run/main_scene="res://scenes/main menu.tscn"
 config/features=PackedStringArray("4.4", "Mobile")
-config/icon="res://assets/bageball icon.png"
-config/windows_native_icon="res://assets/bageball icon.ico"
+config/icon="res://assets/images/bageball icon.png"
+config/windows_native_icon="res://assets/images/bageball icon.ico"
 
 [autoload]
 

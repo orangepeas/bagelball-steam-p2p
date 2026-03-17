@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://buie4qno530x4"]
 
-[ext_resource type="PackedScene" uid="uid://cf4b7lxikyyg7" path="res://assets/bagel level/blue goal.glb" id="1_jv4sk"]
+[ext_resource type="PackedScene" uid="uid://cf4b7lxikyyg7" path="res://assets/models/bagel level/blue goal.glb" id="1_jv4sk"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5kdj0"]
 cull_mode = 2

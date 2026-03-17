@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://38oylythqy6u"]
 
-[ext_resource type="PackedScene" uid="uid://b30fcov86f5ce" path="res://assets/church level/side wall 2 big window.glb" id="1_od33a"]
+[ext_resource type="PackedScene" uid="uid://b30fcov86f5ce" path="res://assets/models/church level/side wall 2 big window.glb" id="1_od33a"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xbwuv"]
 

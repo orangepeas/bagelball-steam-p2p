@@ -3,10 +3,10 @@
 [ext_resource type="Script" uid="uid://de55j2xmbhesp" path="res://scripts/goal_score.gd" id="1_42xni"]
 [ext_resource type="Script" uid="uid://b16fgiqroapnb" path="res://scripts/old/spawn.gd" id="1_pflfq"]
 [ext_resource type="PackedScene" uid="uid://b0g03ke030y0c" path="res://scenes/bagel.tscn" id="3_6888j"]
-[ext_resource type="Texture2D" uid="uid://cg6jt78vn0yko" path="res://assets/cylinder level/onelab_1720000507955.jpg" id="3_j3wln"]
+[ext_resource type="Texture2D" uid="uid://cg6jt78vn0yko" path="res://assets/models/cylinder level/onelab_1720000507955.jpg" id="3_j3wln"]
 [ext_resource type="PackedScene" uid="uid://dbagessp7tl5a" path="res://scenes/cylinder level model/ceiling.tscn" id="5_qu16j"]
-[ext_resource type="PackedScene" uid="uid://nge81v0pvx1q" path="res://assets/cylinder level/floor.glb" id="6_qu16j"]
-[ext_resource type="PackedScene" uid="uid://dyjmpjdsslk6n" path="res://assets/cylinder level/walls.glb" id="6_rmce4"]
+[ext_resource type="PackedScene" uid="uid://nge81v0pvx1q" path="res://assets/models/cylinder level/floor.glb" id="6_qu16j"]
+[ext_resource type="PackedScene" uid="uid://dyjmpjdsslk6n" path="res://assets/models/cylinder level/walls.glb" id="6_rmce4"]
 [ext_resource type="Script" uid="uid://bhbrqpavbfgf8" path="res://scripts/spawn_box.gd" id="8_qu16j"]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_42xni"]

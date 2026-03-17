@@ -1,6 +1,6 @@
 [gd_scene load_steps=14 format=4 uid="uid://dqtgpy7ypl2ti"]
 
-[ext_resource type="Texture2D" uid="uid://b7cxrp5h4uy86" path="res://assets/church level/side wall 1_white_sandstone_bricks_diff_4k.jpg" id="1_8neu4"]
+[ext_resource type="Texture2D" uid="uid://b7cxrp5h4uy86" path="res://assets/models/church level/side wall 1_white_sandstone_bricks_diff_4k.jpg" id="1_8neu4"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nn4jo"]
 resource_name = "Material.001"

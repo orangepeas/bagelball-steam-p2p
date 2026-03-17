@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" uid="uid://bhbrqpavbfgf8" path="res://scripts/spawn_box.gd" id="1_02aua"]
 [ext_resource type="Script" uid="uid://de55j2xmbhesp" path="res://scripts/goal_score.gd" id="1_ynn2v"]
-[ext_resource type="Texture2D" uid="uid://7oxealocq0i6" path="res://assets/church level/side wall 2_old_planks_02_diff_4k.jpg" id="2_ynn2v"]
-[ext_resource type="Texture2D" uid="uid://cg6jt78vn0yko" path="res://assets/cylinder level/onelab_1720000507955.jpg" id="3_4pde8"]
-[ext_resource type="Texture2D" uid="uid://dm70r5mvsoni8" path="res://assets/sumo level/onelab_1746694286423.jpg" id="5_4pde8"]
+[ext_resource type="Texture2D" uid="uid://7oxealocq0i6" path="res://assets/models/church level/side wall 2_old_planks_02_diff_4k.jpg" id="2_ynn2v"]
+[ext_resource type="Texture2D" uid="uid://cg6jt78vn0yko" path="res://assets/models/cylinder level/onelab_1720000507955.jpg" id="3_4pde8"]
+[ext_resource type="Texture2D" uid="uid://dm70r5mvsoni8" path="res://assets/models/sumo level/onelab_1746694286423.jpg" id="5_4pde8"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_3e6pa"]
 height = 200.0

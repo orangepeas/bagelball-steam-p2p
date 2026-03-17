@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://ba1g02ebtc317"]
 
-[ext_resource type="PackedScene" uid="uid://bm2gbb247jmi2" path="res://assets/bagel level/top glass.glb" id="1_rs8at"]
+[ext_resource type="PackedScene" uid="uid://bm2gbb247jmi2" path="res://assets/models/bagel level/top glass.glb" id="1_rs8at"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p6vmj"]
 transparency = 1

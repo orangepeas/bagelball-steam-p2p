@@ -20,7 +20,7 @@ func start_main_menu():
 	$"space station2".hide()
 	$"Custom Lobby Variables".hide()
 	var numSpecial = rng.randi_range(1,1000)
-	if numSpecial == 69:
+	if numSpecial == 7:
 		var num2 = rng.randi_range(1,2)
 		if num2 == 1:
 			$"space station".show()

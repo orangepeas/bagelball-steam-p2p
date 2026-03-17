@@ -1,10 +1,10 @@
 [gd_scene load_steps=9 format=3 uid="uid://cdgrr0noeaup2"]
 
 [ext_resource type="Script" uid="uid://b16fgiqroapnb" path="res://scripts/old/spawn.gd" id="1_bl4ae"]
-[ext_resource type="PackedScene" uid="uid://ctgdvac287p53" path="res://assets/cylinder trigoal/ceiling.glb" id="2_nqcv6"]
-[ext_resource type="PackedScene" uid="uid://3rxkkudfxha3" path="res://assets/cylinder trigoal/floor.glb" id="3_bjl0w"]
-[ext_resource type="PackedScene" uid="uid://dr1h6jd2jh4kh" path="res://assets/cylinder trigoal/walls.glb" id="4_mm8on"]
-[ext_resource type="Texture2D" uid="uid://cg6jt78vn0yko" path="res://assets/cylinder level/onelab_1720000507955.jpg" id="5_nqcv6"]
+[ext_resource type="PackedScene" uid="uid://ctgdvac287p53" path="res://assets/models/cylinder trigoal/ceiling.glb" id="2_nqcv6"]
+[ext_resource type="PackedScene" uid="uid://3rxkkudfxha3" path="res://assets/models/cylinder trigoal/floor.glb" id="3_bjl0w"]
+[ext_resource type="PackedScene" uid="uid://dr1h6jd2jh4kh" path="res://assets/models/cylinder trigoal/walls.glb" id="4_mm8on"]
+[ext_resource type="Texture2D" uid="uid://cg6jt78vn0yko" path="res://assets/models/cylinder level/onelab_1720000507955.jpg" id="5_nqcv6"]
 
 [sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_bjl0w"]
 rayleigh_coefficient = 3.59

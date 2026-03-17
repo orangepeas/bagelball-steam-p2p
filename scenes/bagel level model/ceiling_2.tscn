@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://dx660y34jk68t"]
 
-[ext_resource type="PackedScene" uid="uid://ggwtut1eii58" path="res://assets/bagel level/ceiling.glb" id="1_w5mf2"]
+[ext_resource type="PackedScene" uid="uid://ggwtut1eii58" path="res://assets/models/bagel level/ceiling.glb" id="1_w5mf2"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lcpcy"]
 transparency = 1
