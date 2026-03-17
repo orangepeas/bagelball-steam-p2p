@@ -60,7 +60,6 @@ func _ready() -> void:
 	await get_tree().create_timer(0.5).timeout #need to wait for steam to intialise
 	joinPrivateLobbyUsername.text = Steam.getPersonaName()
 	createLobbyUsername.text = Steam.getPersonaName()
-	multiplayer.connected_to_server.connect(connected_to_server)
 	id = Steam.getSteamID()
 
 func connected_to_server():
