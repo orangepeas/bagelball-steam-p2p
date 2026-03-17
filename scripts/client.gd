@@ -161,7 +161,7 @@ func _on_lobby_created(connect: int, this_lobby_id: int) -> void:
 	print("lobby created signal received")
 	if connect == 1:
 		peer = SteamMultiplayerPeer.new()
-		printerr(peer.create_host(0))
+		peer.create_host(0)
 		multiplayer.set_multiplayer_peer(peer)
 		add_player(Steam.getSteamID(), 1)
 		global.currentLobby = this_lobby_id
