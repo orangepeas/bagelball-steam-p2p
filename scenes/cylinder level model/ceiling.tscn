@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=4 uid="uid://dbagessp7tl5a"]
 
-[ext_resource type="Texture2D" uid="uid://c83xcp6ys63ef" path="res://assets/models/cylinder level/ceiling_white_sandstone_bricks_rough_4k.jpg" id="1_7umj6"]
-[ext_resource type="Texture2D" uid="uid://cdjy1350q41co" path="res://assets/models/cylinder level/cylinder level_white_sandstone_bricks_rough_4k.jpg" id="2_2bv5c"]
+[ext_resource type="Texture2D" uid="uid://c83xcp6ys63ef" path="res://assets/cylinder level/ceiling_white_sandstone_bricks_rough_4k.jpg" id="1_7umj6"]
+[ext_resource type="Texture2D" uid="uid://cdjy1350q41co" path="res://assets/cylinder level/cylinder level_white_sandstone_bricks_rough_4k.jpg" id="2_2bv5c"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ammqa"]
 resource_name = "Material.005"

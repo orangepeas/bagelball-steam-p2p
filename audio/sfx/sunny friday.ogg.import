@@ -13,7 +13,7 @@ dest_files=["res://.godot/imported/sunny friday.ogg-3137b0900af6d36290df240bab90
 [params]
 
 loop=true
-loop_offset=0.0
-bpm=0.0
+loop_offset=0
+bpm=0
 beat_count=0
 bar_beats=4

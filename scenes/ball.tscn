@@ -1,7 +1,9 @@
-[gd_scene load_steps=18 format=3 uid="uid://8hl52kbu026b"]
+[gd_scene load_steps=22 format=3 uid="uid://8hl52kbu026b"]
 
 [ext_resource type="Script" uid="uid://d2erscpgws7vi" path="res://scripts/ball.gd" id="1_178xg"]
-[ext_resource type="ArrayMesh" uid="uid://cqt3dlagy8f41" path="res://assets/models/ball.obj" id="1_a8eej"]
+[ext_resource type="ArrayMesh" uid="uid://cqt3dlagy8f41" path="res://assets/ball.obj" id="1_a8eej"]
+[ext_resource type="Texture2D" uid="uid://dwhicidgtgjgw" path="res://assets/main level/ceiling_corrugated-rusted-iron-800-mm-architextures.jpg" id="3_2hlb3"]
+[ext_resource type="Shader" uid="uid://b7mxc7e32uhdg" path="res://scripts/shaders/ball outline.gdshader" id="3_x8yng"]
 [ext_resource type="AudioStream" uid="uid://qyn1cuhfd0b7" path="res://audio/sfx/ball hit.ogg" id="4_nkxho"]
 [ext_resource type="AudioStream" uid="uid://dey2tvdkr73f4" path="res://audio/sfx/torus thwoom.ogg" id="6_jj7gd"]
 
@@ -27,6 +29,18 @@ radius = 2.05
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_2qfkg"]
 radius = 1.99
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_c7las"]
+render_priority = 0
+shader = ExtResource("3_x8yng")
+shader_parameter/color = Color(0, 0, 0, 1)
+shader_parameter/size = 1.015
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sgfej"]
+next_pass = SubResource("ShaderMaterial_c7las")
+albedo_color = Color(0.329158, 0.329158, 0.329158, 1)
+heightmap_scale = 16.0
+heightmap_texture = ExtResource("3_2hlb3")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_eew57"]
 lifetime_randomness = 1.0
@@ -146,6 +160,7 @@ shape = SubResource("SphereShape3D_2qfkg")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(9, 0, 0, 0, 9, 0, 0, 0, 9, 0, 0, 0)
 mesh = ExtResource("1_a8eej")
+surface_material_override/0 = SubResource("StandardMaterial3D_sgfej")
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("4_nkxho")

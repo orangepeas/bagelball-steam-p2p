@@ -1,7 +1,7 @@
 [gd_scene load_steps=31 format=3 uid="uid://br4c1550sdesd"]
 
 [ext_resource type="Script" uid="uid://de55j2xmbhesp" path="res://scripts/goal_score.gd" id="1_o581y"]
-[ext_resource type="Texture2D" uid="uid://4s8v3knp6lh3" path="res://assets/models/bagel level/onelab_1719564918044.jpg" id="2_qt5fh"]
+[ext_resource type="Texture2D" uid="uid://4s8v3knp6lh3" path="res://assets/bagel level/onelab_1719564918044.jpg" id="2_qt5fh"]
 [ext_resource type="Script" uid="uid://b16fgiqroapnb" path="res://scripts/old/spawn.gd" id="2_t4fdm"]
 [ext_resource type="Script" uid="uid://bhbrqpavbfgf8" path="res://scripts/spawn_box.gd" id="3_f1pxf"]
 [ext_resource type="PackedScene" uid="uid://b6pyjx6s320xl" path="res://scenes/bagel level model/middle_pillar.tscn" id="3_stetn"]

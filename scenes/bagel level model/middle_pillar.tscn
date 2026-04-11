@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://b6pyjx6s320xl"]
 
-[ext_resource type="PackedScene" uid="uid://b1fo24du45edh" path="res://assets/models/bagel level/middle pillar.glb" id="1_v7pwp"]
+[ext_resource type="PackedScene" uid="uid://b1fo24du45edh" path="res://assets/bagel level/middle pillar.glb" id="1_v7pwp"]
 [ext_resource type="Material" uid="uid://bmp13mdghm64n" path="res://scenes/bagel level model/glass.tres" id="2_w14mp"]
 
 [node name="middle pillar" instance=ExtResource("1_v7pwp")]

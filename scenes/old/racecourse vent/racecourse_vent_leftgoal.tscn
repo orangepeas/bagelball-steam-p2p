@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=4 uid="uid://wbe6n0qfxqkv"]
 
-[ext_resource type="Texture2D" uid="uid://meo2enbeoocx" path="res://assets/models/racecourse vent/racecourse vent leftgoal_blue_metal_plate_diff_4k.jpg" id="1_0ojbr"]
+[ext_resource type="Texture2D" uid="uid://meo2enbeoocx" path="res://assets/racecourse vent/racecourse vent leftgoal_blue_metal_plate_diff_4k.jpg" id="1_0ojbr"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_51x0c"]
 resource_name = "Material.001"

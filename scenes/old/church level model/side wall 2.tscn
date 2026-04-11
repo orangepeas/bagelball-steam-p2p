@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://cgl0srm3mcxr7"]
 
-[ext_resource type="PackedScene" uid="uid://b84ukx454mjs1" path="res://assets/models/church level/side wall 2.glb" id="1_sly54"]
-[ext_resource type="PackedScene" uid="uid://bwfigq1chykrj" path="res://assets/models/church level/side wall 2 small window blue.glb" id="2_wbji3"]
-[ext_resource type="PackedScene" uid="uid://b30fcov86f5ce" path="res://assets/models/church level/side wall 2 big window.glb" id="3_v882o"]
+[ext_resource type="PackedScene" uid="uid://b84ukx454mjs1" path="res://assets/church level/side wall 2.glb" id="1_sly54"]
+[ext_resource type="PackedScene" uid="uid://bwfigq1chykrj" path="res://assets/church level/side wall 2 small window blue.glb" id="2_wbji3"]
+[ext_resource type="PackedScene" uid="uid://b30fcov86f5ce" path="res://assets/church level/side wall 2 big window.glb" id="3_v882o"]
 
 [node name="side wall 2" type="Node3D"]
 

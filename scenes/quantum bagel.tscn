@@ -1,7 +1,7 @@
 [gd_scene load_steps=16 format=3 uid="uid://dbu3a8gxaieht"]
 
 [ext_resource type="Script" uid="uid://d4nfjbo1au4c6" path="res://scripts/quantum_bagel.gd" id="1_kbpun"]
-[ext_resource type="ArrayMesh" uid="uid://b3cyhnfce28te" path="res://assets/models/bagel.obj" id="2_o2hlo"]
+[ext_resource type="ArrayMesh" uid="uid://b3cyhnfce28te" path="res://assets/bagel.obj" id="2_o2hlo"]
 [ext_resource type="AudioStream" uid="uid://v58sjrg2fhv7" path="res://audio/sfx/bagel hit.ogg" id="3_q31wm"]
 [ext_resource type="AudioStream" uid="uid://qyn1cuhfd0b7" path="res://audio/sfx/ball hit.ogg" id="4_0pxdq"]
 
