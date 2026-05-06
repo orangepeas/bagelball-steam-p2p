@@ -2,6 +2,9 @@ extends Control
 
 var i = 0
 signal playerDestroyed
+var musicPaused := false
+
+@onready var musicPlayer = $music_player
 
 func _ready() -> void:
 	hide_all_others($Initial)
@@ -91,3 +94,16 @@ func _on_debug_timer_timeout() -> void:
 	#)
 	#i+=1
 	pass
+
+func _on_music_player_finished() -> void:
+	musicPlayer.play()
+
+func _on_pauseplay_pressed() -> void:
+	musicPaused = !musicPaused
+	if musicPaused:
+		musicPlayer.stream_paused = true
+	else:
+		musicPlayer.stream_paused = false
+
+func _on_next_pressed() -> void:
+	musicPlayer.play()

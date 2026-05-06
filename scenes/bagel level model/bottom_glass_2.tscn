@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bdm6djyucjbvs"]
 
-[ext_resource type="PackedScene" uid="uid://do033huqvoha7" path="res://assets/models/bagel level/bottom glass.glb" id="1_rbp76"]
+[ext_resource type="PackedScene" uid="uid://do033huqvoha7" path="res://assets/bagel level/bottom glass.glb" id="1_rbp76"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0if7t"]
 cull_mode = 2

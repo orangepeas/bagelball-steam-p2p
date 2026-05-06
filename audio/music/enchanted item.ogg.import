@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://d0l1qdvtwhbai"
+path="res://.godot/imported/enchanted item.ogg-75c377a557b6d7b08b9e5949944e7a50.oggvorbisstr"
+
+[deps]
+
+source_file="res://audio/music/enchanted item.ogg"
+dest_files=["res://.godot/imported/enchanted item.ogg-75c377a557b6d7b08b9e5949944e7a50.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

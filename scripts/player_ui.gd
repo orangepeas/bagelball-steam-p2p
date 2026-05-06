@@ -14,6 +14,7 @@ signal bloodyTrout
 signal slimyWorm
 
 @onready var PauseScreen = $"Pause Screen"
+@onready var ballVelocityPanel = $ball_velocity_panel
 
 func _ready() -> void:
 	global.connect("gameEnd", game_end)
@@ -21,6 +22,8 @@ func _ready() -> void:
 	global.connect("goldenGoal", golden_goal)
 	global.connect("endGoldenGoal", end_golden_goal)
 	global.connect("gameCountdown", game_countdown)
+	global.connect("showBallSpeed", show_ball_speed)
+	ballVelocityPanel.hide()
 	#global.connect("practiceMode", practice_mode)
 	$"Pause Screen".hide()
 	#get_tree().create_timer(0.2).timeout
@@ -28,6 +31,12 @@ func _ready() -> void:
 
 #func practice_mode():
 	
+
+func show_ball_speed():
+	ballVelocityPanel.get_children()[0].text = str(global.ballSpeedOnGoal) + " m/s!"
+	ballVelocityPanel.show()
+	await get_tree().create_timer(1.08).timeout
+	ballVelocityPanel.hide()
 
 func game_end():
 	if global.blueScore > global.redScore && noisePlaying == false:

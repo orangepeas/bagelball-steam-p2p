@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=4 uid="uid://6kbeqkkqb5c8"]
 
-[ext_resource type="Texture2D" uid="uid://b7l35uhibn5co" path="res://assets/models/main level/floor_concrete_floor_worn_001_diff_4k.jpg" id="1_lpn7c"]
+[ext_resource type="Texture2D" uid="uid://b7l35uhibn5co" path="res://assets/main level/floor_concrete_floor_worn_001_diff_4k.jpg" id="1_lpn7c"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dbgvy"]
 resource_name = "Material"

@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://nx5u6a0y0mv"
+path="res://.godot/imported/feel distance from me_2 end bit removed.ogg-5f4a92b5ba27b317bf19b8312343666a.oggvorbisstr"
+
+[deps]
+
+source_file="res://audio/music/feel distance from me_2 end bit removed.ogg"
+dest_files=["res://.godot/imported/feel distance from me_2 end bit removed.ogg-5f4a92b5ba27b317bf19b8312343666a.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

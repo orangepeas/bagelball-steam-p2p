@@ -1,9 +1,12 @@
 extends Control
 
+var fullscreen : bool 
+
 func _ready() -> void:
 	##intialising settings
 	var video_settings = ConfigFileHandler.load_video_settings()
 	$HBoxContainer/VBoxContainer/fullscreen/CheckBox.button_pressed = video_settings.fullscreen
+	fullscreen =  video_settings.fullscreen ##this is probably stupid
 	match video_settings.resolution:
 		"1920x1080":
 			DisplayServer.window_set_size(Vector2i(1920,1080))
@@ -17,6 +20,11 @@ func _ready() -> void:
 		$HBoxContainer/VBoxContainer/fov/MarginContainer/HSlider.value = video_settings.fov
 		$HBoxContainer/VBoxContainer/fov/fovlabel.text = "FOV: " + str(int(video_settings.fov))
 		global.FOV = int(video_settings.fov)
+
+func _unhandled_input(event: InputEvent) -> void:
+	if Input.is_action_just_pressed("fullscreen"):
+		fullscreen = !fullscreen
+		_on_check_box_toggled(fullscreen)
 
 func _on_check_box_toggled(toggled_on: bool) -> void:
 	if toggled_on:

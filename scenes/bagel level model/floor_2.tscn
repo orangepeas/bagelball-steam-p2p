@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://ldaiegjhr5ml"]
 
-[ext_resource type="PackedScene" uid="uid://bt730ssk40vns" path="res://assets/models/bagel level/floor.glb" id="1_2shph"]
+[ext_resource type="PackedScene" uid="uid://bt730ssk40vns" path="res://assets/bagel level/floor.glb" id="1_2shph"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_vj143"]
 

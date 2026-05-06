@@ -1,6 +1,12 @@
 extends Control
 
 func _ready() -> void:
+	Steam.steamInit(3620440)
+	if Steam.getSteamID() == 76561197977486399 or Steam.getSteamID() == 76561198982262924 or Steam.getSteamID() == 76561199112943203:
+		var achievement = Steam.getAchievement("truebagelballchampion")
+		if achievement.ret && !achievement.achieved:
+			Steam.setAchievement("truebagelballchampion")
+			Steam.storeStats() ##need to call this to fire the stat
 	if $"Lobby Browser/Client".localServer == true:
 		$testingtesting.show()
 	else:
@@ -20,7 +26,7 @@ func start_main_menu():
 	$"space station2".hide()
 	$"Custom Lobby Variables".hide()
 	var numSpecial = rng.randi_range(1,1000)
-	if numSpecial == 7:
+	if numSpecial == 69:
 		var num2 = rng.randi_range(1,2)
 		if num2 == 1:
 			$"space station".show()
@@ -48,10 +54,9 @@ func _on_createjoinlobby_pressed() -> void:
 	hide_all_others($"Lobby Menu")
 
 func _on_lobby_browser_pressed() -> void:
-	Steam.addRequestLobbyListDistanceFilter(Steam.LOBBY_DISTANCE_FILTER_WORLDWIDE)
-	Steam.requestLobbyList()
-	#$"Lobby Browser/Client".get_lobby_list()
-	#$"Lobby Browser".create_lobby_list()
+	$"Lobby Browser/Client".get_lobby_list()
+	await $"Lobby Browser/Client".receivedLobbyList
+	$"Lobby Browser".create_lobby_list()
 	hide_all_others($"Lobby Browser")
 	$testingtesting.hide()
 
@@ -135,13 +140,10 @@ func _on_custom_lobby_variables_pressed() -> void:
 	$"Custom Lobby Variables".enable_clv_buttons() ##otherwise its disabled if theyve just
 	##played multiplayer as the client
 
+
+func _on_join_the_discord_pressed() -> void:
+	pass
+
+
 func _on_texture_button_pressed() -> void:
 	OS.shell_open("http://discord.gg/WZUTqWG3XN")
-
-##if it's in video settings it triggers twice since there are 2 videosettings.gd when u play the game
-func _unhandled_input(event: InputEvent) -> void:
-	if Input.is_action_just_pressed("fullscreen"):
-		if DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_FULLSCREEN:
-			$Settings.VideoSettings._on_check_box_toggled(false)
-		elif DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_WINDOWED:
-			$Settings.VideoSettings._on_check_box_toggled(true)

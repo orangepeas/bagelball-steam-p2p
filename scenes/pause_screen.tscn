@@ -1,8 +1,44 @@
-[gd_scene load_steps=4 format=3 uid="uid://c3vd2a2tijwwk"]
+[gd_scene load_steps=21 format=3 uid="uid://c3vd2a2tijwwk"]
 
 [ext_resource type="Script" uid="uid://dl5evqrp7e6q7" path="res://scripts/pause_screen.gd" id="1_bjmtf"]
 [ext_resource type="PackedScene" uid="uid://dowgrihqaof13" path="res://scenes/settings.tscn" id="2_djij7"]
 [ext_resource type="PackedScene" uid="uid://ct3hcs3r3q4ec" path="res://scenes/controls.tscn" id="3_sp601"]
+[ext_resource type="AudioStream" uid="uid://dvr8fkjwveokl" path="res://audio/music/bouncing ball_2.ogg" id="4_mfokp"]
+[ext_resource type="AudioStream" uid="uid://cbkytjcq48a6f" path="res://audio/music/breeze loop.ogg" id="5_6ln4u"]
+[ext_resource type="AudioStream" uid="uid://bcmeavcyjcjwo" path="res://audio/music/whose gonna let ya.ogg" id="6_5d3rx"]
+[ext_resource type="AudioStream" uid="uid://cl4pj4q1g66q3" path="res://audio/music/not mine/dylan tallchief - duck game jungle 01.mp3" id="7_n385f"]
+[ext_resource type="AudioStream" uid="uid://cvtaalxagj6r7" path="res://audio/music/not mine/SOULMINUS - can i tho questionmark.wav" id="8_qcxdg"]
+[ext_resource type="AudioStream" uid="uid://dx2wehsqvawre" path="res://audio/music/silence_2.ogg" id="9_5d3rx"]
+[ext_resource type="AudioStream" uid="uid://mpatq526kdnl" path="res://audio/music/disclosure.ogg" id="9_6qfvc"]
+[ext_resource type="AudioStream" uid="uid://nx5u6a0y0mv" path="res://audio/music/feel distance from me_2 end bit removed.ogg" id="10_5d3rx"]
+[ext_resource type="AudioStream" uid="uid://cq6ggluv3i0us" path="res://audio/music/dog (coffee shop jungle).ogg" id="10_6qsf5"]
+[ext_resource type="AudioStream" uid="uid://ga10dvbu4mli" path="res://audio/music/god.ogg" id="10_n385f"]
+[ext_resource type="AudioStream" uid="uid://bxr2yme84arlr" path="res://audio/music/dwan mists.wav" id="11_bkck0"]
+[ext_resource type="AudioStream" uid="uid://d0l1qdvtwhbai" path="res://audio/music/enchanted item.ogg" id="12_j1di4"]
+[ext_resource type="AudioStream" uid="uid://kdvj54eypo36" path="res://audio/music/glee.ogg" id="14_rq3w4"]
+[ext_resource type="AudioStream" uid="uid://2fjumne8uehl" path="res://audio/music/supah cosmik.ogg" id="15_jld02"]
+[ext_resource type="AudioStream" uid="uid://cxckcc1j61l2r" path="res://audio/music/untitled2_2.ogg" id="16_cx6j5"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_hr2n2"]
+font_size = 18
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_tq0ol"]
+streams_count = 15
+stream_0/stream = ExtResource("4_mfokp")
+stream_1/stream = ExtResource("5_6ln4u")
+stream_2/stream = ExtResource("9_6qfvc")
+stream_3/stream = ExtResource("10_6qsf5")
+stream_4/stream = ExtResource("11_bkck0")
+stream_5/stream = ExtResource("12_j1di4")
+stream_6/stream = ExtResource("14_rq3w4")
+stream_7/stream = ExtResource("15_jld02")
+stream_8/stream = ExtResource("16_cx6j5")
+stream_9/stream = ExtResource("6_5d3rx")
+stream_10/stream = ExtResource("7_n385f")
+stream_11/stream = ExtResource("8_qcxdg")
+stream_12/stream = ExtResource("9_5d3rx")
+stream_13/stream = ExtResource("10_n385f")
+stream_14/stream = ExtResource("10_5d3rx")
 
 [node name="Pause Screen" type="Control"]
 process_mode = 3
@@ -56,6 +92,62 @@ text = "Leave Lobby"
 layout_mode = 2
 text = "Quit game"
 
+[node name="Radio" type="Panel" parent="Initial"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -286.0
+offset_top = -91.0
+offset_right = -33.0
+offset_bottom = -29.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="Initial/Radio"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Initial/Radio/MarginContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Initial/Radio/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="pauseplay" type="Button" parent="Initial/Radio/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 12
+text = "Pause/Play"
+
+[node name="next" type="Button" parent="Initial/Radio/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 12
+text = "Skip"
+
+[node name="SongLabel" type="Label" parent="Initial/Radio/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 26)
+layout_mode = 2
+text = "music"
+label_settings = SubResource("LabelSettings_hr2n2")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 1
+clip_text = true
+text_overrun_behavior = 3
+
 [node name="Settings" parent="." groups=["PauseMenuOption"] instance=ExtResource("2_djij7")]
 visible = false
 layout_mode = 1
@@ -64,8 +156,16 @@ layout_mode = 1
 visible = false
 layout_mode = 1
 
+[node name="music_player" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamRandomizer_tq0ol")
+volume_db = -10.0
+bus = &"Music"
+
 [connection signal="pressed" from="Initial/HBoxContainer/VBoxContainer/Resume Game" to="." method="_on_resume_game_pressed"]
 [connection signal="pressed" from="Initial/HBoxContainer/VBoxContainer/Controls" to="." method="_on_controls_pressed"]
 [connection signal="pressed" from="Initial/HBoxContainer/VBoxContainer/Settings" to="." method="_on_settings_pressed"]
 [connection signal="pressed" from="Initial/HBoxContainer/VBoxContainer/Leave Lobby" to="." method="_on_leave_lobby_pressed"]
 [connection signal="pressed" from="Initial/HBoxContainer/VBoxContainer/Quit Game" to="." method="_on_quit_game_pressed"]
+[connection signal="pressed" from="Initial/Radio/MarginContainer/VBoxContainer/HBoxContainer/pauseplay" to="." method="_on_pauseplay_pressed"]
+[connection signal="pressed" from="Initial/Radio/MarginContainer/VBoxContainer/HBoxContainer/next" to="." method="_on_next_pressed"]
+[connection signal="finished" from="music_player" to="." method="_on_music_player_finished"]

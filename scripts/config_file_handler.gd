@@ -16,10 +16,7 @@ var inputActions = {
 	"sprint": "Sprint",
 	"close_bagel": "Close Bagel",
 	"far_bagel": "Far Bagel",
-	"fastfall": "Fast Fall",
-	"scoreboard": "Scoreboard",
-	"insult_selector": "Insult Selector",
-	"fullscreen": "Toggle Fullscreen",
+	"fastfall": "Fast Fall"
 }
 
 func _ready():
@@ -35,9 +32,6 @@ func _ready():
 		config.set_value("keybinding_primary", "close_bagel", "mouse_5")
 		config.set_value("keybinding_primary", "far_bagel", "mouse_4")
 		config.set_value("keybinding_primary", "fastfall", "ctrl")
-		config.set_value("keybinding_primary", "scoreboard", "tab")
-		config.set_value("keybinding_primary", "insult_selector", "c")
-		config.set_value("keybinding_primary", "fullscreen", "f11")
 
 		config.set_value("keybinding_secondary", "raycast_bagel", "")
 		config.set_value("keybinding_secondary", "quantum_bagel_switch", "")
@@ -50,9 +44,6 @@ func _ready():
 		config.set_value("keybinding_secondary", "close_bagel", "q")
 		config.set_value("keybinding_secondary", "far_bagel", "e")
 		config.set_value("keybinding_secondary", "fastfall", "")
-		config.set_value("keybinding_secondary", "scoreboard", "")
-		config.set_value("keybinding_secondary", "insult_selector", "")
-		config.set_value("keybinding_secondary", "fullscreen", "")
 
 		config.set_value("video", "fullscreen", false)
 		config.set_value("video", "resolution", "960x540")
@@ -61,7 +52,8 @@ func _ready():
 		config.set_value("audio", "music_volume", 1.0)
 		config.set_value("audio", "sfx_volume", 1.0)
 		
-		config.set_value("sensitivity", "sensitivity", 0.03) ##*10 from default value cos the slider doesnt like it if i dont
+		config.set_value("sensitivity", "sensitivity", 0.03) ##*10 from default value cos the slider doesnt
+		##like it if i dont
 		config.set_value("controls", "auto_sprint", "false")
 		config.set_value("controls", "hold_sprint", "true")
 		
@@ -77,15 +69,6 @@ func _ready():
 			config.set_value("keybinding_secondary", key, "")
 		config.set_value("controls", "auto_sprint", "false")
 		config.set_value("controls", "hold_sprint", "true")
-		config.save(SETTINGS_FILE_PATH)
-		
-	if config.get_value("keybinding_primary","scoreboard", "boobs") == "boobs":
-		config.set_value("keybinding_primary", "scoreboard", "tab")
-		config.set_value("keybinding_primary", "insult_selector", "c")
-		config.set_value("keybinding_primary", "fullscreen", "f11")
-		config.set_value("keybinding_secondary", "scoreboard", "")
-		config.set_value("keybinding_secondary", "insult_selector", "")
-		config.set_value("keybinding_secondary", "fullscreen", "")
 		config.save(SETTINGS_FILE_PATH)
 
 func save_video_setting(key : String, value):

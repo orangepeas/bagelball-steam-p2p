@@ -8,7 +8,7 @@ func _on_back_pressed() -> void:
 
 func _process(_delta: float) -> void:
 	if isHosting == false:
-		if $"MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Lobby ID Input".text.length() < 18:
+		if $"MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Lobby ID Input".text.length() < 32:
 			$"MarginContainer/VBoxContainer/HBoxContainer2/Join Private Lobby Button".disabled = true
 		else:
 			$"MarginContainer/VBoxContainer/HBoxContainer2/Join Private Lobby Button".disabled = false

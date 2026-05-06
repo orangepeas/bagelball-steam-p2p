@@ -1,0 +1,92 @@
+[gd_scene load_steps=7 format=3 uid="uid://ctpcbkuivcrji"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_spi5e"]
+lifetime_randomness = 0.1
+direction = Vector3(1, 0, 1)
+spread = 180.0
+initial_velocity_min = 1.0
+initial_velocity_max = 1.0
+gravity = Vector3(1, 0, 1)
+sub_emitter_mode = 2
+sub_emitter_amount_at_end = 32
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0yrao"]
+transparency = 1
+albedo_color = Color(1, 0.39, 0.766167, 0.666667)
+metallic = 0.45
+rim_enabled = true
+rim = 0.67
+rim_tint = 0.55
+
+[sub_resource type="TorusMesh" id="TorusMesh_y5gn3"]
+material = SubResource("StandardMaterial3D_0yrao")
+inner_radius = 2.5
+outer_radius = 10.875
+
+[sub_resource type="Skin" id="Skin_xspnv"]
+bind_count = 5
+bind/0/name = &""
+bind/0/bone = -1
+bind/0/pose = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+bind/1/name = &""
+bind/1/bone = -1
+bind/1/pose = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+bind/2/name = &""
+bind/2/bone = -1
+bind/2/pose = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+bind/3/name = &""
+bind/3/bone = -1
+bind/3/pose = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+bind/4/name = &""
+bind/4/bone = -1
+bind/4/pose = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_77nf0"]
+lifetime_randomness = 0.16
+emission_shape = 6
+emission_ring_axis = Vector3(0, 0, 1)
+emission_ring_height = 1.0
+emission_ring_radius = 1.0
+emission_ring_inner_radius = 0.0
+emission_ring_cone_angle = 90.0
+direction = Vector3(1, 0, 1)
+spread = 180.0
+flatness = 0.176
+initial_velocity_min = 50.0
+initial_velocity_max = 70.0
+gravity = Vector3(1, 0, 1)
+scale_max = 5.0
+sub_emitter_mode = 2
+sub_emitter_amount_at_end = 32
+sub_emitter_keep_velocity = true
+
+[sub_resource type="TorusMesh" id="TorusMesh_h76y4"]
+material = SubResource("StandardMaterial3D_0yrao")
+inner_radius = 0.089
+outer_radius = 0.386
+
+[node name="InitialQBTele" type="GPUParticles3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.101709, 0)
+emitting = false
+amount = 1
+sub_emitter = NodePath("GPUParticles3D")
+lifetime = 0.1
+one_shot = true
+explosiveness = 0.21
+trail_lifetime = 1.55
+process_material = SubResource("ParticleProcessMaterial_spi5e")
+draw_pass_1 = SubResource("TorusMesh_y5gn3")
+draw_skin = SubResource("Skin_xspnv")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.101709, 0)
+emitting = false
+amount = 64
+lifetime = 0.34
+one_shot = true
+explosiveness = 0.21
+randomness = 0.08
+trail_enabled = true
+trail_lifetime = 1.55
+process_material = SubResource("ParticleProcessMaterial_77nf0")
+draw_pass_1 = SubResource("TorusMesh_h76y4")

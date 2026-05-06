@@ -24,9 +24,6 @@ var inputActions = {
 	"close_bagel": "Close Bagel",
 	"far_bagel": "Far Bagel",
 	"fastfall": "Fast Fall",
-	"scoreboard": "Scoreboard",
-	"insult_selector": "Insult Selector",
-	"fullscreen": "Toggle Fullscreen",
 }
 
 func _ready():

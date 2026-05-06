@@ -1,9 +1,22 @@
-[gd_scene load_steps=12 format=3 uid="uid://cl12etots0gog"]
+[gd_scene load_steps=15 format=3 uid="uid://cl12etots0gog"]
 
 [ext_resource type="Script" uid="uid://cr6muy3s542fx" path="res://scripts/player.gd" id="1_w2vs2"]
 [ext_resource type="PackedScene" uid="uid://7yt5qojut4c5" path="res://scenes/Player UI.tscn" id="2_p8h58"]
 [ext_resource type="PackedScene" uid="uid://cg0tnoa41fqja" path="res://scenes/noise maker.tscn" id="3_6s8t6"]
 [ext_resource type="FontFile" uid="uid://bgodc4gs8nlyi" path="res://styling/fonts/Roboto/Roboto-VariableFont_wdth,wght.ttf" id="3_dqkch"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dqkch"]
+albedo_color = Color(0.73, 0, 0, 1)
+emission = Color(1, 0, 0, 1)
+emission_energy_multiplier = 1.36
+heightmap_scale = 10.926
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tuyoq"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_fjrip"]
+material = SubResource("StandardMaterial3D_tuyoq")
+radius = 0.15
+height = 0.3
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_lex6o"]
 
@@ -60,6 +73,27 @@ wallJumpVelocity = 120
 noOfJumps = 2
 mpSync = NodePath("MultiplayerSynchronizer")
 
+[node name="santa_hat" type="CSGCombiner3D" parent="."]
+transform = Transform3D(0.99853, 0.0542008, 0, -0.0542008, 0.99853, 0, 0, 0, 1, -0.0676157, 0.0248759, -0.0692392)
+visible = false
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="santa_hat"]
+transform = Transform3D(0.997567, -0.00526526, -0.0695226, 0, 0.997144, -0.0755182, 0.0697217, 0.0753345, 0.994718, -0.322542, 0.785739, 0.230015)
+polygon = PackedVector2Array(0, 0, 0.133373, 0.799625, 0.696696, 0.0104153, 0.376328, 0.145665, 0.376, 0.146)
+depth = 0.47
+material = SubResource("StandardMaterial3D_dqkch")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="santa_hat"]
+transform = Transform3D(1, 0, 0, 0, 0.493472, 0.869762, 0, -0.869762, 0.493472, 0, 1.27595, -0.123294)
+operation = 2
+size = Vector3(1, 0.436951, 1.14063)
+material = SubResource("StandardMaterial3D_dqkch")
+
+[node name="MeshInstance3D6" type="MeshInstance3D" parent="santa_hat"]
+transform = Transform3D(0.99853, -0.0542008, 0, 0.0542008, 0.99853, 0, 0, 0, 1, -0.158738, 1.61447, 0.308964)
+mesh = SubResource("SphereMesh_fjrip")
+skeleton = NodePath("../../MeshInstance3D")
+
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("CapsuleMesh_lex6o")
 skeleton = NodePath("../CollisionShape3D")
@@ -96,7 +130,6 @@ shape = SubResource("CapsuleShape3D_5drwn")
 
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
 replication_config = SubResource("SceneReplicationConfig_f3lbo")
-visibility_update_mode = 1
 
 [node name="Player UI" parent="." instance=ExtResource("2_p8h58")]
 
@@ -106,7 +139,7 @@ visible = false
 mesh = SubResource("TextMesh_yebjr")
 
 [node name="display name" type="Label3D" parent="."]
-transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 1.42857, 0)
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 2.1212, 0)
 text = "test"
 font = ExtResource("3_dqkch")
 font_size = 130

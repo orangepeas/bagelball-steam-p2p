@@ -1,6 +1,8 @@
 class_name MainLevel
-
+##attached to each main level model
 extends Node3D
+
+@onready var quantumTeleParticlesScene : PackedScene = preload("res://scenes/quantum_bagel_teleport_particles.tscn")
 
 var goldenGoal : bool = false
 var closedGoals : bool = false
@@ -25,6 +27,7 @@ func _ready() -> void:
 	global.connect("practiceMode", practice_mode)
 	global.connect("levelFinishedLoading", level_finished_loading)
 	global.connect("closeGoals", close_goals)
+	global.connect("spawnQuantumTeleParticles", spawn_quantum_tele_particles)
 	#global.connect("gameEnd",update_elo.bind(global.yourElo,global.theirElo,))
 	#global.connect("disableOneWayBagelMap", fall_through_platform)
 	#global.connect("enableOneWayBagelMap", stop_fall_through_platform)
@@ -79,9 +82,11 @@ func _on_blue_goal_body_entered(body: Node3D) -> void:
 			if multiplayer.get_unique_id() == global.lobbyHostID:
 				red_scored.rpc()
 				increase_players_score.rpc()
+				display_ball_speed.rpc(body.linear_velocity)
 		else:
 			red_scored()
 			increase_players_score()
+			display_ball_speed(body.linear_velocity)
 		var goalNoisePlayed = false
 		if goalNoisePlayed == false:
 			global.playRedScoreNoise.emit()
@@ -101,9 +106,11 @@ func _on_red_goal_body_entered(body: Node3D) -> void:
 			if multiplayer.get_unique_id() == global.lobbyHostID:
 				blue_scored.rpc()
 				increase_players_score.rpc()
+				display_ball_speed.rpc(body.linear_velocity)
 		else:
 			blue_scored()
 			increase_players_score()
+			display_ball_speed(body.linear_velocity)
 		var goalNoisePlayed = false
 
 		if goalNoisePlayed == false:
@@ -117,7 +124,12 @@ func _on_red_goal_body_entered(body: Node3D) -> void:
 		global.blueScored.emit() ##connects to score_display.gd
 		if goldenGoal == true:
 			global.gameEnd.emit()
-			
+
+@rpc("authority","call_local")
+func display_ball_speed(ball_velocity : Vector3):
+	global.ballSpeedOnGoal = round(ball_velocity.length() * pow(10.0, 2)) / pow(10.0, 2)
+	global.showBallSpeed.emit()
+
 @rpc("authority","call_local")
 func increase_players_score():
 	var id : int = get_tree().get_first_node_in_group("ball").playerIDWhoLastHit
@@ -180,7 +192,6 @@ func _on_ball_normal_physics_body_entered(body: Node3D) -> void:
 		body.physics_material_override.bounce = GLV.ballBounciness.value
 		body.physics_material_override.friction = 1
 		body.lock_rotation = false
-
 
 
 func _on_ball_normal_physics_body_exited(body: Node3D) -> void:
@@ -264,7 +275,16 @@ func _on_kill_zone_body_entered(body: Node3D) -> void:
 func _on_safe_zone_body_exited(body: Node3D) -> void:
 	if body.is_in_group("player"):
 		_on_kill_zone_body_entered(body)
-		
+
+func spawn_quantum_tele_particles(global_pos : Vector3):
+	var quantumTeleParticles : GPUParticles3D = quantumTeleParticlesScene.instantiate()
+	add_child(quantumTeleParticles)
+	quantumTeleParticles.global_position = global_pos
+	quantumTeleParticles.emitting = true
+	quantumTeleParticles.finished.connect(delete_quantum_particles.bind(quantumTeleParticles))
+
+func delete_quantum_particles(particlesToDelete):
+	particlesToDelete.queue_free()
 
 func update_elo(yourElo:int, theirElo:int, redWin:bool):
 	# Calculate the Winning Probability of Player B

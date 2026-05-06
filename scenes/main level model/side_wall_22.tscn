@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=4 uid="uid://c17gxyb7slqsd"]
 
-[ext_resource type="Texture2D" uid="uid://bx1d52h3blqs0" path="res://assets/models/main level/side wall 2_worn_corrugated_iron_diff_4k.jpg" id="1_nsfay"]
+[ext_resource type="Texture2D" uid="uid://bx1d52h3blqs0" path="res://assets/main level/side wall 2_worn_corrugated_iron_diff_4k.jpg" id="1_nsfay"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_862vd"]
 resource_name = "Material.004"

@@ -30,8 +30,6 @@ var map
 @onready var customLobbyVariables = $"Custom Lobby Variables"
 @onready var switchTeam = $"MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer4/Switch Teams"
 @onready var switchSpec = $"MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer4/Switch Spectator"
-@onready var redIcon = Sprite2D.new()
-@onready var blueIcon = Sprite2D.new()
 #signal getCurrentGameScene
 
 func _ready():
@@ -60,7 +58,7 @@ func started_hosting():
 
 func stopped_hosting():
 	isHosting = false
-	global.currentLobby = 0
+	global.currentLobby = ""
 	reset_lobby_menu()
 
 func joined_game():
@@ -94,6 +92,7 @@ func stop_main_menu_behaviour() -> void:
 
 @rpc("any_peer", "call_local")
 func start_game():
+	focus()
 	startGame.disabled = true
 	switchTeam.disabled = true
 	switchSpec.disabled = true
@@ -101,7 +100,6 @@ func start_game():
 	PhysicsServer3D.area_set_param(get_viewport().find_world_3d().space, PhysicsServer3D.AREA_PARAM_GRAVITY, GLV.gravity.value)
 	broadcast_all_options()
 	stop_main_menu_behaviour()
-	Steam.setLobbyData(global.currentLobby,"gameHasStarted","true")
 	self.get_parent().hide() ##hides main menu
 	var scene = load("res://scenes/main level.tscn").instantiate()
 	get_tree().root.add_child(scene)
@@ -125,30 +123,36 @@ func _on_maps_options_item_selected(index: int) -> void:
 	print(mapsOptions.selected)
 	broadcast_map.rpc(index)
 
+#func _on_funny_mode_options_item_selected(index: int) -> void:
+	#broadcast_funny_mode.rpc(index)
+
+#@rpc("any_peer","call_local")
+#func broadcast_funny_mode(index : int):
+	#funnyModeOptions.select(index)
+	#match funnyModeOptions.selected:
+		#0:  ##no
+			#global.funnyMode = 0
+		#1:  ##yes
+			#global.funnyMode = 1
+
 func _on_copy_to_clipboard_pressed() -> void:
 	if lobbyIdOutput.text != "":
 		DisplayServer.clipboard_set(lobbyIdOutput.text)
 
 func _on_start_game_pressed() -> void:
 	##only one person needs to tell the server the game started
-	Steam.setLobbyJoinable(global.currentLobby,false)
 	client.send_game_started_to_server()
 	start_game.rpc()
 
 func _on_stop_hosting_pressed() -> void:
-	print("glboal clobby ", global.currentLobby)
-	Steam.leaveLobby(global.currentLobby)
 	stopHostingPressed.emit()
 	lobbyMenuBack.emit()
-	global.players.clear()
-	global.currentLobby = 0
 
 func _on_leave_lobby_pressed() -> void:
 	leaveLobbyPressed.emit()
-	Steam.leaveLobby(global.currentLobby)
 	lobbyMenuBack.emit()
-	global.players.clear()
-	global.currentLobby = 0##fixes the unable to rejoin bug, button is disabled if global.currentlobby = the lobby id of that lobby individual
+	global.currentLobby = "" ##fixes the unable to rejoin bug, button is disabled if global.currentlobby = 
+	##the lobby id of that lobby individual
 
 func _on_quantum_bagels_options_item_selected(index: int) -> void:
 		broadcast_quantum_bagels.rpc(index)
@@ -185,11 +189,10 @@ func _on_client_can_switch_teams() -> void:
 
 func focus() -> void:
 	##https://forum.godotengine.org/t/how-to-cause-the-game-window-to-jump-to-the-foreground-when-an-event-occurs/80823
-	#DisplayServer.window_set_mode(DisplayServer.WindowMode.WINDOW_MODE_WINDOWED)
-	#DisplayServer.window_set_flag(DisplayServer.WindowFlags.WINDOW_FLAG_ALWAYS_ON_TOP,true)
-	#DisplayServer.window_set_flag(DisplayServer.WindowFlags.WINDOW_FLAG_ALWAYS_ON_TOP,false)
-	#DisplayServer.window_request_attention()
-	pass
+	DisplayServer.window_set_mode(DisplayServer.WindowMode.WINDOW_MODE_WINDOWED)
+	DisplayServer.window_set_flag(DisplayServer.WindowFlags.WINDOW_FLAG_ALWAYS_ON_TOP,true)
+	DisplayServer.window_set_flag(DisplayServer.WindowFlags.WINDOW_FLAG_ALWAYS_ON_TOP,false)
+	DisplayServer.window_request_attention()
 
 @rpc("any_peer","call_local")
 func switch_spectator(id : int):
@@ -208,39 +211,3 @@ func _on_client_no_can_switch_teams() -> void:
 	switchTeam.disabled = true
 	switchSpec.disabled = true
 	##no_can_switch_teams.rpc()
-
-func updateLobbyBoard():
-	print("updating lobby board")
-	playerNames.clear()
-	playerCount.text = "Players Connected: " + str(global.players.size())
-	for i in global.players:
-		var displayName = global.players[i].displayName
-		if global.maxPlayers != 32:
-			if global.players[i].index - 1 < global.maxPlayers:
-				if global.players[i].redTeam == true:
-					if displayName != "":
-						playerNames.add_item(global.players[i].displayName, redIcon.texture)
-					else:
-						playerNames.add_item("this idiot didnt enter a name (Soldat)", redIcon.texture)
-				if global.players[i].redTeam == false:
-					if displayName != "":
-						playerNames.add_item(global.players[i].displayName, blueIcon.texture)
-					else:
-						playerNames.add_item("this idiot didnt enter a name (Soldat)", blueIcon.texture)
-			else:
-					playerNames.add_item("Spectator: " + global.players[i].displayName)
-					global.players[i].spectator = true
-		else:
-			if global.players[i].spectator == true:
-				playerNames.add_item("Spectator: " + global.players[i].displayName)
-			elif global.players[i].spectator == false:
-				if global.players[i].redTeam == true:
-						if displayName != "":
-							playerNames.add_item(global.players[i].displayName, redIcon.texture)
-						else:
-							playerNames.add_item("this idiot didnt enter a name (Soldat)", redIcon.texture)
-				if global.players[i].redTeam == false:
-					if displayName != "":
-						playerNames.add_item(global.players[i].displayName, blueIcon.texture)
-					else:
-						playerNames.add_item("this idiot didnt enter a name (Soldat)", blueIcon.texture)

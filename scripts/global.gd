@@ -5,7 +5,7 @@ var redScore : int = 0
 var blueScore : int = 0
 var isPaused : bool = false
 var ballRespawnPoint : Vector3
-var currentLobby : int
+var currentLobby
 var lobbyHostID : int
 var practiceModeBool
 var maxPlayers : int = 2
@@ -26,7 +26,9 @@ var lobbies = {}
 var singleplayer : bool = false
 var funnyMode : bool = false
 var FOV := 75.0
+var port := 6969 ##6969 live server, 2121 test server
 var sensitivity := 0.003
+var ballSpeedOnGoal
 var kFactor = 20
 var yourElo:int
 var theirElo:int
@@ -61,6 +63,8 @@ signal sensChange               ##connects to player.gd from settings.gd
 signal gameCountdown            ##connects to score_display.gd & noise_maker.gd from player_ui.gd
 signal closeGoals               ##connects to goal_score.gd from score_display.gd
 signal gameCountdownNoises      ##connects to noise_maker.gd from player_ui.gd
+signal showBallSpeed            ##connects to player_ui.gd from goal_score.gd
+signal spawnQuantumTeleParticles(global_pos:Vector3)##connects to goal_score.gd from player.gd
 
 signal youSalmon(id:int)        ##connects to noise_maker.gd from insult_selector.gd
 signal youMackerel(id:int)      ##connects to noise_maker.gd from insult_selector.gd
@@ -70,16 +74,3 @@ signal slimyWorm(id:int)        ##connects to noise_maker.gd from insult_selecto
 signal soggyBagel(id:int)       ##connects to noise_maker.gd from insult_selector.gd
 #signal joinGamePartwayThrough   ##connects to scene_manager.gd from client.gd
 ##too difficult to implement
-
-func _ready() -> void:
-	OS.set_environment("SteamAppID", str(3620440))
-	OS.set_environment("SteamGameID", str(3620440))
-	Steam.steamInit(3620440)
-	if Steam.getSteamID() == 76561197977486399 or Steam.getSteamID() == 76561198982262924 or Steam.getSteamID() == 76561199112943203:
-		var achievement = Steam.getAchievement("truebagelballchampion")
-		if achievement.ret && !achievement.achieved:
-			Steam.setAchievement("truebagelballchampion")
-			Steam.storeStats() ##need to call this to fire the stat
-
-func _process(delta: float) -> void:
-	Steam.run_callbacks()

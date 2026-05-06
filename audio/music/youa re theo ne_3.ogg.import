@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://b6f2rh8x4pj76"
+path="res://.godot/imported/youa re theo ne_3.ogg-75fc3fa81d9b5ae9471cb08f8f2d2d4d.oggvorbisstr"
+
+[deps]
+
+source_file="res://audio/music/youa re theo ne_3.ogg"
+dest_files=["res://.godot/imported/youa re theo ne_3.ogg-75fc3fa81d9b5ae9471cb08f8f2d2d4d.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

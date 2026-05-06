@@ -1,10 +1,11 @@
-[gd_scene load_steps=13 format=3 uid="uid://7yt5qojut4c5"]
+[gd_scene load_steps=16 format=3 uid="uid://7yt5qojut4c5"]
 
 [ext_resource type="Script" uid="uid://dvvmurmlws6e2" path="res://scripts/player_ui.gd" id="1_kw5cl"]
 [ext_resource type="Script" uid="uid://dn7glqllado6i" path="res://scripts/score_display.gd" id="1_tv3g2"]
 [ext_resource type="PackedScene" uid="uid://c3vd2a2tijwwk" path="res://scenes/pause_screen.tscn" id="3_umk6t"]
 [ext_resource type="PackedScene" uid="uid://dp8l70opk22ei" path="res://scenes/scoreboard.tscn" id="4_uewkd"]
 [ext_resource type="PackedScene" uid="uid://dikjdnjlbdwg8" path="res://scenes/insult_selector.tscn" id="5_a0fxt"]
+[ext_resource type="FontFile" uid="uid://bgodc4gs8nlyi" path="res://styling/fonts/Roboto/Roboto-VariableFont_wdth,wght.ttf" id="6_4oj1j"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_gksah"]
 font_size = 32
@@ -38,6 +39,14 @@ font_color = Color(0, 0.588235, 1, 1)
 outline_color = Color(0, 0, 0, 1)
 shadow_size = 5
 shadow_color = Color(0.641934, 0.641934, 0.641934, 0)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4oj1j"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ukmi7"]
+font = ExtResource("6_4oj1j")
+font_size = 40
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
 
 [node name="Player UI" type="Control"]
 layout_mode = 3
@@ -220,6 +229,32 @@ layout_mode = 1
 
 [node name="Insult Selector" parent="." instance=ExtResource("5_a0fxt")]
 layout_mode = 1
+
+[node name="ball_velocity_panel" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 759.0
+offset_top = 413.0
+offset_right = 948.0
+offset_bottom = 530.0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_4oj1j")
+
+[node name="ball_velocity_label" type="Label" parent="ball_velocity_panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -127.5
+offset_top = -30.5
+offset_right = 87.5
+offset_bottom = 50.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "182.43 m/s!"
+label_settings = SubResource("LabelSettings_ukmi7")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="timeout" from="Game Timer" to="." method="game_end"]
 [connection signal="timeout" from="Game Timer" to="score display" method="_on_game_timer_timeout"]

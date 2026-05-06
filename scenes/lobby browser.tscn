@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://ch212efxw33ur"]
+[gd_scene load_steps=12 format=3 uid="uid://ch212efxw33ur"]
 
 [ext_resource type="StyleBox" uid="uid://m804573hacgj" path="res://styling/panel style.tres" id="1_a2qmg"]
 [ext_resource type="Script" uid="uid://cimm3sifsulpv" path="res://scripts/lobby_browser.gd" id="1_nf25j"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://dao3rbsfyagxc" path="res://scripts/create_lobby.gd" id="5_o2atn"]
 [ext_resource type="Script" uid="uid://dce3ukaqa1vix" path="res://scripts/join_private_lobby.gd" id="6_ki4dy"]
 [ext_resource type="Script" uid="uid://5quggd00ygyu" path="res://scripts/client.gd" id="7_ykwna"]
+[ext_resource type="Script" uid="uid://d18bp3gchj2ep" path="res://scripts/server.gd" id="8_sos3f"]
 [ext_resource type="PackedScene" uid="uid://cxinpjqgq5gga" path="res://scenes/lobby_menu_v_2.tscn" id="9_ypsvr"]
 [ext_resource type="AudioStream" uid="uid://bnd3spqjp1oq8" path="res://audio/sfx/user connected.ogg" id="10_s27dy"]
 [ext_resource type="AudioStream" uid="uid://bwbjgpvuop3kr" path="res://audio/sfx/user disconnected.ogg" id="11_ckpgw"]
@@ -26,6 +27,9 @@ layout_mode = 1
 
 [node name="Client" type="Node" parent="."]
 script = ExtResource("7_ykwna")
+
+[node name="Server" type="Node" parent="."]
+script = ExtResource("8_sos3f")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 layout_mode = 1
@@ -297,9 +301,6 @@ bus = &"SFX"
 wait_time = 30.0
 autostart = true
 
-[connection signal="hasJoined" from="." to="Lobby Menu V2" method="joined_game"]
-[connection signal="isHosting" from="." to="Lobby Menu V2" method="started_hosting"]
-[connection signal="playersUpdated" from="." to="Lobby Menu V2" method="updateLobbyBoard"]
 [connection signal="leaveLobbyPressed" from="Lobby Menu V2" to="Client" method="_on_leave_lobby_pressed"]
 [connection signal="lobbyMenuBack" from="Lobby Menu V2" to="." method="_on_lobby_menu_v_2_lobby_menu_back"]
 [connection signal="stopHostingPressed" from="Lobby Menu V2" to="Client" method="_on_stop_hosting_pressed"]
@@ -307,7 +308,8 @@ autostart = true
 [connection signal="canSwitchTeams" from="Client" to="Lobby Menu V2" method="_on_client_can_switch_teams"]
 [connection signal="hasJoined" from="Client" to="Lobby Menu V2" method="joined_game"]
 [connection signal="isHosting" from="Client" to="Lobby Menu V2" method="started_hosting"]
-[connection signal="isNotHosting" from="Client" to="Lobby Menu V2" method="stopped_hosting"]
+[connection signal="isHosting" from="Client" to="Join Private Lobby" method="_on_client_is_hosting"]
+[connection signal="isNotHosting" from="Client" to="Join Private Lobby" method="_on_client_is_not_hosting"]
 [connection signal="noCanStartGame" from="Client" to="Lobby Menu V2" method="no_can_start_game"]
 [connection signal="noCanSwitchTeams" from="Client" to="Lobby Menu V2" method="_on_client_no_can_switch_teams"]
 [connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/RefreshButton" to="." method="_on_refresh_lobby_pressed"]
@@ -321,5 +323,6 @@ autostart = true
 [connection signal="pressed" from="Create Lobby/MarginContainer/VBoxContainer/HBoxContainer2/Create Lobby Button" to="Client" method="_on_create_lobby_button_pressed"]
 [connection signal="pressed" from="Create Lobby/MarginContainer/VBoxContainer/HBoxContainer2/Back" to="Create Lobby" method="_on_back_pressed"]
 [connection signal="text_changed" from="Join Private Lobby/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/Username Input" to="." method="_on_username_input_join_text_changed"]
-[connection signal="pressed" from="Join Private Lobby/MarginContainer/VBoxContainer/HBoxContainer2/Join Private Lobby Button" to="." method="_on_join_private_lobby_button_pressed"]
+[connection signal="pressed" from="Join Private Lobby/MarginContainer/VBoxContainer/HBoxContainer2/Join Private Lobby Button" to="Client" method="_on_join_private_lobby_button_pressed"]
 [connection signal="pressed" from="Join Private Lobby/MarginContainer/VBoxContainer/HBoxContainer2/Back" to="Join Private Lobby" method="_on_back_pressed"]
+[connection signal="timeout" from="UpdateLobbyListTimer" to="Server" method="_on_update_lobby_list_timer_timeout"]

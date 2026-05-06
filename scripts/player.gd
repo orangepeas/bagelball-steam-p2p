@@ -25,6 +25,8 @@ const RAY_LENGTH := 2000.0
 @onready var redTeam : bool
 @onready var noiseMaker = $"Noise Maker"
 
+@onready var quantumTeleParticlesScene = preload("res://scenes/quantum_bagel_teleport_particles.tscn")
+
 var SPEED : float
 var bagel : RigidBody3D
 var jumpsLeft : int = noOfJumps
@@ -58,12 +60,13 @@ func _ready() -> void:
 	$"Player UI".find_child("PlayerID").text = self.name
 	global.isPaused = false
 	SPEED = normalSpeed
-	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED#
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	mpSync.set_multiplayer_authority(str(name).to_int())
 	##when client connects to server its id is set to its name. nice way of doing it
 	if mpSync.get_multiplayer_authority() == multiplayer.get_unique_id() or global.singleplayer == true:
 		camera.make_current()
 		$"Player UI".show() ##pause screen bug
+		$"Player UI".PauseScreen.musicPlayer.play()
 		self.hide()
 		$MeshInstance3D/MeshInstance3D3.hide()
 		change_fov()
@@ -117,7 +120,7 @@ func _unhandled_input(event: InputEvent) -> void:
 			if event is InputEventMouseMotion: #if the mouse is moved
 				self.rotate_y(-event.relative.x * SENSITIVITY) #the event.relative.x is the x co-ordinate of the vector2 of the difference of where the mouse was to where the mouse is
 				camera.rotate_x(-event.relative.y * SENSITIVITY) #some weird euler angles occur if you rotate body in both x and y axes, so we dont
-				camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-90), deg_to_rad(90)) #maximum degrees we can rotate vertically
+				camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-90), deg_to_rad(90))
 			if global.funnyMode == true:
 				if event is InputEventMouseButton && event.pressed && event.button_index == 2:
 					velocity += camera.project_ray_normal(event.position) * RAY_LENGTH
@@ -153,9 +156,13 @@ func allow_super_jump():
 
 func allow_bunny_hop():
 	canbhop = true
-	await get_tree().create_timer(0.09).timeout
+	await get_tree().create_timer(1).timeout
 	canbhop = false
-	
+
+@rpc("any_peer","call_local")
+func emit_quantum_tele_particles(global_pos):
+	global.spawnQuantumTeleParticles.emit(global_pos)
+
 func _physics_process(delta: float) -> void:
 	if mpSync.get_multiplayer_authority() == multiplayer.get_unique_id() or global.singleplayer == true:
 	##only the authority can change the value that we synchronize e.g. it will only move when the client moves it
@@ -167,6 +174,7 @@ func _physics_process(delta: float) -> void:
 			noiseMaker.play_floor_touch_noise()
 			allow_bunny_hop()
 			bhopVelocity = prevVelocity
+			print(bhopVelocity, velocity)
 			if isFastfalling == true: ##is reset on the next line
 				allow_super_jump()
 				superJumpVelocity = prevVelocity
@@ -286,6 +294,7 @@ func _physics_process(delta: float) -> void:
 						else:
 							quantumBagel.pick_up_bagel(self.name)
 						bagel = quantumBagel
+						emit_quantum_tele_particles.rpc(global_position)
 						quantumBagel.quantum_switch()
 
 

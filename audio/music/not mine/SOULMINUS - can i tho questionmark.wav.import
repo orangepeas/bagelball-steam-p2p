@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cvtaalxagj6r7"
+path="res://.godot/imported/SOULMINUS - can i tho questionmark.wav-32ff94170c00646416f25911c46a978c.sample"
+
+[deps]
+
+source_file="res://audio/music/not mine/SOULMINUS - can i tho questionmark.wav"
+dest_files=["res://.godot/imported/SOULMINUS - can i tho questionmark.wav-32ff94170c00646416f25911c46a978c.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

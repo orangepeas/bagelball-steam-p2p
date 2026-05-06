@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://2fjumne8uehl"
+path="res://.godot/imported/supah cosmik.ogg-5284c379ffc197630236684420ae7f3f.oggvorbisstr"
+
+[deps]
+
+source_file="res://audio/music/supah cosmik.ogg"
+dest_files=["res://.godot/imported/supah cosmik.ogg-5284c379ffc197630236684420ae7f3f.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

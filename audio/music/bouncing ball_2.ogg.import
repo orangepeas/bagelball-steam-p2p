@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://dvr8fkjwveokl"
+path="res://.godot/imported/bouncing ball_2.ogg-1b754f0aeed5c53b2f687b242e0f731e.oggvorbisstr"
+
+[deps]
+
+source_file="res://audio/music/bouncing ball_2.ogg"
+dest_files=["res://.godot/imported/bouncing ball_2.ogg-1b754f0aeed5c53b2f687b242e0f731e.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

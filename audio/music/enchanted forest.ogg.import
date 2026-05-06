@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://bd2ag51xmgnh6"
+path="res://.godot/imported/enchanted forest.ogg-aac05ddf30eeb1919b9a45ee39e31225.oggvorbisstr"
+
+[deps]
+
+source_file="res://audio/music/enchanted forest.ogg"
+dest_files=["res://.godot/imported/enchanted forest.ogg-aac05ddf30eeb1919b9a45ee39e31225.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

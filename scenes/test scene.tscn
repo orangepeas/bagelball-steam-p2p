@@ -1,0 +1,169 @@
+[gd_scene load_steps=4 format=3 uid="uid://c7gd7ouj2suv8"]
+
+[ext_resource type="Script" uid="uid://bg3dbpyn6pwmb" path="res://scripts/steam_controller.gd" id="1_5p4n2"]
+[ext_resource type="Texture2D" uid="uid://csotobosprytj" path="res://assets/sumo level/onelab_1746694426705.jpg" id="2_q3qbc"]
+[ext_resource type="PackedScene" uid="uid://08gv3kdd0bfp" path="res://scenes/leaderboard_user_score.tscn" id="3_ethpd"]
+
+[node name="SteamController" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_5p4n2")
+leaderboardUserScore = ExtResource("3_ethpd")
+
+[node name="TestingThings" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="FriendCard" type="Control" parent="TestingThings"]
+anchors_preset = 0
+offset_right = 201.0
+offset_bottom = 50.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TestingThings/FriendCard"]
+layout_mode = 0
+offset_right = 287.0
+offset_bottom = 45.0
+
+[node name="Avatar" type="TextureRect" parent="TestingThings/FriendCard/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_q3qbc")
+expand_mode = 2
+
+[node name="Name" type="RichTextLabel" parent="TestingThings/FriendCard/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "name"
+
+[node name="Achievement Get" type="Button" parent="TestingThings"]
+layout_mode = 0
+offset_left = 60.0
+offset_top = 91.0
+offset_right = 201.0
+offset_bottom = 122.0
+text = "Achievement Get"
+
+[node name="Get Test Stat" type="Button" parent="TestingThings"]
+layout_mode = 0
+offset_left = 561.0
+offset_top = 172.0
+offset_right = 668.0
+offset_bottom = 203.0
+text = "Get Test Stat"
+
+[node name="Test stat is" type="Label" parent="TestingThings/Get Test Stat"]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 38.0
+offset_right = 92.0
+offset_bottom = 61.0
+text = "Test stat is:"
+
+[node name="Set Test Stat" type="Button" parent="TestingThings"]
+layout_mode = 0
+offset_left = 556.0
+offset_top = 314.0
+offset_right = 663.0
+offset_bottom = 345.0
+text = "Set Test Stat"
+
+[node name="SetTestStatInput" type="TextEdit" parent="TestingThings/Set Test Stat"]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 40.0
+offset_right = 98.0
+offset_bottom = 96.0
+text = "0"
+
+[node name="Get Goals Scored" type="Button" parent="TestingThings"]
+layout_mode = 0
+offset_left = 338.0
+offset_top = 172.0
+offset_right = 477.0
+offset_bottom = 203.0
+text = "Get Goals Scored"
+
+[node name="Goals Scored is" type="Label" parent="TestingThings/Get Goals Scored"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 42.0
+offset_right = 120.0
+offset_bottom = 65.0
+text = "Goals Scored is"
+
+[node name="Set Goals Scored" type="Button" parent="TestingThings"]
+layout_mode = 0
+offset_left = 326.0
+offset_top = 315.0
+offset_right = 463.0
+offset_bottom = 346.0
+text = "Set Goals Scored"
+
+[node name="SetGoalsScoredInput" type="TextEdit" parent="TestingThings/Set Goals Scored"]
+layout_mode = 0
+offset_left = 18.0
+offset_top = 41.0
+offset_right = 109.0
+offset_bottom = 97.0
+text = "0"
+
+[node name="Get Leaderboard" type="Button" parent="TestingThings"]
+layout_mode = 0
+offset_left = 55.0
+offset_top = 155.0
+offset_right = 194.0
+offset_bottom = 186.0
+text = "Get Leaderboard"
+
+[node name="Submit Leaderboard Score" type="Button" parent="TestingThings"]
+layout_mode = 0
+offset_left = 55.0
+offset_top = 256.0
+offset_right = 269.0
+offset_bottom = 287.0
+text = "Submit Leaderboard Score"
+
+[node name="SubmitScore" type="LineEdit" parent="TestingThings/Submit Leaderboard Score"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 40.0
+offset_right = 70.5625
+offset_bottom = 71.0
+
+[node name="Get Leaderboard Score" type="Button" parent="TestingThings"]
+layout_mode = 0
+offset_left = 54.0
+offset_top = 209.0
+offset_right = 268.0
+offset_bottom = 240.0
+text = "Get Leaderboard Scores"
+
+[node name="Panel" type="Panel" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[connection signal="pressed" from="TestingThings/Achievement Get" to="." method="_on_achievement_get_pressed"]
+[connection signal="pressed" from="TestingThings/Get Test Stat" to="." method="_on_get_test_stat_pressed"]
+[connection signal="pressed" from="TestingThings/Set Test Stat" to="." method="_on_set_test_stat_pressed"]
+[connection signal="pressed" from="TestingThings/Get Goals Scored" to="." method="_on_get_goals_scored_pressed"]
+[connection signal="pressed" from="TestingThings/Set Goals Scored" to="." method="_on_set_goals_scored_pressed"]
+[connection signal="pressed" from="TestingThings/Get Leaderboard" to="." method="_on_get_leaderboard_pressed"]
+[connection signal="pressed" from="TestingThings/Submit Leaderboard Score" to="." method="_on_submit_leaderboard_score_pressed"]
+[connection signal="pressed" from="TestingThings/Get Leaderboard Score" to="." method="_on_get_leaderboard_score_pressed"]

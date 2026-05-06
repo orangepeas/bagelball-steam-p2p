@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=4 uid="uid://nns82uw8knry"]
 
-[ext_resource type="Texture2D" uid="uid://dwhicidgtgjgw" path="res://assets/models/main level/ceiling_corrugated-rusted-iron-800-mm-architextures.jpg" id="1_fvm2d"]
+[ext_resource type="Texture2D" uid="uid://dwhicidgtgjgw" path="res://assets/main level/ceiling_corrugated-rusted-iron-800-mm-architextures.jpg" id="1_fvm2d"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dglns"]
 resource_name = "Material.002"
