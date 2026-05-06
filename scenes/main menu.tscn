@@ -2,34 +2,72 @@
 
 [ext_resource type="Script" uid="uid://dl1jynaq1f24t" path="res://scripts/main_menu.gd" id="1_662th"]
 [ext_resource type="PackedScene" uid="uid://pjfvk3hdof6i" path="res://scenes/custom_lobby_variables.tscn" id="2_e37nt"]
-[ext_resource type="Texture2D" uid="uid://cqvx5q21sjehw" path="res://assets/new thumbnails/bagelball thumbnail 1.png" id="2_ne25l"]
-[ext_resource type="Texture2D" uid="uid://dgnlt1s8qmgyx" path="res://assets/new thumbnails/bagelball thumbnail 2.png" id="3_vx1d6"]
-[ext_resource type="Texture2D" uid="uid://bnreijpcdrd68" path="res://assets/new thumbnails/bagelball thumbnail 3.png" id="4_fa0md"]
 [ext_resource type="PackedScene" uid="uid://ct3hcs3r3q4ec" path="res://scenes/controls.tscn" id="5_ltxck"]
-[ext_resource type="Texture2D" uid="uid://dp61i0ycdq5p7" path="res://assets/new thumbnails/bagelball thumbnail 4.png" id="5_s27ta"]
 [ext_resource type="PackedScene" uid="uid://dowgrihqaof13" path="res://scenes/settings.tscn" id="6_hs5gu"]
-[ext_resource type="Texture2D" uid="uid://cw78rm36r3ly3" path="res://assets/new thumbnails/bagelball thumbnail 5.png" id="6_iit4t"]
-[ext_resource type="Texture2D" uid="uid://bfu3wrju5v1lx" path="res://assets/new thumbnails/bagelball thumbnail 6.png" id="7_fkmdl"]
-[ext_resource type="Texture2D" uid="uid://bw8wh7d62uafe" path="res://assets/new thumbnails/bagelball thumbnail 7.png" id="8_6tkix"]
 [ext_resource type="PackedScene" uid="uid://ch212efxw33ur" path="res://scenes/lobby browser.tscn" id="8_gfiur"]
-[ext_resource type="Texture2D" uid="uid://crol5vh68c7sq" path="res://assets/new thumbnails/bagelball thumbnail 8.png" id="9_tgr17"]
-[ext_resource type="Texture2D" uid="uid://byhwckptdof4o" path="res://assets/new thumbnails/bagelball thumbnail 9.png" id="10_vl2tp"]
-[ext_resource type="Texture2D" uid="uid://d01y0m671g5rh" path="res://assets/new thumbnails/bagelball thumbnail 10.png" id="11_qt35h"]
-[ext_resource type="Texture2D" uid="uid://b5xmxf5ye4cyu" path="res://assets/new thumbnails/bagelball thumbnail 11.png" id="12_fl5ih"]
-[ext_resource type="Texture2D" uid="uid://fqv7mya205v4" path="res://assets/new thumbnails/bagelball thumbnail 12.png" id="13_6xhwb"]
-[ext_resource type="Texture2D" uid="uid://rxd3xx7l1gop" path="res://assets/new thumbnails/bagelball thumbnail 13.png" id="14_22rax"]
-[ext_resource type="Texture2D" uid="uid://bwylbkigpaqts" path="res://assets/new thumbnails/bagelball thumbnail 14.png" id="15_eurpp"]
-[ext_resource type="Texture2D" uid="uid://cx846sxryuehn" path="res://assets/new thumbnails/bagelball thumbnail 15.png" id="16_8s3t8"]
-[ext_resource type="Texture2D" uid="uid://c6el1n3pncafi" path="res://assets/new thumbnails/bagelball thumbnail 16.png" id="17_dqp0d"]
-[ext_resource type="Texture2D" uid="uid://g0dic1qmo1jy" path="res://assets/new thumbnails/bagelball thumbnail 17.png" id="18_37xn7"]
-[ext_resource type="Texture2D" uid="uid://cjc7cq1c1fs3c" path="res://assets/new thumbnails/space station 1.png" id="19_1xahd"]
-[ext_resource type="Texture2D" uid="uid://bthgbpre4atsm" path="res://assets/new thumbnails/space station 2.png" id="20_8s3t8"]
-[ext_resource type="Texture2D" uid="uid://cbc6toqk8bfnh" path="res://assets/discord logo full white.png" id="20_hi11g"]
+[ext_resource type="Texture2D" uid="uid://cbc6toqk8bfnh" path="res://assets/images/discord logo full white.png" id="20_hi11g"]
 [ext_resource type="PackedScene" uid="uid://chf0w76oxufnj" path="res://scenes/map options dropdown.tscn" id="21_8s3t8"]
-[ext_resource type="Texture2D" uid="uid://bhtuyujgh73np" path="res://assets/discord logo full white hover.png" id="21_csewp"]
+[ext_resource type="Texture2D" uid="uid://bhtuyujgh73np" path="res://assets/images/discord logo full white hover.png" id="21_csewp"]
 [ext_resource type="FontFile" uid="uid://bgodc4gs8nlyi" path="res://styling/fonts/Roboto/Roboto-VariableFont_wdth,wght.ttf" id="21_i07pi"]
 [ext_resource type="AudioStream" uid="uid://brx1u7jf5igbn" path="res://audio/music/bagelball main menu_2.ogg" id="25_8s3t8"]
 [ext_resource type="AudioStream" uid="uid://bxixpoqbxc8bw" path="res://audio/music/bagel atmosphere.ogg" id="26_wetyc"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_4w47j"]
+load_path = "res://.godot/imported/bagelball thumbnail 1.png-ea768684b55ff6a6793deb3624142ccf.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_gb4fi"]
+load_path = "res://.godot/imported/bagelball thumbnail 2.png-2c1af5bd9cf12c0a0eb123c9ed5d584f.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ioeen"]
+load_path = "res://.godot/imported/bagelball thumbnail 3.png-edfe6fdca3c4c27e44e9b2cfdea92f83.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_tjatm"]
+load_path = "res://.godot/imported/bagelball thumbnail 4.png-dab149e89000f7a1183871053113127a.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_yimjx"]
+load_path = "res://.godot/imported/bagelball thumbnail 5.png-2bf255a6387d738d2f5edff7d80f59dd.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_15o7b"]
+load_path = "res://.godot/imported/bagelball thumbnail 6.png-4f518ef5bc3932f59f60c80a6662e19e.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_o7mt6"]
+load_path = "res://.godot/imported/bagelball thumbnail 7.png-47434a4312dd08aece6116afa6463042.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_xccyo"]
+load_path = "res://.godot/imported/bagelball thumbnail 8.png-d5a663600fef45de9b13f6a9f8fcd668.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_uhvra"]
+load_path = "res://.godot/imported/bagelball thumbnail 9.png-1377385ea88c92eadf46d24c328a6f13.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_jxsxo"]
+load_path = "res://.godot/imported/bagelball thumbnail 10.png-e1bcfa54e48402add03350b93d7f15d6.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_yl5mm"]
+load_path = "res://.godot/imported/bagelball thumbnail 11.png-65f6b58620045b9af025286477f5e462.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_0inpw"]
+load_path = "res://.godot/imported/bagelball thumbnail 12.png-6f5d26079693256affd01d61758ba5e2.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_tvyjs"]
+load_path = "res://.godot/imported/bagelball thumbnail 13.png-1f3f55fe1966c158a5270a1b87a53834.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_1xahd"]
+load_path = "res://.godot/imported/bagelball thumbnail 14.png-567cbd07fe2295b4333a1d10e5e6882b.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_8s3t8"]
+load_path = "res://.godot/imported/bagelball thumbnail 15.png-91558ae0b9e01ba2c5f899efcc92be3a.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_wetyc"]
+load_path = "res://.godot/imported/bagelball thumbnail 16.png-d460fc8eaa11eb17f50116cf41013437.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_e37nt"]
+load_path = "res://.godot/imported/bagelball thumbnail 17.png-006ada6bb841d3f474f90b0789cde28d.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_hi11g"]
+load_path = "res://.godot/imported/space station 2.png-9b4d66c10ae0d8e74bd81ba1e6390f3c.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_csewp"]
+load_path = "res://.godot/imported/space station 1.png-f168ceeea889277bceb09af6cd749027.ctex"
 
 [node name="Main Menu" type="Control"]
 layout_mode = 3
@@ -56,7 +94,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("2_ne25l")
+texture = SubResource("CompressedTexture2D_4w47j")
 expand_mode = 2
 
 [node name="TextureRect2" type="TextureRect" parent="Thumbnails" groups=["thumbnail"]]
@@ -66,7 +104,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("3_vx1d6")
+texture = SubResource("CompressedTexture2D_gb4fi")
 expand_mode = 2
 
 [node name="TextureRect3" type="TextureRect" parent="Thumbnails" groups=["thumbnail"]]
@@ -76,7 +114,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("4_fa0md")
+texture = SubResource("CompressedTexture2D_ioeen")
 expand_mode = 2
 
 [node name="TextureRect4" type="TextureRect" parent="Thumbnails" groups=["thumbnail"]]
@@ -86,7 +124,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("5_s27ta")
+texture = SubResource("CompressedTexture2D_tjatm")
 expand_mode = 2
 
 [node name="TextureRect5" type="TextureRect" parent="Thumbnails" groups=["thumbnail"]]
@@ -96,7 +134,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("6_iit4t")
+texture = SubResource("CompressedTexture2D_yimjx")
 expand_mode = 2
 
 [node name="TextureRect6" type="TextureRect" parent="Thumbnails" groups=["thumbnail"]]
@@ -106,7 +144,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("7_fkmdl")
+texture = SubResource("CompressedTexture2D_15o7b")
 expand_mode = 2
 
 [node name="TextureRect7" type="TextureRect" parent="Thumbnails" groups=["thumbnail"]]
@@ -116,7 +154,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("8_6tkix")
+texture = SubResource("CompressedTexture2D_o7mt6")
 expand_mode = 2
 
 [node name="TextureRect8" type="TextureRect" parent="Thumbnails" groups=["thumbnail"]]
@@ -126,7 +164,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("9_tgr17")
+texture = SubResource("CompressedTexture2D_xccyo")
 expand_mode = 2
 
 [node name="TextureRect9" type="TextureRect" parent="Thumbnails" groups=["thumbnail"]]
@@ -136,7 +174,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("10_vl2tp")
+texture = SubResource("CompressedTexture2D_uhvra")
 expand_mode = 2
 
 [node name="TextureRect10" type="TextureRect" parent="Thumbnails" groups=["thumbnail"]]
@@ -146,7 +184,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("11_qt35h")
+texture = SubResource("CompressedTexture2D_jxsxo")
 expand_mode = 2
 
 [node name="TextureRect11" type="TextureRect" parent="Thumbnails" groups=["thumbnail"]]
@@ -156,7 +194,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("12_fl5ih")
+texture = SubResource("CompressedTexture2D_yl5mm")
 expand_mode = 2
 
 [node name="TextureRect12" type="TextureRect" parent="Thumbnails" groups=["thumbnail"]]
@@ -166,7 +204,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("13_6xhwb")
+texture = SubResource("CompressedTexture2D_0inpw")
 expand_mode = 2
 
 [node name="TextureRect13" type="TextureRect" parent="Thumbnails" groups=["thumbnail"]]
@@ -176,7 +214,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("14_22rax")
+texture = SubResource("CompressedTexture2D_tvyjs")
 expand_mode = 2
 
 [node name="TextureRect14" type="TextureRect" parent="Thumbnails" groups=["thumbnail"]]
@@ -186,7 +224,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("15_eurpp")
+texture = SubResource("CompressedTexture2D_1xahd")
 expand_mode = 2
 
 [node name="TextureRect15" type="TextureRect" parent="Thumbnails" groups=["thumbnail"]]
@@ -196,7 +234,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("16_8s3t8")
+texture = SubResource("CompressedTexture2D_8s3t8")
 expand_mode = 2
 
 [node name="TextureRect16" type="TextureRect" parent="Thumbnails" groups=["thumbnail"]]
@@ -206,7 +244,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("17_dqp0d")
+texture = SubResource("CompressedTexture2D_wetyc")
 expand_mode = 2
 
 [node name="TextureRect17" type="TextureRect" parent="Thumbnails" groups=["thumbnail"]]
@@ -216,7 +254,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("18_37xn7")
+texture = SubResource("CompressedTexture2D_e37nt")
 expand_mode = 2
 
 [node name="Initial" type="Control" parent="." groups=["MainMenuOption"]]
@@ -434,7 +472,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("20_8s3t8")
+texture = SubResource("CompressedTexture2D_hi11g")
 expand_mode = 2
 
 [node name="space station" type="TextureRect" parent="."]
@@ -445,7 +483,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("19_1xahd")
+texture = SubResource("CompressedTexture2D_csewp")
 expand_mode = 2
 
 [node name="Custom Lobby Variables" parent="." instance=ExtResource("2_e37nt")]

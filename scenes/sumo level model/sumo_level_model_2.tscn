@@ -2,9 +2,8 @@
 
 [ext_resource type="Script" uid="uid://bhbrqpavbfgf8" path="res://scripts/spawn_box.gd" id="1_02aua"]
 [ext_resource type="Script" uid="uid://de55j2xmbhesp" path="res://scripts/goal_score.gd" id="1_ynn2v"]
-[ext_resource type="Texture2D" uid="uid://7oxealocq0i6" path="res://assets/church level/side wall 2_old_planks_02_diff_4k.jpg" id="2_ynn2v"]
-[ext_resource type="Texture2D" uid="uid://cg6jt78vn0yko" path="res://assets/cylinder level/onelab_1720000507955.jpg" id="3_4pde8"]
-[ext_resource type="Texture2D" uid="uid://dm70r5mvsoni8" path="res://assets/sumo level/onelab_1746694286423.jpg" id="5_4pde8"]
+[ext_resource type="Texture2D" uid="uid://7oxealocq0i6" path="res://assets/models/church level/side wall 2_old_planks_02_diff_4k.jpg" id="2_ynn2v"]
+[ext_resource type="Texture2D" uid="uid://cg6jt78vn0yko" path="res://assets/models/cylinder level/onelab_1720000507955.jpg" id="3_4pde8"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_3e6pa"]
 height = 200.0
@@ -58,10 +57,13 @@ transparency = 1
 cull_mode = 2
 albedo_color = Color(0.72, 0.372, 0, 0)
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ynn2v"]
+load_path = "res://.godot/imported/onelab_1746694286423.jpg-5320eb702d5c405ff1361aa4526c7f20.s3tc.ctex"
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4pde8"]
 transparency = 1
 albedo_color = Color(0.98, 0.147, 0, 0.0156863)
-albedo_texture = ExtResource("5_4pde8")
+albedo_texture = SubResource("CompressedTexture2D_ynn2v")
 albedo_texture_msdf = true
 emission_enabled = true
 emission = Color(0.84, 0.7308, 0.7308, 1)

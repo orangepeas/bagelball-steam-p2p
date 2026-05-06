@@ -40,8 +40,8 @@ func _ready() -> void:
 		print("client test build")
 	else:
 		print("unknown build")
-	blueIcon.texture = load("res://assets/blue icon.png")
-	redIcon.texture = load("res://assets/red icon.png")
+	blueIcon.texture = load("res://assets/images/blue icon.png")
+	redIcon.texture = load("res://assets/images/red icon.png")
 	multiplayer.connected_to_server.connect(RTC_connected_to_server)
 	multiplayer.peer_connected.connect(RTC_peer_connected)
 	multiplayer.peer_disconnected.connect(RTC_peer_disconnected)
