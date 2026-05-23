@@ -205,6 +205,7 @@ func _on_lobby_join_requested(this_lobby_id: int, friend_id: int) -> void:
 
 func join_lobby(this_lobby_id: int) -> void:
 	print("Attempting to join lobby %s" % this_lobby_id)
+	isJoining = true
 	global.players.clear()
 	Steam.joinLobby(this_lobby_id)
 
