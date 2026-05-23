@@ -74,7 +74,7 @@ func joined_game():
 	customLobbyVariables.disable_clv_buttons()
 
 func can_start_game():
-	if multiplayer.get_unique_id() == global.lobbyHostID:
+	if Steam.getSteamID() == global.lobbyHostID:
 		canStartGame.emit() ##connects to CLV
 		print("lobby menu can start game")
 		broadcast_all_options_rpc.rpc_id(global.lobbyHostID)
@@ -132,7 +132,6 @@ func _on_copy_to_clipboard_pressed() -> void:
 func _on_start_game_pressed() -> void:
 	##only one person needs to tell the server the game started
 	Steam.setLobbyJoinable(global.currentLobby,false)
-	client.send_game_started_to_server()
 	start_game.rpc()
 
 func _on_stop_hosting_pressed() -> void:

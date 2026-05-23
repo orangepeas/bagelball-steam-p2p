@@ -98,7 +98,7 @@ func start_game():
 			var material = StandardMaterial3D.new()
 			var materialPartsRed = StandardMaterial3D.new()
 			var materialPartsBlue = StandardMaterial3D.new()
-			currentPlayer.name = str(int(global.players[i].id)) ##name is an inherent property of godot's nodes
+			currentPlayer.name = str(int(global.players[i].multiplayer_id)) ##name is an inherent property of godot's nodes
 			currentPlayer.displayName = global.players[i].displayName
 			add_child(currentPlayer)
 			if global.players[i].redTeam == true:
@@ -151,7 +151,7 @@ func start_game():
 
 		else: ##if outside the player limit, spawn as spectators
 			var spectator : SpectatorPlayer = spectatorScene.instantiate()
-			spectator.name = str(int(global.players[i].id))
+			spectator.name = str(int(global.players[i].multiplayer_id))
 			add_child(spectator)
 			if global.map != global.Map.sumo:
 				spectator.global_position = scene.find_child("BallRespawnPoint").global_position
