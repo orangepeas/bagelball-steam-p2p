@@ -62,8 +62,9 @@ func _ready() -> void:
 	createLobbyUsername.text = Steam.getPersonaName()
 	id = Steam.getSteamID()
 
-func connected_to_server():
+func connected_to_server(id : int):
 	add_player_steam.rpc_id(int(Steam.getLobbyData(global.currentLobby, "host")), Steam.getSteamID())
+	print("multiplayer peers: ", multiplayer.get_peers())
 
 func add_player(steam_id, sender_id):
 	var isLobbyHost = false
@@ -129,8 +130,7 @@ func _on_lobby_joined(this_lobby_id: int, _permissions: int, _locked: bool, resp
 	print("lobby joined signal received")
 	var lobbyOwnerId = Steam.getLobbyOwner(this_lobby_id)
 	if lobbyOwnerId != Steam.getSteamID():
-		peer = SteamMultiplayerPeer.new()
-		peer.create_client(id)
+		peer.create_client(lobbyOwnerId, 0)
 		multiplayer.set_multiplayer_peer(peer)
 		print("lobby joined")
 		if response == Steam.CHAT_ROOM_ENTER_RESPONSE_SUCCESS:
@@ -158,9 +158,9 @@ func _on_lobby_joined(this_lobby_id: int, _permissions: int, _locked: bool, resp
 func _on_lobby_created(connect: int, this_lobby_id: int) -> void:
 	print("lobby created signal received")
 	if connect == 1:
-		peer = SteamMultiplayerPeer.new()
-		peer.create_host()
-		multiplayer.set_multiplayer_peer(peer)
+		peer.create_host(0)
+		multiplayer.multiplayer_peer = peer
+		print("what's the host multiplayer id: ", multiplayer.get_unique_id())
 		add_player(Steam.getSteamID(), 1)
 		global.currentLobby = this_lobby_id
 		updateLobbyBoard()
@@ -168,7 +168,9 @@ func _on_lobby_created(connect: int, this_lobby_id: int) -> void:
 		Steam.setLobbyJoinable(global.currentLobby, true)
 		Steam.setLobbyData(global.currentLobby, "name", str(Steam.getPersonaName()) + "'s Lobby")
 		Steam.setLobbyData(global.currentLobby, "gameHasStarted", "false")
-		print("did set lobby host work: ", Steam.setLobbyData(global.currentLobby, "host", str(int(multiplayer.get_unique_id()))))
+		var set_relay: bool = Steam.allowP2PPacketRelay(true)
+																						   #int(multiplayer.get_unique_id())
+		print("did set lobby host work: ", Steam.setLobbyData(global.currentLobby, "host", str(int(0))))
 
 func _on_create_lobby_button_pressed() -> void:
 	global.maxPlayers = maxPlayersTemp
@@ -185,6 +187,7 @@ func _on_lobby_join_requested(this_lobby_id: int, friend_id: int) -> void:
 	##this is for if they join off your friends list or an invite
 	var owner_name: String = Steam.getFriendPersonaName(friend_id)
 	print("Joining %s's lobby..." % owner_name)
+	global.players.clear()
 	# Attempt to join the lobby
 	join_lobby(this_lobby_id)
 

@@ -262,5 +262,5 @@ func _on_lobby_chat_update(_this_lobby_id: int, change_id: int, _making_change_i
 		print("%s did... something." % changer_name)
 
 func _on_join_private_lobby_button_pressed() -> void:
-	#joinPrivateLobbyID.text = 
+	global.players.clear()
 	$Client.join_lobby(int(joinPrivateLobbyID.text))
