@@ -64,7 +64,7 @@ func _ready() -> void:
 	createLobbyUsername.text = Steam.getPersonaName()
 	id = Steam.getSteamID()
 
-func connected_to_server(id : int):
+func connected_to_server():
 	add_player_steam.rpc_id(int(Steam.getLobbyData(global.currentLobby, "host")), Steam.getSteamID())
 	print("multiplayer peers: ", multiplayer.get_peers())
 
