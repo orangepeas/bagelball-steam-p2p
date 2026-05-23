@@ -66,7 +66,6 @@ func _ready() -> void:
 
 func connected_to_server():
 	add_player_steam.rpc_id(int(Steam.getLobbyData(global.currentLobby, "host")), Steam.getSteamID())
-	print("multiplayer peers: ", multiplayer.get_peers())
 
 func add_player(steam_id, sender_id):
 	var isLobbyHost = false
@@ -88,9 +87,6 @@ func add_player(steam_id, sender_id):
 
 @rpc("any_peer","call_local")
 func add_player_steam(steam_id):
-	#for player in global.players:
-		#if player.multiplayer_id == multiplayer.get_unique_id():
-			#player.lobby_host = true
 	add_player(steam_id, multiplayer.get_remote_sender_id())
 	updateLobbyBoard()
 	send_updated_players.rpc(global.players)
@@ -100,8 +96,6 @@ func send_updated_players(players : Dictionary):
 	global.players = players
 	for player in global.players:
 		global.players[player].steam_name = Steam.getFriendPersonaName(global.players[player].steam_id)##so the friend nicknames dont get shared around
-		#if player.steam_id == Steam.getLobbyOwner(global.lobby_id):
-			#global.lobby_host_id = player.multiplayer_id
 	updateLobbyBoard()
 
 func peer_connected(multiplayer_id):
