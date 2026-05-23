@@ -21,6 +21,7 @@ var privateLobby = 0
 @onready var lobbyList = $"../PanelContainer"
 
 var isHostingBool : bool = false
+var isJoining : bool = false
 var hasJoinedBool : bool = false
 
 signal isHosting
@@ -33,7 +34,7 @@ signal receivedLobbyList
 signal canSwitchTeams
 signal noCanSwitchTeams
 
-var peer = SteamMultiplayerPeer.new()
+var peer = SteamMultiplayerPeer
 
 #signal canJoinGamePartway ##too difficult and pointless to implement
 #signal noCanJoinGamePartway
@@ -45,6 +46,7 @@ func _ready() -> void:
 	global.pauseScreenLeaveLobby.connect(_on_pause_screen_leave_lobby_pressed)
 	Steam.addRequestLobbyListDistanceFilter(Steam.LOBBY_DISTANCE_FILTER_WORLDWIDE)
 	
+	Steam.initRelayNetworkAccess()
 	Steam.lobby_match_list.connect(_on_lobby_match_list)
 	Steam.join_requested.connect(_on_lobby_join_requested)
 	Steam.lobby_chat_update.connect(_on_lobby_chat_update)
@@ -126,43 +128,53 @@ func check_command_line() -> void:
 				print("Command line lobby ID: %s" % these_arguments[1])
 				join_lobby(int(these_arguments[1]))
 
-func _on_lobby_joined(this_lobby_id: int, _permissions: int, _locked: bool, response: int) -> void:
-	print("lobby joined signal received")
-	var lobbyOwnerId = Steam.getLobbyOwner(this_lobby_id)
-	if lobbyOwnerId != Steam.getSteamID():
-		peer.create_client(lobbyOwnerId, 0)
-		multiplayer.set_multiplayer_peer(peer)
-		print("lobby joined")
-		if response == Steam.CHAT_ROOM_ENTER_RESPONSE_SUCCESS:
-			lobbyList.hide()
-			lobbyMenu.show()
-			$"../Join Private Lobby".hide()
-			global.currentLobby = this_lobby_id
-			hasJoined.emit()
-		else:
-			var fail_reason: String
-			match response:
-				Steam.CHAT_ROOM_ENTER_RESPONSE_DOESNT_EXIST: fail_reason = "This lobby no longer exists."
-				Steam.CHAT_ROOM_ENTER_RESPONSE_NOT_ALLOWED: fail_reason = "You don't have permission to join this lobby."
-				Steam.CHAT_ROOM_ENTER_RESPONSE_FULL: fail_reason = "The lobby is now full."
-				Steam.CHAT_ROOM_ENTER_RESPONSE_ERROR: fail_reason = "Uh... something unexpected happened!"
-				Steam.CHAT_ROOM_ENTER_RESPONSE_BANNED: fail_reason = "You are banned from this lobby."
-				Steam.CHAT_ROOM_ENTER_RESPONSE_LIMITED: fail_reason = "You cannot join due to having a limited account."
-				Steam.CHAT_ROOM_ENTER_RESPONSE_CLAN_DISABLED: fail_reason = "This lobby is locked or disabled."
-				Steam.CHAT_ROOM_ENTER_RESPONSE_COMMUNITY_BAN: fail_reason = "This lobby is community locked."
-				Steam.CHAT_ROOM_ENTER_RESPONSE_MEMBER_BLOCKED_YOU: fail_reason = "A user in the lobby has blocked you from joining."
-				Steam.CHAT_ROOM_ENTER_RESPONSE_YOU_BLOCKED_MEMBER: fail_reason = "A user you have blocked is in the lobby."
-			print("Failed to join this chat room: %s" % fail_reason)
-			Steam.requestLobbyList()
+func _on_lobby_joined(lobby_id: int, _permissions: int, _locked: bool, response: int) -> void:
+	if !isJoining:
+		return
+	global.currentLobby = lobby_id
+	peer = SteamMultiplayerPeer.new()
+	peer.server_relay = true
+	peer.create_client(Steam.getLobbyOwner(lobby_id))
+	multiplayer.multiplayer_peer = peer
+	#if lobbyOwnerId != Steam.getSteamID():, 0)
+	#var lobbyOwnerId = Steam.getLobbyOwner(this_lobby_id)
+	#if lobbyOwnerId != Steam.getSteamID():
+		#
+		#multiplayer.set_multiplayer_peer(peer)
+		#print("lobby joined")
+	if response == Steam.CHAT_ROOM_ENTER_RESPONSE_SUCCESS:
+		lobbyList.hide()
+		lobbyMenu.show()
+		$"../Join Private Lobby".hide()
+		hasJoined.emit()
+	else:
+		var fail_reason: String
+		match response:
+			Steam.CHAT_ROOM_ENTER_RESPONSE_DOESNT_EXIST: fail_reason = "This lobby no longer exists."
+			Steam.CHAT_ROOM_ENTER_RESPONSE_NOT_ALLOWED: fail_reason = "You don't have permission to join this lobby."
+			Steam.CHAT_ROOM_ENTER_RESPONSE_FULL: fail_reason = "The lobby is now full."
+			Steam.CHAT_ROOM_ENTER_RESPONSE_ERROR: fail_reason = "Uh... something unexpected happened!"
+			Steam.CHAT_ROOM_ENTER_RESPONSE_BANNED: fail_reason = "You are banned from this lobby."
+			Steam.CHAT_ROOM_ENTER_RESPONSE_LIMITED: fail_reason = "You cannot join due to having a limited account."
+			Steam.CHAT_ROOM_ENTER_RESPONSE_CLAN_DISABLED: fail_reason = "This lobby is locked or disabled."
+			Steam.CHAT_ROOM_ENTER_RESPONSE_COMMUNITY_BAN: fail_reason = "This lobby is community locked."
+			Steam.CHAT_ROOM_ENTER_RESPONSE_MEMBER_BLOCKED_YOU: fail_reason = "A user in the lobby has blocked you from joining."
+			Steam.CHAT_ROOM_ENTER_RESPONSE_YOU_BLOCKED_MEMBER: fail_reason = "A user you have blocked is in the lobby."
+		print("Failed to join this chat room: %s" % fail_reason)
+		Steam.requestLobbyList()
+	isJoining = false
 
-func _on_lobby_created(connect: int, this_lobby_id: int) -> void:
+func _on_lobby_created(result: int, lobby_id: int) -> void:
 	print("lobby created signal received")
-	if connect == 1:
-		peer.create_host(0)
+	if result == Steam.Result.RESULT_OK:
+		global.currentLobby = lobby_id
+		peer = SteamMultiplayerPeer.new()
+		peer.server_relay = true
+		peer.create_host()
 		multiplayer.multiplayer_peer = peer
+		multiplayer.peer_connected.connect(add_player)
 		print("what's the host multiplayer id: ", multiplayer.get_unique_id())
 		add_player(Steam.getSteamID(), 1)
-		global.currentLobby = this_lobby_id
 		updateLobbyBoard()
 		print("Created a lobby: %s" % global.currentLobby)
 		Steam.setLobbyJoinable(global.currentLobby, true)
@@ -174,7 +186,7 @@ func _on_lobby_created(connect: int, this_lobby_id: int) -> void:
 
 func _on_create_lobby_button_pressed() -> void:
 	global.maxPlayers = maxPlayersTemp
-	Steam.createLobby(Steam.LOBBY_TYPE_PUBLIC, global.maxPlayers)
+	Steam.createLobby(Steam.LobbyType.LOBBY_TYPE_PUBLIC, global.maxPlayers)
 	#multiplayer.multiplayer_peer = peer
 	$"../Create Lobby".hide()
 	$"../PanelContainer".hide()
