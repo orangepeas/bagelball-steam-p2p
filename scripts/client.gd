@@ -172,7 +172,7 @@ func _on_lobby_created(result: int, lobby_id: int) -> void:
 		peer.set("server_relay", true)
 		peer.create_host()
 		multiplayer.multiplayer_peer = peer
-		multiplayer.peer_connected.connect(add_player)
+		#multiplayer.peer_connected.connect(add_player)
 		print("what's the host multiplayer id: ", multiplayer.get_unique_id())
 		add_player(Steam.getSteamID(), 1)
 		updateLobbyBoard()
@@ -181,8 +181,7 @@ func _on_lobby_created(result: int, lobby_id: int) -> void:
 		Steam.setLobbyData(global.currentLobby, "name", str(Steam.getPersonaName()) + "'s Lobby")
 		Steam.setLobbyData(global.currentLobby, "gameHasStarted", "false")
 		var set_relay: bool = Steam.allowP2PPacketRelay(true)
-																						   #int(multiplayer.get_unique_id())
-		print("did set lobby host work: ", Steam.setLobbyData(global.currentLobby, "host", str(int(0))))
+		print("did set lobby host work: ", Steam.setLobbyData(global.currentLobby, "host", str(int(multiplayer.get_unique_id()))))
 
 func _on_create_lobby_button_pressed() -> void:
 	global.maxPlayers = maxPlayersTemp
