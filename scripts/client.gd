@@ -96,6 +96,8 @@ func send_updated_players(players : Dictionary):
 	global.players = players
 	for player in global.players:
 		global.players[player].steam_name = Steam.getFriendPersonaName(global.players[player].steam_id)##so the friend nicknames dont get shared around
+		if global.players[player].lobby_host == true:
+			global.lobbyHostID = global.players[player].multiplayer_id
 	updateLobbyBoard()
 
 func peer_connected(multiplayer_id):
