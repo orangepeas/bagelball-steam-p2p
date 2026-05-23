@@ -133,7 +133,7 @@ func _on_lobby_joined(lobby_id: int, _permissions: int, _locked: bool, response:
 		return
 	global.currentLobby = lobby_id
 	peer = SteamMultiplayerPeer.new()
-	peer.server_relay = true
+	peer.set("server_relay", true)
 	peer.create_client(Steam.getLobbyOwner(lobby_id))
 	multiplayer.multiplayer_peer = peer
 	#if lobbyOwnerId != Steam.getSteamID():, 0)
@@ -169,7 +169,7 @@ func _on_lobby_created(result: int, lobby_id: int) -> void:
 	if result == Steam.Result.RESULT_OK:
 		global.currentLobby = lobby_id
 		peer = SteamMultiplayerPeer.new()
-		peer.server_relay = true
+		peer.set("server_relay", true)
 		peer.create_host()
 		multiplayer.multiplayer_peer = peer
 		multiplayer.peer_connected.connect(add_player)

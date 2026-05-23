@@ -18,5 +18,3 @@ func _on_client_is_hosting() -> void:
 
 func _on_client_is_not_hosting() -> void:
 	isHosting = false
-
-f
