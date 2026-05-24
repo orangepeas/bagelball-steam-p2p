@@ -194,7 +194,7 @@ func focus() -> void:
 @rpc("any_peer","call_local")
 func switch_spectator(id : int):
 	#prints("self mpid",multiplayer.get_unique_id(),"switch mpid",id,"redteam of switch preswitch",global.players[str(id)].redTeam)
-	global.players[str(id)].spectator = !global.players[str(id)].spectator
+	global.players[id].spectator = !global.players[id].spectator
 	$"../Client".updateLobbyBoard()
 
 func _on_switch_spectator_pressed() -> void:
