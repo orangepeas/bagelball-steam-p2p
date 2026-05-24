@@ -170,7 +170,7 @@ func _on_custom_lobby_variables_pressed() -> void:
 @rpc("any_peer","call_local")
 func switch_teams(id : int):
 	#prints("self mpid",multiplayer.get_unique_id(),"switch mpid",id,"redteam of switch preswitch",global.players[str(id)].redTeam)
-	global.players[str(id)].redTeam = !global.players[str(id)].redTeam
+	global.players[id].redTeam = !global.players[id].redTeam
 	$"../Client".updateLobbyBoard()
 	#prints("redteam of postswitch",global.players[str(id)].redTeam)
 
