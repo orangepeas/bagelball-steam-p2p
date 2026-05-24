@@ -113,8 +113,9 @@ func _on_select_map_button_pressed() -> void:
 	hide_title_images()
 	GLV.quantumBagels = true
 	global.players[0] = {
+		"steam_id": Steam.getSteamID(),
 		"name": name,
-		"id": 0,
+		"multiplayer_id": 0,
 		"index": 0,
 		"displayName": "Practice",
 		"redTeam": true,
