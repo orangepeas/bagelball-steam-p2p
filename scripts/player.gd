@@ -113,6 +113,7 @@ func no_can_wall_jump():
 
 func _unhandled_input(event: InputEvent) -> void:
 	if mpSync.get_multiplayer_authority() == multiplayer.get_unique_id() or global.singleplayer == true:
+		var a = (multiplayer.get_unique_id())
 		if global.isPaused == false:
 			if event is InputEventMouseMotion: #if the mouse is moved
 				self.rotate_y(-event.relative.x * SENSITIVITY) #the event.relative.x is the x co-ordinate of the vector2 of the difference of where the mouse was to where the mouse is
