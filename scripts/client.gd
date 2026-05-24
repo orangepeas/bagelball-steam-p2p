@@ -90,7 +90,6 @@ func add_player_steam(steam_id):
 	##this runs on the host
 	add_player(steam_id, multiplayer.get_remote_sender_id())
 	updateLobbyBoard()
-	print("host multiplayer.get_peers  before: ", multiplayer.get_peers())
 	for player in global.players:
 		#if global.players[player].lobbyHost == false:
 		send_updated_players.rpc(global.players)
@@ -107,6 +106,12 @@ func send_updated_players(players : Dictionary):
 			global.lobbyHostID = global.players[player].multiplayer_id
 	updateLobbyBoard()
 	print("client multiplayer.get_peers  after: ", multiplayer.get_peers())
+	print("balls")
+	var a = 1
+	var b = 2
+	multiplayer.get_unique_id()
+	multiplayer.get_unique_id()
+	multiplayer.get_unique_id()
 
 
 func peer_connected(multiplayer_id):
