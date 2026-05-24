@@ -75,7 +75,7 @@ func add_player(steam_id, sender_id):
 		"steam_id":steam_id,
 		"steam_name":Steam.getFriendPersonaName(steam_id),
 		"multiplayer_id":sender_id,
-		"lobby_host":isLobbyHost,
+		"lobbyHost":isLobbyHost,
 		"index": global.players.size() + 1,
 		"displayName": Steam.getFriendPersonaName(steam_id),
 		"goals": 0,
@@ -90,7 +90,9 @@ func add_player_steam(steam_id):
 	##this runs on the host
 	add_player(steam_id, multiplayer.get_remote_sender_id())
 	updateLobbyBoard()
-	send_updated_players.rpc(global.players)
+	for player in global.players:
+		if global.players[player].lobbyHost == false:
+			send_updated_players.rpc_id(global.players[player].multiplayer_id, global.players)
 	check_if_can_start_game()
 
 @rpc("any_peer","call_remote")
@@ -99,7 +101,7 @@ func send_updated_players(players : Dictionary):
 	global.players = players
 	for player in global.players:
 		global.players[player].steam_name = Steam.getFriendPersonaName(global.players[player].steam_id)##so the friend nicknames dont get shared around
-		if global.players[player].lobby_host == true:
+		if global.players[player].lobbyHost == true:
 			global.lobbyHostID = global.players[player].steam_id
 	updateLobbyBoard()
 
@@ -109,6 +111,7 @@ func peer_connected(multiplayer_id):
 
 func peer_disconnected(multiplayer_id):
 	print("peer disconnected ", multiplayer_id)
+	global.players.erase(multiplayer_id)
 	check_if_can_start_game()
 
 func check_if_can_start_game():
