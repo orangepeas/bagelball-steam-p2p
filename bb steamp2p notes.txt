@@ -1,6 +1,8 @@
 add name inputs back in
 need to destroy lobby on dc
-need to make client request lobbies whenever one is added or bring back the timer that requests every 5 secs
+need to make client request lobbies whenever one is added/deleted or timer that requests every 5 secs
+lobbies completely break on failed join, can't make a lobby after you've made one, need to restart game
+
 
 scale bageldistance with player size CLV
 make ball only score when the center crosses the goal line to fix ball scaling issues
