@@ -110,7 +110,6 @@ func send_updated_players(players : Dictionary):
 
 func peer_connected(multiplayer_id):
 	print("peer connected ", multiplayer_id)
-	canSwitchTeams.emit()
 	check_if_can_start_game()
 
 func peer_disconnected(multiplayer_id):
@@ -121,6 +120,7 @@ func peer_disconnected(multiplayer_id):
 func check_if_can_start_game():
 	if global.players.size() > 1:
 		canStartGame.emit()
+		canSwitchTeams.emit()
 	else:
 		noCanStartGame.emit()
 
