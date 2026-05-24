@@ -105,13 +105,7 @@ func send_updated_players(players : Dictionary):
 		if global.players[player].lobbyHost == true:
 			global.lobbyHostID = global.players[player].multiplayer_id
 	updateLobbyBoard()
-	print("client multiplayer.get_peers  after: ", multiplayer.get_peers())
-	print("balls")
-	var a = 1
-	var b = 2
-	multiplayer.get_unique_id()
-	multiplayer.get_unique_id()
-	multiplayer.get_unique_id()
+
 
 
 func peer_connected(multiplayer_id):
