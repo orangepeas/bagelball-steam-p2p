@@ -182,7 +182,6 @@ func _on_lobby_created(result: int, lobby_id: int) -> void:
 		peer.set("server_relay", true)
 		peer.create_host()
 		multiplayer.multiplayer_peer = peer
-		#multiplayer.peer_connected.connect(add_player)
 		print("what's the host multiplayer id: ", multiplayer.get_unique_id())
 		add_player(Steam.getSteamID(), 1)
 		updateLobbyBoard()
