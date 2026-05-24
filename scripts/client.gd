@@ -90,10 +90,12 @@ func add_player_steam(steam_id):
 	##this runs on the host
 	add_player(steam_id, multiplayer.get_remote_sender_id())
 	updateLobbyBoard()
+	print("host multiplayer.get_peers  before: ", multiplayer.get_peers())
 	for player in global.players:
-		if global.players[player].lobbyHost == false:
-			send_updated_players.rpc_id(global.players[player].multiplayer_id, global.players)
+		#if global.players[player].lobbyHost == false:
+		send_updated_players.rpc(global.players)
 	check_if_can_start_game()
+	print("host multiplayer.get_peers  after: ", multiplayer.get_peers())
 
 @rpc("any_peer","call_remote")
 func send_updated_players(players : Dictionary):
@@ -104,9 +106,12 @@ func send_updated_players(players : Dictionary):
 		if global.players[player].lobbyHost == true:
 			global.lobbyHostID = global.players[player].steam_id
 	updateLobbyBoard()
+	print("client multiplayer.get_peers  after: ", multiplayer.get_peers())
+
 
 func peer_connected(multiplayer_id):
 	print("peer connected ", multiplayer_id)
+	canSwitchTeams.emit()
 	check_if_can_start_game()
 
 func peer_disconnected(multiplayer_id):
@@ -292,12 +297,12 @@ func _on_join_lobby_button_down(lobbyId : int) -> void:
 	#Steam.joinLobby(int(joinPrivateLobbyID.text))
 	#print("join game pressed")
 
-func join_game_as_spectator():
-	$"../Lobby Menu V2".stop_main_menu_behaviour()
-	self.get_parent().hide() ##hides main menu
-	var scene = load("res://scenes/main_level_join_late.tscn").instantiate()
-	get_tree().root.add_child(scene)
-	scene.join_game_as_spec.rpc()
+#func join_game_as_spectator():
+	#$"../Lobby Menu V2".stop_main_menu_behaviour()
+	#self.get_parent().hide() ##hides main menu
+	#var scene = load("res://scenes/main_level_join_late.tscn").instantiate()
+	#get_tree().root.add_child(scene)
+	#scene.join_game_as_spec.rpc()
 
 func _on_private_lobby_button_toggled(toggled_on: bool) -> void:
 	if toggled_on:
