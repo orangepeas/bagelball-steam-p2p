@@ -104,7 +104,7 @@ func send_updated_players(players : Dictionary):
 	for player in global.players:
 		global.players[player].steam_name = Steam.getFriendPersonaName(global.players[player].steam_id)##so the friend nicknames dont get shared around
 		if global.players[player].lobbyHost == true:
-			global.lobbyHostID = global.players[player].steam_id
+			global.lobbyHostID = global.players[player].multiplayer_id
 	updateLobbyBoard()
 	print("client multiplayer.get_peers  after: ", multiplayer.get_peers())
 
@@ -206,7 +206,7 @@ func _on_create_lobby_button_pressed() -> void:
 	$"../Lobby Menu V2".show()
 	isHosting.emit()
 	isHostingBool = true
-	global.lobbyHostID = Steam.getSteamID()
+	global.lobbyHostID = multiplayer.get_unique_id()
 
 func _on_lobby_join_requested(this_lobby_id: int, friend_id: int) -> void:
 	##this is for if they join off your friends list or an invite
@@ -284,7 +284,7 @@ func _on_pause_screen_leave_lobby_pressed() -> void:
 
 func _on_leave_lobby_pressed() -> void:
 	Steam.leaveLobby(global.currentLobby)
-	if global.lobbyHostID == Steam.getSteamID():
+	if global.lobbyHostID == multiplayer.get_unique_id():
 		isNotHosting.emit()
 
 func _on_join_lobby_button_down(lobbyId : int) -> void:
