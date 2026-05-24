@@ -144,6 +144,7 @@ func check_command_line() -> void:
 				join_lobby(int(these_arguments[1]))
 
 func _on_lobby_joined(lobby_id: int, _permissions: int, _locked: bool, response: int) -> void:
+	Steam.allowP2PPacketRelay(true)
 	if !isJoining:
 		return
 	global.currentLobby = lobby_id
@@ -151,12 +152,6 @@ func _on_lobby_joined(lobby_id: int, _permissions: int, _locked: bool, response:
 	peer.set("server_relay", true)
 	peer.create_client(Steam.getLobbyOwner(lobby_id))
 	multiplayer.multiplayer_peer = peer
-	#if lobbyOwnerId != Steam.getSteamID():, 0)
-	#var lobbyOwnerId = Steam.getLobbyOwner(this_lobby_id)
-	#if lobbyOwnerId != Steam.getSteamID():
-		#
-		#multiplayer.set_multiplayer_peer(peer)
-		#print("lobby joined")
 	if response == Steam.CHAT_ROOM_ENTER_RESPONSE_SUCCESS:
 		lobbyList.hide()
 		lobbyMenu.show()
@@ -183,7 +178,6 @@ func _on_lobby_created(result: int, lobby_id: int) -> void:
 	print("lobby created signal received")
 	if result == Steam.Result.RESULT_OK:
 		Steam.allowP2PPacketRelay(true)
-
 		global.currentLobby = lobby_id
 		peer = SteamMultiplayerPeer.new()
 		peer.set("server_relay", true)
