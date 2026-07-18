@@ -32,6 +32,9 @@ var yourElo:int
 var theirElo:int
 var holdSprint := true
 var autoSprint := false
+var headPiece := 0
+var bodyPiece := 0
+var legsPiece := 0
 
 signal redScored                ##connects to score_display.gd, player.gd, ball.gd and scoreboard.gd from goal_score.gd
 signal blueScored               ##connects to score_display.gd, player.gd, ball.gd and scoreboard.gd from goal_score.gd
@@ -54,7 +57,7 @@ signal hideTitleImages          ##connects to main_menu.gd from lobby_menu_v_2.g
 signal muteTitleMusic           ##connects to main_menu.gd from lobby_menu_v_2.gd
 signal levelFinishedLoading     ##connects to ball.gd, player.gd from scene_manager.gd
 signal disableOneWayBagelMap    ##connects to goal_score.gd from player.gd
-signal enableOneWayBagelMap     ##connects to goal_score.gd from player.gd
+signal enableOneWayBagelMap     ##connects to goal_score.gd, mainmenu.gd from player.gd
 signal fovChange                ##connects to player.gd from video_settings.gd
 signal startGameTimer           ##connects to score_display.gd from what john you forgot to write what
 signal sensChange               ##connects to player.gd from settings.gd

@@ -1,0 +1,62 @@
+[gd_resource type="Theme" load_steps=12 format=3 uid="uid://bvdhhdoy1b6m4"]
+
+[ext_resource type="Texture2D" uid="uid://6hm5vlxv3ogd" path="res://assets/images/onbelab/onelab_1776258780643.jpg" id="1_do5ds"]
+[ext_resource type="FontFile" uid="uid://c04v1ew3g4n31" path="res://styling/fonts/Roboto/static/Roboto-ExtraBoldItalic.ttf" id="1_i6dfa"]
+[ext_resource type="FontFile" uid="uid://da4gu1j4mc0dt" path="res://styling/fonts/speedway/Speedway-3xYz.otf" id="1_yixth"]
+[ext_resource type="Texture2D" uid="uid://dxaxtoygiauqv" path="res://assets/images/onbelab/onelab_1779436461404.jpg" id="2_i6dfa"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rp7ul"]
+bg_color = Color(0.35, 0.320075, 0.3185, 1)
+skew = Vector2(0.07, -0.05)
+border_width_left = 1
+border_width_right = 4
+border_color = Color(1, 0.194, 0.07, 1)
+
+[sub_resource type="ImageTexture" id="ImageTexture_i6dfa"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_u8c5a"]
+texture = SubResource("ImageTexture_i6dfa")
+texture_margin_left = 10.0
+texture_margin_top = 10.0
+texture_margin_right = 10.0
+texture_margin_bottom = 10.0
+expand_margin_left = 10.0
+expand_margin_top = 10.0
+expand_margin_right = 10.0
+expand_margin_bottom = 10.0
+draw_center = false
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cd85q"]
+texture = ExtResource("1_do5ds")
+modulate_color = Color(0.558182, 0.700841, 0.991511, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_i6dfa"]
+content_margin_left = 29.0
+content_margin_right = 30.0
+texture = ExtResource("2_i6dfa")
+modulate_color = Color(0, 0.59, 0.59, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_do5ds"]
+texture = ExtResource("1_do5ds")
+modulate_color = Color(0.1736, 0.219067, 0.31, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_khest"]
+texture = ExtResource("2_i6dfa")
+modulate_color = Color(0.439049, 0.439049, 0.439049, 1)
+
+[resource]
+default_font = ExtResource("1_yixth")
+ArrowButton/base_type = &"Button"
+Button/colors/font_outline_color = Color(0, 0.651079, 0.576643, 1)
+Button/constants/outline_size = 3
+Button/font_sizes/font_size = 35
+Button/fonts/font = ExtResource("1_i6dfa")
+Button/styles/disabled = SubResource("StyleBoxFlat_rp7ul")
+Button/styles/focus = SubResource("StyleBoxTexture_u8c5a")
+Button/styles/hover = SubResource("StyleBoxTexture_cd85q")
+Button/styles/normal = SubResource("StyleBoxTexture_i6dfa")
+Button/styles/pressed = SubResource("StyleBoxTexture_do5ds")
+Label/colors/font_outline_color = Color(0.22, 0.1694, 0.170243, 1)
+Label/constants/outline_size = 2
+Label/font_sizes/font_size = 20
+Label/styles/normal = SubResource("StyleBoxTexture_khest")

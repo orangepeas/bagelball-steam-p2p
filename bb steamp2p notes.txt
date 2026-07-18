@@ -1,11 +1,19 @@
 add name inputs back in
+
 need to destroy lobby on dc
+
 need to make client request lobbies whenever one is added/deleted or timer that requests every 5 secs
+
 lobbies completely break on failed join, can't make a lobby after you've made one, need to restart game
+
+try replacing every rpc() with the rpc_id workaround, nothing will happen otherwise. also ask in the 
+godotsteam discord
+
+test custom characters work in multiplayer
+
+add textures to character creator
 
 
 scale bageldistance with player size CLV
 make ball only score when the center crosses the goal line to fix ball scaling issues
 reset to default doesnt work on scroll throw in CLV menu
-
-

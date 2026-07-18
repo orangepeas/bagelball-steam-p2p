@@ -1,0 +1,304 @@
+[gd_scene load_steps=7 format=3 uid="uid://dv57tmqgbj4ux"]
+
+[ext_resource type="Script" uid="uid://babswx3jugcrc" path="res://scripts/character_creator.gd" id="1_r4yx0"]
+[ext_resource type="PackedScene" uid="uid://b8y66tcq4gfmr" path="res://scenes/main level model/main level model.tscn" id="2_q2ne5"]
+[ext_resource type="Theme" uid="uid://bvdhhdoy1b6m4" path="res://styling/character creator theme.tres" id="3_bqimr"]
+[ext_resource type="AudioStream" uid="uid://cb05lq4mm8c1n" path="res://audio/sfx/character creator button pressed.ogg" id="4_4xe1u"]
+[ext_resource type="AudioStream" uid="uid://4r6ib1qvl7xu" path="res://audio/music/character creator.ogg" id="5_elvr3"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_4xe1u"]
+friction = 0.1
+
+[node name="CharacterCreator" type="Node3D"]
+script = ExtResource("1_r4yx0")
+
+[node name="Main Level Model" parent="." instance=ExtResource("2_q2ne5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 214.111, -3.39611, 132.595)
+
+[node name="PieceChangeBackward" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.1029, 11.8538, -0.41552)
+stream = ExtResource("4_4xe1u")
+volume_db = 2.0
+pitch_scale = 0.9
+panning_strength = 0.35
+bus = &"SFX"
+
+[node name="CSGBox3D" type="CSGBox3D" parent="PieceChangeBackward"]
+
+[node name="PieceChangeForward" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.7551, 11.2238, -4.9719)
+stream = ExtResource("4_4xe1u")
+volume_db = 2.0
+pitch_scale = 1.1
+panning_strength = 0.35
+bus = &"SFX"
+
+[node name="CSGBox3D" type="CSGBox3D" parent="PieceChangeForward"]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.906411, -0.14118, 0.398105, 0, 0.94249, 0.334235, -0.422397, -0.302954, 0.854283, 22.1367, 16.46, 14.5445)
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme = ExtResource("3_bqimr")
+
+[node name="MarginContainer" type="MarginContainer" parent="UI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 100
+theme_override_constants/margin_bottom = 40
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+mouse_filter = 2
+theme_override_constants/separation = 40
+
+[node name="HeadSelector" type="HBoxContainer" parent="UI/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = -3
+
+[node name="HeadBack" type="Button" parent="UI/MarginContainer/VBoxContainer/HeadSelector"]
+z_index = 1
+layout_mode = 2
+size_flags_horizontal = 8
+text = "<"
+
+[node name="HeadLabel" type="Label" parent="UI/MarginContainer/VBoxContainer/HeadSelector"]
+custom_minimum_size = Vector2(220, 80)
+layout_mode = 2
+text = "Head"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="HeadForward2" type="Button" parent="UI/MarginContainer/VBoxContainer/HeadSelector"]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+text = ">"
+
+[node name="BodySelector" type="HBoxContainer" parent="UI/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = -3
+
+[node name="BodyBack" type="Button" parent="UI/MarginContainer/VBoxContainer/BodySelector"]
+z_index = 1
+layout_mode = 2
+size_flags_horizontal = 8
+text = "<"
+
+[node name="BodyLabel" type="Label" parent="UI/MarginContainer/VBoxContainer/BodySelector"]
+custom_minimum_size = Vector2(220, 80)
+layout_mode = 2
+text = "Body"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="BodyForward" type="Button" parent="UI/MarginContainer/VBoxContainer/BodySelector"]
+layout_mode = 2
+size_flags_horizontal = 8
+text = ">"
+
+[node name="LegsSelector" type="HBoxContainer" parent="UI/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = -3
+
+[node name="LegsBack" type="Button" parent="UI/MarginContainer/VBoxContainer/LegsSelector"]
+z_index = 1
+layout_mode = 2
+size_flags_horizontal = 8
+text = "<"
+
+[node name="LegsLabel" type="Label" parent="UI/MarginContainer/VBoxContainer/LegsSelector"]
+custom_minimum_size = Vector2(220, 80)
+layout_mode = 2
+text = "Legs"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="LegsForward" type="Button" parent="UI/MarginContainer/VBoxContainer/LegsSelector"]
+layout_mode = 2
+size_flags_horizontal = 8
+text = ">"
+
+[node name="Back" type="Button" parent="UI/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+text = "back"
+
+[node name="character" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.944816, 0)
+physics_material_override = SubResource("PhysicsMaterial_4xe1u")
+gravity_scale = 0.0
+can_sleep = false
+angular_damp = 0.05
+
+[node name="AudioListener3D" type="AudioListener3D" parent="character"]
+transform = Transform3D(7, 0, 0, 0, 7, 0, 0, 0, 7, 0, 15.0272, 0)
+
+[node name="head" type="Node3D" parent="character"]
+transform = Transform3D(7, 0, 0, 0, 7, 0, 0, 0, 7, 0, 15.0272, 0)
+
+[node name="Cube" type="CSGBox3D" parent="character/head"]
+
+[node name="Cylinder" type="CSGCylinder3D" parent="character/head"]
+visible = false
+height = 1.0
+sides = 16
+
+[node name="Diamond" type="Node3D" parent="character/head"]
+visible = false
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="character/head/Diamond"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+height = 0.5
+sides = 4
+cone = true
+
+[node name="CSGCylinder3D3" type="CSGCylinder3D" parent="character/head/Diamond"]
+transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0, 0, 0)
+height = 0.5
+sides = 4
+cone = true
+
+[node name="Torment Nexus" type="Node3D" parent="character/head"]
+visible = false
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="character/head/Torment Nexus"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.273372, 0)
+height = 0.5
+sides = 4
+cone = true
+
+[node name="CSGCylinder3D3" type="CSGCylinder3D" parent="character/head/Torment Nexus"]
+transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0, 0, 0)
+height = 0.5
+sides = 4
+cone = true
+
+[node name="Bagel" type="CSGTorus3D" parent="character/head"]
+visible = false
+inner_radius = 0.2
+outer_radius = 0.7
+
+[node name="body" type="Node3D" parent="character"]
+transform = Transform3D(7, 0, 0, 0, 7, 0, 0, 0, 7, 0, 8.02723, 0)
+
+[node name="Cube" type="CSGBox3D" parent="character/body"]
+
+[node name="Cylinder" type="CSGCylinder3D" parent="character/body"]
+visible = false
+height = 1.0
+sides = 16
+
+[node name="Diamond" type="Node3D" parent="character/body"]
+visible = false
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="character/body/Diamond"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+height = 0.5
+sides = 4
+cone = true
+
+[node name="CSGCylinder3D3" type="CSGCylinder3D" parent="character/body/Diamond"]
+transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0, 0, 0)
+height = 0.5
+sides = 4
+cone = true
+
+[node name="Torment Nexus" type="Node3D" parent="character/body"]
+visible = false
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="character/body/Torment Nexus"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.273372, 0)
+height = 0.5
+sides = 4
+cone = true
+
+[node name="CSGCylinder3D3" type="CSGCylinder3D" parent="character/body/Torment Nexus"]
+transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0, 0, 0)
+height = 0.5
+sides = 4
+cone = true
+
+[node name="Bagel" type="CSGTorus3D" parent="character/body"]
+visible = false
+inner_radius = 0.2
+outer_radius = 0.7
+
+[node name="legs" type="Node3D" parent="character"]
+transform = Transform3D(7, 0, 0, 0, 7, 0, 0, 0, 7, 0, 1.02723, 0)
+
+[node name="Cube" type="CSGBox3D" parent="character/legs"]
+
+[node name="Cylinder" type="CSGCylinder3D" parent="character/legs"]
+visible = false
+height = 1.0
+sides = 16
+
+[node name="Diamond" type="Node3D" parent="character/legs"]
+visible = false
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="character/legs/Diamond"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+height = 0.5
+sides = 4
+cone = true
+
+[node name="CSGCylinder3D3" type="CSGCylinder3D" parent="character/legs/Diamond"]
+transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0, 0, 0)
+height = 0.5
+sides = 4
+cone = true
+
+[node name="Torment Nexus" type="Node3D" parent="character/legs"]
+visible = false
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="character/legs/Torment Nexus"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.273372, 0)
+height = 0.5
+sides = 4
+cone = true
+
+[node name="CSGCylinder3D3" type="CSGCylinder3D" parent="character/legs/Torment Nexus"]
+transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0, 0, 0)
+height = 0.5
+sides = 4
+cone = true
+
+[node name="Bagel" type="CSGTorus3D" parent="character/legs"]
+visible = false
+inner_radius = 0.2
+outer_radius = 0.7
+
+[node name="CharacterCreatorTheme" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_elvr3")
+volume_db = -10.0
+bus = &"Music"
+parameters/looping = true
+
+[connection signal="pressed" from="UI/MarginContainer/VBoxContainer/HeadSelector/HeadBack" to="." method="_on_head_back_pressed"]
+[connection signal="pressed" from="UI/MarginContainer/VBoxContainer/HeadSelector/HeadForward2" to="." method="_on_head_forward_pressed"]
+[connection signal="pressed" from="UI/MarginContainer/VBoxContainer/BodySelector/BodyBack" to="." method="_on_body_back_pressed"]
+[connection signal="pressed" from="UI/MarginContainer/VBoxContainer/BodySelector/BodyForward" to="." method="_on_body_forward_pressed"]
+[connection signal="pressed" from="UI/MarginContainer/VBoxContainer/LegsSelector/LegsBack" to="." method="_on_legs_back_pressed"]
+[connection signal="pressed" from="UI/MarginContainer/VBoxContainer/LegsSelector/LegsForward" to="." method="_on_legs_forward_pressed"]
+[connection signal="pressed" from="UI/MarginContainer/Back" to="." method="_on_back_pressed"]

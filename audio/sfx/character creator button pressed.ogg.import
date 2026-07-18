@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cb05lq4mm8c1n"
+path="res://.godot/imported/character creator button pressed.ogg-5b6947fe58ee0f47d0fec8d346e7ab9e.oggvorbisstr"
+
+[deps]
+
+source_file="res://audio/sfx/character creator button pressed.ogg"
+dest_files=["res://.godot/imported/character creator button pressed.ogg-5b6947fe58ee0f47d0fec8d346e7ab9e.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

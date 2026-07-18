@@ -65,10 +65,15 @@ func _ready():
 		config.set_value("controls", "auto_sprint", "false")
 		config.set_value("controls", "hold_sprint", "true")
 		
+		config.set_value("character", "head_piece", "0")
+		config.set_value("character", "body_piece", "0")
+		config.set_value("character", "legs_piece", "0")
+		
 		config.save(SETTINGS_FILE_PATH)
 	else:
 		config.load(SETTINGS_FILE_PATH)
 	
+	## converting legacy keybinding storage
 	if config.has_section("keybinding"):
 		for key in config.get_section_keys("keybinding"):
 			var tempKeybindingStorage = config.get_value("keybinding", key)
@@ -78,7 +83,13 @@ func _ready():
 		config.set_value("controls", "auto_sprint", "false")
 		config.set_value("controls", "hold_sprint", "true")
 		config.save(SETTINGS_FILE_PATH)
-		
+	
+	if !config.has_section("character"):
+		config.set_value("character", "head_piece", "0")
+		config.set_value("character", "body_piece", "0")
+		config.set_value("character", "legs_piece", "0")
+		config.save(SETTINGS_FILE_PATH)
+	
 	if config.get_value("keybinding_primary","scoreboard", "boobs") == "boobs":
 		config.set_value("keybinding_primary", "scoreboard", "tab")
 		config.set_value("keybinding_primary", "insult_selector", "c")
@@ -87,6 +98,16 @@ func _ready():
 		config.set_value("keybinding_secondary", "insult_selector", "")
 		config.set_value("keybinding_secondary", "fullscreen", "")
 		config.save(SETTINGS_FILE_PATH)
+
+func save_character_pieces(key : String, value):
+	config.set_value("character", key, value)
+	config.save(SETTINGS_FILE_PATH)
+
+func load_character_pieces():
+	var character_pieces = {}
+	for key in config.get_section_keys("character"):
+		character_pieces[key] = config.get_value("character", key)
+	return character_pieces
 
 func save_video_setting(key : String, value):
 	config.set_value("video", key, value)

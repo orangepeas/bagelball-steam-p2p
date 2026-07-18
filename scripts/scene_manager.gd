@@ -98,9 +98,16 @@ func start_game():
 			var material = StandardMaterial3D.new()
 			var materialPartsRed = StandardMaterial3D.new()
 			var materialPartsBlue = StandardMaterial3D.new()
+			await get_tree().process_frame
 			currentPlayer.name = str(int(global.players[i].multiplayer_id)) ##name is an inherent property of godot's nodes
 			currentPlayer.displayName = global.players[i].displayName
 			add_child(currentPlayer)
+			for headPiece in currentPlayer.headPieceParent.get_children():
+				headPiece.hide()
+			for bodyPiece in currentPlayer.bodyPieceParent.get_children():
+				bodyPiece.hide()
+			for legsPiece in currentPlayer.legsPieceParent.get_children():
+				legsPiece.hide()
 			if global.players[i].redTeam == true:
 				redPlayerCount += 1
 				material.albedo_color = Color(255,0,0,255)

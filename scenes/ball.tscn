@@ -1,7 +1,8 @@
-[gd_scene load_steps=19 format=3 uid="uid://8hl52kbu026b"]
+[gd_scene load_steps=21 format=3 uid="uid://8hl52kbu026b"]
 
 [ext_resource type="Script" uid="uid://d2erscpgws7vi" path="res://scripts/ball.gd" id="1_178xg"]
 [ext_resource type="ArrayMesh" uid="uid://cqt3dlagy8f41" path="res://assets/models/ball.obj" id="1_a8eej"]
+[ext_resource type="Shader" uid="uid://b7mxc7e32uhdg" path="res://scripts/shaders/ball outline.gdshader" id="3_eew57"]
 [ext_resource type="AudioStream" uid="uid://qyn1cuhfd0b7" path="res://audio/sfx/ball hit.ogg" id="4_nkxho"]
 [ext_resource type="AudioStream" uid="uid://dey2tvdkr73f4" path="res://audio/sfx/torus thwoom.ogg" id="6_jj7gd"]
 
@@ -28,7 +29,14 @@ radius = 2.05
 [sub_resource type="SphereShape3D" id="SphereShape3D_2qfkg"]
 radius = 1.99
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_jj7gd"]
+render_priority = 0
+shader = ExtResource("3_eew57")
+shader_parameter/color = Color(0, 0, 0, 1)
+shader_parameter/size = 1.02
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4dx81"]
+next_pass = SubResource("ShaderMaterial_jj7gd")
 albedo_color = Color(0.359069, 0.359069, 0.359069, 1)
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_eew57"]

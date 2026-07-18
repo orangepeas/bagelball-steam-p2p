@@ -5,6 +5,7 @@ class_name Player;
 var SENSITIVITY := global.sensitivity
 const RAY_LENGTH := 2000.0
 
+##u need to export to acces in mpsync
 @export var normalSpeed : int
 @export var sprintSpeed : int
 @export var jumpVelocity : float
@@ -15,6 +16,9 @@ const RAY_LENGTH := 2000.0
 @export var terminalSpeed : float
 @export var wallJumpVelocity : int
 @export var noOfJumps : int
+@export var headPieceIndex := 0
+@export var bodyPieceIndex := 0
+@export var legsPieceIndex := 0
 
 @onready var camera = $Camera3D
 @export var mpSync : MultiplayerSynchronizer
@@ -24,6 +28,9 @@ const RAY_LENGTH := 2000.0
 @onready var mesh = $MeshInstance3D
 @onready var redTeam : bool
 @onready var noiseMaker = $"Noise Maker"
+@onready var headPieceParent = $Character/head
+@onready var bodyPieceParent = $Character/body
+@onready var legsPieceParent = $Character/legs
 
 var SPEED : float
 var bagel : RigidBody3D
@@ -62,12 +69,14 @@ func _ready() -> void:
 	mpSync.set_multiplayer_authority(str(name).to_int())
 	##when client connects to server its id is set to its name. nice way of doing it
 	if mpSync.get_multiplayer_authority() == multiplayer.get_unique_id() or global.singleplayer == true:
+		headPieceIndex = global.headPiece ##assigned variable for mpsync to work
+		bodyPieceIndex = global.bodyPiece
+		legsPieceIndex = global.legsPiece
 		camera.make_current()
 		$"Player UI".show() ##pause screen bug
 		self.hide()
 		$MeshInstance3D/MeshInstance3D3.hide()
 		change_fov()
-	
 	global.connect("blueScored", respawn_player)
 	global.connect("redScored", respawn_player)
 	global.connect("playerTouchWall", can_wall_jump)
@@ -77,6 +86,9 @@ func _ready() -> void:
 	global.connect("fovChange", change_fov)
 	global.connect("sensChange", sens_change)
 	await get_tree().create_timer(0.02).timeout ##doesnt work without this dunno why
+	headPieceParent.get_children()[headPieceIndex].show()
+	bodyPieceParent.get_children()[bodyPieceIndex].show()
+	legsPieceParent.get_children()[legsPieceIndex].show()
 	$"display name".text = displayName
 	self.look_at(global.ballRespawnPoint)
 	self.rotation.x = 0
