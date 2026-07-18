@@ -28,9 +28,11 @@ const RAY_LENGTH := 2000.0
 @onready var mesh = $MeshInstance3D
 @onready var redTeam : bool
 @onready var noiseMaker = $"Noise Maker"
-@onready var headPieceParent = $Character/head
+@onready var headPieceParent = $Character/head/headpieces
+@onready var head = $Character/head
 @onready var bodyPieceParent = $Character/body
 @onready var legsPieceParent = $Character/legs
+@onready var directionalPlonk = $Character/directionalPlonk
 
 var SPEED : float
 var bagel : RigidBody3D
@@ -130,6 +132,9 @@ func _unhandled_input(event: InputEvent) -> void:
 				self.rotate_y(-event.relative.x * SENSITIVITY) #the event.relative.x is the x co-ordinate of the vector2 of the difference of where the mouse was to where the mouse is
 				camera.rotate_x(-event.relative.y * SENSITIVITY) #some weird euler angles occur if you rotate body in both x and y axes, so we dont
 				camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-90), deg_to_rad(90)) #maximum degrees we can rotate vertically
+				head.rotation = camera.rotation
+				head.rotation.x = clamp(head.rotation.x, deg_to_rad(-90), deg_to_rad(90))
+
 			if global.funnyMode == true:
 				if event is InputEventMouseButton && event.pressed && event.button_index == 2:
 					velocity += camera.project_ray_normal(event.position) * RAY_LENGTH

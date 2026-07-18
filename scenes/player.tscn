@@ -75,45 +75,52 @@ transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, -0.604961, 0)
 [node name="head" type="Node3D" parent="Character"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 
-[node name="Cube" type="CSGBox3D" parent="Character/head"]
+[node name="directionalPlonk" type="CSGCylinder3D" parent="Character/head"]
+transform = Transform3D(1.91069e-15, -4.37114e-08, 1, -1, -4.37114e-08, 0, 4.37114e-08, -1, -4.37114e-08, 4.18357e-09, 0, -0.509018)
+radius = 0.071
+height = 0.482418
 
-[node name="Cylinder" type="CSGCylinder3D" parent="Character/head"]
+[node name="headpieces" type="Node3D" parent="Character/head"]
+
+[node name="Cube" type="CSGBox3D" parent="Character/head/headpieces"]
+visible = false
+
+[node name="Cylinder" type="CSGCylinder3D" parent="Character/head/headpieces"]
 visible = false
 height = 1.0
 sides = 16
 
-[node name="Diamond" type="Node3D" parent="Character/head"]
+[node name="Diamond" type="Node3D" parent="Character/head/headpieces"]
 visible = false
 
-[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="Character/head/Diamond"]
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="Character/head/headpieces/Diamond"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 height = 0.5
 sides = 4
 cone = true
 
-[node name="CSGCylinder3D3" type="CSGCylinder3D" parent="Character/head/Diamond"]
+[node name="CSGCylinder3D3" type="CSGCylinder3D" parent="Character/head/headpieces/Diamond"]
 transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0, 0, 0)
 height = 0.5
 sides = 4
 cone = true
 
-[node name="Torment Nexus" type="Node3D" parent="Character/head"]
+[node name="Torment Nexus" type="Node3D" parent="Character/head/headpieces"]
 visible = false
 
-[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="Character/head/Torment Nexus"]
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="Character/head/headpieces/Torment Nexus"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.273372, 0)
 height = 0.5
 sides = 4
 cone = true
 
-[node name="CSGCylinder3D3" type="CSGCylinder3D" parent="Character/head/Torment Nexus"]
+[node name="CSGCylinder3D3" type="CSGCylinder3D" parent="Character/head/headpieces/Torment Nexus"]
 transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0, 0, 0)
 height = 0.5
 sides = 4
 cone = true
 
-[node name="Bagel" type="CSGTorus3D" parent="Character/head"]
-visible = false
+[node name="Bagel" type="CSGTorus3D" parent="Character/head/headpieces"]
 inner_radius = 0.2
 outer_radius = 0.7
 
@@ -263,7 +270,8 @@ outline_size = 10
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 
 [node name="Camera3D2" type="Camera3D" parent="."]
-transform = Transform3D(0.142857, 0, 0, 0, 0.130563, 0.0579777, 0, -0.0579777, 0.130563, 0.0552281, 24.5863, 25.2023)
+transform = Transform3D(-0.142857, -5.06857e-09, 1.14142e-08, 0, 0.130563, 0.0579777, -1.2489e-08, 0.0579777, -0.130563, 0.0552281, 1.3471, -5.00938)
+current = true
 
 [connection signal="absoluteMollusc" from="Player UI" to="Noise Maker" method="_on_player_ui_absolute_mollusc"]
 [connection signal="bloodyTrout" from="Player UI" to="Noise Maker" method="_on_player_ui_bloody_trout"]
