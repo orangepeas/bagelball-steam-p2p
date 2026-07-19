@@ -8,11 +8,15 @@
 
 config_version=5
 
+[animation]
+
+compatibility/default_parent_skeleton_in_mesh_instance_3d=true
+
 [application]
 
 config/name="bagelball steamp2p"
 run/main_scene="res://scenes/main menu.tscn"
-config/features=PackedStringArray("4.4", "Mobile")
+config/features=PackedStringArray("4.7", "Mobile")
 config/icon="res://assets/images/bageball icon.png"
 config/windows_native_icon="res://assets/images/bageball icon.ico"
 
@@ -180,7 +184,7 @@ jolt_3d/limits/max_linear_velocity=3000.0
 
 [rendering]
 
+textures/vram_compression/import_etc2_astc=true
 rendering_device/d3d12/max_resource_descriptors_per_frame=49152
 rendering_device/d3d12/max_sampler_descriptors_per_frame=2048
 rendering_device/d3d12/max_misc_descriptors_per_frame=1536
-textures/vram_compression/import_etc2_astc=true

@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=12 format=3 uid="uid://bvdhhdoy1b6m4"]
+[gd_resource type="Theme" format=3 uid="uid://bvdhhdoy1b6m4"]
 
 [ext_resource type="Texture2D" uid="uid://6hm5vlxv3ogd" path="res://assets/images/onbelab/onelab_1776258780643.jpg" id="1_do5ds"]
 [ext_resource type="FontFile" uid="uid://c04v1ew3g4n31" path="res://styling/fonts/Roboto/static/Roboto-ExtraBoldItalic.ttf" id="1_i6dfa"]

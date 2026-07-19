@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dv57tmqgbj4ux"]
+[gd_scene format=3 uid="uid://dv57tmqgbj4ux"]
 
 [ext_resource type="Script" uid="uid://babswx3jugcrc" path="res://scripts/character_creator.gd" id="1_r4yx0"]
 [ext_resource type="PackedScene" uid="uid://b8y66tcq4gfmr" path="res://scenes/main level model/main level model.tscn" id="2_q2ne5"]
@@ -9,13 +9,13 @@
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_4xe1u"]
 friction = 0.1
 
-[node name="CharacterCreator" type="Node3D"]
+[node name="CharacterCreator" type="Node3D" unique_id=1582452031]
 script = ExtResource("1_r4yx0")
 
-[node name="Main Level Model" parent="." instance=ExtResource("2_q2ne5")]
+[node name="Main Level Model" parent="." unique_id=1619871719 instance=ExtResource("2_q2ne5")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 214.111, -3.39611, 132.595)
 
-[node name="PieceChangeBackward" type="AudioStreamPlayer3D" parent="."]
+[node name="PieceChangeBackward" type="AudioStreamPlayer3D" parent="." unique_id=777177770]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.1029, 11.8538, -0.41552)
 stream = ExtResource("4_4xe1u")
 volume_db = 2.0
@@ -23,9 +23,9 @@ pitch_scale = 0.9
 panning_strength = 0.35
 bus = &"SFX"
 
-[node name="CSGBox3D" type="CSGBox3D" parent="PieceChangeBackward"]
+[node name="CSGBox3D" type="CSGBox3D" parent="PieceChangeBackward" unique_id=648476424]
 
-[node name="PieceChangeForward" type="AudioStreamPlayer3D" parent="."]
+[node name="PieceChangeForward" type="AudioStreamPlayer3D" parent="." unique_id=1995138010]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.7551, 11.2238, -4.9719)
 stream = ExtResource("4_4xe1u")
 volume_db = 2.0
@@ -33,12 +33,12 @@ pitch_scale = 1.1
 panning_strength = 0.35
 bus = &"SFX"
 
-[node name="CSGBox3D" type="CSGBox3D" parent="PieceChangeForward"]
+[node name="CSGBox3D" type="CSGBox3D" parent="PieceChangeForward" unique_id=1707922304]
 
-[node name="Camera3D" type="Camera3D" parent="."]
+[node name="Camera3D" type="Camera3D" parent="." unique_id=412992239]
 transform = Transform3D(0.906411, -0.14118, 0.398105, 0, 0.94249, 0.334235, -0.422397, -0.302954, 0.854283, 22.1367, 16.46, 14.5445)
 
-[node name="UI" type="Control" parent="."]
+[node name="UI" type="Control" parent="." unique_id=2115417795]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -48,7 +48,7 @@ grow_vertical = 2
 mouse_filter = 2
 theme = ExtResource("3_bqimr")
 
-[node name="MarginContainer" type="MarginContainer" parent="UI"]
+[node name="MarginContainer" type="MarginContainer" parent="UI" unique_id=1275041958]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -61,24 +61,24 @@ theme_override_constants/margin_top = 40
 theme_override_constants/margin_right = 100
 theme_override_constants/margin_bottom = 40
 
-[node name="VBoxContainer" type="VBoxContainer" parent="UI/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/MarginContainer" unique_id=1486910069]
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 4
 mouse_filter = 2
 theme_override_constants/separation = 40
 
-[node name="HeadSelector" type="HBoxContainer" parent="UI/MarginContainer/VBoxContainer"]
+[node name="HeadSelector" type="HBoxContainer" parent="UI/MarginContainer/VBoxContainer" unique_id=321736867]
 layout_mode = 2
 theme_override_constants/separation = -3
 
-[node name="HeadBack" type="Button" parent="UI/MarginContainer/VBoxContainer/HeadSelector"]
+[node name="HeadBack" type="Button" parent="UI/MarginContainer/VBoxContainer/HeadSelector" unique_id=668227841]
 z_index = 1
 layout_mode = 2
 size_flags_horizontal = 8
 text = "<"
 
-[node name="HeadLabel" type="Label" parent="UI/MarginContainer/VBoxContainer/HeadSelector"]
+[node name="HeadLabel" type="Label" parent="UI/MarginContainer/VBoxContainer/HeadSelector" unique_id=988885523]
 custom_minimum_size = Vector2(220, 80)
 layout_mode = 2
 text = "Head"
@@ -86,23 +86,23 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
 
-[node name="HeadForward2" type="Button" parent="UI/MarginContainer/VBoxContainer/HeadSelector"]
+[node name="HeadForward2" type="Button" parent="UI/MarginContainer/VBoxContainer/HeadSelector" unique_id=2015726395]
 custom_minimum_size = Vector2(20, 0)
 layout_mode = 2
 size_flags_horizontal = 8
 text = ">"
 
-[node name="BodySelector" type="HBoxContainer" parent="UI/MarginContainer/VBoxContainer"]
+[node name="BodySelector" type="HBoxContainer" parent="UI/MarginContainer/VBoxContainer" unique_id=404168249]
 layout_mode = 2
 theme_override_constants/separation = -3
 
-[node name="BodyBack" type="Button" parent="UI/MarginContainer/VBoxContainer/BodySelector"]
+[node name="BodyBack" type="Button" parent="UI/MarginContainer/VBoxContainer/BodySelector" unique_id=1304290372]
 z_index = 1
 layout_mode = 2
 size_flags_horizontal = 8
 text = "<"
 
-[node name="BodyLabel" type="Label" parent="UI/MarginContainer/VBoxContainer/BodySelector"]
+[node name="BodyLabel" type="Label" parent="UI/MarginContainer/VBoxContainer/BodySelector" unique_id=716629469]
 custom_minimum_size = Vector2(220, 80)
 layout_mode = 2
 text = "Body"
@@ -110,22 +110,22 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
 
-[node name="BodyForward" type="Button" parent="UI/MarginContainer/VBoxContainer/BodySelector"]
+[node name="BodyForward" type="Button" parent="UI/MarginContainer/VBoxContainer/BodySelector" unique_id=614692638]
 layout_mode = 2
 size_flags_horizontal = 8
 text = ">"
 
-[node name="LegsSelector" type="HBoxContainer" parent="UI/MarginContainer/VBoxContainer"]
+[node name="LegsSelector" type="HBoxContainer" parent="UI/MarginContainer/VBoxContainer" unique_id=2099851157]
 layout_mode = 2
 theme_override_constants/separation = -3
 
-[node name="LegsBack" type="Button" parent="UI/MarginContainer/VBoxContainer/LegsSelector"]
+[node name="LegsBack" type="Button" parent="UI/MarginContainer/VBoxContainer/LegsSelector" unique_id=1497675776]
 z_index = 1
 layout_mode = 2
 size_flags_horizontal = 8
 text = "<"
 
-[node name="LegsLabel" type="Label" parent="UI/MarginContainer/VBoxContainer/LegsSelector"]
+[node name="LegsLabel" type="Label" parent="UI/MarginContainer/VBoxContainer/LegsSelector" unique_id=370145293]
 custom_minimum_size = Vector2(220, 80)
 layout_mode = 2
 text = "Legs"
@@ -133,167 +133,168 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
 
-[node name="LegsForward" type="Button" parent="UI/MarginContainer/VBoxContainer/LegsSelector"]
+[node name="LegsForward" type="Button" parent="UI/MarginContainer/VBoxContainer/LegsSelector" unique_id=1522024269]
 layout_mode = 2
 size_flags_horizontal = 8
 text = ">"
 
-[node name="Back" type="Button" parent="UI/MarginContainer"]
+[node name="Back" type="Button" parent="UI/MarginContainer" unique_id=158271165]
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 8
 text = "back"
 
-[node name="character" type="RigidBody3D" parent="."]
+[node name="character" type="RigidBody3D" parent="." unique_id=621741700]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.944816, 0)
 physics_material_override = SubResource("PhysicsMaterial_4xe1u")
 gravity_scale = 0.0
 can_sleep = false
 angular_damp = 0.05
 
-[node name="AudioListener3D" type="AudioListener3D" parent="character"]
+[node name="AudioListener3D" type="AudioListener3D" parent="character" unique_id=1335295557]
 transform = Transform3D(7, 0, 0, 0, 7, 0, 0, 0, 7, 0, 15.0272, 0)
 
-[node name="head" type="Node3D" parent="character"]
+[node name="head" type="Node3D" parent="character" unique_id=1254289559]
 transform = Transform3D(7, 0, 0, 0, 7, 0, 0, 0, 7, 0, 15.0272, 0)
 
-[node name="Cube" type="CSGBox3D" parent="character/head"]
+[node name="Cube" type="CSGBox3D" parent="character/head" unique_id=544246406]
 
-[node name="Cylinder" type="CSGCylinder3D" parent="character/head"]
+[node name="CSGBox3D" type="CSGBox3D" parent="character/head/Cube" unique_id=1921708376]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.555, 0.20599985, 0)
+operation = 2
+size = Vector3(0.2, 0.4, 0.75)
+
+[node name="Cylinder" type="CSGCylinder3D" parent="character/head" unique_id=1031234183]
 visible = false
 height = 1.0
 sides = 16
 
-[node name="Diamond" type="Node3D" parent="character/head"]
+[node name="Diamond" type="Node3D" parent="character/head" unique_id=785978060]
 visible = false
 
-[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="character/head/Diamond"]
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="character/head/Diamond" unique_id=1259666282]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 height = 0.5
 sides = 4
 cone = true
 
-[node name="CSGCylinder3D3" type="CSGCylinder3D" parent="character/head/Diamond"]
+[node name="CSGCylinder3D3" type="CSGCylinder3D" parent="character/head/Diamond" unique_id=2132305054]
 transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0, 0, 0)
 height = 0.5
 sides = 4
 cone = true
 
-[node name="Torment Nexus" type="Node3D" parent="character/head"]
+[node name="Torment Nexus" type="Node3D" parent="character/head" unique_id=32067841]
 visible = false
 
-[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="character/head/Torment Nexus"]
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="character/head/Torment Nexus" unique_id=1553050847]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.273372, 0)
 height = 0.5
 sides = 4
 cone = true
 
-[node name="CSGCylinder3D3" type="CSGCylinder3D" parent="character/head/Torment Nexus"]
+[node name="CSGCylinder3D3" type="CSGCylinder3D" parent="character/head/Torment Nexus" unique_id=281020108]
 transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0, 0, 0)
 height = 0.5
 sides = 4
 cone = true
 
-[node name="Bagel" type="CSGTorus3D" parent="character/head"]
+[node name="Bagel" type="CSGTorus3D" parent="character/head" unique_id=1556858599]
 visible = false
 inner_radius = 0.2
 outer_radius = 0.7
 
-[node name="body" type="Node3D" parent="character"]
+[node name="body" type="Node3D" parent="character" unique_id=877394370]
 transform = Transform3D(7, 0, 0, 0, 7, 0, 0, 0, 7, 0, 8.02723, 0)
 
-[node name="Cube" type="CSGBox3D" parent="character/body"]
+[node name="Cube" type="CSGBox3D" parent="character/body" unique_id=316529912]
 
-[node name="Cylinder" type="CSGCylinder3D" parent="character/body"]
+[node name="Cylinder" type="CSGCylinder3D" parent="character/body" unique_id=1038565262]
 visible = false
 height = 1.0
 sides = 16
 
-[node name="Diamond" type="Node3D" parent="character/body"]
+[node name="Diamond" type="Node3D" parent="character/body" unique_id=219671844]
 visible = false
 
-[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="character/body/Diamond"]
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="character/body/Diamond" unique_id=1986157698]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 height = 0.5
 sides = 4
 cone = true
 
-[node name="CSGCylinder3D3" type="CSGCylinder3D" parent="character/body/Diamond"]
+[node name="CSGCylinder3D3" type="CSGCylinder3D" parent="character/body/Diamond" unique_id=1906777286]
 transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0, 0, 0)
 height = 0.5
 sides = 4
 cone = true
 
-[node name="Torment Nexus" type="Node3D" parent="character/body"]
+[node name="Torment Nexus" type="Node3D" parent="character/body" unique_id=324449080]
 visible = false
 
-[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="character/body/Torment Nexus"]
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="character/body/Torment Nexus" unique_id=1652812569]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.273372, 0)
 height = 0.5
 sides = 4
 cone = true
 
-[node name="CSGCylinder3D3" type="CSGCylinder3D" parent="character/body/Torment Nexus"]
+[node name="CSGCylinder3D3" type="CSGCylinder3D" parent="character/body/Torment Nexus" unique_id=739904725]
 transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0, 0, 0)
 height = 0.5
 sides = 4
 cone = true
 
-[node name="Bagel" type="CSGTorus3D" parent="character/body"]
+[node name="Bagel" type="CSGTorus3D" parent="character/body" unique_id=1614107942]
 visible = false
 inner_radius = 0.2
 outer_radius = 0.7
 
-[node name="legs" type="Node3D" parent="character"]
+[node name="legs" type="Node3D" parent="character" unique_id=1480344139]
 transform = Transform3D(7, 0, 0, 0, 7, 0, 0, 0, 7, 0, 1.02723, 0)
 
-[node name="Cube" type="CSGBox3D" parent="character/legs"]
+[node name="Cube" type="CSGBox3D" parent="character/legs" unique_id=821845602]
 
-[node name="Cylinder" type="CSGCylinder3D" parent="character/legs"]
+[node name="Cylinder" type="CSGCylinder3D" parent="character/legs" unique_id=3206000]
 visible = false
 height = 1.0
 sides = 16
 
-[node name="Diamond" type="Node3D" parent="character/legs"]
+[node name="Diamond" type="Node3D" parent="character/legs" unique_id=1779617720]
 visible = false
 
-[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="character/legs/Diamond"]
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="character/legs/Diamond" unique_id=1901169944]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 height = 0.5
 sides = 4
 cone = true
 
-[node name="CSGCylinder3D3" type="CSGCylinder3D" parent="character/legs/Diamond"]
+[node name="CSGCylinder3D3" type="CSGCylinder3D" parent="character/legs/Diamond" unique_id=560917012]
 transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0, 0, 0)
 height = 0.5
 sides = 4
 cone = true
 
-[node name="Torment Nexus" type="Node3D" parent="character/legs"]
+[node name="Torment Nexus" type="Node3D" parent="character/legs" unique_id=1837837046]
 visible = false
 
-[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="character/legs/Torment Nexus"]
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="character/legs/Torment Nexus" unique_id=1733940958]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.273372, 0)
 height = 0.5
 sides = 4
 cone = true
 
-[node name="CSGCylinder3D3" type="CSGCylinder3D" parent="character/legs/Torment Nexus"]
+[node name="CSGCylinder3D3" type="CSGCylinder3D" parent="character/legs/Torment Nexus" unique_id=475356294]
 transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0, 0, 0)
 height = 0.5
 sides = 4
 cone = true
 
-[node name="Bagel" type="CSGTorus3D" parent="character/legs"]
+[node name="Bagel" type="CSGTorus3D" parent="character/legs" unique_id=206906487]
 visible = false
 inner_radius = 0.2
 outer_radius = 0.7
 
-[node name="CSGCylinder3D" type="CSGCylinder3D" parent="character"]
-transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 3.83301, 16.1021, 0)
-height = 2.33398
-
-[node name="CharacterCreatorTheme" type="AudioStreamPlayer" parent="."]
+[node name="CharacterCreatorTheme" type="AudioStreamPlayer" parent="." unique_id=2000003913]
 stream = ExtResource("5_elvr3")
 volume_db = -10.0
 bus = &"Music"
