@@ -75,6 +75,7 @@ func _ready() -> void:
 	print("multiplayer.get_unique_id(): ", multiplayer.get_unique_id())
 	print("mpSync.get_multiplayer_authority(): ", mpSync.get_multiplayer_authority())
 	if mpSync.get_multiplayer_authority() == multiplayer.get_unique_id() or global.singleplayer == true:
+		print("my name is: ", name)
 		headPieceIndex = global.headPiece ##assigned variable for mpsync to work
 		bodyPieceIndex = global.bodyPiece
 		legsPieceIndex = global.legsPiece
@@ -143,9 +144,9 @@ func _unhandled_input(event: InputEvent) -> void:
 				if event is InputEventMouseButton && event.pressed && event.button_index == 2:
 					velocity += camera.project_ray_normal(event.position) * RAY_LENGTH
 		
-		if Input.is_action_just_pressed("test_camera"):
-			$testcam.make_current()
-			show()
+		#if Input.is_action_just_pressed("test_camera"):
+			#$testcam.make_current()
+			#show()
 
 func raycast_bagel(eventPos : Vector2):
 	await get_tree().process_frame ##this fixes the bug where both players need to click before the raycast works
