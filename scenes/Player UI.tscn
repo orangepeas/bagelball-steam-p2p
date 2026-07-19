@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://7yt5qojut4c5"]
+[gd_scene format=3 uid="uid://7yt5qojut4c5"]
 
 [ext_resource type="Script" uid="uid://dvvmurmlws6e2" path="res://scripts/player_ui.gd" id="1_kw5cl"]
 [ext_resource type="Script" uid="uid://dn7glqllado6i" path="res://scripts/score_display.gd" id="1_tv3g2"]
@@ -39,7 +39,7 @@ outline_color = Color(0, 0, 0, 1)
 shadow_size = 5
 shadow_color = Color(0.641934, 0.641934, 0.641934, 0)
 
-[node name="Player UI" type="Control"]
+[node name="Player UI" type="Control" unique_id=1212971186]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -49,7 +49,7 @@ grow_vertical = 2
 mouse_filter = 1
 script = ExtResource("1_kw5cl")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ColorRect" type="ColorRect" parent="." unique_id=583736936]
 visible = false
 layout_mode = 1
 anchors_preset = 8
@@ -65,7 +65,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
-[node name="ColorRect2" type="ColorRect" parent="."]
+[node name="ColorRect2" type="ColorRect" parent="." unique_id=375394675]
 visible = false
 layout_mode = 1
 anchors_preset = 8
@@ -80,11 +80,11 @@ offset_bottom = 2.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Game Timer" type="Timer" parent="."]
+[node name="Game Timer" type="Timer" parent="." unique_id=112412143]
 wait_time = 300.0
 one_shot = true
 
-[node name="score display" type="Control" parent="."]
+[node name="score display" type="Control" parent="." unique_id=1703267372]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -94,7 +94,7 @@ grow_vertical = 2
 mouse_filter = 1
 script = ExtResource("1_tv3g2")
 
-[node name="MarginContainer" type="MarginContainer" parent="score display"]
+[node name="MarginContainer" type="MarginContainer" parent="score display" unique_id=555632167]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -104,25 +104,25 @@ size_flags_horizontal = 3
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_right = 10
 
-[node name="HBoxContainer" type="HBoxContainer" parent="score display/MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="score display/MarginContainer" unique_id=683986198]
 layout_mode = 2
 
-[node name="red score" type="Label" parent="score display/MarginContainer/HBoxContainer"]
+[node name="red score" type="Label" parent="score display/MarginContainer/HBoxContainer" unique_id=1505999992]
 layout_mode = 2
 text = "0"
 label_settings = SubResource("LabelSettings_gksah")
 
-[node name="Control" type="Control" parent="score display/MarginContainer/HBoxContainer"]
+[node name="Control" type="Control" parent="score display/MarginContainer/HBoxContainer" unique_id=207955152]
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 2
 
-[node name="blue score" type="Label" parent="score display/MarginContainer/HBoxContainer"]
+[node name="blue score" type="Label" parent="score display/MarginContainer/HBoxContainer" unique_id=1805615564]
 layout_mode = 2
 text = "0"
 label_settings = SubResource("LabelSettings_nop4u")
 
-[node name="Timer Display" type="Label" parent="score display"]
+[node name="Timer Display" type="Label" parent="score display" unique_id=578366434]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -133,7 +133,7 @@ label_settings = SubResource("LabelSettings_wi3fl")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1141897931]
 layout_mode = 1
 anchors_preset = 14
 anchor_top = 0.5
@@ -143,14 +143,14 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_bottom = 20
 
-[node name="Cursor" type="Label" parent="MarginContainer"]
+[node name="Cursor" type="Label" parent="MarginContainer" unique_id=929390650]
 layout_mode = 2
 text = "."
 label_settings = SubResource("LabelSettings_85xat")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Panel" type="Panel" parent="."]
+[node name="Panel" type="Panel" parent="." unique_id=683180382]
 visible = false
 custom_minimum_size = Vector2(2, 2)
 layout_mode = 1
@@ -167,10 +167,10 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
 
-[node name="TimeSync" type="MultiplayerSynchronizer" parent="."]
+[node name="TimeSync" type="MultiplayerSynchronizer" parent="." unique_id=645739593]
 replication_config = SubResource("SceneReplicationConfig_xnjyt")
 
-[node name="win message" type="Label" parent="."]
+[node name="win message" type="Label" parent="." unique_id=1224491684]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -188,15 +188,15 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
 
-[node name="Pause Screen" parent="." instance=ExtResource("3_umk6t")]
+[node name="Pause Screen" parent="." unique_id=154024036 instance=ExtResource("3_umk6t")]
 visible = false
 layout_mode = 1
 
-[node name="debug timer" type="Timer" parent="."]
+[node name="debug timer" type="Timer" parent="." unique_id=1531596494]
 wait_time = 6.0
 autostart = true
 
-[node name="PlayerID" type="Label" parent="."]
+[node name="PlayerID" type="Label" parent="." unique_id=57141209]
 visible = false
 layout_mode = 0
 offset_left = 20.0
@@ -204,7 +204,7 @@ offset_top = 405.0
 offset_right = 374.0
 offset_bottom = 519.0
 
-[node name="ScreenCenter" type="Control" parent="."]
+[node name="ScreenCenter" type="Control" parent="." unique_id=583320045]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -214,11 +214,11 @@ anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Scoreboard" parent="." instance=ExtResource("4_uewkd")]
+[node name="Scoreboard" parent="." unique_id=2037995199 instance=ExtResource("4_uewkd")]
 visible = false
 layout_mode = 1
 
-[node name="Insult Selector" parent="." instance=ExtResource("5_a0fxt")]
+[node name="Insult Selector" parent="." unique_id=873427811 instance=ExtResource("5_a0fxt")]
 layout_mode = 1
 
 [connection signal="timeout" from="Game Timer" to="." method="game_end"]

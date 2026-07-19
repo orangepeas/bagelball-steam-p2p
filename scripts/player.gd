@@ -61,13 +61,16 @@ var bhopVelocity : Vector3
 var horizontalSpeed : float
 var canbhop := false
 
+func _enter_tree() -> void:
+	set_multiplayer_authority(str(name).to_int())
+	mpSync.set_multiplayer_authority(str(name).to_int())
+
 func _ready() -> void:
 	$"Player UI".hide()
 	$"Player UI".find_child("PlayerID").text = self.name
 	global.isPaused = false
 	SPEED = normalSpeed
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED#
-	mpSync.set_multiplayer_authority(str(name).to_int())
 	##when client connects to server its id is set to its name. nice way of doing it
 	if mpSync.get_multiplayer_authority() == multiplayer.get_unique_id() or global.singleplayer == true:
 		headPieceIndex = global.headPiece ##assigned variable for mpsync to work
