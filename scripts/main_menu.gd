@@ -136,6 +136,7 @@ func _on_select_map_button_pressed() -> void:
 		"displayName": "Practice",
 		"redTeam": true,
 		"goals": 0,
+		"characterPieces": [global.headPiece, global.bodyPiece, global.legsPiece],
 		"spectator": false,
 	}
 	var scene = load("res://scenes/main level.tscn").instantiate()

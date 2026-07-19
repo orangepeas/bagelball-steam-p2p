@@ -17,7 +17,7 @@ const RAY_LENGTH := 2000.0
 @export var wallJumpVelocity : int
 @export var noOfJumps : int
 
-@onready var characterPieces
+var characterPieces
 @onready var camera = $Camera3D
 @onready var mpSync := $MultiplayerSynchronizer
 @onready var bagelDistance = $"Camera3D/bagel distance"
@@ -26,10 +26,10 @@ const RAY_LENGTH := 2000.0
 @onready var mesh = $MeshInstance3D
 @onready var redTeam : bool
 @onready var noiseMaker = $"Noise Maker"
-@onready var headPieceParent = $Character/head/headpieces
-@onready var head = $Character/head
-@onready var bodyPieceParent = $Character/body
-@onready var legsPieceParent = $Character/legs
+@onready var headPieceParent = $CharacterPieces/head/headpieces
+@onready var head = $CharacterPieces/head
+@onready var bodyPieceParent = $CharacterPieces/body
+@onready var legsPieceParent = $CharacterPieces/legs
 
 var SPEED : float
 var bagel : RigidBody3D

@@ -5,6 +5,7 @@
 [ext_resource type="Theme" uid="uid://bvdhhdoy1b6m4" path="res://styling/character creator theme.tres" id="3_bqimr"]
 [ext_resource type="AudioStream" uid="uid://cb05lq4mm8c1n" path="res://audio/sfx/character creator button pressed.ogg" id="4_4xe1u"]
 [ext_resource type="AudioStream" uid="uid://4r6ib1qvl7xu" path="res://audio/music/character creator.ogg" id="5_elvr3"]
+[ext_resource type="PackedScene" uid="uid://cbag1v5jegq33" path="res://scenes/character_pieces.tscn" id="5_u0slw"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_4xe1u"]
 friction = 0.1
@@ -151,11 +152,15 @@ gravity_scale = 0.0
 can_sleep = false
 angular_damp = 0.05
 
+[node name="CharacterPieces" parent="character" unique_id=1899310938 instance=ExtResource("5_u0slw")]
+transform = Transform3D(-4.1042414, 0, -11.276312, 0, 12, 0, 11.276312, 0, -4.1042414, 0, 8.027, 0)
+
 [node name="AudioListener3D" type="AudioListener3D" parent="character" unique_id=1335295557]
 transform = Transform3D(7, 0, 0, 0, 7, 0, 0, 0, 7, 0, 15.0272, 0)
 
 [node name="head" type="Node3D" parent="character" unique_id=1254289559]
 transform = Transform3D(7, 0, 0, 0, 7, 0, 0, 0, 7, 0, 15.0272, 0)
+visible = false
 
 [node name="Cube" type="CSGBox3D" parent="character/head" unique_id=544246406]
 visible = false
@@ -266,6 +271,7 @@ outer_radius = 0.19957885
 
 [node name="body" type="Node3D" parent="character" unique_id=877394370]
 transform = Transform3D(7, 0, 0, 0, 7, 0, 0, 0, 7, 0, 8.02723, 0)
+visible = false
 
 [node name="Cube" type="CSGBox3D" parent="character/body" unique_id=316529912]
 
@@ -311,6 +317,7 @@ outer_radius = 0.7
 
 [node name="legs" type="Node3D" parent="character" unique_id=1480344139]
 transform = Transform3D(7, 0, 0, 0, 7, 0, 0, 0, 7, 0, 1.02723, 0)
+visible = false
 
 [node name="Cube" type="CSGBox3D" parent="character/legs" unique_id=821845602]
 

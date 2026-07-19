@@ -1,0 +1,234 @@
+[gd_scene format=3 uid="uid://cbag1v5jegq33"]
+
+[ext_resource type="Script" uid="uid://d4bq218wx2oii" path="res://scenes/character_pieces.gd" id="1_5yqrh"]
+
+[node name="CharacterPieces" type="Node3D" unique_id=1899310938]
+script = ExtResource("1_5yqrh")
+
+[node name="head" type="Node3D" parent="." unique_id=796643586]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 0.59503907, 0)
+
+[node name="headpieces" type="Node3D" parent="head" unique_id=1319272944]
+transform = Transform3D(-4.3711385e-08, 0, 0.99999994, 0, 0.99999994, 0, -0.99999994, 0, -4.3711385e-08, 0, 0, 0)
+
+[node name="Cube" type="CSGBox3D" parent="head/headpieces" unique_id=999987281 groups=["normalColourPiece"]]
+visible = false
+
+[node name="DirectionalPlonk" type="Node3D" parent="head/headpieces/Cube" unique_id=453461636]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="head/headpieces/Cube/DirectionalPlonk" unique_id=1941335111]
+transform = Transform3D(0.99999994, 0, -3.5527137e-15, 0, 0.99999994, 0, 3.5527137e-15, 0, 0.99999994, 0.49999997, 0, 1.7763568e-15)
+operation = 2
+size = Vector3(0.01, 0.75, 0.75)
+
+[node name="Cylinder" type="CSGCylinder3D" parent="head/headpieces" unique_id=569428638 groups=["normalColourPiece"]]
+visible = false
+height = 1.0
+sides = 16
+
+[node name="DirectionalPlonk" type="Node3D" parent="head/headpieces/Cylinder" unique_id=462885257]
+
+[node name="CSGCylinder3D5" type="CSGCylinder3D" parent="head/headpieces/Cylinder/DirectionalPlonk" unique_id=41464600]
+transform = Transform3D(-5.05879e-10, 0.0115732, 0.99993354, -0.99999994, -4.371138e-08, -9.020637e-16, 4.3708482e-08, -0.99993354, 0.0115732, 0.49464163, 0.10111481, 0.029156987)
+radius = 0.08203125
+height = 0.16239929
+sides = 16
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="head/headpieces/Cylinder/DirectionalPlonk" unique_id=1772085829]
+transform = Transform3D(-4.3322704e-08, 0.99110794, 0.1330603, -0.99999994, -4.371139e-08, 0, 5.8162506e-09, -0.1330603, 0.99110794, 0.36219653, 0.26982552, -0.23799211)
+radius = 0.08203125
+height = 0.22045898
+sides = 16
+
+[node name="CSGCylinder3D3" type="CSGCylinder3D" parent="head/headpieces/Cylinder/DirectionalPlonk" unique_id=1658246422]
+transform = Transform3D(-4.2318828e-08, 0.9681418, 0.2504037, -0.99999994, -4.371138e-08, 1.08273436e-16, 1.0945499e-08, -0.2504037, 0.9681418, 0.37926716, 0.26301152, -0.25926527)
+radius = 0.04345703
+height = 0.28826904
+sides = 16
+
+[node name="CSGCylinder3D4" type="CSGCylinder3D" parent="head/headpieces/Cylinder/DirectionalPlonk" unique_id=219779153]
+transform = Transform3D(-4.2666368e-08, 0.9760926, -0.2173564, -0.99999994, -4.371139e-08, 0, -9.500949e-09, 0.2173564, 0.9760926, 0.4359389, 0.35755724, 0.1989167)
+radius = 0.04345703
+height = 0.40438843
+sides = 16
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="head/headpieces/Cylinder/DirectionalPlonk" unique_id=2126727503]
+transform = Transform3D(-4.2921133e-08, 0.981921, -0.18929124, -0.99999994, -4.371139e-08, 0, -8.274183e-09, 0.18929124, 0.981921, 0.44781688, 0.3566497, 0.18737799)
+radius = 0.08203125
+height = 0.22045898
+sides = 16
+
+[node name="Diamond" type="Node3D" parent="head/headpieces" unique_id=1263241665]
+visible = false
+
+[node name="DiamondTop" type="CSGCylinder3D" parent="head/headpieces/Diamond" unique_id=792800257 groups=["normalColourPiece"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+height = 0.5
+sides = 4
+cone = true
+
+[node name="DiamondBottom" type="CSGCylinder3D" parent="head/headpieces/Diamond" unique_id=2046500987 groups=["normalColourPiece"]]
+transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0, 0, 0)
+height = 0.5
+sides = 4
+cone = true
+
+[node name="DirectionalPlonk" type="Node3D" parent="head/headpieces/Diamond" unique_id=466467363]
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="head/headpieces/Diamond/DirectionalPlonk" unique_id=1386983384]
+transform = Transform3D(-4.371139e-08, 0.9999998, -7.1054274e-15, -0.9999998, -4.371139e-08, 0, -4.2351647e-22, 7.1054274e-15, 0.9999998, 0.14210063, 0.47110194, 0.109172076)
+radius = 0.08886719
+height = 0.32763672
+sides = 4
+
+[node name="CSGCylinder3D4" type="CSGCylinder3D" parent="head/headpieces/Diamond/DirectionalPlonk" unique_id=911525083]
+transform = Transform3D(-4.371139e-08, 0.9999998, -7.1054274e-15, -0.9999998, -4.371139e-08, 0, -4.2351647e-22, 7.1054274e-15, 0.9999998, 0.14210063, 0.47110194, -0.13543664)
+radius = 0.08886719
+height = 0.32763672
+sides = 4
+
+[node name="CSGCylinder3D5" type="CSGCylinder3D" parent="head/headpieces/Diamond/DirectionalPlonk" unique_id=1949515897]
+transform = Transform3D(-0.18669586, -0.9824178, 8.588569e-08, -0.9824178, 0.18669586, -1.6321472e-08, 8.881784e-16, -8.742279e-08, -0.9999998, 0.1863807, 0.19333977, 0.0074205073)
+radius = 0.15673828
+height = 0.32763672
+sides = 4
+
+[node name="Torment Nexus" type="Node3D" parent="head/headpieces" unique_id=153889485]
+visible = false
+
+[node name="DirectionalPlonk" type="Node3D" parent="head/headpieces/Torment Nexus" unique_id=659828284]
+
+[node name="CSGCylinder3D4" type="CSGCylinder3D" parent="head/headpieces/Torment Nexus/DirectionalPlonk" unique_id=208450925]
+transform = Transform3D(-1.3113419e-07, -0.99999994, -8.742278e-08, -0.99999994, 1.3113419e-07, 0, 1.1464113e-14, 8.742278e-08, -0.99999994, 0.104658276, 0.10190362, 4.440892e-16)
+radius = 0.21142578
+height = 0.5
+sides = 4
+cone = true
+
+[node name="TormentNexusTop" type="CSGCylinder3D" parent="head/headpieces/Torment Nexus" unique_id=952045348 groups=["normalColourPiece"]]
+transform = Transform3D(0.9999998, 0, -7.1054274e-15, 0, 0.9999998, 0, 7.1054274e-15, 0, 0.9999998, 0, 0.273372, 0)
+height = 0.5
+sides = 4
+cone = true
+
+[node name="TormentNexusBottom" type="CSGCylinder3D" parent="head/headpieces/Torment Nexus" unique_id=137473962 groups=["normalColourPiece"]]
+transform = Transform3D(-0.9999998, 8.74228e-08, -7.1054274e-15, -8.74228e-08, -0.9999998, 0, -7.1054274e-15, 8.4703295e-22, 0.9999998, 0, 0, 0)
+height = 0.5
+sides = 4
+cone = true
+
+[node name="Bagel" type="CSGTorus3D" parent="head/headpieces" unique_id=139521184 groups=["normalColourPiece"]]
+inner_radius = 0.2
+outer_radius = 0.7
+
+[node name="DirectionalPlonk" type="Node3D" parent="head/headpieces/Bagel" unique_id=1444813108]
+
+[node name="CSGTorus3D" type="CSGTorus3D" parent="head/headpieces/Bagel/DirectionalPlonk" unique_id=110139160]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.91287, 0, 0)
+inner_radius = 0.032602564
+outer_radius = 0.19957885
+
+[node name="body" type="Node3D" parent="." unique_id=1385533658]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, -0.004960954, 0)
+
+[node name="Cube" type="CSGBox3D" parent="body" unique_id=1443206292 groups=["normalColourPiece"]]
+
+[node name="Cylinder" type="CSGCylinder3D" parent="body" unique_id=1213724903 groups=["normalColourPiece"]]
+visible = false
+height = 1.0
+sides = 16
+
+[node name="Diamond" type="Node3D" parent="body" unique_id=1582586861]
+visible = false
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="body/Diamond" unique_id=1863029514 groups=["normalColourPiece"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+height = 0.5
+sides = 4
+cone = true
+
+[node name="CSGCylinder3D3" type="CSGCylinder3D" parent="body/Diamond" unique_id=1260711791 groups=["normalColourPiece"]]
+transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0, 0, 0)
+height = 0.5
+sides = 4
+cone = true
+
+[node name="Torment Nexus" type="Node3D" parent="body" unique_id=537151373]
+visible = false
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="body/Torment Nexus" unique_id=956602972 groups=["normalColourPiece"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.273372, 0)
+height = 0.5
+sides = 4
+cone = true
+
+[node name="CSGCylinder3D3" type="CSGCylinder3D" parent="body/Torment Nexus" unique_id=75220492 groups=["normalColourPiece"]]
+transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0, 0, 0)
+height = 0.5
+sides = 4
+cone = true
+
+[node name="Bagel" type="CSGTorus3D" parent="body" unique_id=991266531 groups=["normalColourPiece"]]
+visible = false
+inner_radius = 0.2
+outer_radius = 0.7
+
+[node name="legs" type="Node3D" parent="." unique_id=1953483790]
+transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, -0.604961, 0)
+
+[node name="Cube" type="CSGBox3D" parent="legs" unique_id=1922308717 groups=["normalColourPiece"]]
+visible = false
+
+[node name="Cylinder" type="CSGCylinder3D" parent="legs" unique_id=2135182255 groups=["normalColourPiece"]]
+visible = false
+height = 1.0
+sides = 16
+
+[node name="Diamond" type="Node3D" parent="legs" unique_id=913026958]
+visible = false
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="legs/Diamond" unique_id=904631744 groups=["normalColourPiece"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+height = 0.5
+sides = 4
+cone = true
+
+[node name="CSGCylinder3D3" type="CSGCylinder3D" parent="legs/Diamond" unique_id=1752026608 groups=["normalColourPiece"]]
+transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0, 0, 0)
+height = 0.5
+sides = 4
+cone = true
+
+[node name="Torment Nexus" type="Node3D" parent="legs" unique_id=24732135]
+visible = false
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="legs/Torment Nexus" unique_id=1251976619 groups=["normalColourPiece"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.273372, 0)
+height = 0.5
+sides = 4
+cone = true
+
+[node name="CSGCylinder3D3" type="CSGCylinder3D" parent="legs/Torment Nexus" unique_id=1420311973 groups=["normalColourPiece"]]
+transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0, 0, 0)
+height = 0.5
+sides = 4
+cone = true
+
+[node name="Bagel" type="CSGTorus3D" parent="legs" unique_id=245058839 groups=["normalColourPiece"]]
+visible = false
+inner_radius = 0.2
+outer_radius = 0.7
+
+[node name="Regular Legs" type="Node3D" parent="legs" unique_id=1506682850]
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="legs/Regular Legs" unique_id=1165774114 groups=["normalColourPiece"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.25, 0, 0)
+radius = 0.15
+height = 1.0
+sides = 16
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="legs/Regular Legs" unique_id=543380374 groups=["normalColourPiece"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.25, 0, 0)
+radius = 0.15
+height = 1.0
+sides = 16

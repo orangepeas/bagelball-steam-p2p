@@ -14,9 +14,7 @@ var allow_rotate := false
 @onready var pieceForwardSound = $PieceChangeForward
 @onready var pieceBackSound = $PieceChangeBackward
 
-@onready var headPieceParent = $character/head
-@onready var bodyPieceParent = $character/body
-@onready var legsPieceParent = $character/legs
+@onready var characterPieces = $character/CharacterPieces
 
 @onready var headLabel = $UI/MarginContainer/VBoxContainer/HeadSelector/HeadLabel
 @onready var bodyLabel = $UI/MarginContainer/VBoxContainer/BodySelector/BodyLabel
@@ -24,22 +22,22 @@ var allow_rotate := false
 
 func _ready():
 	hide_all_ui()
-	for headPiece in headPieceParent.get_children():
+	for headPiece in characterPieces.head.get_children():
 		headPiece.hide()
-	for bodyPiece in bodyPieceParent.get_children():
+	for bodyPiece in characterPieces.body.get_children():
 		bodyPiece.hide()
-	for legsPiece in legsPieceParent.get_children():
+	for legsPiece in characterPieces.legs.get_children():
 		legsPiece.hide()
 	var character_pieces = ConfigFileHandler.load_character_pieces()
 	headPieceIndex = int(character_pieces.head_piece)
 	bodyPieceIndex = int(character_pieces.body_piece)
 	legsPieceIndex = int(character_pieces.legs_piece)
-	headPieceParent.get_children()[headPieceIndex].show()
-	bodyPieceParent.get_children()[bodyPieceIndex].show()
-	legsPieceParent.get_children()[legsPieceIndex].show()
-	headLabel.text = headPieceParent.get_children()[headPieceIndex].name
-	bodyLabel.text = bodyPieceParent.get_children()[bodyPieceIndex].name
-	legsLabel.text = legsPieceParent.get_children()[legsPieceIndex].name
+	characterPieces.head.get_children()[headPieceIndex].show()
+	characterPieces.body.get_children()[bodyPieceIndex].show()
+	characterPieces.legs.get_children()[legsPieceIndex].show()
+	headLabel.text = characterPieces.head.get_children()[headPieceIndex].name
+	bodyLabel.text = characterPieces.body.get_children()[bodyPieceIndex].name
+	legsLabel.text = characterPieces.legs.get_children()[legsPieceIndex].name
 	global.headPiece = headPieceIndex
 	global.bodyPiece = bodyPieceIndex
 	global.legsPiece = legsPieceIndex
@@ -80,22 +78,22 @@ func _unhandled_input(event: InputEvent) -> void:
 			character.apply_torque(Vector3(event.relative.y * 0.5, 0, 0))
 
 func _on_head_forward_pressed() -> void:
-	headPieceIndex = piece_change(headPieceParent, headPieceIndex, headLabel, true)
+	headPieceIndex = piece_change(characterPieces.head, headPieceIndex, headLabel, true)
 
 func _on_head_back_pressed() -> void:
-	headPieceIndex = piece_change(headPieceParent, headPieceIndex, headLabel, false)
+	headPieceIndex = piece_change(characterPieces.head, headPieceIndex, headLabel, false)
 
 func _on_body_forward_pressed() -> void:
-	bodyPieceIndex = piece_change(bodyPieceParent, bodyPieceIndex, bodyLabel, true)
+	bodyPieceIndex = piece_change(characterPieces.body, bodyPieceIndex, bodyLabel, true)
 
 func _on_body_back_pressed() -> void:
-	bodyPieceIndex = piece_change(bodyPieceParent, bodyPieceIndex, bodyLabel, false)
+	bodyPieceIndex = piece_change(characterPieces.body, bodyPieceIndex, bodyLabel, false)
 
 func _on_legs_forward_pressed() -> void:
-	legsPieceIndex = piece_change(legsPieceParent, legsPieceIndex, legsLabel, true)
+	legsPieceIndex = piece_change(characterPieces.legs, legsPieceIndex, legsLabel, true)
 
 func _on_legs_back_pressed() -> void:
-	legsPieceIndex = piece_change(legsPieceParent, legsPieceIndex, legsLabel, false)
+	legsPieceIndex = piece_change(characterPieces.legs, legsPieceIndex, legsLabel, false)
 
 func check_index_loop(index, max_index):
 	if index < 0:
