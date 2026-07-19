@@ -72,6 +72,8 @@ func _ready() -> void:
 	SPEED = normalSpeed
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED#
 	##when client connects to server its id is set to its name. nice way of doing it
+	print("multiplayer.get_unique_id(): ", multiplayer.get_unique_id())
+	print("mpSync.get_multiplayer_authority(): ", mpSync.get_multiplayer_authority())
 	if mpSync.get_multiplayer_authority() == multiplayer.get_unique_id() or global.singleplayer == true:
 		headPieceIndex = global.headPiece ##assigned variable for mpsync to work
 		bodyPieceIndex = global.bodyPiece
