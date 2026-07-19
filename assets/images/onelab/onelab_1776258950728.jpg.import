@@ -2,22 +2,24 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dxaxtoygiauqv"
-path="res://.godot/imported/onelab_1779436461404.jpg-2da9c5f93717f7b509927eb2115ccf07.ctex"
+uid="uid://cpg17jnp6srvn"
+path="res://.godot/imported/onelab_1776258950728.jpg-e3b31143f3b225d4fcf6615f533a93a5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/onbelab/onelab_1779436461404.jpg"
-dest_files=["res://.godot/imported/onelab_1779436461404.jpg-2da9c5f93717f7b509927eb2115ccf07.ctex"]
+source_file="res://assets/images/onelab/onelab_1776258950728.jpg"
+dest_files=["res://.godot/imported/onelab_1776258950728.jpg-e3b31143f3b225d4fcf6615f533a93a5.ctex"]
 
 [params]
 
 compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
+compress/uastc_level=0
+compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
@@ -25,6 +27,10 @@ mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
+process/channel_remap/red=0
+process/channel_remap/green=1
+process/channel_remap/blue=2
+process/channel_remap/alpha=3
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/normal_map_invert_y=false

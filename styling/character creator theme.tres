@@ -1,9 +1,9 @@
 [gd_resource type="Theme" format=3 uid="uid://bvdhhdoy1b6m4"]
 
-[ext_resource type="Texture2D" uid="uid://6hm5vlxv3ogd" path="res://assets/images/onbelab/onelab_1776258780643.jpg" id="1_do5ds"]
+[ext_resource type="Texture2D" uid="uid://6hm5vlxv3ogd" path="res://assets/images/onelab/onelab_1776258780643.jpg" id="1_do5ds"]
 [ext_resource type="FontFile" uid="uid://c04v1ew3g4n31" path="res://styling/fonts/Roboto/static/Roboto-ExtraBoldItalic.ttf" id="1_i6dfa"]
 [ext_resource type="FontFile" uid="uid://da4gu1j4mc0dt" path="res://styling/fonts/speedway/Speedway-3xYz.otf" id="1_yixth"]
-[ext_resource type="Texture2D" uid="uid://dxaxtoygiauqv" path="res://assets/images/onbelab/onelab_1779436461404.jpg" id="2_i6dfa"]
+[ext_resource type="Texture2D" uid="uid://dxaxtoygiauqv" path="res://assets/images/onelab/onelab_1779436461404.jpg" id="2_i6dfa"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rp7ul"]
 bg_color = Color(0.35, 0.320075, 0.3185, 1)
