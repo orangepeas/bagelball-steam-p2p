@@ -13,7 +13,10 @@ test custom characters work in multiplayer
 
 add textures to character creator
 
+add a directional plonk as a child to each headpiece
 
 scale bageldistance with player size CLV
+
 make ball only score when the center crosses the goal line to fix ball scaling issues
+
 reset to default doesnt work on scroll throw in CLV menu
