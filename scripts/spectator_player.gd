@@ -66,7 +66,8 @@ func destroy_player():
 	self.queue_free()
 
 func _on_player_ui_destroy_player() -> void:
-	destroy_player.rpc()
+	for id in multiplayer.get_peers():
+		destroy_player.rpc_id(id)
 
 func respawn_player():
 	global_position = get_tree().get_first_node_in_group("BallRespawnPoint").global_position
