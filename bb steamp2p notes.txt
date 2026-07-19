@@ -21,13 +21,23 @@ reset to default doesnt work on scroll throw in CLV menu
 
 
 bugs:
+instant goal score
 custom characters don't sync
 jittery client movement
 rpcs multiply x4 (fixed)
 
 bugs in detail:
+instant goal score:
+when you spawn in it scores a goal for red idk why or how
+
+
+
+*******************************************************************************************************************
 custom characters don't sync:
 should store the character pieces as part of global.players
+
+did that and now both characters appear as the hosts characters. will look into it another day.
+
 
 
 *******************************************************************************************************************

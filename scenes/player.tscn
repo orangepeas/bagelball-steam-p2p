@@ -39,15 +39,6 @@ properties/4/replication_mode = 1
 properties/5/path = NodePath("Camera3D:rotation")
 properties/5/spawn = true
 properties/5/replication_mode = 1
-properties/6/path = NodePath(".:headPieceIndex")
-properties/6/spawn = true
-properties/6/replication_mode = 2
-properties/7/path = NodePath(".:bodyPieceIndex")
-properties/7/spawn = true
-properties/7/replication_mode = 2
-properties/8/path = NodePath(".:legsPieceIndex")
-properties/8/spawn = true
-properties/8/replication_mode = 2
 
 [sub_resource type="TextMesh" id="TextMesh_yebjr"]
 text = "test"
