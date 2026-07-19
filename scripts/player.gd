@@ -62,7 +62,6 @@ var horizontalSpeed : float
 var canbhop := false
 
 func _enter_tree() -> void:
-	set_multiplayer_authority(str(name).to_int())
 	$MultiplayerSynchronizer.set_multiplayer_authority(str(name).to_int())
 
 func _ready() -> void:
