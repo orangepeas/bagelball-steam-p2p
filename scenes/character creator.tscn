@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dv57tmqgbj4ux"]
 
 [ext_resource type="Script" uid="uid://babswx3jugcrc" path="res://scripts/character_creator.gd" id="1_r4yx0"]
-[ext_resource type="PackedScene" uid="uid://b8y66tcq4gfmr" path="res://scenes/main level model/main level model.tscn" id="2_q2ne5"]
+[ext_resource type="PackedScene" uid="uid://bjtx1e7bdhq6r" path="res://scenes/main level model/character_creator_main_level_model.tscn" id="2_u0slw"]
 [ext_resource type="Theme" uid="uid://bvdhhdoy1b6m4" path="res://styling/character creator theme.tres" id="3_bqimr"]
 [ext_resource type="AudioStream" uid="uid://cb05lq4mm8c1n" path="res://audio/sfx/character creator button pressed.ogg" id="4_4xe1u"]
 [ext_resource type="AudioStream" uid="uid://4r6ib1qvl7xu" path="res://audio/music/character creator.ogg" id="5_elvr3"]
@@ -12,7 +12,7 @@ friction = 0.1
 [node name="CharacterCreator" type="Node3D" unique_id=1582452031]
 script = ExtResource("1_r4yx0")
 
-[node name="Main Level Model" parent="." unique_id=1619871719 instance=ExtResource("2_q2ne5")]
+[node name="CharacterCreatorMainLevelModel" parent="." unique_id=719212322 instance=ExtResource("2_u0slw")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 214.111, -3.39611, 132.595)
 
 [node name="PieceChangeBackward" type="AudioStreamPlayer3D" parent="." unique_id=777177770]

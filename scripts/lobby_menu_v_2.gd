@@ -95,6 +95,7 @@ func stop_main_menu_behaviour() -> void:
 
 @rpc("any_peer", "call_local")
 func start_game():
+	global.deleteCharacterCreator.emit()
 	startGame.disabled = true
 	switchTeam.disabled = true
 	switchSpec.disabled = true

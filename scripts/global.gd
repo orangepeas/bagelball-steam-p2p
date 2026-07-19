@@ -64,6 +64,7 @@ signal sensChange               ##connects to player.gd from settings.gd
 signal gameCountdown            ##connects to score_display.gd & noise_maker.gd from player_ui.gd
 signal closeGoals               ##connects to goal_score.gd from score_display.gd
 signal gameCountdownNoises      ##connects to noise_maker.gd from player_ui.gd
+signal deleteCharacterCreator   ##connects to main_menu.gd from lobby_menu_v2.gd
 
 signal youSalmon(id:int)        ##connects to noise_maker.gd from insult_selector.gd
 signal youMackerel(id:int)      ##connects to noise_maker.gd from insult_selector.gd

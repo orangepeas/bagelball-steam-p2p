@@ -1,0 +1,75 @@
+[gd_scene format=3 uid="uid://bjtx1e7bdhq6r"]
+
+[ext_resource type="PackedScene" uid="uid://6kbeqkkqb5c8" path="res://scenes/main level model/floor.tscn" id="1_w4jp5"]
+[ext_resource type="PackedScene" uid="uid://cy3j0tbiuxb5g" path="res://scenes/main level model/goal_wall_12.tscn" id="2_busej"]
+[ext_resource type="PackedScene" uid="uid://d3h1i2bxx7fid" path="res://scenes/main level model/goal_wall_22.tscn" id="3_ag7k3"]
+[ext_resource type="PackedScene" uid="uid://cr0vja3lwfnt0" path="res://scenes/main level model/side_wall_12.tscn" id="4_3jojs"]
+[ext_resource type="PackedScene" uid="uid://c17gxyb7slqsd" path="res://scenes/main level model/side_wall_22.tscn" id="5_m2hsl"]
+[ext_resource type="PackedScene" uid="uid://nns82uw8knry" path="res://scenes/main level model/ceiling_2.tscn" id="6_u8fxr"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_o1j1b"]
+sky_top_color = Color(0.441805, 0.517939, 0.832206, 1)
+sky_horizon_color = Color(0.310987, 0.710561, 0.854434, 1)
+sky_energy_multiplier = 1.77
+ground_bottom_color = Color(0.470152, 0.636011, 0.525093, 1)
+
+[sub_resource type="Sky" id="Sky_dsp7e"]
+sky_material = SubResource("ProceduralSkyMaterial_o1j1b")
+
+[sub_resource type="Environment" id="Environment_xse14"]
+background_mode = 2
+background_color = Color(0.691357, 0.691357, 0.691357, 1)
+sky = SubResource("Sky_dsp7e")
+glow_enabled = true
+glow_normalized = true
+glow_intensity = 1.06
+glow_strength = 0.59
+glow_hdr_luminance_cap = 15.76
+
+[node name="CharacterCreatorMainLevelModel" type="Node3D" unique_id=719212322]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=966889974]
+environment = SubResource("Environment_xse14")
+
+[node name="floor" parent="." unique_id=228301635 instance=ExtResource("1_w4jp5")]
+
+[node name="goal wall 12" parent="." unique_id=1574965859 instance=ExtResource("2_busej")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+
+[node name="goal wall 22" parent="." unique_id=1819115392 instance=ExtResource("3_ag7k3")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+
+[node name="side wall 12" parent="." unique_id=1620830711 instance=ExtResource("4_3jojs")]
+
+[node name="side wall 22" parent="." unique_id=1229572712 instance=ExtResource("5_m2hsl")]
+
+[node name="ceiling2" parent="." unique_id=1102208850 instance=ExtResource("6_u8fxr")]
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." unique_id=828169229]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 135, 152, 0)
+light_color = Color(0.737255, 0.913725, 0.909804, 1)
+light_energy = 2.0
+omni_range = 300.0
+omni_attenuation = 0.245
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="." unique_id=435064344]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -114, 152, 0)
+light_color = Color(0.996078, 0.866667, 0.866667, 1)
+light_energy = 2.0
+omni_range = 300.0
+omni_attenuation = 0.245
+
+[node name="SpotLight3D" type="SpotLight3D" parent="." unique_id=1664528803]
+transform = Transform3D(1, 0, 0, 0, 0, 1, 0, -1, 0, 0, 167.378, 0)
+visible = false
+shadow_enabled = true
+spot_range = 765.279
+spot_attenuation = -1.0
+spot_angle = 65.2182
+spot_angle_attenuation = 2.14355
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1103994351]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 155.378, 0)
+shadow_enabled = true
+directional_shadow_max_distance = 800.0
+sky_mode = 1

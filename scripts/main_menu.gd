@@ -26,7 +26,7 @@ func _ready() -> void:
 	global.backToMainMenu.connect(reset_main_menu)
 	global.hideTitleImages.connect(hide_title_images)
 	global.muteTitleMusic.connect(mute_title_music)
-	global.levelFinishedLoading.connect(character_creator_queue_free)
+	global.deleteCharacterCreator.connect(character_creator_queue_free)
 	start_main_menu()
 
 func character_creator_queue_free():
