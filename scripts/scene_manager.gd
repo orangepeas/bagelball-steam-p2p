@@ -106,6 +106,7 @@ func start_game():
 				bodyPiece.hide()
 			for legsPiece in currentPlayer.legsPieceParent.get_children():
 				legsPiece.hide()
+			currentPlayer.characterPieces = global.players[i].characterPieces
 			if global.players[i].redTeam == true:
 				redPlayerCount += 1
 				material.albedo_color = Color(1,0,0,1)

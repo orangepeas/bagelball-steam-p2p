@@ -20,3 +20,48 @@ scale bageldistance with player size CLV
 make ball only score when the center crosses the goal line to fix ball scaling issues
 
 reset to default doesnt work on scroll throw in CLV menu
+
+
+
+bugs:
+custom characters don't sync
+jittery client movement
+rpcs multiply x4 (fixed)
+
+bugs in detail:
+custom characters don't sync:
+should store the character pieces as part of global.players
+
+
+*******************************************************************************************************************
+jittery client movement:
+the client gets a million of this error:
+E 0:01:59:772   process_simplify_path: Duplicate remote cache ID 21 for peer 1
+  <C++ Error>   Condition "peers_info[p_from].recv_nodes.has(id)" is true.
+  <C++ Source>  modules/multiplayer/scene_cache_interface.cpp:111 @ process_simplify_path()
+and the host after a brief delay gets this error:
+E 0:01:59:772   process_simplify_path: Duplicate remote cache ID 4 for peer 552396379
+  <C++ Error>   Condition "peers_info[p_from].recv_nodes.has(id)" is true.
+  <C++ Source>  modules/multiplayer/scene_cache_interface.cpp:111 @ process_simplify_path()
+
+if we look on the github c++ code, recv_nodes (received nodes) is a hashmap of ints and RecvNode (which is a class which contains an object id and a node path), and p_from (peer from) is an id passed into the function process_simplify_path, peers_info is a has map of int (probably id) and PeerInfo, a class of sent_nodes and recv_nodes.
+
+so, deciphering this line of code peers_info[p_from].recv_nodes.has(id), it means:
+from the connected peers, look at the id of the peer that called this function, and if the received nodes has this "id" parameter already, then throw this error.
+
+id is a really incomprehensible thing, int id = decode_uint32(&p_packet[ofs]) is what it says
+p_packet is something that's passed into the function, ofs is the number 33, and prefixing a variable with & in c++
+makes it fetch the address of that variable or something incomprehensible that someone said on stack overflow
+
+its unclear why process_simplify_path runs, but it seems to be when a packet is received and its tagged with this
+function, and then it caches the node id and the sender id and then sends a packet back saying yeah we did that
+
+so it seems like the same node and sender is sending a packet over and over again??
+
+i still dont really know why this means the client would be slow and jittery????
+
+
+
+*******************************************************************************************************************
+rpcs multiply x4:
+idk why this happens. it fixes if u loop over every player and rpc_id it to them individually, so i did that for every rpc.

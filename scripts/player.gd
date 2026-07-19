@@ -16,10 +16,8 @@ const RAY_LENGTH := 2000.0
 @export var terminalSpeed : float
 @export var wallJumpVelocity : int
 @export var noOfJumps : int
-@export var headPieceIndex := 0
-@export var bodyPieceIndex := 0
-@export var legsPieceIndex := 0
 
+@onready var characterPieces
 @onready var camera = $Camera3D
 @onready var mpSync := $MultiplayerSynchronizer
 @onready var bagelDistance = $"Camera3D/bagel distance"
@@ -75,9 +73,6 @@ func _ready() -> void:
 	print("mpSync.get_multiplayer_authority(): ", mpSync.get_multiplayer_authority())
 	if mpSync.get_multiplayer_authority() == multiplayer.get_unique_id() or global.singleplayer == true:
 		print("my name is: ", name)
-		headPieceIndex = global.headPiece ##assigned variable for mpsync to work
-		bodyPieceIndex = global.bodyPiece
-		legsPieceIndex = global.legsPiece
 		camera.make_current()
 		$"Player UI".show() ##pause screen bug
 		self.hide()
@@ -92,9 +87,9 @@ func _ready() -> void:
 	global.connect("fovChange", change_fov)
 	global.connect("sensChange", sens_change)
 	await get_tree().create_timer(0.02).timeout ##doesnt work without this dunno why
-	headPieceParent.get_children()[headPieceIndex].show()
-	bodyPieceParent.get_children()[bodyPieceIndex].show()
-	legsPieceParent.get_children()[legsPieceIndex].show()
+	headPieceParent.get_children()[characterPieces[0]].show()
+	bodyPieceParent.get_children()[characterPieces[1]].show()
+	legsPieceParent.get_children()[characterPieces[2]].show()
 	$"display name".text = displayName
 	self.look_at(global.ballRespawnPoint)
 	self.rotation.x = 0

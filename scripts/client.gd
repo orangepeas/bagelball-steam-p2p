@@ -78,6 +78,7 @@ func add_player(steam_id, sender_id):
 		"lobbyHost":isLobbyHost,
 		"index": global.players.size() + 1,
 		"displayName": Steam.getFriendPersonaName(steam_id),
+		"characterPieces": [global.headPiece, global.bodyPiece, global.legsPiece],
 		"goals": 0,
 		"spectator": false,
 		"redTeam": false
