@@ -201,7 +201,7 @@ func _physics_process(delta: float) -> void:
 			##raycast bagel
 			if Input.is_action_just_pressed("raycast_bagel"):
 				if bagel == null:
-					raycast_bagel($"Player UI/ScreenCenter".position) #.rpc_id(mpSync.get_multiplayer_authority(),
+					raycast_bagel($"Player UI/ScreenCenter".position)
 				elif bagel != null:
 					if bagel.bagelPickedUp == true && (multiplayer.get_unique_id() == bagel.playerIDHoldingBagel or global.singleplayer == true):
 						if global.funnyMode == false && disallowScrollThrow == false:
@@ -210,7 +210,7 @@ func _physics_process(delta: float) -> void:
 							await get_tree().create_timer(0.1).timeout
 							disallowQuantumSwitch = false
 					else:
-						raycast_bagel($"Player UI/ScreenCenter".position) #.rpc_id(mpSync.get_multiplayer_authority(),
+						raycast_bagel($"Player UI/ScreenCenter".position)
 
 
 			##jump
