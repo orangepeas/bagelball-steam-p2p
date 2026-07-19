@@ -50,55 +50,69 @@ func set_options():
 	if multiplayer.get_unique_id() == global.lobbyHostID:
 		for clv in general.get_children():
 			if clv.is_in_group("CLVGeneral"):
-				clv.broadcast_value.rpc(clv.variable.value)
+				for player in global.players.values():
+					clv.broadcast_value.rpc_id(player.multiplayer_id, clv.variable.value)
 				
 		for clv in ball.get_children():
 			if clv.is_in_group("CLVBall"):
-				clv.broadcast_value.rpc(clv.variable.value)
+				for player in global.players.values():
+					clv.broadcast_value.rpc_id(player.multiplayer_id, clv.variable.value)
 				
 		for clv in bagel.get_children():
 			if clv.is_in_group("CLVBagel"):
-				clv.broadcast_value.rpc(clv.variable.value)
+				for player in global.players.values():
+					clv.broadcast_value.rpc_id(player.multiplayer_id, clv.variable.value)
 		for clv in bagel2.get_children():
 			if clv.is_in_group("CLVBagel"):
-				clv.broadcast_value.rpc(clv.variable.value)
+				for player in global.players.values():
+					clv.broadcast_value.rpc_id(player.multiplayer_id, clv.variable.value)
 				
 		for clv in player.get_children():
 			if clv.is_in_group("CLVPlayer"):
-				clv.broadcast_value.rpc(clv.variable.value)
+				for player in global.players.values():
+					clv.broadcast_value.rpc_id(player.multiplayer_id, clv.variable.value)
 		for clv in player2.get_children():
 			if clv.is_in_group("CLVPlayer"):
-				clv.broadcast_value.rpc(clv.variable.value)
+				for player in global.players.values():
+					clv.broadcast_value.rpc_id(player.multiplayer_id, clv.variable.value)
 		for clv in player3.get_children():
 			if clv.is_in_group("CLVPlayer"):
-				clv.broadcast_value.rpc(clv.variable.value)
+				for player in global.players.values():
+					clv.broadcast_value.rpc_id(player.multiplayer_id, clv.variable.value)
 
 func set_options_singleplayer():
 	if multiplayer.get_unique_id() == global.lobbyHostID:
 		for clv in general.get_children():
 			if clv.is_in_group("CLVGeneral"):
-				clv.broadcast_value.rpc(clv.variable.value)
+				for player in global.players.values():
+					clv.broadcast_value.rpc_id(player.multiplayer_id, clv.variable.value)
 				
 		for clv in ball.get_children():
 			if clv.is_in_group("CLVBall"):
-				clv.broadcast_value.rpc(clv.variable.value)
+				for player in global.players.values():
+					clv.broadcast_value.rpc_id(player.multiplayer_id, clv.variable.value)
 				
 		for clv in bagel.get_children():
 			if clv.is_in_group("CLVBagel"):
-				clv.broadcast_value.rpc(clv.variable.value)
+				for player in global.players.values():
+					clv.broadcast_value.rpc_id(player.multiplayer_id, clv.variable.value)
 		for clv in bagel2.get_children():
 			if clv.is_in_group("CLVBagel"):
-				clv.broadcast_value.rpc(clv.variable.value)
+				for player in global.players.values():
+					clv.broadcast_value.rpc_id(player.multiplayer_id, clv.variable.value)
 				
 		for clv in player.get_children():
 			if clv.is_in_group("CLVPlayer"):
-				clv.broadcast_value.rpc(clv.variable.value)
+				for player in global.players.values():
+					clv.broadcast_value.rpc_id(player.multiplayer_id, clv.variable.value)
 		for clv in player2.get_children():
 			if clv.is_in_group("CLVPlayer"):
-				clv.broadcast_value.rpc(clv.variable.value)
+				for player in global.players.values():
+					clv.broadcast_value.rpc_id(player.multiplayer_id, clv.variable.value)
 		for clv in player3.get_children():
 			if clv.is_in_group("CLVPlayer"):
-				clv.broadcast_value.rpc(clv.variable.value)
+				for player in global.players.values():
+					clv.broadcast_value.rpc_id(player.multiplayer_id, clv.variable.value)
 
 func _on_back_pressed() -> void:
 	if practiceMode == false:

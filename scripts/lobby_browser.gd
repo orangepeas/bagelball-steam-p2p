@@ -25,7 +25,7 @@ func _ready():
 
 #func connected_to_server():
 	#print("connected to server")
-	#add_player.rpc_id(int(Steam.getLobbyData(global.currentLobby, "host")), Steam.getSteamID())
+	#add_player.rpc(int(Steam.getLobbyData(global.currentLobby, "host")), Steam.getSteamID())
 #
 #@rpc("any_peer","call_local")
 #func add_player(steam_id):

@@ -66,7 +66,8 @@ func pick_up_bagel(playerId : String):
 				player = p
 		if singlePlayer != true:
 			playerIDHoldingBagel = player.name.to_int()
-			set_bagel_authority.rpc(player.name)
+			for player in global.players.values():
+				set_bagel_authority.rpc_id(player.multiplayer_id, player.name)
 		bagelPickedUp = true
 		bagelDestination = player.bagelDistance
 		#self.apply_central_force(Vector3(0,0,0)) ##rigid bodies fall asleep and integrate_forces doesnt get called unless a force is applied

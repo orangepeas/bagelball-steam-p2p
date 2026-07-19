@@ -218,7 +218,7 @@ func join_game_as_spec():
 	prints("added map", global.map, multiplayer.get_unique_id())
 
 #func join_partway():
-	#add_player.rpc()
+	#add_player.rpc_id()
 #
 #@rpc("any_peer","call_local")
 #func add_player():

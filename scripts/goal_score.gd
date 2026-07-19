@@ -37,7 +37,8 @@ func _ready() -> void:
 
 func level_finished_loading():
 	print("level finished loading")
-	player_loaded_map.rpc()
+	for player in global.players.values():
+		player_loaded_map.rpc_id(player.multiplayer_id)
 
 @rpc("any_peer","call_local")
 func player_loaded_map():
@@ -45,7 +46,8 @@ func player_loaded_map():
 		playersWhoHaveLoaded += 1
 		print("players who have loaded ", playersWhoHaveLoaded)
 		if playersWhoHaveLoaded == global.players.size():
-			game_start_rpc.rpc()
+			for player in global.players.values():
+				game_start_rpc.rpc_id(player.multiplayer_id)
 
 @rpc("any_peer","call_local")
 func game_start_rpc():
@@ -77,8 +79,9 @@ func _on_blue_goal_body_entered(body: Node3D) -> void:
 	if body.is_in_group("ball") && closedGoals == false:
 		if singleplayer != true:
 			if multiplayer.get_unique_id() == global.lobbyHostID:
-				red_scored.rpc()
-				increase_players_score.rpc()
+				for player in global.players.values():
+					red_scored.rpc_id(player.multiplayer_id)
+					increase_players_score.rpc_id(player.multiplayer_id)
 		else:
 			red_scored()
 			increase_players_score()
@@ -99,8 +102,9 @@ func _on_red_goal_body_entered(body: Node3D) -> void:
 	if body.is_in_group("ball") && closedGoals == false:
 		if singleplayer != true:
 			if multiplayer.get_unique_id() == global.lobbyHostID:
-				blue_scored.rpc()
-				increase_players_score.rpc()
+				for player in global.players.values():
+					blue_scored.rpc_id(player.multiplayer_id)
+					increase_players_score.rpc_id(player.multiplayer_id)
 		else:
 			blue_scored()
 			increase_players_score()
@@ -145,8 +149,8 @@ func _on_walljump_detection_body_entered(body: Node3D) -> void:
 			global.playerTouchWall.emit()
 			#print("touching wall")
 	elif body.is_in_group("bagel") or body.is_in_group("ball"):
-		body.toggle_continuous_cd.rpc()
-		
+		for player in global.players.values():
+			body.toggle_continuous_cd.rpc_id(player.multiplayer_id)
 
 func _on_walljump_detection_body_exited(body: Node3D) -> void:
 	if body.is_in_group("player"):
@@ -154,7 +158,8 @@ func _on_walljump_detection_body_exited(body: Node3D) -> void:
 			global.playerNoTouchWall.emit()
 			#print("player not touching wall")
 	elif body.is_in_group("bagel") or body.is_in_group("ball"):
-		body.toggle_continuous_cd.rpc()
+		for player in global.players.values():
+			body.toggle_continuous_cd.rpc_id(player.multiplayer_id)
 
 func _on_oneway_detector_body_entered(body: Node3D) -> void:
 	if body.is_in_group("player") && (multiplayer.get_unique_id() == body.mpSync.get_multiplayer_authority() or global.singleplayer == true):
@@ -226,8 +231,9 @@ func _on_kill_zone_body_entered(body: Node3D) -> void:
 			if body.redTeam == true:
 				if singleplayer != true:
 					if multiplayer.get_unique_id() == global.lobbyHostID:
-						blue_scored.rpc()
-						increase_players_score.rpc()
+						for player in global.players.values():
+							blue_scored.rpc_id(player.multiplayer_id)
+							increase_players_score.rpc_id(player.multiplayer_id)
 				else:
 					blue_scored()
 					increase_players_score()
@@ -244,8 +250,9 @@ func _on_kill_zone_body_entered(body: Node3D) -> void:
 			elif body.redTeam == false:
 				if singleplayer != true:
 					if multiplayer.get_unique_id() == global.lobbyHostID:
-						red_scored.rpc()
-						increase_players_score.rpc()
+						for player in global.players.values():
+							red_scored.rpc_id(player.multiplayer_id)
+							increase_players_score.rpc_id(player.multiplayer_id)
 				else:
 					red_scored()
 					increase_players_score()

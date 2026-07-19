@@ -160,7 +160,8 @@ func raycast_bagel(eventPos : Vector2):
 				quantumBagel = result.collider.get_parent()
 			rayCastSuccess = true
 			bagel = result.collider.get_parent()
-			bagel.pick_up_bagel.rpc(self.name)
+			for player in global.players.values():
+				bagel.pick_up_bagel.rpc_id(player.multiplayer_id, self.name)
 			#if global.funnyMode == false:
 			#print("multiplayer id: ", mpSync.get_multiplayer_authority(), " result.collider", result.collider)
 			#print("is it in bagel group: ", result.collider.is_in_group("bagel"))
@@ -205,7 +206,8 @@ func _physics_process(delta: float) -> void:
 				elif bagel != null:
 					if bagel.bagelPickedUp == true && (multiplayer.get_unique_id() == bagel.playerIDHoldingBagel or global.singleplayer == true):
 						if global.funnyMode == false && disallowScrollThrow == false:
-							bagel.drop_bagel.rpc()
+							for player in global.players.values():
+								bagel.drop_bagel.rpc_id(player.multiplayer_id)
 							disallowQuantumSwitch = true
 							await get_tree().create_timer(0.1).timeout
 							disallowQuantumSwitch = false
@@ -297,12 +299,14 @@ func _physics_process(delta: float) -> void:
 					if !quantumBagel.bagelPickedUp && disallowQuantumSwitch == false:
 						if bagel != null:
 							if !global.singleplayer:
-								bagel.drop_bagel.rpc()
+								for player in global.players.values():
+									bagel.drop_bagel.rpc_id(player.multiplayer_id)
 							else:
 								bagel.drop_bagel()
 							#bagel.bagelPickedUp == false
 						if !global.singleplayer:
-							quantumBagel.pick_up_bagel.rpc(self.name)
+							for player in global.players.values():
+								quantumBagel.pick_up_bagel.rpc_id(player.multiplayer_id, self.name)
 						else:
 							quantumBagel.pick_up_bagel(self.name)
 						bagel = quantumBagel
@@ -322,30 +326,6 @@ func _physics_process(delta: float) -> void:
 				
 			if Input.is_action_pressed("fastfall") and not is_on_floor() && fastfallCooldown == false:
 				velocity.y -= 2
-
-
-
-			##splonk(throw) bagel forward
-			#if Input.is_action_just_pressed("splonk_bagel_forward"):
-				#if closeBagel == true && bagel != null:
-					#closeBagel = false
-					#bagelSpeedModifier += 13
-					#bagelDistance.position.z -= 20
-					#await get_tree().create_timer(0.04).timeout
-					#bagel.drop_bagel.rpc()
-
-
-			##bagel map fall thru platform
-			#if Input.is_action_just_pressed("fastfall"):
-				#global.disableOneWayBagelMap.emit()
-			#if Input.is_action_just_released("fastfall"):
-				#global.enableOneWayBagelMap.emit()
-
-
-			##little boost
-			#if Input.is_action_just_pressed("little_boost"):
-				#var cursorPos = DisplayServer.screen_get_size()/2
-				#velocity += camera.project_ray_origin(cursorPos)
 
 
 		##putting movement outside of pause script

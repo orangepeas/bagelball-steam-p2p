@@ -78,7 +78,8 @@ func can_start_game():
 		canStartGame.emit() ##connects to CLV
 		print("lobby menu can start game")
 		switchTeam.disabled = true
-		broadcast_all_options_rpc.rpc_id(global.lobbyHostID)
+		for player in global.players.values():
+			broadcast_all_options_rpc.rpc_id(player.multiplayer_id, global.lobbyHostID)
 		###if its not converted to a string it doesnt work. unclear why
 		#var id = str(multiplayer.get_unique_id())
 		startGame.disabled = false
@@ -115,16 +116,19 @@ func broadcast_map(index : int):
 
 @rpc("any_peer","call_local")
 func broadcast_all_options_rpc():
-	broadcast_map.rpc(mapsOptions.selected)
-	broadcast_quantum_bagels.rpc(quantumBagelOptions.selected)
+	for player in global.players.values():
+		broadcast_map.rpc_id(player.multiplayer_id, mapsOptions.selected)
+		broadcast_quantum_bagels.rpc_id(player.multiplayer_id, quantumBagelOptions.selected)
 
 func broadcast_all_options():
-	broadcast_map.rpc(mapsOptions.selected)
-	broadcast_quantum_bagels.rpc(quantumBagelOptions.selected)
+	for player in global.players.values():
+		broadcast_map.rpc_id(player.multiplayer_id, mapsOptions.selected)
+		broadcast_quantum_bagels.rpc_id(player.multiplayer_id, quantumBagelOptions.selected)
 
 func _on_maps_options_item_selected(index: int) -> void:
 	print(mapsOptions.selected)
-	broadcast_map.rpc(index)
+	for player in global.players.values():
+		broadcast_map.rpc_id(player.multiplayer_id, index)
 
 func _on_copy_to_clipboard_pressed() -> void:
 	if lobbyIdOutput.text != "":
@@ -133,7 +137,8 @@ func _on_copy_to_clipboard_pressed() -> void:
 func _on_start_game_pressed() -> void:
 	##only one person needs to tell the server the game started
 	Steam.setLobbyJoinable(global.currentLobby,false)
-	start_game.rpc()
+	for player in global.players.values():
+		start_game.rpc_id(player.multiplayer_id)
 
 func _on_stop_hosting_pressed() -> void:
 	print("glboal clobby ", global.currentLobby)
@@ -151,8 +156,9 @@ func _on_leave_lobby_pressed() -> void:
 	global.currentLobby = 0##fixes the unable to rejoin bug, button is disabled if global.currentlobby = the lobby id of that lobby individual
 
 func _on_quantum_bagels_options_item_selected(index: int) -> void:
-		broadcast_quantum_bagels.rpc(index)
-		
+	for player in global.players.values():
+		broadcast_quantum_bagels.rpc_id(player.multiplayer_id, index)
+
 @rpc("any_peer","call_local")
 func broadcast_quantum_bagels(index : int):
 	quantumBagelOptions.select(index)
@@ -175,7 +181,8 @@ func switch_teams(id : int):
 	#prints("redteam of postswitch",global.players[str(id)].redTeam)
 
 func _on_switch_teams_pressed() -> void:
-	switch_teams.rpc(multiplayer.get_unique_id())
+	for player in global.players.values():
+		switch_teams.rpc_id(player.multiplayer_id, multiplayer.get_unique_id())
 
 func _on_client_can_switch_teams() -> void:
 	print("can switch teams")
@@ -198,7 +205,8 @@ func switch_spectator(id : int):
 	$"../Client".updateLobbyBoard()
 
 func _on_switch_spectator_pressed() -> void:
-	switch_spectator.rpc(multiplayer.get_unique_id())
+	for player in global.players.values():
+		switch_spectator.rpc_id(player.multiplayer_id, multiplayer.get_unique_id())
 
 ##func no_can_switch_teams():
 

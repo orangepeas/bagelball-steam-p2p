@@ -108,14 +108,20 @@ func soggy_bagel_rpc(id : int):
 		$"Soggy Bagel".play()
 
 func absolute_mollusc(id : int) -> void:
-	absolute_mollusc_rpc.rpc(id)
+	for player in global.players.values():
+		absolute_mollusc_rpc.rpc_id(player.multiplayer_id, id)
 func bloody_trout(id : int) -> void:
-	bloody_trout_rpc.rpc(id)
+	for player in global.players.values():
+		bloody_trout_rpc.rpc_id(player.multiplayer_id, id)
 func you_mackerel(id : int) -> void:
-	you_mackerel_rpc.rpc(id)
+	for player in global.players.values():
+		you_mackerel_rpc.rpc_id(player.multiplayer_id, id)
 func you_salmon(id : int) -> void:
-	you_salmon_rpc.rpc(id)
+	for player in global.players.values():
+		you_salmon_rpc.rpc_id(player.multiplayer_id, id)
 func slimy_worm(id : int) -> void:
-	slimy_worm_rpc.rpc(id)
+	for player in global.players.values():
+		slimy_worm_rpc.rpc_id(player.multiplayer_id, id)
 func soggy_bagel(id : int) -> void:
-	soggy_bagel_rpc.rpc(id)
+	for player in global.players.values():
+		soggy_bagel_rpc.rpc_id(player.multiplayer_id, id)

@@ -294,7 +294,7 @@ func _on_join_lobby_button_down(lobbyId : int) -> void:
 	#self.get_parent().hide() ##hides main menu
 	#var scene = load("res://scenes/main_level_join_late.tscn").instantiate()
 	#get_tree().root.add_child(scene)
-	#scene.join_game_as_spec.rpc()
+	#scene.join_game_as_spec.rpc_id()
 
 func _on_private_lobby_button_toggled(toggled_on: bool) -> void:
 	if toggled_on:

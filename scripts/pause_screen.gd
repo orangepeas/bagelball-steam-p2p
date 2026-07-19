@@ -20,7 +20,8 @@ func _on_resume_game_pressed() -> void:
 func _notification(what):
 	##if player alt f4's or something then we quit the tree is my guess. i dont really know
 	if what == NOTIFICATION_WM_CLOSE_REQUEST:
-		destroy_player.rpc(multiplayer.get_unique_id()) ##so if they alt f4 theres no funny behaviour
+		for player in global.players.values():
+			destroy_player.rpc_id(player.multiplayer_id, multiplayer.get_unique_id()) ##so if they alt f4 theres no funny behaviour
 		global.pauseScreenLeaveLobby.emit()
 		get_tree().quit() # default behavior
 
@@ -76,7 +77,8 @@ func destroy_player(disconnectedId : int):
 
 func _on_leave_lobby_pressed() -> void:
 	if global.singleplayer == false:
-		destroy_player.rpc(multiplayer.get_unique_id())
+		for player in global.players.values():  
+			destroy_player.rpc_id(player.multiplayer_id, multiplayer.get_unique_id())
 		global.pauseScreenLeaveLobby.emit()
 	elif global.singleplayer == true:
 		global.singleplayer = false

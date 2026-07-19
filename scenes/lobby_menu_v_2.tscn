@@ -1,10 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://cxinpjqgq5gga"]
+[gd_scene format=3 uid="uid://cxinpjqgq5gga"]
 
 [ext_resource type="Script" uid="uid://b6ii6krvi1kdt" path="res://scripts/lobby_menu_v_2.gd" id="1_m5y3u"]
 [ext_resource type="PackedScene" uid="uid://chf0w76oxufnj" path="res://scenes/map options dropdown.tscn" id="2_pnjqe"]
 [ext_resource type="PackedScene" uid="uid://pjfvk3hdof6i" path="res://scenes/custom_lobby_variables.tscn" id="3_3tro4"]
 
-[node name="Lobby Menu V2" type="Control"]
+[node name="Lobby Menu V2" type="Control" unique_id=751369012]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -13,7 +13,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_m5y3u")
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1552977967]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -25,34 +25,34 @@ theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="PanelContainer" type="PanelContainer" parent="MarginContainer"]
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer" unique_id=1285188551]
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer" unique_id=1054652295]
 layout_mode = 2
 theme_override_constants/margin_left = 20
 theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 20
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer" unique_id=1125134645]
 layout_mode = 2
 theme_override_constants/separation = 20
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=1937885222]
 layout_mode = 2
 size_flags_horizontal = 4
 alignment = 1
 
-[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1322801256]
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/PanelContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/PanelContainer" unique_id=1833827245]
 layout_mode = 2
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_right = 10
 
-[node name="Lobby Name" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer"]
+[node name="Lobby Name" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/PanelContainer/MarginContainer" unique_id=821828224]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -60,49 +60,49 @@ text = "Lobby Name"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=754036530]
 layout_mode = 2
 alignment = 1
 
-[node name="LobbyID Output" type="LineEdit" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2"]
+[node name="LobbyID Output" type="LineEdit" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2" unique_id=1004435648]
 layout_mode = 2
 placeholder_text = "ThisString is 32 characters"
 max_length = 32
 editable = false
 expand_to_text_length = true
 
-[node name="Copy To Clipboard" type="Button" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2"]
+[node name="Copy To Clipboard" type="Button" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2" unique_id=1507523749]
 layout_mode = 2
 size_flags_horizontal = 4
 text = "Copy Lobby ID 
 to clipboard"
 
-[node name="Custom Lobby Variables" type="Button" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2"]
+[node name="Custom Lobby Variables" type="Button" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2" unique_id=496184896]
 layout_mode = 2
 text = "Custom Lobby
 Variables"
 
-[node name="HBoxContainer3" type="HBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+[node name="HBoxContainer3" type="HBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=150802683]
 layout_mode = 2
 
-[node name="Host Options" type="HBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer3"]
+[node name="Host Options" type="HBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer3" unique_id=679442241]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="MapsLabel" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer3/Host Options"]
+[node name="MapsLabel" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer3/Host Options" unique_id=717031255]
 layout_mode = 2
 text = "Map:"
 horizontal_alignment = 1
 
-[node name="MapsOptions" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer3/Host Options" instance=ExtResource("2_pnjqe")]
+[node name="MapsOptions" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer3/Host Options" unique_id=1704002629 instance=ExtResource("2_pnjqe")]
 layout_mode = 2
 
-[node name="Quantum Bagels" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer3/Host Options"]
+[node name="Quantum Bagels" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer3/Host Options" unique_id=1239896322]
 layout_mode = 2
 text = "Quantum Bagels: "
 horizontal_alignment = 1
 
-[node name="QuantumBagelsOptions" type="OptionButton" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer3/Host Options"]
+[node name="QuantumBagelsOptions" type="OptionButton" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer3/Host Options" unique_id=892033232]
 layout_mode = 2
 selected = 0
 item_count = 2
@@ -111,50 +111,50 @@ popup/item_0/id = 0
 popup/item_1/text = "Yes"
 popup/item_1/id = 1
 
-[node name="Stop Hosting" type="Button" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer3/Host Options"]
+[node name="Stop Hosting" type="Button" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer3/Host Options" unique_id=1456020594]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Stop Hosting"
 
-[node name="Leave Lobby" type="Button" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer3/Host Options"]
+[node name="Leave Lobby" type="Button" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer3/Host Options" unique_id=1931046083]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Leave Lobby"
 
-[node name="HBoxContainer4" type="HBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+[node name="HBoxContainer4" type="HBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=322906701]
 layout_mode = 2
 
-[node name="Lobby Player Count" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer4"]
+[node name="Lobby Player Count" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer4" unique_id=1453258251]
 layout_mode = 2
 text = "Players Connected: 0"
 
-[node name="Switch Teams" type="Button" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer4"]
+[node name="Switch Teams" type="Button" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer4" unique_id=166396170]
 layout_mode = 2
 text = "Switch Teams"
 
-[node name="Switch Spectator" type="Button" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer4"]
+[node name="Switch Spectator" type="Button" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer4" unique_id=1352632990]
 layout_mode = 2
 text = "Switch To/From Spectator"
 
-[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=1128449]
 custom_minimum_size = Vector2(0, 140)
 layout_mode = 2
 
-[node name="HBoxContainer5" type="HBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer"]
+[node name="HBoxContainer5" type="HBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer" unique_id=1415105087]
 layout_mode = 2
 
-[node name="Lobby Player Names" type="ItemList" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/HBoxContainer5"]
+[node name="Lobby Player Names" type="ItemList" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/HBoxContainer5" unique_id=1067444422]
 custom_minimum_size = Vector2(900, 140)
 layout_mode = 2
 size_flags_horizontal = 3
 max_text_lines = 3
 auto_height = true
 
-[node name="Start Game" type="Button" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+[node name="Start Game" type="Button" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=958167129]
 layout_mode = 2
 text = "Start Game"
 
-[node name="Custom Lobby Variables" parent="." instance=ExtResource("3_3tro4")]
+[node name="Custom Lobby Variables" parent="." unique_id=944242678 instance=ExtResource("3_3tro4")]
 visible = false
 layout_mode = 1
 

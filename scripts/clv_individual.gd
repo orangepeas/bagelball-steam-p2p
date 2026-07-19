@@ -17,7 +17,8 @@ func _ready():
 	$VariableNum.max_value = maxValue
 
 func _on_variable_num_value_changed(value: float) -> void:
-	broadcast_value.rpc(value)
+	for player in global.players.values():
+		broadcast_value.rpc_id(player.multiplayer_id, value)
 
 @rpc("any_peer","call_local")
 func broadcast_value(value : float):

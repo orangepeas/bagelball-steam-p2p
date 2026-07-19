@@ -10,7 +10,8 @@ func _ready():
 	variable = LobbyVariable.new(exportOption,exportValue)
 
 func _on_variable_checkbox_toggled(toggled_on: bool) -> void:
-	broadcast_value.rpc(toggled_on)
+	for player in global.players.values():
+		broadcast_value.rpc_id(player.multiplayer_id, toggled_on)
 
 @rpc("any_peer","call_local")
 func broadcast_value(value : bool):
