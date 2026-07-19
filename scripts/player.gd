@@ -32,7 +32,6 @@ const RAY_LENGTH := 2000.0
 @onready var head = $Character/head
 @onready var bodyPieceParent = $Character/body
 @onready var legsPieceParent = $Character/legs
-@onready var directionalPlonk = $Character/directionalPlonk
 
 var SPEED : float
 var bagel : RigidBody3D
@@ -138,6 +137,10 @@ func _unhandled_input(event: InputEvent) -> void:
 			if global.funnyMode == true:
 				if event is InputEventMouseButton && event.pressed && event.button_index == 2:
 					velocity += camera.project_ray_normal(event.position) * RAY_LENGTH
+		
+		if Input.is_action_just_pressed("test_camera"):
+			$testcam.make_current()
+			show()
 
 func raycast_bagel(eventPos : Vector2):
 	await get_tree().process_frame ##this fixes the bug where both players need to click before the raycast works

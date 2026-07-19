@@ -158,15 +158,46 @@ transform = Transform3D(7, 0, 0, 0, 7, 0, 0, 0, 7, 0, 15.0272, 0)
 transform = Transform3D(7, 0, 0, 0, 7, 0, 0, 0, 7, 0, 15.0272, 0)
 
 [node name="Cube" type="CSGBox3D" parent="character/head" unique_id=544246406]
+visible = false
 
 [node name="CSGBox3D" type="CSGBox3D" parent="character/head/Cube" unique_id=1921708376]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.555, 0.20599985, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0)
 operation = 2
-size = Vector3(0.2, 0.4, 0.75)
+size = Vector3(0.01, 0.75, 0.75)
 
 [node name="Cylinder" type="CSGCylinder3D" parent="character/head" unique_id=1031234183]
 visible = false
 height = 1.0
+sides = 16
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="character/head/Cylinder" unique_id=646490652]
+transform = Transform3D(-4.2921133e-08, 0.981921, -0.18929125, -1, -4.371139e-08, 0, -8.274183e-09, 0.18929125, 0.981921, 0.4478169, 0.35664964, 0.18737799)
+radius = 0.08203125
+height = 0.22045898
+sides = 16
+
+[node name="CSGCylinder3D5" type="CSGCylinder3D" parent="character/head/Cylinder" unique_id=921444023]
+transform = Transform3D(-5.0587906e-10, 0.0115732, 0.99993354, -1, -4.3711385e-08, -9.020637e-16, 4.3708482e-08, -0.99993354, 0.0115732, 0.49464166, 0.10111475, 0.029156987)
+radius = 0.08203125
+height = 0.16239929
+sides = 16
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="character/head/Cylinder" unique_id=304309300]
+transform = Transform3D(-4.3322707e-08, 0.991108, 0.1330603, -1, -4.371139e-08, 0, 5.816251e-09, -0.1330603, 0.991108, 0.36219656, 0.26982546, -0.23799212)
+radius = 0.08203125
+height = 0.22045898
+sides = 16
+
+[node name="CSGCylinder3D3" type="CSGCylinder3D" parent="character/head/Cylinder" unique_id=203893186]
+transform = Transform3D(-4.2318828e-08, 0.96814185, 0.25040373, -1, -4.3711385e-08, 1.0827344e-16, 1.09455e-08, -0.25040373, 0.96814185, 0.3792672, 0.26301146, -0.25926527)
+radius = 0.04345703
+height = 0.28826904
+sides = 16
+
+[node name="CSGCylinder3D4" type="CSGCylinder3D" parent="character/head/Cylinder" unique_id=200068542]
+transform = Transform3D(-4.266637e-08, 0.97609264, -0.21735641, -1, -4.371139e-08, 0, -9.50095e-09, 0.21735641, 0.97609264, 0.43593892, 0.3575573, 0.19891672)
+radius = 0.04345703
+height = 0.40438843
 sides = 16
 
 [node name="Diamond" type="Node3D" parent="character/head" unique_id=785978060]
@@ -184,6 +215,24 @@ height = 0.5
 sides = 4
 cone = true
 
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="character/head/Diamond" unique_id=143534365]
+transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, 0.14210066, 0.471102, 0.109172076)
+radius = 0.08886719
+height = 0.32763672
+sides = 4
+
+[node name="CSGCylinder3D4" type="CSGCylinder3D" parent="character/head/Diamond" unique_id=553314879]
+transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, 0.14210066, 0.471102, -0.13543664)
+radius = 0.08886719
+height = 0.32763672
+sides = 4
+
+[node name="CSGCylinder3D5" type="CSGCylinder3D" parent="character/head/Diamond" unique_id=1467876586]
+transform = Transform3D(-0.18669586, -0.9824178, 8.5885695e-08, -0.9824178, 0.18669586, -1.6321476e-08, 3.8213714e-15, -8.742278e-08, -1, 0.18638073, 0.19333982, 0.007420508)
+radius = 0.15673828
+height = 0.32763672
+sides = 4
+
 [node name="Torment Nexus" type="Node3D" parent="character/head" unique_id=32067841]
 visible = false
 
@@ -199,10 +248,21 @@ height = 0.5
 sides = 4
 cone = true
 
+[node name="CSGCylinder3D4" type="CSGCylinder3D" parent="character/head/Torment Nexus" unique_id=1926513750]
+transform = Transform3D(-1.3113419e-07, -1, -8.742278e-08, -1, 1.3113419e-07, 0, 1.1464115e-14, 8.742278e-08, -1, 0.10465828, 0.10190368, 0)
+radius = 0.21142578
+height = 0.5
+sides = 4
+cone = true
+
 [node name="Bagel" type="CSGTorus3D" parent="character/head" unique_id=1556858599]
-visible = false
 inner_radius = 0.2
 outer_radius = 0.7
+
+[node name="CSGTorus3D" type="CSGTorus3D" parent="character/head/Bagel" unique_id=1054922299]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.91287, 0, 0)
+inner_radius = 0.032602564
+outer_radius = 0.19957885
 
 [node name="body" type="Node3D" parent="character" unique_id=877394370]
 transform = Transform3D(7, 0, 0, 0, 7, 0, 0, 0, 7, 0, 8.02723, 0)
