@@ -167,7 +167,6 @@ func broadcast_quantum_bagels(index : int):
 		1:  ##yes
 			GLV.quantumBagels = true
 
-
 func _on_custom_lobby_variables_pressed() -> void:
 	$"Custom Lobby Variables".show()
 	$MarginContainer/PanelContainer.hide()
