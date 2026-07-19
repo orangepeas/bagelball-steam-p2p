@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://cq46kme3ox046"]
+[gd_scene format=3 uid="uid://cq46kme3ox046"]
 
 [ext_resource type="Script" uid="uid://dl1jynaq1f24t" path="res://scripts/main_menu.gd" id="1_662th"]
 [ext_resource type="PackedScene" uid="uid://pjfvk3hdof6i" path="res://scenes/custom_lobby_variables.tscn" id="2_e37nt"]
@@ -30,13 +30,8 @@
 [ext_resource type="FontFile" uid="uid://bgodc4gs8nlyi" path="res://styling/fonts/Roboto/Roboto-VariableFont_wdth,wght.ttf" id="21_i07pi"]
 [ext_resource type="AudioStream" uid="uid://bd2hx7sxb6p55" path="res://audio/music/duck - bagelball main menu_2.ogg" id="25_8s3t8"]
 [ext_resource type="AudioStream" uid="uid://bxixpoqbxc8bw" path="res://audio/music/bagel atmosphere.ogg" id="26_wetyc"]
-[ext_resource type="FontFile" uid="uid://dxa08pinf6py4" path="res://styling/fonts/Roboto/static/Roboto-Black.ttf" id="31_dwdy1"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_g8w3l"]
-font = ExtResource("31_dwdy1")
-font_size = 60
-
-[node name="Main Menu" type="Control"]
+[node name="Main Menu" type="Control" unique_id=441049815]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -46,7 +41,7 @@ grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("1_662th")
 
-[node name="Thumbnails" type="Control" parent="."]
+[node name="Thumbnails" type="Control" parent="." unique_id=449739485]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -54,7 +49,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="TextureRect1" type="TextureRect" parent="Thumbnails" groups=["thumbnail"]]
+[node name="TextureRect1" type="TextureRect" parent="Thumbnails" unique_id=1975309367 groups=["thumbnail"]]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -64,7 +59,7 @@ grow_vertical = 2
 texture = ExtResource("2_ne25l")
 expand_mode = 2
 
-[node name="TextureRect2" type="TextureRect" parent="Thumbnails" groups=["thumbnail"]]
+[node name="TextureRect2" type="TextureRect" parent="Thumbnails" unique_id=1467550502 groups=["thumbnail"]]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -74,7 +69,7 @@ grow_vertical = 2
 texture = ExtResource("3_vx1d6")
 expand_mode = 2
 
-[node name="TextureRect3" type="TextureRect" parent="Thumbnails" groups=["thumbnail"]]
+[node name="TextureRect3" type="TextureRect" parent="Thumbnails" unique_id=1315711770 groups=["thumbnail"]]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -84,7 +79,7 @@ grow_vertical = 2
 texture = ExtResource("4_fa0md")
 expand_mode = 2
 
-[node name="TextureRect4" type="TextureRect" parent="Thumbnails" groups=["thumbnail"]]
+[node name="TextureRect4" type="TextureRect" parent="Thumbnails" unique_id=1412888927 groups=["thumbnail"]]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -94,7 +89,7 @@ grow_vertical = 2
 texture = ExtResource("5_s27ta")
 expand_mode = 2
 
-[node name="TextureRect5" type="TextureRect" parent="Thumbnails" groups=["thumbnail"]]
+[node name="TextureRect5" type="TextureRect" parent="Thumbnails" unique_id=1655680211 groups=["thumbnail"]]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -104,7 +99,7 @@ grow_vertical = 2
 texture = ExtResource("6_iit4t")
 expand_mode = 2
 
-[node name="TextureRect6" type="TextureRect" parent="Thumbnails" groups=["thumbnail"]]
+[node name="TextureRect6" type="TextureRect" parent="Thumbnails" unique_id=1403036625 groups=["thumbnail"]]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -114,7 +109,7 @@ grow_vertical = 2
 texture = ExtResource("7_fkmdl")
 expand_mode = 2
 
-[node name="TextureRect7" type="TextureRect" parent="Thumbnails" groups=["thumbnail"]]
+[node name="TextureRect7" type="TextureRect" parent="Thumbnails" unique_id=1242834383 groups=["thumbnail"]]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -124,7 +119,7 @@ grow_vertical = 2
 texture = ExtResource("8_6tkix")
 expand_mode = 2
 
-[node name="TextureRect8" type="TextureRect" parent="Thumbnails" groups=["thumbnail"]]
+[node name="TextureRect8" type="TextureRect" parent="Thumbnails" unique_id=1409177398 groups=["thumbnail"]]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -134,7 +129,7 @@ grow_vertical = 2
 texture = ExtResource("9_tgr17")
 expand_mode = 2
 
-[node name="TextureRect9" type="TextureRect" parent="Thumbnails" groups=["thumbnail"]]
+[node name="TextureRect9" type="TextureRect" parent="Thumbnails" unique_id=3471800 groups=["thumbnail"]]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -144,7 +139,7 @@ grow_vertical = 2
 texture = ExtResource("10_vl2tp")
 expand_mode = 2
 
-[node name="TextureRect10" type="TextureRect" parent="Thumbnails" groups=["thumbnail"]]
+[node name="TextureRect10" type="TextureRect" parent="Thumbnails" unique_id=1246946822 groups=["thumbnail"]]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -154,7 +149,7 @@ grow_vertical = 2
 texture = ExtResource("11_qt35h")
 expand_mode = 2
 
-[node name="TextureRect11" type="TextureRect" parent="Thumbnails" groups=["thumbnail"]]
+[node name="TextureRect11" type="TextureRect" parent="Thumbnails" unique_id=1561147302 groups=["thumbnail"]]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -164,7 +159,7 @@ grow_vertical = 2
 texture = ExtResource("12_fl5ih")
 expand_mode = 2
 
-[node name="TextureRect12" type="TextureRect" parent="Thumbnails" groups=["thumbnail"]]
+[node name="TextureRect12" type="TextureRect" parent="Thumbnails" unique_id=537227417 groups=["thumbnail"]]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -174,7 +169,7 @@ grow_vertical = 2
 texture = ExtResource("13_6xhwb")
 expand_mode = 2
 
-[node name="TextureRect13" type="TextureRect" parent="Thumbnails" groups=["thumbnail"]]
+[node name="TextureRect13" type="TextureRect" parent="Thumbnails" unique_id=1794744212 groups=["thumbnail"]]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -184,7 +179,7 @@ grow_vertical = 2
 texture = ExtResource("14_22rax")
 expand_mode = 2
 
-[node name="TextureRect14" type="TextureRect" parent="Thumbnails" groups=["thumbnail"]]
+[node name="TextureRect14" type="TextureRect" parent="Thumbnails" unique_id=1238810580 groups=["thumbnail"]]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -194,7 +189,7 @@ grow_vertical = 2
 texture = ExtResource("15_eurpp")
 expand_mode = 2
 
-[node name="TextureRect15" type="TextureRect" parent="Thumbnails" groups=["thumbnail"]]
+[node name="TextureRect15" type="TextureRect" parent="Thumbnails" unique_id=102134571 groups=["thumbnail"]]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -204,7 +199,7 @@ grow_vertical = 2
 texture = ExtResource("16_8s3t8")
 expand_mode = 2
 
-[node name="TextureRect16" type="TextureRect" parent="Thumbnails" groups=["thumbnail"]]
+[node name="TextureRect16" type="TextureRect" parent="Thumbnails" unique_id=409360625 groups=["thumbnail"]]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -214,7 +209,7 @@ grow_vertical = 2
 texture = ExtResource("17_dqp0d")
 expand_mode = 2
 
-[node name="TextureRect17" type="TextureRect" parent="Thumbnails" groups=["thumbnail"]]
+[node name="TextureRect17" type="TextureRect" parent="Thumbnails" unique_id=1682844327 groups=["thumbnail"]]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -224,16 +219,7 @@ grow_vertical = 2
 texture = ExtResource("18_37xn7")
 expand_mode = 2
 
-[node name="Label" type="Label" parent="."]
-layout_mode = 0
-offset_left = 309.0
-offset_top = 54.0
-offset_right = 785.0
-offset_bottom = 125.0
-text = "STEAM EDITION"
-label_settings = SubResource("LabelSettings_g8w3l")
-
-[node name="Initial" type="Control" parent="." groups=["MainMenuOption"]]
+[node name="Initial" type="Control" parent="." unique_id=891330957 groups=["MainMenuOption"]]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -242,7 +228,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="Initial"]
+[node name="MarginContainer" type="MarginContainer" parent="Initial" unique_id=1420302296]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -254,59 +240,59 @@ theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Initial/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Initial/MarginContainer" unique_id=214401302]
 layout_mode = 2
 size_flags_horizontal = 0
 alignment = 1
 
-[node name="HBoxContainer5" type="HBoxContainer" parent="Initial/MarginContainer/VBoxContainer"]
+[node name="HBoxContainer5" type="HBoxContainer" parent="Initial/MarginContainer/VBoxContainer" unique_id=85301962]
 layout_mode = 2
 
-[node name="Lobby Browser" type="Button" parent="Initial/MarginContainer/VBoxContainer/HBoxContainer5"]
+[node name="Lobby Browser" type="Button" parent="Initial/MarginContainer/VBoxContainer/HBoxContainer5" unique_id=2098381137]
 layout_mode = 2
 text = "Lobby Browser"
 
-[node name="HBoxContainer7" type="HBoxContainer" parent="Initial/MarginContainer/VBoxContainer"]
+[node name="HBoxContainer7" type="HBoxContainer" parent="Initial/MarginContainer/VBoxContainer" unique_id=1335114396]
 layout_mode = 2
 
-[node name="Practice_singleplayer" type="Button" parent="Initial/MarginContainer/VBoxContainer/HBoxContainer7"]
+[node name="Practice_singleplayer" type="Button" parent="Initial/MarginContainer/VBoxContainer/HBoxContainer7" unique_id=1260023321]
 layout_mode = 2
 text = "Practice Mode"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Initial/MarginContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Initial/MarginContainer/VBoxContainer" unique_id=852494746]
 layout_mode = 2
 
-[node name="CharacterCreator" type="Button" parent="Initial/MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="CharacterCreator" type="Button" parent="Initial/MarginContainer/VBoxContainer/HBoxContainer" unique_id=1147700407]
 layout_mode = 2
 text = "Character Creator"
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="Initial/MarginContainer/VBoxContainer"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="Initial/MarginContainer/VBoxContainer" unique_id=1910908963]
 layout_mode = 2
 
-[node name="Settings" type="Button" parent="Initial/MarginContainer/VBoxContainer/HBoxContainer2"]
+[node name="Settings" type="Button" parent="Initial/MarginContainer/VBoxContainer/HBoxContainer2" unique_id=1311441285]
 layout_mode = 2
 text = "Settings"
 
-[node name="HBoxContainer3" type="HBoxContainer" parent="Initial/MarginContainer/VBoxContainer"]
+[node name="HBoxContainer3" type="HBoxContainer" parent="Initial/MarginContainer/VBoxContainer" unique_id=1762850947]
 layout_mode = 2
 
-[node name="Controls" type="Button" parent="Initial/MarginContainer/VBoxContainer/HBoxContainer3"]
+[node name="Controls" type="Button" parent="Initial/MarginContainer/VBoxContainer/HBoxContainer3" unique_id=580282203]
 layout_mode = 2
 text = "Controls"
 
-[node name="HBoxContainer4" type="HBoxContainer" parent="Initial/MarginContainer/VBoxContainer"]
+[node name="HBoxContainer4" type="HBoxContainer" parent="Initial/MarginContainer/VBoxContainer" unique_id=1240059235]
 layout_mode = 2
 
-[node name="Quit Game" type="Button" parent="Initial/MarginContainer/VBoxContainer/HBoxContainer4"]
+[node name="Quit Game" type="Button" parent="Initial/MarginContainer/VBoxContainer/HBoxContainer4" unique_id=1515590538]
 layout_mode = 2
 text = "Quit Game"
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="Initial/MarginContainer"]
+[node name="VBoxContainer2" type="VBoxContainer" parent="Initial/MarginContainer" unique_id=1485570466]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 8
 
-[node name="SingleplayerMapSelectorModal" type="PanelContainer" parent="Initial"]
+[node name="SingleplayerMapSelectorModal" type="PanelContainer" parent="Initial" unique_id=606045664]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -320,60 +306,60 @@ offset_bottom = 98.5
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="Initial/SingleplayerMapSelectorModal"]
+[node name="MarginContainer" type="MarginContainer" parent="Initial/SingleplayerMapSelectorModal" unique_id=1891795425]
 layout_mode = 2
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Initial/SingleplayerMapSelectorModal/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Initial/SingleplayerMapSelectorModal/MarginContainer" unique_id=1346227305]
 layout_mode = 2
 alignment = 1
 
-[node name="Custom Lobby Variables" type="Button" parent="Initial/SingleplayerMapSelectorModal/MarginContainer/VBoxContainer"]
+[node name="Custom Lobby Variables" type="Button" parent="Initial/SingleplayerMapSelectorModal/MarginContainer/VBoxContainer" unique_id=923191263]
 layout_mode = 2
 text = "Custom Variables"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Initial/SingleplayerMapSelectorModal/MarginContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Initial/SingleplayerMapSelectorModal/MarginContainer/VBoxContainer" unique_id=2035556516]
 layout_mode = 2
 alignment = 1
 
-[node name="MarginContainer" type="MarginContainer" parent="Initial/SingleplayerMapSelectorModal/MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="Initial/SingleplayerMapSelectorModal/MarginContainer/VBoxContainer/HBoxContainer" unique_id=2016412408]
 layout_mode = 2
 theme_override_constants/margin_top = 10
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="Initial/SingleplayerMapSelectorModal/MarginContainer/VBoxContainer/HBoxContainer/MarginContainer"]
+[node name="VBoxContainer2" type="VBoxContainer" parent="Initial/SingleplayerMapSelectorModal/MarginContainer/VBoxContainer/HBoxContainer/MarginContainer" unique_id=1273190670]
 layout_mode = 2
 alignment = 1
 
-[node name="Map Label" type="Label" parent="Initial/SingleplayerMapSelectorModal/MarginContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2"]
+[node name="Map Label" type="Label" parent="Initial/SingleplayerMapSelectorModal/MarginContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer2" unique_id=1935756852]
 custom_minimum_size = Vector2(0, 35)
 layout_mode = 2
 text = "Map "
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Initial/SingleplayerMapSelectorModal/MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Initial/SingleplayerMapSelectorModal/MarginContainer/VBoxContainer/HBoxContainer" unique_id=705463399]
 layout_mode = 2
 size_flags_horizontal = 3
 alignment = 1
 
-[node name="MapsOptions" parent="Initial/SingleplayerMapSelectorModal/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" instance=ExtResource("21_8s3t8")]
+[node name="MapsOptions" parent="Initial/SingleplayerMapSelectorModal/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=1407555040 instance=ExtResource("21_8s3t8")]
 layout_mode = 2
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="Initial/SingleplayerMapSelectorModal/MarginContainer/VBoxContainer"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="Initial/SingleplayerMapSelectorModal/MarginContainer/VBoxContainer" unique_id=1218057432]
 layout_mode = 2
 
-[node name="Select Map Button" type="Button" parent="Initial/SingleplayerMapSelectorModal/MarginContainer/VBoxContainer/HBoxContainer2"]
+[node name="Select Map Button" type="Button" parent="Initial/SingleplayerMapSelectorModal/MarginContainer/VBoxContainer/HBoxContainer2" unique_id=2055519208]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Bagelball"
 
-[node name="Back" type="Button" parent="Initial/SingleplayerMapSelectorModal/MarginContainer/VBoxContainer/HBoxContainer2"]
+[node name="Back" type="Button" parent="Initial/SingleplayerMapSelectorModal/MarginContainer/VBoxContainer/HBoxContainer2" unique_id=1808728161]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Back"
 
-[node name="TextureRect" type="TextureRect" parent="Initial"]
+[node name="TextureRect" type="TextureRect" parent="Initial" unique_id=141592575]
 visible = false
 layout_mode = 0
 offset_left = -10.0
@@ -383,9 +369,9 @@ offset_bottom = 1321.0
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("20_hi11g")
 
-[node name="JoinTheDiscord" type="LinkButton" parent="Initial"]
+[node name="JoinTheDiscord" type="LinkButton" parent="Initial" unique_id=1571765210]
 visible = false
-layout_mode = 2
+layout_mode = 0
 offset_left = 861.0
 offset_top = 512.0
 offset_right = 914.0
@@ -398,7 +384,7 @@ text = "discord"
 underline = 1
 uri = "http://discord.gg/WZUTqWG3XN"
 
-[node name="TextureButton" type="TextureButton" parent="Initial"]
+[node name="TextureButton" type="TextureButton" parent="Initial" unique_id=572203053]
 layout_mode = 0
 offset_left = 903.0
 offset_top = 480.0
@@ -409,38 +395,38 @@ mouse_default_cursor_shape = 2
 texture_normal = ExtResource("20_hi11g")
 texture_hover = ExtResource("21_csewp")
 
-[node name="Controls" parent="." groups=["MainMenuOption"] instance=ExtResource("5_ltxck")]
+[node name="Controls" parent="." unique_id=2087880245 groups=["MainMenuOption"] instance=ExtResource("5_ltxck")]
 visible = false
 layout_mode = 1
 
-[node name="testingtesting" type="VBoxContainer" parent="."]
-layout_mode = 2
+[node name="testingtesting" type="VBoxContainer" parent="." unique_id=231774559]
+layout_mode = 0
 offset_left = 10.0
 offset_top = 10.0
 offset_right = 201.0
 offset_bottom = 131.0
 
-[node name="test" type="Label" parent="testingtesting"]
+[node name="test" type="Label" parent="testingtesting" unique_id=273437726]
 layout_mode = 2
 text = "test"
 
-[node name="start server" type="Button" parent="testingtesting"]
+[node name="start server" type="Button" parent="testingtesting" unique_id=1983368222]
 layout_mode = 2
 text = "start server"
 
-[node name="start client" type="Button" parent="testingtesting"]
+[node name="start client" type="Button" parent="testingtesting" unique_id=248310197]
 layout_mode = 2
 text = "start client"
 
-[node name="Settings" parent="." groups=["MainMenuOption"] instance=ExtResource("6_hs5gu")]
+[node name="Settings" parent="." unique_id=804163373 groups=["MainMenuOption"] instance=ExtResource("6_hs5gu")]
 visible = false
 layout_mode = 1
 
-[node name="Lobby Browser" parent="." groups=["MainMenuOption"] instance=ExtResource("8_gfiur")]
+[node name="Lobby Browser" parent="." unique_id=1329001608 groups=["MainMenuOption"] instance=ExtResource("8_gfiur")]
 visible = false
 layout_mode = 1
 
-[node name="space station2" type="TextureRect" parent="."]
+[node name="space station2" type="TextureRect" parent="." unique_id=1166442500]
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -451,7 +437,7 @@ grow_vertical = 2
 texture = ExtResource("20_8s3t8")
 expand_mode = 2
 
-[node name="space station" type="TextureRect" parent="."]
+[node name="space station" type="TextureRect" parent="." unique_id=987684164]
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -462,18 +448,18 @@ grow_vertical = 2
 texture = ExtResource("19_1xahd")
 expand_mode = 2
 
-[node name="Custom Lobby Variables" parent="." instance=ExtResource("2_e37nt")]
+[node name="Custom Lobby Variables" parent="." unique_id=1030723131 instance=ExtResource("2_e37nt")]
 visible = false
 layout_mode = 1
 practiceMode = true
 
-[node name="Main Menu Music" type="AudioStreamPlayer" parent="."]
+[node name="Main Menu Music" type="AudioStreamPlayer" parent="." unique_id=2025555502]
 stream = ExtResource("25_8s3t8")
 volume_db = -20.0
 bus = &"Music"
 parameters/looping = true
 
-[node name="Bagel Atmosphere" type="AudioStreamPlayer" parent="."]
+[node name="Bagel Atmosphere" type="AudioStreamPlayer" parent="." unique_id=91005283]
 stream = ExtResource("26_wetyc")
 
 [connection signal="pressed" from="Initial/MarginContainer/VBoxContainer/HBoxContainer5/Lobby Browser" to="." method="_on_lobby_browser_pressed"]
