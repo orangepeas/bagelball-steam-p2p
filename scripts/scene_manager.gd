@@ -65,7 +65,6 @@ func start_game():
 		global.Map.sisyphus:
 			scene = load("res://scenes/sisyphus level model/sisyphus_level_model_2.tscn").instantiate()
 
-	
 	if global.maxPlayers == 32:
 		defaultMapScale = Vector3(1,1,1)
 		
@@ -96,8 +95,7 @@ func start_game():
 		if global.players[i].spectator == false: ##if within the player limit, spawn as players
 			var currentPlayer : Player = playerScene.instantiate()
 			var material = StandardMaterial3D.new()
-			var materialPartsRed = StandardMaterial3D.new()
-			var materialPartsBlue = StandardMaterial3D.new()
+			var materialPlonk = StandardMaterial3D.new()
 			await get_tree().process_frame
 			currentPlayer.name = str(int(global.players[i].multiplayer_id)) ##name is an inherent property of godot's nodes
 			currentPlayer.displayName = global.players[i].displayName
@@ -110,10 +108,8 @@ func start_game():
 				legsPiece.hide()
 			if global.players[i].redTeam == true:
 				redPlayerCount += 1
-				material.albedo_color = Color(255,0,0,255)
-				materialPartsRed.albedo_color = Color(2,1,0,255)
-				for meshPart in currentPlayer.mesh.get_children():
-					meshPart.material_override = materialPartsRed
+				material.albedo_color = Color(1,0,0,1)
+				materialPlonk.albedo_color = Color(1.298, 0.705, 0.212, 1.0)
 				currentPlayer.redTeam = true
 				currentPlayer.global_position = redSpawnPointArray[redPlayerCount - 1]
 				currentPlayer.spawnPosition = redSpawnPointArray[redPlayerCount - 1]
@@ -134,9 +130,9 @@ func start_game():
 			elif global.players[i].redTeam == false:
 				bluePlayerCount += 1
 				material.albedo_color = Color(0,150,255,255)
-				materialPartsBlue.albedo_color = Color(0,0,2,255)
-				for meshPart in currentPlayer.mesh.get_children():
-					meshPart.material_override = materialPartsBlue
+				materialPlonk.albedo_color = Color(0,0,2,255)
+				#for meshPart in currentPlayer.mesh.get_children():
+					#meshPart.material_override = materialPartsBlue
 				currentPlayer.redTeam = false
 				currentPlayer.global_position = blueSpawnPointArray[bluePlayerCount - 1]
 				currentPlayer.spawnPosition = blueSpawnPointArray[bluePlayerCount - 1]
@@ -151,9 +147,14 @@ func start_game():
 					#if (spawn.redSpawn == false && str(int(global.players[i].index)) == spawn.name) or global.singleplayer == true: ##blue spawn
 						#currentPlayer.global_position = spawn.global_position
 						#currentPlayer.spawnPosition = spawn.global_position
-			currentPlayer.mesh.material_override = material
+			#currentPlayer.mesh.material_override = material
 			#print("mesh text: ", currentPlayer.displayName, " currentPlayer.name: ", currentPlayer.name)
-
+			for headPiece in currentPlayer.headPieceParent.get_children():
+				for directionalPlonk in headPiece.find_child("DirectionalPlonk").get_children():
+					directionalPlonk.material = materialPlonk
+			for characterPiece in get_tree().get_nodes_in_group("normalColourPiece"):
+				characterPiece.material = material
+				characterPiece.remove_from_group("normalColourPiece")
 			index += 1
 
 		else: ##if outside the player limit, spawn as spectators

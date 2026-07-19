@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cl12etots0gog"]
+[gd_scene format=3 uid="uid://cl12etots0gog"]
 
 [ext_resource type="Script" uid="uid://cr6muy3s542fx" path="res://scripts/player.gd" id="1_w2vs2"]
 [ext_resource type="PackedScene" uid="uid://7yt5qojut4c5" path="res://scenes/Player UI.tscn" id="2_p8h58"]
@@ -51,7 +51,7 @@ properties/8/replication_mode = 2
 [sub_resource type="TextMesh" id="TextMesh_yebjr"]
 text = "test"
 
-[node name="Player" type="CharacterBody3D" node_paths=PackedStringArray("mpSync") groups=["player"]]
+[node name="Player" type="CharacterBody3D" unique_id=1449230459 node_paths=PackedStringArray("mpSync") groups=["player"]]
 transform = Transform3D(7, 0, 0, 0, 7, 0, 0, 0, 7, 0, 0, 0)
 collision_layer = 129
 collision_mask = 129
@@ -69,209 +69,280 @@ wallJumpVelocity = 120
 noOfJumps = 2
 mpSync = NodePath("MultiplayerSynchronizer")
 
-[node name="Character" type="Node3D" parent="."]
+[node name="Character" type="Node3D" parent="." unique_id=1906842215]
 transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, -0.604961, 0)
 
-[node name="head" type="Node3D" parent="Character"]
+[node name="head" type="Node3D" parent="Character" unique_id=810470217]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 
-[node name="directionalPlonk" type="CSGCylinder3D" parent="Character/head"]
-transform = Transform3D(1.91069e-15, -4.37114e-08, 1, -1, -4.37114e-08, 0, 4.37114e-08, -1, -4.37114e-08, 4.18357e-09, 0, -0.509018)
-radius = 0.071
-height = 0.482418
+[node name="headpieces" type="Node3D" parent="Character/head" unique_id=171939016]
+transform = Transform3D(-4.3711385e-08, 0, 0.99999994, 0, 0.99999994, 0, -0.99999994, 0, -4.3711385e-08, 0, 0, 0)
 
-[node name="headpieces" type="Node3D" parent="Character/head"]
-
-[node name="Cube" type="CSGBox3D" parent="Character/head/headpieces"]
+[node name="Cube" type="CSGBox3D" parent="Character/head/headpieces" unique_id=1685633610 groups=["normalColourPiece"]]
 visible = false
 
-[node name="Cylinder" type="CSGCylinder3D" parent="Character/head/headpieces"]
+[node name="DirectionalPlonk" type="Node3D" parent="Character/head/headpieces/Cube" unique_id=1317580560]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Character/head/headpieces/Cube/DirectionalPlonk" unique_id=1553005689]
+transform = Transform3D(0.99999994, 0, -3.5527137e-15, 0, 0.99999994, 0, 3.5527137e-15, 0, 0.99999994, 0.49999997, 0, 1.7763568e-15)
+operation = 2
+size = Vector3(0.01, 0.75, 0.75)
+
+[node name="Cylinder" type="CSGCylinder3D" parent="Character/head/headpieces" unique_id=1456462716 groups=["normalColourPiece"]]
 visible = false
 height = 1.0
 sides = 16
 
-[node name="Diamond" type="Node3D" parent="Character/head/headpieces"]
+[node name="DirectionalPlonk" type="Node3D" parent="Character/head/headpieces/Cylinder" unique_id=1543099523]
+
+[node name="CSGCylinder3D5" type="CSGCylinder3D" parent="Character/head/headpieces/Cylinder/DirectionalPlonk" unique_id=504706284]
+transform = Transform3D(-5.05879e-10, 0.0115732, 0.99993354, -0.99999994, -4.371138e-08, -9.020637e-16, 4.3708482e-08, -0.99993354, 0.0115732, 0.49464163, 0.10111481, 0.029156987)
+radius = 0.08203125
+height = 0.16239929
+sides = 16
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="Character/head/headpieces/Cylinder/DirectionalPlonk" unique_id=1789343573]
+transform = Transform3D(-4.3322704e-08, 0.99110794, 0.1330603, -0.99999994, -4.371139e-08, 0, 5.8162506e-09, -0.1330603, 0.99110794, 0.36219653, 0.26982552, -0.23799211)
+radius = 0.08203125
+height = 0.22045898
+sides = 16
+
+[node name="CSGCylinder3D3" type="CSGCylinder3D" parent="Character/head/headpieces/Cylinder/DirectionalPlonk" unique_id=1165704270]
+transform = Transform3D(-4.2318828e-08, 0.9681418, 0.2504037, -0.99999994, -4.371138e-08, 1.08273436e-16, 1.0945499e-08, -0.2504037, 0.9681418, 0.37926716, 0.26301152, -0.25926527)
+radius = 0.04345703
+height = 0.28826904
+sides = 16
+
+[node name="CSGCylinder3D4" type="CSGCylinder3D" parent="Character/head/headpieces/Cylinder/DirectionalPlonk" unique_id=30255278]
+transform = Transform3D(-4.2666368e-08, 0.9760926, -0.2173564, -0.99999994, -4.371139e-08, 0, -9.500949e-09, 0.2173564, 0.9760926, 0.4359389, 0.35755724, 0.1989167)
+radius = 0.04345703
+height = 0.40438843
+sides = 16
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="Character/head/headpieces/Cylinder/DirectionalPlonk" unique_id=1821482157]
+transform = Transform3D(-4.2921133e-08, 0.981921, -0.18929124, -0.99999994, -4.371139e-08, 0, -8.274183e-09, 0.18929124, 0.981921, 0.44781688, 0.3566497, 0.18737799)
+radius = 0.08203125
+height = 0.22045898
+sides = 16
+
+[node name="Diamond" type="Node3D" parent="Character/head/headpieces" unique_id=143302070]
 visible = false
 
-[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="Character/head/headpieces/Diamond"]
+[node name="DiamondTop" type="CSGCylinder3D" parent="Character/head/headpieces/Diamond" unique_id=857655363 groups=["normalColourPiece"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 height = 0.5
 sides = 4
 cone = true
 
-[node name="CSGCylinder3D3" type="CSGCylinder3D" parent="Character/head/headpieces/Diamond"]
+[node name="DiamondBottom" type="CSGCylinder3D" parent="Character/head/headpieces/Diamond" unique_id=2045048750 groups=["normalColourPiece"]]
 transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0, 0, 0)
 height = 0.5
 sides = 4
 cone = true
 
-[node name="Torment Nexus" type="Node3D" parent="Character/head/headpieces"]
+[node name="DirectionalPlonk" type="Node3D" parent="Character/head/headpieces/Diamond" unique_id=1743236865]
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="Character/head/headpieces/Diamond/DirectionalPlonk" unique_id=335534668]
+transform = Transform3D(-4.371139e-08, 0.9999998, -7.1054274e-15, -0.9999998, -4.371139e-08, 0, -4.2351647e-22, 7.1054274e-15, 0.9999998, 0.14210063, 0.47110194, 0.109172076)
+radius = 0.08886719
+height = 0.32763672
+sides = 4
+
+[node name="CSGCylinder3D4" type="CSGCylinder3D" parent="Character/head/headpieces/Diamond/DirectionalPlonk" unique_id=1887796366]
+transform = Transform3D(-4.371139e-08, 0.9999998, -7.1054274e-15, -0.9999998, -4.371139e-08, 0, -4.2351647e-22, 7.1054274e-15, 0.9999998, 0.14210063, 0.47110194, -0.13543664)
+radius = 0.08886719
+height = 0.32763672
+sides = 4
+
+[node name="CSGCylinder3D5" type="CSGCylinder3D" parent="Character/head/headpieces/Diamond/DirectionalPlonk" unique_id=164544849]
+transform = Transform3D(-0.18669586, -0.9824178, 8.588569e-08, -0.9824178, 0.18669586, -1.6321472e-08, 8.881784e-16, -8.742279e-08, -0.9999998, 0.1863807, 0.19333977, 0.0074205073)
+radius = 0.15673828
+height = 0.32763672
+sides = 4
+
+[node name="Torment Nexus" type="Node3D" parent="Character/head/headpieces" unique_id=2036547762]
 visible = false
 
-[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="Character/head/headpieces/Torment Nexus"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.273372, 0)
+[node name="DirectionalPlonk" type="Node3D" parent="Character/head/headpieces/Torment Nexus" unique_id=309746651]
+
+[node name="CSGCylinder3D4" type="CSGCylinder3D" parent="Character/head/headpieces/Torment Nexus/DirectionalPlonk" unique_id=1781251585]
+transform = Transform3D(-1.3113419e-07, -0.99999994, -8.742278e-08, -0.99999994, 1.3113419e-07, 0, 1.1464113e-14, 8.742278e-08, -0.99999994, 0.104658276, 0.10190362, 4.440892e-16)
+radius = 0.21142578
 height = 0.5
 sides = 4
 cone = true
 
-[node name="CSGCylinder3D3" type="CSGCylinder3D" parent="Character/head/headpieces/Torment Nexus"]
-transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0, 0, 0)
+[node name="TormentNexusTop" type="CSGCylinder3D" parent="Character/head/headpieces/Torment Nexus" unique_id=1998051235 groups=["normalColourPiece"]]
+transform = Transform3D(0.9999998, 0, -7.1054274e-15, 0, 0.9999998, 0, 7.1054274e-15, 0, 0.9999998, 0, 0.273372, 0)
 height = 0.5
 sides = 4
 cone = true
 
-[node name="Bagel" type="CSGTorus3D" parent="Character/head/headpieces"]
+[node name="TormentNexusBottom" type="CSGCylinder3D" parent="Character/head/headpieces/Torment Nexus" unique_id=1379476271 groups=["normalColourPiece"]]
+transform = Transform3D(-0.9999998, 8.74228e-08, -7.1054274e-15, -8.74228e-08, -0.9999998, 0, -7.1054274e-15, 8.4703295e-22, 0.9999998, 0, 0, 0)
+height = 0.5
+sides = 4
+cone = true
+
+[node name="Bagel" type="CSGTorus3D" parent="Character/head/headpieces" unique_id=2130578180 groups=["normalColourPiece"]]
 inner_radius = 0.2
 outer_radius = 0.7
 
-[node name="body" type="Node3D" parent="Character"]
+[node name="DirectionalPlonk" type="Node3D" parent="Character/head/headpieces/Bagel" unique_id=2113349104]
+
+[node name="CSGTorus3D" type="CSGTorus3D" parent="Character/head/headpieces/Bagel/DirectionalPlonk" unique_id=128494566]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.91287, 0, 0)
+inner_radius = 0.032602564
+outer_radius = 0.19957885
+
+[node name="body" type="Node3D" parent="Character" unique_id=380452056]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
 
-[node name="Cube" type="CSGBox3D" parent="Character/body"]
+[node name="Cube" type="CSGBox3D" parent="Character/body" unique_id=1678498498 groups=["normalColourPiece"]]
 
-[node name="Cylinder" type="CSGCylinder3D" parent="Character/body"]
+[node name="Cylinder" type="CSGCylinder3D" parent="Character/body" unique_id=1834042094 groups=["normalColourPiece"]]
 visible = false
 height = 1.0
 sides = 16
 
-[node name="Diamond" type="Node3D" parent="Character/body"]
+[node name="Diamond" type="Node3D" parent="Character/body" unique_id=924140454]
 visible = false
 
-[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="Character/body/Diamond"]
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="Character/body/Diamond" unique_id=1260428322 groups=["normalColourPiece"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 height = 0.5
 sides = 4
 cone = true
 
-[node name="CSGCylinder3D3" type="CSGCylinder3D" parent="Character/body/Diamond"]
+[node name="CSGCylinder3D3" type="CSGCylinder3D" parent="Character/body/Diamond" unique_id=1941228266 groups=["normalColourPiece"]]
 transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0, 0, 0)
 height = 0.5
 sides = 4
 cone = true
 
-[node name="Torment Nexus" type="Node3D" parent="Character/body"]
+[node name="Torment Nexus" type="Node3D" parent="Character/body" unique_id=873021]
 visible = false
 
-[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="Character/body/Torment Nexus"]
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="Character/body/Torment Nexus" unique_id=390067744 groups=["normalColourPiece"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.273372, 0)
 height = 0.5
 sides = 4
 cone = true
 
-[node name="CSGCylinder3D3" type="CSGCylinder3D" parent="Character/body/Torment Nexus"]
+[node name="CSGCylinder3D3" type="CSGCylinder3D" parent="Character/body/Torment Nexus" unique_id=687474896 groups=["normalColourPiece"]]
 transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0, 0, 0)
 height = 0.5
 sides = 4
 cone = true
 
-[node name="Bagel" type="CSGTorus3D" parent="Character/body"]
+[node name="Bagel" type="CSGTorus3D" parent="Character/body" unique_id=1031307503 groups=["normalColourPiece"]]
 visible = false
 inner_radius = 0.2
 outer_radius = 0.7
 
-[node name="legs" type="Node3D" parent="Character"]
+[node name="legs" type="Node3D" parent="Character" unique_id=1713234018]
 
-[node name="Cube" type="CSGBox3D" parent="Character/legs"]
+[node name="Cube" type="CSGBox3D" parent="Character/legs" unique_id=1459466104 groups=["normalColourPiece"]]
 
-[node name="Cylinder" type="CSGCylinder3D" parent="Character/legs"]
+[node name="Cylinder" type="CSGCylinder3D" parent="Character/legs" unique_id=765387693 groups=["normalColourPiece"]]
 visible = false
 height = 1.0
 sides = 16
 
-[node name="Diamond" type="Node3D" parent="Character/legs"]
+[node name="Diamond" type="Node3D" parent="Character/legs" unique_id=1805806026]
 visible = false
 
-[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="Character/legs/Diamond"]
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="Character/legs/Diamond" unique_id=501746526 groups=["normalColourPiece"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 height = 0.5
 sides = 4
 cone = true
 
-[node name="CSGCylinder3D3" type="CSGCylinder3D" parent="Character/legs/Diamond"]
+[node name="CSGCylinder3D3" type="CSGCylinder3D" parent="Character/legs/Diamond" unique_id=431510020 groups=["normalColourPiece"]]
 transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0, 0, 0)
 height = 0.5
 sides = 4
 cone = true
 
-[node name="Torment Nexus" type="Node3D" parent="Character/legs"]
+[node name="Torment Nexus" type="Node3D" parent="Character/legs" unique_id=1948237156]
 visible = false
 
-[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="Character/legs/Torment Nexus"]
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="Character/legs/Torment Nexus" unique_id=164828834 groups=["normalColourPiece"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.273372, 0)
 height = 0.5
 sides = 4
 cone = true
 
-[node name="CSGCylinder3D3" type="CSGCylinder3D" parent="Character/legs/Torment Nexus"]
+[node name="CSGCylinder3D3" type="CSGCylinder3D" parent="Character/legs/Torment Nexus" unique_id=1800980420 groups=["normalColourPiece"]]
 transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0, 0, 0)
 height = 0.5
 sides = 4
 cone = true
 
-[node name="Bagel" type="CSGTorus3D" parent="Character/legs"]
+[node name="Bagel" type="CSGTorus3D" parent="Character/legs" unique_id=681750134 groups=["normalColourPiece"]]
 visible = false
 inner_radius = 0.2
 outer_radius = 0.7
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1776494315]
 visible = false
 mesh = SubResource("CapsuleMesh_lex6o")
 skeleton = NodePath("../CollisionShape3D")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="MeshInstance3D"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="MeshInstance3D" unique_id=1712258688]
 transform = Transform3D(-1, 4.37114e-08, -4.37114e-08, -4.37114e-08, -4.37114e-08, 1, 4.37114e-08, 1, 4.37114e-08, 0.285714, 0.571429, -0.428571)
 visible = false
 mesh = SubResource("TorusMesh_fxcem")
 
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="MeshInstance3D"]
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="MeshInstance3D" unique_id=1781486834]
 transform = Transform3D(-1, 4.37114e-08, -4.37114e-08, -4.37114e-08, -4.37114e-08, 1, 4.37114e-08, 1, 4.37114e-08, -0.285714, 0.571429, -0.428571)
 visible = false
 mesh = SubResource("TorusMesh_fxcem")
 
-[node name="MeshInstance3D3" type="MeshInstance3D" parent="MeshInstance3D"]
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="MeshInstance3D" unique_id=2025299783]
 transform = Transform3D(0.085417, 0.996345, 4.35516e-08, 0, -4.37114e-08, 1, 0.996345, -0.085417, -3.73369e-09, 0, 0.428571, -0.119621)
 mesh = SubResource("TorusMesh_fxcem")
 
-[node name="MeshInstance3D4" type="MeshInstance3D" parent="MeshInstance3D"]
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="MeshInstance3D" unique_id=818366880]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0.428572, -0.527579)
 visible = false
 mesh = SubResource("BoxMesh_p0hnl")
 
-[node name="Camera3D" type="Camera3D" parent="."]
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1656017965]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+current = true
 
-[node name="bagel distance" type="CollisionShape3D" parent="Camera3D"]
+[node name="bagel distance" type="CollisionShape3D" parent="Camera3D" unique_id=962158409]
 transform = Transform3D(7, 0, 0, 0, 7, 0, 0, 0, 7, 0, 0, -40)
 shape = SubResource("BoxShape3D_ddeso")
 disabled = true
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1132538664]
 shape = SubResource("CapsuleShape3D_5drwn")
 
-[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="." unique_id=1127059233]
 replication_config = SubResource("SceneReplicationConfig_f3lbo")
 visibility_update_mode = 1
 
-[node name="Player UI" parent="." instance=ExtResource("2_p8h58")]
+[node name="Player UI" parent="." unique_id=1080336204 instance=ExtResource("2_p8h58")]
 
-[node name="failed display name attempt" type="MeshInstance3D" parent="."]
+[node name="failed display name attempt" type="MeshInstance3D" parent="." unique_id=1388466702]
 transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 1.42857, 0)
 visible = false
 mesh = SubResource("TextMesh_yebjr")
 
-[node name="display name" type="Label3D" parent="."]
+[node name="display name" type="Label3D" parent="." unique_id=831110824]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 1.42857, 0)
 text = "test"
 font = ExtResource("3_dqkch")
 font_size = 130
 outline_size = 10
 
-[node name="Noise Maker" parent="." instance=ExtResource("3_6s8t6")]
+[node name="Noise Maker" parent="." unique_id=1732665057 instance=ExtResource("3_6s8t6")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 
-[node name="Camera3D2" type="Camera3D" parent="."]
+[node name="testcam" type="Camera3D" parent="." unique_id=34054706]
 transform = Transform3D(-0.142857, -5.06857e-09, 1.14142e-08, 0, 0.130563, 0.0579777, -1.2489e-08, 0.0579777, -0.130563, 0.0552281, 1.3471, -5.00938)
-current = true
 
 [connection signal="absoluteMollusc" from="Player UI" to="Noise Maker" method="_on_player_ui_absolute_mollusc"]
 [connection signal="bloodyTrout" from="Player UI" to="Noise Maker" method="_on_player_ui_bloody_trout"]
