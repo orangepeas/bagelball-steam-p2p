@@ -90,8 +90,9 @@ func add_player_steam(steam_id):
 	##this runs on the host
 	add_player(steam_id, multiplayer.get_remote_sender_id())
 	updateLobbyBoard()
-	for id in multiplayer.get_peers():
-		send_updated_players.rpc_id(id, global.players)
+	for player in global.players:
+		if global.players[player].lobbyHost == false:
+			send_updated_players.rpc_id(global.players[player].multiplayer_id, global.players)
 	check_if_can_start_game()
 	print("host multiplayer.get_peers  after: ", multiplayer.get_peers())
 
