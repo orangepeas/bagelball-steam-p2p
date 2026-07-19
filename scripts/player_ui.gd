@@ -14,10 +14,9 @@ signal bloodyTrout
 signal slimyWorm
 
 @onready var PauseScreen = $"Pause Screen"
-@onready var timeSync = $TimeSync
 
 func _enter_tree() -> void:
-	timeSync.set_multiplayer_authority(1)
+	$TimeSync.set_multiplayer_authority(1)
 
 func _ready() -> void:
 	global.connect("gameEnd", game_end)

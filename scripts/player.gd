@@ -21,7 +21,7 @@ const RAY_LENGTH := 2000.0
 @export var legsPieceIndex := 0
 
 @onready var camera = $Camera3D
-@export var mpSync : MultiplayerSynchronizer
+@onready var mpSync := $MultiplayerSynchronizer
 @onready var bagelDistance = $"Camera3D/bagel distance"
 @onready var spawnPosition
 @onready var displayName : String
@@ -63,7 +63,7 @@ var canbhop := false
 
 func _enter_tree() -> void:
 	set_multiplayer_authority(str(name).to_int())
-	mpSync.set_multiplayer_authority(str(name).to_int())
+	$MultiplayerSynchronizer.set_multiplayer_authority(str(name).to_int())
 
 func _ready() -> void:
 	$"Player UI".hide()
