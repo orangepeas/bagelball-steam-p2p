@@ -310,6 +310,7 @@ mesh = SubResource("BoxMesh_p0hnl")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1656017965]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+current = true
 
 [node name="bagel distance" type="CollisionShape3D" parent="Camera3D" unique_id=962158409]
 transform = Transform3D(7, 0, 0, 0, 7, 0, 0, 0, 7, 0, 0, -40)
@@ -342,7 +343,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 
 [node name="testcam" type="Camera3D" parent="." unique_id=34054706]
 transform = Transform3D(-0.142857, -5.06857e-09, 1.14142e-08, 0, 0.130563, 0.0579777, -1.2489e-08, 0.0579777, -0.130563, 0.0552281, 1.3471, -5.00938)
-current = true
 
 [connection signal="absoluteMollusc" from="Player UI" to="Noise Maker" method="_on_player_ui_absolute_mollusc"]
 [connection signal="bloodyTrout" from="Player UI" to="Noise Maker" method="_on_player_ui_bloody_trout"]
