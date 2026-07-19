@@ -78,8 +78,7 @@ func can_start_game():
 		canStartGame.emit() ##connects to CLV
 		print("lobby menu can start game")
 		switchTeam.disabled = true
-		for player in global.players.values():
-			broadcast_all_options_rpc.rpc_id(player.multiplayer_id, global.lobbyHostID)
+		broadcast_all_options_rpc.rpc_id(global.lobbyHostID)
 		###if its not converted to a string it doesnt work. unclear why
 		#var id = str(multiplayer.get_unique_id())
 		startGame.disabled = false
