@@ -22,11 +22,6 @@ font_size = 30
 outline_size = 2
 outline_color = Color(0, 0, 0, 1)
 
-[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_xnjyt"]
-properties/0/path = NodePath("Game Timer:wait_time")
-properties/0/spawn = true
-properties/0/replication_mode = 1
-
 [sub_resource type="SystemFont" id="SystemFont_xvnwn"]
 font_names = PackedStringArray("Bookman Old Style")
 subpixel_positioning = 0
@@ -166,9 +161,6 @@ offset_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
-
-[node name="TimeSync" type="MultiplayerSynchronizer" parent="." unique_id=645739593]
-replication_config = SubResource("SceneReplicationConfig_xnjyt")
 
 [node name="win message" type="Label" parent="." unique_id=1224491684]
 layout_mode = 1
