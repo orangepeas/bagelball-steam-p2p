@@ -16,6 +16,9 @@ var allow_rotate := false
 
 @onready var characterPieces = $character/CharacterPieces
 
+@onready var redSelected := $UI/RedSelected
+@onready var blueSelected := $UI/BlueSelected
+
 @onready var headLabel = $UI/MarginContainer/VBoxContainer/HeadSelector/HeadLabel
 @onready var bodyLabel = $UI/MarginContainer/VBoxContainer/BodySelector/BodyLabel
 @onready var legsLabel = $UI/MarginContainer/VBoxContainer/LegsSelector/LegsLabel
@@ -41,6 +44,7 @@ func _ready():
 	global.headPiece = headPieceIndex
 	global.bodyPiece = bodyPieceIndex
 	global.legsPiece = legsPieceIndex
+	_on_red_pressed()
 
 func hide_all_ui():
 	hide()
@@ -112,3 +116,29 @@ func _on_back_pressed() -> void:
 	music.volume_db = -99
 	hide_all_ui()
 	show_main_menu.emit()
+
+func _on_red_pressed() -> void:
+	redSelected.show()
+	blueSelected.hide()
+	colour_character(false)
+
+func _on_blue_pressed() -> void:
+	blueSelected.show()
+	redSelected.hide()
+	colour_character(true)
+
+func colour_character(blue : bool):
+	var material = StandardMaterial3D.new()
+	var materialPlonk = StandardMaterial3D.new()
+	if blue:
+		material.albedo_color = Color(0,1,50,1)
+		materialPlonk.albedo_color = Color(0,0,1,1)
+	else:
+		material.albedo_color = Color(1.7,0,0,1)
+		materialPlonk.albedo_color = Color(1.298, 0.705, 0.212, 1.0)
+	for headPiece in characterPieces.head.get_children():
+		for directionalPlonk in headPiece.find_child("DirectionalPlonk").get_children():
+			directionalPlonk.material = materialPlonk
+	for p in get_tree().get_nodes_in_group("normalColourPiece"):
+		p.material = material
+		#p.remove_from_group("normalColourPiece")

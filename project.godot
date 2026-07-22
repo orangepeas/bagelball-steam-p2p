@@ -58,6 +58,10 @@ QBspawnpoint1v1=""
 playerSpawnPoint1v1v1=""
 spawnbox=""
 
+[gui]
+
+common/show_focus_state_on_pointer_event=2
+
 [input]
 
 forward={

@@ -7,6 +7,56 @@
 [ext_resource type="AudioStream" uid="uid://4r6ib1qvl7xu" path="res://audio/music/character creator.ogg" id="5_elvr3"]
 [ext_resource type="PackedScene" uid="uid://cbag1v5jegq33" path="res://scenes/character_pieces.tscn" id="5_u0slw"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gmimr"]
+bg_color = Color(1, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_87gaj"]
+bg_color = Color(0.4, 0, 0, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(1, 1, 1, 1)
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6ohym"]
+bg_color = Color(0.51, 0, 0, 1)
+
+[sub_resource type="ImageTexture" id="ImageTexture_i6dfa"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_u0slw"]
+texture = SubResource("ImageTexture_i6dfa")
+texture_margin_left = 10.0
+texture_margin_top = 10.0
+texture_margin_right = 10.0
+texture_margin_bottom = 10.0
+expand_margin_left = 10.0
+expand_margin_top = 10.0
+expand_margin_right = 10.0
+expand_margin_bottom = 10.0
+draw_center = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u0slw"]
+bg_color = Color(0, 0.39999986, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hnvwt"]
+bg_color = Color(0, 0.15999995, 0.4, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(1, 1, 1, 1)
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nwr4m"]
+bg_color = Color(0, 0.15999995, 0.4, 1)
+
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_4xe1u"]
 friction = 0.1
 
@@ -144,6 +194,58 @@ layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 8
 text = "back"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/MarginContainer" unique_id=1049039213]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+theme_override_constants/separation = 20
+
+[node name="Control" type="Control" parent="UI/MarginContainer/HBoxContainer" unique_id=979800842]
+custom_minimum_size = Vector2(170, 0)
+layout_mode = 2
+
+[node name="Red" type="Button" parent="UI/MarginContainer/HBoxContainer" unique_id=1836893591]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+theme_override_styles/normal = SubResource("StyleBoxFlat_gmimr")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_87gaj")
+theme_override_styles/hover = SubResource("StyleBoxFlat_6ohym")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_87gaj")
+theme_override_styles/focus = SubResource("StyleBoxTexture_u0slw")
+text = " "
+
+[node name="Blue" type="Button" parent="UI/MarginContainer/HBoxContainer" unique_id=474320455]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+theme_override_styles/normal = SubResource("StyleBoxFlat_u0slw")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_hnvwt")
+theme_override_styles/hover = SubResource("StyleBoxFlat_nwr4m")
+text = " "
+
+[node name="RedSelected" type="Panel" parent="UI" unique_id=1120561020]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 0
+offset_left = 230.0
+offset_top = 450.0
+offset_right = 270.0
+offset_bottom = 490.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_u0slw")
+
+[node name="BlueSelected" type="Panel" parent="UI" unique_id=148109445]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 0
+offset_left = 300.0
+offset_top = 450.0
+offset_right = 350.0
+offset_bottom = 500.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_u0slw")
 
 [node name="character" type="RigidBody3D" parent="." unique_id=621741700]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.944816, 0)
@@ -373,3 +475,5 @@ bus = &"Music"
 [connection signal="pressed" from="UI/MarginContainer/VBoxContainer/LegsSelector/LegsBack" to="." method="_on_legs_back_pressed"]
 [connection signal="pressed" from="UI/MarginContainer/VBoxContainer/LegsSelector/LegsForward" to="." method="_on_legs_forward_pressed"]
 [connection signal="pressed" from="UI/MarginContainer/Back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="UI/MarginContainer/HBoxContainer/Red" to="." method="_on_red_pressed"]
+[connection signal="pressed" from="UI/MarginContainer/HBoxContainer/Blue" to="." method="_on_blue_pressed"]

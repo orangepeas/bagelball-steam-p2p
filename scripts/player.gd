@@ -30,6 +30,7 @@ var characterPieces
 @onready var head = $CharacterPieces/head
 @onready var bodyPieceParent = $CharacterPieces/body
 @onready var legsPieceParent = $CharacterPieces/legs
+var headPiece
 
 var SPEED : float
 var bagel : RigidBody3D
@@ -90,6 +91,7 @@ func _ready() -> void:
 	headPieceParent.get_children()[characterPieces[0]].show()
 	bodyPieceParent.get_children()[characterPieces[1]].show()
 	legsPieceParent.get_children()[characterPieces[2]].show()
+	headPiece = headPieceParent.get_children()[characterPieces[0]]
 	$"display name".text = displayName
 	self.look_at(global.ballRespawnPoint)
 	self.rotation.x = 0
@@ -131,8 +133,12 @@ func _unhandled_input(event: InputEvent) -> void:
 				self.rotate_y(-event.relative.x * SENSITIVITY) #the event.relative.x is the x co-ordinate of the vector2 of the difference of where the mouse was to where the mouse is
 				camera.rotate_x(-event.relative.y * SENSITIVITY) #some weird euler angles occur if you rotate body in both x and y axes, so we dont
 				camera.rotation.x = clamp(camera.rotation.x, deg_to_rad(-90), deg_to_rad(90)) #maximum degrees we can rotate vertically
-				head.rotation = camera.rotation
-				head.rotation.x = clamp(head.rotation.x, deg_to_rad(-90), deg_to_rad(90))
+				headPiece.rotation.z = camera.rotation.x
+				headPiece.rotation.y = camera.rotation.y
+				headPiece.rotation.x = camera.rotation.z
+				headPiece.rotation.x = clamp(headPiece.rotation.x, deg_to_rad(-90), deg_to_rad(90))
+				print(headPiece.rotation)
+				print(camera.rotation)
 
 			if global.funnyMode == true:
 				if event is InputEventMouseButton && event.pressed && event.button_index == 2:

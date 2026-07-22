@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cbag1v5jegq33"]
 
-[ext_resource type="Script" uid="uid://d4bq218wx2oii" path="res://scenes/character_pieces.gd" id="1_5yqrh"]
+[ext_resource type="Script" uid="uid://d4bq218wx2oii" path="res://scripts/character_pieces.gd" id="1_5yqrh"]
 
 [node name="CharacterPieces" type="Node3D" unique_id=1899310938]
 script = ExtResource("1_5yqrh")
@@ -10,6 +10,20 @@ transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, 0.59503907, 0)
 
 [node name="headpieces" type="Node3D" parent="head" unique_id=1319272944]
 transform = Transform3D(-4.3711385e-08, 0, 0.99999994, 0, 0.99999994, 0, -0.99999994, 0, -4.3711385e-08, 0, 0, 0)
+
+[node name="Original" type="CSGSphere3D" parent="head/headpieces" unique_id=253256869 groups=["normalColourPiece"]]
+transform = Transform3D(1, 0, -7.1054274e-15, 0, 1, 0, 7.1054274e-15, 0, 1, 0, -0.5, 0)
+radial_segments = 16
+rings = 12
+
+[node name="DirectionalPlonk" type="Node3D" parent="head/headpieces/Original" unique_id=1138829024]
+
+[node name="CSGTorus3D" type="CSGTorus3D" parent="head/headpieces/Original/DirectionalPlonk" unique_id=826303418]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0.12, -0.1, 0)
+inner_radius = 0.05
+outer_radius = 0.5
+sides = 64
+ring_sides = 32
 
 [node name="Cube" type="CSGBox3D" parent="head/headpieces" unique_id=999987281 groups=["normalColourPiece"]]
 visible = false
@@ -118,6 +132,7 @@ sides = 4
 cone = true
 
 [node name="Bagel" type="CSGTorus3D" parent="head/headpieces" unique_id=139521184 groups=["normalColourPiece"]]
+visible = false
 inner_radius = 0.2
 outer_radius = 0.7
 
@@ -132,9 +147,9 @@ outer_radius = 0.19957885
 transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, -0.004960954, 0)
 
 [node name="Cube" type="CSGBox3D" parent="body" unique_id=1443206292 groups=["normalColourPiece"]]
-
-[node name="Cylinder" type="CSGCylinder3D" parent="body" unique_id=1213724903 groups=["normalColourPiece"]]
 visible = false
+
+[node name="Original" type="CSGCylinder3D" parent="body" unique_id=1213724903 groups=["normalColourPiece"]]
 height = 1.0
 sides = 16
 
@@ -220,6 +235,7 @@ inner_radius = 0.2
 outer_radius = 0.7
 
 [node name="Regular Legs" type="Node3D" parent="legs" unique_id=1506682850]
+visible = false
 
 [node name="CSGCylinder3D" type="CSGCylinder3D" parent="legs/Regular Legs" unique_id=1165774114 groups=["normalColourPiece"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.25, 0, 0)
@@ -232,3 +248,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.25, 0, 0)
 radius = 0.15
 height = 1.0
 sides = 16
+
+[node name="Original" type="CSGSphere3D" parent="legs" unique_id=309065702 groups=["normalColourPiece"]]
+transform = Transform3D(1, 0, -7.1054274e-15, 0, 1, 0, 7.1054274e-15, 0, 1, 0, 0.5, 0)
+radial_segments = 16
+rings = 12
