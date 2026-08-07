@@ -41,10 +41,16 @@ func _ready():
 	hide_all_ui()
 	for headPiece in characterPieces.head.get_children():
 		headPiece.hide()
+		if headTextureIndex != 0:
+			headPiece.material.albedo_texture = headTextureButtons.textureArray[headTextureIndex]
 	for bodyPiece in characterPieces.body.get_children():
 		bodyPiece.hide()
+		if bodyTextureIndex != 0:
+			bodyPiece.material.albedo_texture = bodyTextureButtons.textureArray[bodyTextureIndex]
 	for legsPiece in characterPieces.legs.get_children():
 		legsPiece.hide()
+		if legsTextureIndex != 0:
+			legsPiece.material.albedo_texture = legsTextureButtons.textureArray[legsTextureIndex]
 	var character_pieces = ConfigFileHandler.load_character_pieces()
 	_on_red_pressed()
 	await get_tree().process_frame
@@ -57,12 +63,12 @@ func _ready():
 	var initialHead = characterPieces.head.get_children()[headPieceIndex]
 	var initialBody = characterPieces.body.get_children()[bodyPieceIndex]
 	var initialLegs = characterPieces.legs.get_children()[legsPieceIndex]
-	if headTextureIndex != 0:
-		initialHead.material.albedo_texture = headTextureButtons.textureArray[headTextureIndex]
-	if bodyTextureIndex != 0:
-		initialBody.material.albedo_texture = bodyTextureButtons.textureArray[bodyTextureIndex]
-	if legsTextureIndex != 0:
-		initialLegs.material.albedo_texture = legsTextureButtons.textureArray[legsTextureIndex]
+	#if headTextureIndex != 0:
+		#initialHead.material.albedo_texture = headTextureButtons.textureArray[headTextureIndex]
+	#if bodyTextureIndex != 0:
+		#initialBody.material.albedo_texture = bodyTextureButtons.textureArray[bodyTextureIndex]
+	#if legsTextureIndex != 0:
+		#initialLegs.material.albedo_texture = legsTextureButtons.textureArray[legsTextureIndex]
 	initialHead.show()
 	initialBody.show()
 	initialLegs.show()

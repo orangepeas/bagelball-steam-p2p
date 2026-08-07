@@ -6,16 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://bcty3xxekh785" path="res://assets/images/onelab/onelab_1779436577557 rotated.png" id="4_bfeu0"]
 [ext_resource type="Texture2D" uid="uid://ddpk37d16mpjg" path="res://assets/images/onelab/empty texture.png" id="5_3frsf"]
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bfeu0"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3frsf"]
 texture = ExtResource("5_3frsf")
-texture_margin_top = 1.0
-texture_margin_right = 1.0
-texture_margin_bottom = 1.0
-expand_margin_left = 1.0
-expand_margin_top = 1.0
-expand_margin_right = 1.0
-expand_margin_bottom = 1.0
-modulate_color = Color(1, 1, 1, 0.7647059)
 
 [sub_resource type="ImageTexture" id="ImageTexture_i6dfa"]
 
@@ -30,6 +22,15 @@ expand_margin_top = 5.0
 expand_margin_right = 5.0
 expand_margin_bottom = 5.0
 draw_center = false
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bfeu0"]
+texture = ExtResource("2_btun6")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_y06h1"]
+texture = ExtResource("3_3frsf")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_j5acr"]
+texture = ExtResource("4_bfeu0")
 
 [node name="TextureButtonArray" type="HBoxContainer" unique_id=601976796]
 z_index = -1
@@ -52,9 +53,10 @@ custom_maximum_size = Vector2(30, 30)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
-theme_override_styles/normal = SubResource("StyleBoxTexture_bfeu0")
+theme_override_styles/normal = SubResource("StyleBoxTexture_3frsf")
 
 [node name="TextureSelected" type="Panel" parent="EmptyTexture" unique_id=703591590]
+visible = false
 custom_minimum_size = Vector2(30, 30)
 custom_maximum_size = Vector2(30, 30)
 layout_mode = 0
@@ -71,8 +73,10 @@ custom_maximum_size = Vector2(30, 30)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
+theme_override_styles/normal = SubResource("StyleBoxTexture_bfeu0")
 
 [node name="TextureSelected" type="Panel" parent="Texture1" unique_id=1457899855]
+visible = false
 custom_minimum_size = Vector2(30, 30)
 custom_maximum_size = Vector2(30, 30)
 layout_mode = 0
@@ -89,8 +93,10 @@ custom_maximum_size = Vector2(30, 30)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
+theme_override_styles/normal = SubResource("StyleBoxTexture_y06h1")
 
 [node name="TextureSelected" type="Panel" parent="Texture2" unique_id=1669363111]
+visible = false
 custom_minimum_size = Vector2(30, 30)
 custom_maximum_size = Vector2(30, 30)
 layout_mode = 0
@@ -107,8 +113,10 @@ custom_maximum_size = Vector2(30, 30)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
+theme_override_styles/normal = SubResource("StyleBoxTexture_j5acr")
 
 [node name="TextureSelected" type="Panel" parent="Texture3" unique_id=317606761]
+visible = false
 custom_minimum_size = Vector2(30, 30)
 custom_maximum_size = Vector2(30, 30)
 layout_mode = 0
