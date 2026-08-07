@@ -14,7 +14,6 @@ reset to default doesnt work on scroll throw in CLV menu
 
 make textures work in game
 
-make it so godot just duplicates the node in character creator instead of remaking it's parameters
 
 need to cleanup my millions of duplicate bagelball projects once this one works
 

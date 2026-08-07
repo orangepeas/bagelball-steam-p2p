@@ -72,6 +72,9 @@ func _ready():
 	global.headPiece = headPieceIndex
 	global.bodyPiece = bodyPieceIndex
 	global.legsPiece = legsPieceIndex
+	global.headTexture = headTextureIndex
+	global.bodyTexture = bodyTextureIndex
+	global.legsTexture = legsTextureIndex
 
 func hide_all_ui():
 	hide()
@@ -205,6 +208,10 @@ func _on_back_pressed() -> void:
 	global.headPiece = headPieceIndex
 	global.bodyPiece = bodyPieceIndex
 	global.legsPiece = legsPieceIndex
+	global.headTexture = headTextureIndex
+	global.bodyTexture = bodyTextureIndex
+	global.legsTexture = legsTextureIndex
+
 
 	music.volume_db = -99
 	hide_all_ui()

@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://cg0tnoa41fqja" path="res://scenes/noise maker.tscn" id="3_6s8t6"]
 [ext_resource type="FontFile" uid="uid://bgodc4gs8nlyi" path="res://styling/fonts/Roboto/Roboto-VariableFont_wdth,wght.ttf" id="3_dqkch"]
 [ext_resource type="PackedScene" uid="uid://cbag1v5jegq33" path="res://scenes/character_pieces.tscn" id="5_qlg0r"]
+[ext_resource type="PackedScene" uid="uid://kaulfp3st6bk" path="res://scenes/texture_button_array.tscn" id="6_tuyoq"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_lex6o"]
 
@@ -121,6 +122,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 
 [node name="Camera3D2" type="Camera3D" parent="." unique_id=836431399]
 transform = Transform3D(-0.14285715, 2.537653e-16, 1.2488972e-08, 1.611341e-09, 0.14166313, 0.018431587, -1.2384587e-08, 0.018431587, -0.14166313, 0, 0.85714304, -4.744483)
+
+[node name="TextureButtonArray" parent="." unique_id=601976796 instance=ExtResource("6_tuyoq")]
+visible = false
 
 [connection signal="absoluteMollusc" from="Player UI" to="Noise Maker" method="_on_player_ui_absolute_mollusc"]
 [connection signal="bloodyTrout" from="Player UI" to="Noise Maker" method="_on_player_ui_bloody_trout"]

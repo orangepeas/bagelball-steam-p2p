@@ -17,7 +17,10 @@ const RAY_LENGTH := 2000.0
 @export var wallJumpVelocity : int
 @export var noOfJumps : int
 
+## both assigned in scene_manager.gd
 var characterPieces
+var characterTextures
+
 @onready var camera = $Camera3D
 @onready var mpSync := $MultiplayerSynchronizer
 @onready var bagelDistance = $"Camera3D/bagel distance"
@@ -30,6 +33,7 @@ var characterPieces
 @onready var head = $CharacterPieces/head
 @onready var bodyPieceParent = $CharacterPieces/body
 @onready var legsPieceParent = $CharacterPieces/legs
+@onready var textureButtons = $TextureButtonArray
 var headPiece
 
 var SPEED : float
@@ -108,6 +112,25 @@ func _ready() -> void:
 	self.scale = GLV.playerSizeScale.value * Vector3(7,7,7)
 	scrollThrowEnabled = GLV.scrollThrow.value
 	print("scroll throw enabled: ", GLV.scrollThrow.value)
+	for headPiece in get_all_children(headPiece):
+		if headPiece.is_in_group("normalColourPiece"):
+			if global.headTexture != 0:
+				headPiece.material.albedo_texture = textureButtons.textureArray[characterTextures[0]]
+			else:
+				headPiece.material.albedo_texture = null
+	for bodyPiece in get_all_children(characterPieces.body):
+		if bodyPiece.is_in_group("normalColourPiece"):
+			if global.bodyTexture != 0:
+				bodyPiece.material.albedo_texture = textureButtons.textureArray[characterTextures[1]]
+			else:
+				bodyPiece.material.albedo_texture = null
+
+	for legsPiece in get_all_children(characterPieces.legs):
+		if legsPiece.is_in_group("normalColourPiece"):
+			if global.headTexture != 0:
+				legsPiece.material.albedo_texture = textureButtons.textureArray[characterTextures[2]]
+			else:
+				legsPiece.material.albedo_texture = null
 
 func sens_change():
 	SENSITIVITY = global.sensitivity
@@ -376,3 +399,10 @@ func respawn_player():
 	self.look_at(global.ballRespawnPoint)
 	self.rotation.x = 0 ##otherwise look_at beans the rotation
 	self.rotation.z = 0
+
+func get_all_children(node,arr:=[]):
+	##https://forum.godotengine.org/t/how-to-get-all-children-from-a-node/18587/2
+	arr.push_back(node)
+	for child in node.get_children():
+		arr = get_all_children(child,arr)
+	return arr
