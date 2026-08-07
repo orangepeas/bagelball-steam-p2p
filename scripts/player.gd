@@ -118,14 +118,14 @@ func _ready() -> void:
 				headPiece.material.albedo_texture = textureButtons.textureArray[characterTextures[0]]
 			else:
 				headPiece.material.albedo_texture = null
-	for bodyPiece in get_all_children(characterPieces.body):
+	for bodyPiece in get_all_children(bodyPieceParent):
 		if bodyPiece.is_in_group("normalColourPiece"):
 			if global.bodyTexture != 0:
 				bodyPiece.material.albedo_texture = textureButtons.textureArray[characterTextures[1]]
 			else:
 				bodyPiece.material.albedo_texture = null
 
-	for legsPiece in get_all_children(characterPieces.legs):
+	for legsPiece in get_all_children(legsPieceParent):
 		if legsPiece.is_in_group("normalColourPiece"):
 			if global.headTexture != 0:
 				legsPiece.material.albedo_texture = textureButtons.textureArray[characterTextures[2]]
