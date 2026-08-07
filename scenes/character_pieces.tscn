@@ -2,6 +2,9 @@
 
 [ext_resource type="Script" uid="uid://d4bq218wx2oii" path="res://scripts/character_pieces.gd" id="1_5yqrh"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iddmo"]
+albedo_color = Color(1, 0, 1, 1)
+
 [node name="CharacterPieces" type="Node3D" unique_id=1899310938]
 script = ExtResource("1_5yqrh")
 
@@ -13,6 +16,7 @@ transform = Transform3D(-4.3711385e-08, 0, 0.99999994, 0, 0.99999994, 0, -0.9999
 
 [node name="Original" type="CSGSphere3D" parent="head/headpieces" unique_id=253256869 groups=["normalColourPiece"]]
 transform = Transform3D(1, 0, -7.1054274e-15, 0, 1, 0, 7.1054274e-15, 0, 1, 0, -0.5, 0)
+visible = false
 radial_segments = 16
 rings = 12
 
@@ -108,16 +112,25 @@ height = 0.32763672
 sides = 4
 
 [node name="Torment Nexus" type="Node3D" parent="head/headpieces" unique_id=153889485]
-visible = false
 
 [node name="DirectionalPlonk" type="Node3D" parent="head/headpieces/Torment Nexus" unique_id=659828284]
+transform = Transform3D(1, 0, -3.5527137e-15, 0, 1, 0, 3.5527137e-15, 0, 1, 0.14642715, 0, 6.400535e-09)
 
-[node name="CSGCylinder3D4" type="CSGCylinder3D" parent="head/headpieces/Torment Nexus/DirectionalPlonk" unique_id=208450925]
-transform = Transform3D(-1.3113419e-07, -0.99999994, -8.742278e-08, -0.99999994, 1.3113419e-07, 0, 1.1464113e-14, 8.742278e-08, -0.99999994, 0.104658276, 0.10190362, 4.440892e-16)
-radius = 0.21142578
-height = 0.5
+[node name="CSGCylinder3D5" type="CSGCylinder3D" parent="head/headpieces/Torment Nexus/DirectionalPlonk" unique_id=1715635743]
+transform = Transform3D(-1.3113419e-07, -0.9999999, -8.742278e-08, -0.9999999, 1.3113419e-07, 0, 1.1464113e-14, 8.742278e-08, -0.9999999, 0.24858719, 0.1268155, 1.8635367e-08)
+radius = 0.18261719
+height = 0.49169922
 sides = 4
 cone = true
+
+[node name="CSGCylinder3D6" type="CSGCylinder3D" parent="head/headpieces/Torment Nexus/DirectionalPlonk/CSGCylinder3D5" unique_id=1772451038]
+transform = Transform3D(0.9999999, -2.842171e-14, 0, 2.842171e-14, 0.9999999, 0, -3.3881318e-21, 0, 0.9999999, -1.1920929e-07, -0.20891744, -9.21159e-09)
+operation = 2
+radius = 0.10205078
+height = 0.07519531
+sides = 4
+cone = true
+material = SubResource("StandardMaterial3D_iddmo")
 
 [node name="TormentNexusTop" type="CSGCylinder3D" parent="head/headpieces/Torment Nexus" unique_id=952045348 groups=["normalColourPiece"]]
 transform = Transform3D(0.9999998, 0, -7.1054274e-15, 0, 0.9999998, 0, 7.1054274e-15, 0, 0.9999998, 0, 0.273372, 0)
@@ -146,12 +159,13 @@ outer_radius = 0.19957885
 [node name="body" type="Node3D" parent="." unique_id=1385533658]
 transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, -0.004960954, 0)
 
-[node name="Cube" type="CSGBox3D" parent="body" unique_id=1443206292 groups=["normalColourPiece"]]
-visible = false
-
 [node name="Original" type="CSGCylinder3D" parent="body" unique_id=1213724903 groups=["normalColourPiece"]]
+transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0)
 height = 1.0
 sides = 16
+
+[node name="Cube" type="CSGBox3D" parent="body" unique_id=1443206292 groups=["normalColourPiece"]]
+visible = false
 
 [node name="Diamond" type="Node3D" parent="body" unique_id=1582586861]
 visible = false
@@ -190,6 +204,11 @@ outer_radius = 0.7
 
 [node name="legs" type="Node3D" parent="." unique_id=1953483790]
 transform = Transform3D(0.6, 0, 0, 0, 0.6, 0, 0, 0, 0.6, 0, -0.604961, 0)
+
+[node name="Original" type="CSGSphere3D" parent="legs" unique_id=309065702 groups=["normalColourPiece"]]
+transform = Transform3D(0.99999994, 0, -7.105427e-15, 0, 0.99999994, 0, 7.105427e-15, 0, 0.99999994, 0, 0.5, 0)
+radial_segments = 16
+rings = 12
 
 [node name="Cube" type="CSGBox3D" parent="legs" unique_id=1922308717 groups=["normalColourPiece"]]
 visible = false
@@ -248,8 +267,3 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.25, 0, 0)
 radius = 0.15
 height = 1.0
 sides = 16
-
-[node name="Original" type="CSGSphere3D" parent="legs" unique_id=309065702 groups=["normalColourPiece"]]
-transform = Transform3D(1, 0, -7.1054274e-15, 0, 1, 0, 7.1054274e-15, 0, 1, 0, 0.5, 0)
-radial_segments = 16
-rings = 12

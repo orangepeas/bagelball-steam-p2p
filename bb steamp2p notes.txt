@@ -6,18 +6,22 @@ need to make client request lobbies whenever one is added/deleted or timer that 
 
 lobbies completely break on failed join, can't make a lobby after you've made one, need to restart game
 
-test custom characters work in multiplayer
-
-add textures and red/blue preview to character creator
-
 scale bageldistance with player size CLV
 
 make ball only score when the center crosses the goal line to fix ball scaling issues
 
 reset to default doesnt work on scroll throw in CLV menu
 
+make textures work in game
 
+make it so godot just duplicates the node in character creator instead of remaking it's parameters
 
+need to cleanup my millions of duplicate bagelball projects once this one works
+
+done:
+test custom characters work in multiplayer
+add textures and red/blue preview to character creator
+load textures from save
 
 
 bugs:

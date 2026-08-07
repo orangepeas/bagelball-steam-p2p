@@ -6,6 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://cb05lq4mm8c1n" path="res://audio/sfx/character creator button pressed.ogg" id="4_4xe1u"]
 [ext_resource type="AudioStream" uid="uid://4r6ib1qvl7xu" path="res://audio/music/character creator.ogg" id="5_elvr3"]
 [ext_resource type="PackedScene" uid="uid://cbag1v5jegq33" path="res://scenes/character_pieces.tscn" id="5_u0slw"]
+[ext_resource type="PackedScene" uid="uid://kaulfp3st6bk" path="res://scenes/texture_button_array.tscn" id="6_6ohym"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gmimr"]
 bg_color = Color(1, 0, 0, 1)
@@ -25,10 +26,10 @@ expand_margin_bottom = 2.0
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6ohym"]
 bg_color = Color(0.51, 0, 0, 1)
 
-[sub_resource type="ImageTexture" id="ImageTexture_i6dfa"]
+[sub_resource type="ImageTexture" id="ImageTexture_hnvwt"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_u0slw"]
-texture = SubResource("ImageTexture_i6dfa")
+texture = SubResource("ImageTexture_hnvwt")
 texture_margin_left = 10.0
 texture_margin_top = 10.0
 texture_margin_right = 10.0
@@ -117,19 +118,22 @@ layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 4
 mouse_filter = 2
-theme_override_constants/separation = 40
+theme_override_constants/separation = 20
 
-[node name="HeadSelector" type="HBoxContainer" parent="UI/MarginContainer/VBoxContainer" unique_id=321736867]
+[node name="HeadContainer" type="VBoxContainer" parent="UI/MarginContainer/VBoxContainer" unique_id=651688247]
+layout_mode = 2
+
+[node name="HeadSelector" type="HBoxContainer" parent="UI/MarginContainer/VBoxContainer/HeadContainer" unique_id=321736867]
 layout_mode = 2
 theme_override_constants/separation = -3
 
-[node name="HeadBack" type="Button" parent="UI/MarginContainer/VBoxContainer/HeadSelector" unique_id=668227841]
+[node name="HeadBack" type="Button" parent="UI/MarginContainer/VBoxContainer/HeadContainer/HeadSelector" unique_id=668227841]
 z_index = 1
 layout_mode = 2
 size_flags_horizontal = 8
 text = "<"
 
-[node name="HeadLabel" type="Label" parent="UI/MarginContainer/VBoxContainer/HeadSelector" unique_id=988885523]
+[node name="HeadLabel" type="Label" parent="UI/MarginContainer/VBoxContainer/HeadContainer/HeadSelector" unique_id=988885523]
 custom_minimum_size = Vector2(220, 80)
 layout_mode = 2
 text = "Head"
@@ -137,23 +141,29 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
 
-[node name="HeadForward2" type="Button" parent="UI/MarginContainer/VBoxContainer/HeadSelector" unique_id=2015726395]
+[node name="HeadForward2" type="Button" parent="UI/MarginContainer/VBoxContainer/HeadContainer/HeadSelector" unique_id=2015726395]
 custom_minimum_size = Vector2(20, 0)
 layout_mode = 2
 size_flags_horizontal = 8
 text = ">"
 
-[node name="BodySelector" type="HBoxContainer" parent="UI/MarginContainer/VBoxContainer" unique_id=404168249]
+[node name="HeadTextureButtons" parent="UI/MarginContainer/VBoxContainer/HeadContainer" unique_id=601976796 instance=ExtResource("6_6ohym")]
+layout_mode = 2
+
+[node name="BodyContainer" type="VBoxContainer" parent="UI/MarginContainer/VBoxContainer" unique_id=1535797656]
+layout_mode = 2
+
+[node name="BodySelector" type="HBoxContainer" parent="UI/MarginContainer/VBoxContainer/BodyContainer" unique_id=404168249]
 layout_mode = 2
 theme_override_constants/separation = -3
 
-[node name="BodyBack" type="Button" parent="UI/MarginContainer/VBoxContainer/BodySelector" unique_id=1304290372]
+[node name="BodyBack" type="Button" parent="UI/MarginContainer/VBoxContainer/BodyContainer/BodySelector" unique_id=1304290372]
 z_index = 1
 layout_mode = 2
 size_flags_horizontal = 8
 text = "<"
 
-[node name="BodyLabel" type="Label" parent="UI/MarginContainer/VBoxContainer/BodySelector" unique_id=716629469]
+[node name="BodyLabel" type="Label" parent="UI/MarginContainer/VBoxContainer/BodyContainer/BodySelector" unique_id=716629469]
 custom_minimum_size = Vector2(220, 80)
 layout_mode = 2
 text = "Body"
@@ -161,22 +171,29 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
 
-[node name="BodyForward" type="Button" parent="UI/MarginContainer/VBoxContainer/BodySelector" unique_id=614692638]
+[node name="BodyForward" type="Button" parent="UI/MarginContainer/VBoxContainer/BodyContainer/BodySelector" unique_id=614692638]
 layout_mode = 2
 size_flags_horizontal = 8
 text = ">"
 
-[node name="LegsSelector" type="HBoxContainer" parent="UI/MarginContainer/VBoxContainer" unique_id=2099851157]
+[node name="BodyTextureButtons" parent="UI/MarginContainer/VBoxContainer/BodyContainer" unique_id=194220416 instance=ExtResource("6_6ohym")]
+layout_mode = 2
+
+[node name="LegsContainer" type="VBoxContainer" parent="UI/MarginContainer/VBoxContainer" unique_id=2122626781]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="LegsSelector" type="HBoxContainer" parent="UI/MarginContainer/VBoxContainer/LegsContainer" unique_id=2099851157]
 layout_mode = 2
 theme_override_constants/separation = -3
 
-[node name="LegsBack" type="Button" parent="UI/MarginContainer/VBoxContainer/LegsSelector" unique_id=1497675776]
+[node name="LegsBack" type="Button" parent="UI/MarginContainer/VBoxContainer/LegsContainer/LegsSelector" unique_id=1497675776]
 z_index = 1
 layout_mode = 2
 size_flags_horizontal = 8
 text = "<"
 
-[node name="LegsLabel" type="Label" parent="UI/MarginContainer/VBoxContainer/LegsSelector" unique_id=370145293]
+[node name="LegsLabel" type="Label" parent="UI/MarginContainer/VBoxContainer/LegsContainer/LegsSelector" unique_id=370145293]
 custom_minimum_size = Vector2(220, 80)
 layout_mode = 2
 text = "Legs"
@@ -184,10 +201,13 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
 
-[node name="LegsForward" type="Button" parent="UI/MarginContainer/VBoxContainer/LegsSelector" unique_id=1522024269]
+[node name="LegsForward" type="Button" parent="UI/MarginContainer/VBoxContainer/LegsContainer/LegsSelector" unique_id=1522024269]
 layout_mode = 2
 size_flags_horizontal = 8
 text = ">"
+
+[node name="LegsTextureButtons" parent="UI/MarginContainer/VBoxContainer/LegsContainer" unique_id=1928430042 instance=ExtResource("6_6ohym")]
+layout_mode = 2
 
 [node name="Back" type="Button" parent="UI/MarginContainer" unique_id=158271165]
 layout_mode = 2
@@ -468,12 +488,15 @@ stream = ExtResource("5_elvr3")
 volume_db = -10.0
 bus = &"Music"
 
-[connection signal="pressed" from="UI/MarginContainer/VBoxContainer/HeadSelector/HeadBack" to="." method="_on_head_back_pressed"]
-[connection signal="pressed" from="UI/MarginContainer/VBoxContainer/HeadSelector/HeadForward2" to="." method="_on_head_forward_pressed"]
-[connection signal="pressed" from="UI/MarginContainer/VBoxContainer/BodySelector/BodyBack" to="." method="_on_body_back_pressed"]
-[connection signal="pressed" from="UI/MarginContainer/VBoxContainer/BodySelector/BodyForward" to="." method="_on_body_forward_pressed"]
-[connection signal="pressed" from="UI/MarginContainer/VBoxContainer/LegsSelector/LegsBack" to="." method="_on_legs_back_pressed"]
-[connection signal="pressed" from="UI/MarginContainer/VBoxContainer/LegsSelector/LegsForward" to="." method="_on_legs_forward_pressed"]
+[connection signal="pressed" from="UI/MarginContainer/VBoxContainer/HeadContainer/HeadSelector/HeadBack" to="." method="_on_head_back_pressed"]
+[connection signal="pressed" from="UI/MarginContainer/VBoxContainer/HeadContainer/HeadSelector/HeadForward2" to="." method="_on_head_forward_pressed"]
+[connection signal="texturePicked" from="UI/MarginContainer/VBoxContainer/HeadContainer/HeadTextureButtons" to="." method="_on_head_texture_buttons_texture_picked"]
+[connection signal="pressed" from="UI/MarginContainer/VBoxContainer/BodyContainer/BodySelector/BodyBack" to="." method="_on_body_back_pressed"]
+[connection signal="pressed" from="UI/MarginContainer/VBoxContainer/BodyContainer/BodySelector/BodyForward" to="." method="_on_body_forward_pressed"]
+[connection signal="texturePicked" from="UI/MarginContainer/VBoxContainer/BodyContainer/BodyTextureButtons" to="." method="_on_body_texture_buttons_texture_picked"]
+[connection signal="pressed" from="UI/MarginContainer/VBoxContainer/LegsContainer/LegsSelector/LegsBack" to="." method="_on_legs_back_pressed"]
+[connection signal="pressed" from="UI/MarginContainer/VBoxContainer/LegsContainer/LegsSelector/LegsForward" to="." method="_on_legs_forward_pressed"]
+[connection signal="texturePicked" from="UI/MarginContainer/VBoxContainer/LegsContainer/LegsTextureButtons" to="." method="_on_legs_texture_buttons_texture_picked"]
 [connection signal="pressed" from="UI/MarginContainer/Back" to="." method="_on_back_pressed"]
 [connection signal="pressed" from="UI/MarginContainer/HBoxContainer/Red" to="." method="_on_red_pressed"]
 [connection signal="pressed" from="UI/MarginContainer/HBoxContainer/Blue" to="." method="_on_blue_pressed"]

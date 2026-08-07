@@ -121,13 +121,6 @@ func start_game():
 				if (global.map == global.Map.sumo or global.map == global.Map.sumo2) && GLV.quantumBagels != true:
 					GLV.bagelSizeScale.value = ogBagelSize * 3
 					spawn_bagel(currentPlayer.spawnPosition, index)
-						#currentPlayer.spawnPosition = spawn.global_position
-				#for spawn in get_tree().get_nodes_in_group(spawnPointGroup):
-					#print(str(int(global.players[i].index)))
-					#print(spawn.name)
-					#if spawn.redSpawn == true && str(int(global.players[i].index)) == spawn.name:
-						#currentPlayer.global_position = spawn.global_position
-						#currentPlayer.spawnPosition = spawn.global_position
 			elif global.players[i].redTeam == false:
 				bluePlayerCount += 1
 				material.albedo_color = Color(0,150,255,255)
@@ -144,12 +137,6 @@ func start_game():
 				if (global.map == global.Map.sumo or global.map == global.Map.sumo2) && GLV.quantumBagels != true:
 					GLV.bagelSizeScale.value = ogBagelSize * 3
 					spawn_bagel(currentPlayer.spawnPosition, index)
-				#for spawn in get_tree().get_nodes_in_group(spawnPointGroup):
-					#if (spawn.redSpawn == false && str(int(global.players[i].index)) == spawn.name) or global.singleplayer == true: ##blue spawn
-						#currentPlayer.global_position = spawn.global_position
-						#currentPlayer.spawnPosition = spawn.global_position
-			#currentPlayer.mesh.material_override = material
-			#print("mesh text: ", currentPlayer.displayName, " currentPlayer.name: ", currentPlayer.name)
 			for headPiece in currentPlayer.headPieceParent.get_children():
 				for directionalPlonk in headPiece.find_child("DirectionalPlonk").get_children():
 					directionalPlonk.material = materialPlonk
@@ -168,14 +155,8 @@ func start_game():
 			else:
 				spectator.global_position = Vector3(0,150,0)
 	
-	#if GLV.quantumBagels == true:
-		#for QBspawn in get_tree().get_nodes_in_group(QBspawnPointGroup):
-			#var QB = QBScene.instantiate()
-			#QBspawn.add_child(QB)
-			#QB.global_position = QBspawn.global_position
-
 	global.levelFinishedLoading.emit()
-	
+
 
 func spawn_quantum_bagel(spawnPos : Vector3, index : int):
 	var QB = QBScene.instantiate()

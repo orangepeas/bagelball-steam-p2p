@@ -1,0 +1,125 @@
+[gd_scene format=3 uid="uid://kaulfp3st6bk"]
+
+[ext_resource type="Texture2D" uid="uid://dxaxtoygiauqv" path="res://assets/images/onelab/onelab_1779436461404.jpg" id="2_btun6"]
+[ext_resource type="Texture2D" uid="uid://m2uodvym6mrr" path="res://assets/images/onelab/onelab_1779436206421.jpg" id="3_3frsf"]
+[ext_resource type="Script" uid="uid://dwkh8miemmmy0" path="res://scripts/texture_button_array.gd" id="3_ds376"]
+[ext_resource type="Texture2D" uid="uid://bcty3xxekh785" path="res://assets/images/onelab/onelab_1779436577557 rotated.png" id="4_bfeu0"]
+[ext_resource type="Texture2D" uid="uid://ddpk37d16mpjg" path="res://assets/images/onelab/empty texture.png" id="5_3frsf"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bfeu0"]
+texture = ExtResource("5_3frsf")
+texture_margin_top = 1.0
+texture_margin_right = 1.0
+texture_margin_bottom = 1.0
+expand_margin_left = 1.0
+expand_margin_top = 1.0
+expand_margin_right = 1.0
+expand_margin_bottom = 1.0
+modulate_color = Color(1, 1, 1, 0.7647059)
+
+[sub_resource type="ImageTexture" id="ImageTexture_i6dfa"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_roup1"]
+texture = SubResource("ImageTexture_i6dfa")
+texture_margin_left = 5.0
+texture_margin_top = 5.0
+texture_margin_right = 5.0
+texture_margin_bottom = 5.0
+expand_margin_left = 5.0
+expand_margin_top = 5.0
+expand_margin_right = 5.0
+expand_margin_bottom = 5.0
+draw_center = false
+
+[node name="TextureButtonArray" type="HBoxContainer" unique_id=601976796]
+z_index = -1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 0
+theme_override_constants/separation = 26
+script = ExtResource("3_ds376")
+emptyTexture = ExtResource("5_3frsf")
+texture1 = ExtResource("2_btun6")
+texture2 = ExtResource("3_3frsf")
+texture3 = ExtResource("4_bfeu0")
+
+[node name="EmptyTexture" type="Button" parent="." unique_id=750039907]
+custom_minimum_size = Vector2(30, 30)
+custom_maximum_size = Vector2(30, 30)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_styles/normal = SubResource("StyleBoxTexture_bfeu0")
+
+[node name="TextureSelected" type="Panel" parent="EmptyTexture" unique_id=703591590]
+custom_minimum_size = Vector2(30, 30)
+custom_maximum_size = Vector2(30, 30)
+layout_mode = 0
+offset_right = 30.0
+offset_bottom = 30.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_roup1")
+
+[node name="Texture1" type="Button" parent="." unique_id=1572048912]
+custom_minimum_size = Vector2(30, 30)
+custom_maximum_size = Vector2(30, 30)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="TextureSelected" type="Panel" parent="Texture1" unique_id=1457899855]
+custom_minimum_size = Vector2(30, 30)
+custom_maximum_size = Vector2(30, 30)
+layout_mode = 0
+offset_right = 30.0
+offset_bottom = 30.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_roup1")
+
+[node name="Texture2" type="Button" parent="." unique_id=594781996]
+custom_minimum_size = Vector2(30, 30)
+custom_maximum_size = Vector2(30, 30)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="TextureSelected" type="Panel" parent="Texture2" unique_id=1669363111]
+custom_minimum_size = Vector2(30, 30)
+custom_maximum_size = Vector2(30, 30)
+layout_mode = 0
+offset_right = 30.0
+offset_bottom = 30.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_roup1")
+
+[node name="Texture3" type="Button" parent="." unique_id=1040590903]
+custom_minimum_size = Vector2(30, 30)
+custom_maximum_size = Vector2(30, 30)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="TextureSelected" type="Panel" parent="Texture3" unique_id=317606761]
+custom_minimum_size = Vector2(30, 30)
+custom_maximum_size = Vector2(30, 30)
+layout_mode = 0
+offset_right = 30.0
+offset_bottom = 30.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_roup1")
+
+[connection signal="pressed" from="EmptyTexture" to="." method="_on_empty_texture_pressed"]
+[connection signal="pressed" from="Texture1" to="." method="_on_texture_1_pressed"]
+[connection signal="pressed" from="Texture2" to="." method="_on_texture_2_pressed"]
+[connection signal="pressed" from="Texture3" to="." method="_on_texture_3_pressed"]

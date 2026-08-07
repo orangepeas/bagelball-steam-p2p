@@ -35,6 +35,9 @@ var autoSprint := false
 var headPiece := 0
 var bodyPiece := 0
 var legsPiece := 0
+var headTexture := 0
+var bodyTexture := 0
+var legsTexture := 0
 
 signal redScored                ##connects to score_display.gd, player.gd, ball.gd and scoreboard.gd from goal_score.gd
 signal blueScored               ##connects to score_display.gd, player.gd, ball.gd and scoreboard.gd from goal_score.gd

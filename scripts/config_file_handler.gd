@@ -88,6 +88,9 @@ func _ready():
 		config.set_value("character", "head_piece", "0")
 		config.set_value("character", "body_piece", "0")
 		config.set_value("character", "legs_piece", "0")
+		config.set_value("character", "head_texture", "0")
+		config.set_value("character", "body_texture", "0")
+		config.set_value("character", "legs_texture", "0")
 		config.save(SETTINGS_FILE_PATH)
 	
 	if config.get_value("keybinding_primary","scoreboard", "boobs") == "boobs":
